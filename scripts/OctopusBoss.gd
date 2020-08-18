@@ -1,6 +1,7 @@
 extends Spatial
 
 var bossHealth = 60
+var prevBossHealth = bossHealth
 var current = 0
 
 func _ready():
@@ -12,13 +13,16 @@ func _process(delta):
 	if bossHealth <= 0:
 		GV.scene_end = true
 	elif !$turnAnimations.is_playing():
-		if current != 0:
+		if current != 0 and prevBossHealth == bossHealth:
 			$turnAnimations.play("bossAttackTurn")
 			current = 0
 		else:
 			$turnAnimations.play("playerAttackTurn")
 			current = 1
+		prevBossHealth = bossHealth
 
+func bossDoDamage(amt = 10):
+	GV.food -= amt
 
 func _on_target_area_entered(area):
 	$target.visible = false
