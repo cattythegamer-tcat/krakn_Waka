@@ -3,9 +3,14 @@ extends Spatial
 var bossHealth = 60
 var current = 0
 
+func _ready():
+	GV.scene = "octopus"
+
 func _process(delta):
 	$Label.text = "Boss Health: " + str(bossHealth)
-	if !$turnAnimations.is_playing():
+	if bossHealth <= 0:
+		GV.scene_end = true
+	elif !$turnAnimations.is_playing():
 		if current != 0:
 			$turnAnimations.play("bossAttackTurn")
 			current = 0

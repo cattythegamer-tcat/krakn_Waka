@@ -23,11 +23,18 @@ var uiRightReleased = false
 
 var food = 10
 var scene = "null"
+var scene_end = false
+
+var fish_remaining = 0
+
+#onready var fishing = preload("res://scenes/fishing.tscn")
+#onready var octopusBoss = preload("res://scenes/OctopusBoss.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("force_exit"):
 		get_tree().quit()
+	
 	actionFirePressed = Input.is_action_pressed("action_fire")
 	uiExitPressed = Input.is_action_pressed("ui_end")
 	uiUpPressed = Input.is_action_pressed("ui_end")
@@ -48,3 +55,13 @@ func _process(delta):
 	uiDownReleased = Input.is_action_just_released("ui_down")
 	uiLeftReleased = Input.is_action_just_released("ui_left")
 	uiRightReleased = Input.is_action_just_released("ui_right")
+	
+	if scene_end:
+		scene_end = false
+		print(scene)
+		if scene == "octopus":
+			get_tree().change_scene("res://scenes/fishing.tscn")
+		elif scene == "fishing":
+			get_tree().change_scene("res://scenes/OctopusBoss.tscn")
+	elif GV.food <= 0:
+		get_tree().quit()
