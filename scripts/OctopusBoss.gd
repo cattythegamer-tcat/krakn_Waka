@@ -5,6 +5,7 @@ var current = 0
 
 func _ready():
 	GV.scene = "octopus"
+	GV.scene_end = false
 
 func _process(delta):
 	$Label.text = "Boss Health: " + str(bossHealth)

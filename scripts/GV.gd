@@ -57,8 +57,6 @@ func _process(delta):
 	uiRightReleased = Input.is_action_just_released("ui_right")
 	
 	if scene_end:
-		scene_end = false
-		print(scene)
 		if scene == "octopus":
 			get_tree().change_scene("res://scenes/fishing.tscn")
 		elif scene == "fishing":

@@ -62,7 +62,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2, 2.7, 4 ),
+"times": PoolRealArray( 0, 2.5, 3.1, 4 ),
 "transitions": PoolRealArray( 0.5, 2, 1, 1 ),
 "update": 0,
 "values": [ Vector3( -4, -17, -13 ), Vector3( -4, 12, -13 ), Vector3( -4, -17, -13 ), Vector3( -4, -100, -13 ) ]
@@ -74,7 +74,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.9, 2.7, 4 ),
+"times": PoolRealArray( 0, 2.2, 2.8, 4 ),
 "transitions": PoolRealArray( 0.5, 2, 1, 1 ),
 "update": 0,
 "values": [ Vector3( -11, -17, -11 ), Vector3( -11, 12, -11 ), Vector3( -11, -17, -11 ), Vector3( -11, -100, -11 ) ]
@@ -86,7 +86,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1.8, 2.7, 4 ),
+"times": PoolRealArray( 0, 1.9, 2.5, 4 ),
 "transitions": PoolRealArray( 0.5, 2, 1, 1 ),
 "update": 0,
 "values": [ Vector3( -18, -17, -12 ), Vector3( -18, 12, -12 ), Vector3( -18, -17, -12 ), Vector3( -18, -100, -12 ) ]
@@ -98,7 +98,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1.7, 2.7, 4 ),
+"times": PoolRealArray( 0, 1.6, 2.3, 4 ),
 "transitions": PoolRealArray( 0.5, 2, 1, 1 ),
 "update": 0,
 "values": [ Vector3( -22, -17, -20 ), Vector3( -22, 12, -20 ), Vector3( -22, -17, -20 ), Vector3( -22, -100, -20 ) ]
@@ -110,7 +110,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 1.9, 2.7, 4 ),
+"times": PoolRealArray( 0, 1.9, 2.6, 4 ),
 "transitions": PoolRealArray( 0.5, 2, 1, 1 ),
 "update": 0,
 "values": [ Vector3( -1, -17, -18 ), Vector3( -1, 12, -18 ), Vector3( -1, -17, -18 ), Vector3( -1, -100, -18 ) ]
@@ -122,7 +122,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 1.8, 2.7, 4 ),
+"times": PoolRealArray( 0, 1.6, 2.4, 4 ),
 "transitions": PoolRealArray( 0.5, 2, 1, 1 ),
 "update": 0,
 "values": [ Vector3( -2, -17, -27 ), Vector3( -2, 12, -27 ), Vector3( -2, -17, -27 ), Vector3( -2, -100, -27 ) ]
@@ -206,7 +206,7 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0.7, 2.4 ),
+"times": PoolRealArray( 0.7, 3.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -218,7 +218,7 @@ tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0.7, 2.4 ),
+"times": PoolRealArray( 0.7, 3.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -230,7 +230,7 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0.7, 2.4 ),
+"times": PoolRealArray( 0.7, 3.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -242,7 +242,7 @@ tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0.7, 2.4 ),
+"times": PoolRealArray( 0.7, 3.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -254,7 +254,7 @@ tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 0.7, 2.4 ),
+"times": PoolRealArray( 0.7, 3.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -266,7 +266,7 @@ tracks/17/loop_wrap = true
 tracks/17/imported = false
 tracks/17/enabled = true
 tracks/17/keys = {
-"times": PoolRealArray( 0.7, 2.4 ),
+"times": PoolRealArray( 0.7, 3.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -276,7 +276,7 @@ tracks/17/keys = {
 script = ExtResource( 1 )
 
 [node name="water" type="MeshInstance" parent="."]
-transform = Transform( 1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, 0, 0 )
+transform = Transform( 1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0.0393219, -3.8147e-006, 0.175392 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 2 )
 
@@ -319,76 +319,64 @@ mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
 [node name="target" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -100, -13 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -17, -13 )
 
 [node name="obj" type="MeshInstance" parent="target"]
-visible = false
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
 [node name="hitbox" type="CollisionShape" parent="target"]
 shape = SubResource( 6 )
-disabled = true
 
 [node name="target2" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -100, -11 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -17, -11 )
 
 [node name="obj" type="MeshInstance" parent="target2"]
-visible = false
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
 [node name="hitbox" type="CollisionShape" parent="target2"]
 shape = SubResource( 6 )
-disabled = true
 
 [node name="target3" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -100, -12 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -17, -12 )
 
 [node name="obj" type="MeshInstance" parent="target3"]
-visible = false
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
 [node name="hitbox" type="CollisionShape" parent="target3"]
 shape = SubResource( 6 )
-disabled = true
 
 [node name="target4" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, -100, -20 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, -17, -20 )
 
 [node name="obj" type="MeshInstance" parent="target4"]
-visible = false
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
 [node name="hitbox" type="CollisionShape" parent="target4"]
 shape = SubResource( 6 )
-disabled = true
 
 [node name="target5" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -100, -18 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -17, -18 )
 
 [node name="obj" type="MeshInstance" parent="target5"]
-visible = false
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
 [node name="hitbox" type="CollisionShape" parent="target5"]
 shape = SubResource( 6 )
-disabled = true
 
 [node name="target6" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -100, -27 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -17, -27 )
 
 [node name="obj" type="MeshInstance" parent="target6"]
-visible = false
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
 [node name="hitbox" type="CollisionShape" parent="target6"]
 shape = SubResource( 6 )
-disabled = true
 
 [node name="turnAnimations" type="AnimationPlayer" parent="."]
 anims/bossAttackTurn = SubResource( 7 )

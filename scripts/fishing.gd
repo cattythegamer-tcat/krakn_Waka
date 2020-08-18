@@ -4,6 +4,7 @@ extends Spatial
 func _ready():
 	GV.scene = "fishing"
 	GV.fish_remaining = 10
+	GV.scene_end = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
