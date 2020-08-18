@@ -1,6 +1,6 @@
 extends Spatial
 
-var bossHealth = 60
+var bossHealth = 70
 var prevBossHealth = bossHealth
 var current = 0
 
@@ -9,7 +9,7 @@ func _ready():
 	GV.scene_end = false
 
 func _process(delta):
-	$Label.text = "Boss Health: " + str(bossHealth)
+	$Label.text = "Boss Health: " + str(bossHealth - 10)
 	if bossHealth <= 0:
 		GV.scene_end = true
 	elif !$turnAnimations.is_playing():

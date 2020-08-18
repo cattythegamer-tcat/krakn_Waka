@@ -27,7 +27,7 @@ func _process(delta):
 		if justFired == 1:
 			GV.food -= 1
 		justFired -= 1
-	$crosshair/Label.text = "Resources: " + str(GV.food)
+	$crosshair/Label.text = "Resources: " + str(GV.food - 1)
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
