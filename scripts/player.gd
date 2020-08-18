@@ -20,8 +20,7 @@ func _input(event):
 func _process(delta):
 	if GV.actionFireJust and !gunAnims.is_playing():
 		gunAnims.play("reload")
-		if GV.scene == "fishing":
-			GV.food -= 1
+		GV.food -= 1
 	$crosshair/Label.text = "Resources: " + str(GV.food)
 
 func _ready():
