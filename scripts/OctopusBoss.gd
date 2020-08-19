@@ -10,7 +10,7 @@ func _ready():
 
 func _process(delta):
 	$Label.text = "Boss Health: " + str(bossHealth - 10)
-	if bossHealth <= 0:
+	if bossHealth <= 10:
 		GV.scene_end = true
 	elif !$turnAnimations.is_playing():
 		if current != 0 and prevBossHealth == bossHealth:
