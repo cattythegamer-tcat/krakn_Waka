@@ -26,6 +26,13 @@ var scene = "null"
 var scene_end = false
 
 var fish_remaining = 0
+var fishTileProb = 0.1
+var octopusTileProb = 0.3
+
+var playerLocation = 0
+var grid_images = []
+
+var firstLoop = true
 
 onready var fishIcon = preload("res://assets/2d/icons/fish_norm.png")
 onready var waterIcon = preload("res://assets/2d/icons/water_norm.png")
@@ -37,8 +44,11 @@ onready var octopusIcon = preload("res://assets/2d/icons/octopus_norm.png")
 #onready var fishing = preload("res://scenes/fishing.tscn")
 #onready var octopusBoss = preload("res://scenes/OctopusBoss.tscn")
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if firstLoop:
+		firstLoop = false
 	if Input.is_action_pressed("force_exit"):
 		get_tree().quit()
 	
