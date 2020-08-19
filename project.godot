@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Krak'n Waka"
-run/main_scene="res://scenes/fishing.tscn"
+run/main_scene="res://scenes/map.tscn"
 config/icon="res://icon.png"
 
 [autoload]
