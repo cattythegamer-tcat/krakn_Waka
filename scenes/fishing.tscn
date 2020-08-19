@@ -9,6 +9,7 @@
 [sub_resource type="PlaneMesh" id=1]
 
 [sub_resource type="BoxShape" id=2]
+extents = Vector3( 1.5, 1.5, 1.5 )
 
 [sub_resource type="CubeMesh" id=3]
 
@@ -485,7 +486,7 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17594, 0.579885, -5.03672 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, -0.642875, 0 )
+transform = Transform( 1000, 0, 0, 0, 1, 0, 0, 0, 1000, -0.323401, -0.690006, -0.179834 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 4 )
 
