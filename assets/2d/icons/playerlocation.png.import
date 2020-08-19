@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fish_selected.png-790f12c82c2d0a7cb3a8c39e87beaeed.stex"
+path="res://.import/playerlocation.png-b0597767e1a45e034560bc96a93edcef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d/icons/fish_selected.png"
-dest_files=[ "res://.import/fish_selected.png-790f12c82c2d0a7cb3a8c39e87beaeed.stex" ]
+source_file="res://assets/2d/icons/playerlocation.png"
+dest_files=[ "res://.import/playerlocation.png-b0597767e1a45e034560bc96a93edcef.stex" ]
 
 [params]
 

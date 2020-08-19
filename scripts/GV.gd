@@ -27,6 +27,13 @@ var scene_end = false
 
 var fish_remaining = 0
 
+onready var fishIcon = preload("res://assets/2d/icons/fish_norm.png")
+onready var waterIcon = preload("res://assets/2d/icons/water_norm.png")
+onready var unknownIcon = preload("res://assets/2d/icons/unknown.png")
+onready var landIcon = preload("res://assets/2d/icons/land.png")
+onready var wakaIcon = preload("res://assets/2d/icons/playerlocation.png")
+onready var octopusIcon = preload("res://assets/2d/icons/octopus_norm.png")
+
 #onready var fishing = preload("res://scenes/fishing.tscn")
 #onready var octopusBoss = preload("res://scenes/OctopusBoss.tscn")
 
