@@ -189,7 +189,7 @@ color = Color( 0, 0, 0, 1 )
 anims/reload = SubResource( 10 )
 
 [node name="bullet" type="Area" parent="head/Camera"]
-transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 5, 0, -0.02, -200 )
+transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 5, 0.000483751, -0.020484, -1.13309 )
 
 [node name="collision" type="CollisionShape" parent="head/Camera/bullet"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )

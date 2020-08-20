@@ -21,6 +21,7 @@ func _input(event):
 
 func _process(delta):
 	if GV.actionFireJust and !gunAnims.is_playing():
+		$head/Camera/bullet/collision.disabled = false
 		gunAnims.play("reload")
 		justFired = 10
 	elif justFired >= 0:
@@ -32,3 +33,4 @@ func _process(delta):
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	gunAnims.play("reload")
+	$head/Camera/bullet/collision.disabled = true
