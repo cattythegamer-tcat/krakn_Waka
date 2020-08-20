@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/head.obj-fb094e1514ce0728746ff16e55c06492.mesh"
+
+[deps]
+
+files=[ "res://.import/head.obj-fb094e1514ce0728746ff16e55c06492.mesh" ]
+
+source_file="res://assets/3d/kraken/head.obj"
+dest_files=[ "res://.import/head.obj-fb094e1514ce0728746ff16e55c06492.mesh", "res://.import/head.obj-fb094e1514ce0728746ff16e55c06492.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
