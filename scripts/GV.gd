@@ -30,10 +30,6 @@ var fishTileProb = 0.1
 var octopusTileProb = 0.3
 
 var playerLocation = 0
-var grid_images = []
-var grid_objs = {}
-
-var firstLoop = true
 
 onready var fishIcon = preload("res://assets/2d/icons/fish_norm.png")
 onready var waterIcon = preload("res://assets/2d/icons/water_norm.png")
@@ -42,16 +38,12 @@ onready var landIcon = preload("res://assets/2d/icons/land.png")
 onready var wakaIcon = preload("res://assets/2d/icons/playerlocation.png")
 onready var octopusIcon = preload("res://assets/2d/icons/octopus_norm.png")
 
-onready var mapScene = preload("res://scenes/map.tscn")
+onready var mapScene = preload("res://scenes/mapV2.tscn")
 onready var octopusScene = preload("res://scenes/OctopusBoss.tscn")
-#onready var fishingScene = preload("res://scenes/fishing.tscn")
 onready var landScene = preload("res://scenes/landEnding.tscn")
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if firstLoop:
-		firstLoop = false
 	if Input.is_action_pressed("force_exit"):
 		get_tree().quit()
 	
@@ -79,5 +71,8 @@ func _process(delta):
 	if GV.food <= 0:
 		get_tree().quit()
 	elif scene_end:
-		get_tree().change_scene_to(mapScene)
 		scene_end = false
+		get_tree().change_scene_to(mapScene)
+
+func fishingScene():
+	get_tree().change_scene("res://scenes/fishing.tscn")
