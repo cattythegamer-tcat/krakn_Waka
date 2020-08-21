@@ -14,7 +14,7 @@ func _process(delta):
 		GV.scene_end = true
 	elif !$turnAnimations.is_playing():
 		if current != 0 and prevBossHealth == bossHealth:
-			$turnAnimations.play("bossAttackTurn")
+			$krakenAnimations.play("tentacleAttack")
 			current = 0
 		else:
 			$turnAnimations.play("playerAttackTurn")

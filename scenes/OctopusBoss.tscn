@@ -1,20 +1,20 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/OctopusBoss.gd" type="Script" id=1]
 [ext_resource path="res://materials/water.tres" type="Material" id=2]
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/2d/icons/fish_norm.png" type="Texture" id=4]
+[ext_resource path="res://materials/black.tres" type="Material" id=3]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/3d/kraken/head.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://materials/krakenSkin.tres" type="Material" id=6]
 [ext_resource path="res://materials/krakenEye.tres" type="Material" id=7]
-[ext_resource path="res://materials/black.tres" type="Material" id=8]
-[ext_resource path="res://assets/3d/kraken/foot.obj" type="ArrayMesh" id=9]
+[ext_resource path="res://assets/3d/kraken/foot.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://assets/2d/icons/fish_norm.png" type="Texture" id=9]
 
 [sub_resource type="PlaneMesh" id=1]
 
-[sub_resource type="SphereMesh" id=4]
+[sub_resource type="SphereMesh" id=2]
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.211765, 0.576471, 0.843137, 1 )
 emission_enabled = true
 emission = Color( 0.0470588, 0.384314, 0.47451, 1 )
@@ -22,9 +22,9 @@ emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="SphereShape" id=6]
+[sub_resource type="SphereShape" id=4]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "bossAttackTurn"
 length = 2.0
 tracks/0/type = "value"
@@ -66,7 +66,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("target:translation")
@@ -286,6 +286,99 @@ tracks/17/keys = {
 }
 
 [sub_resource type="Animation" id=9]
+resource_name = "tentacleAttack"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("kraken/foot8:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.7, 0.9, 1.1 ),
+"transitions": PoolRealArray( 0.5, 1, 0.5, 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( 1.24459, -5.76815, -3.49549 ), Vector3( 1.67452, -2.55912, -4.24015 ), Vector3( 1.67452, -2.55912, -4.24015 ), Vector3( 1.62471, -2.93085, -4.15388 ), Vector3( 0.818517, -2.63903, -3.36175 ), Vector3( 0.636, -5, -3.045 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("kraken/foot8:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 0.7, 1.1 ),
+"transitions": PoolRealArray( 1, 3.03143, 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( -3.84094, 45.4892, 0.489199 ), Vector3( -3.84094, 45.4892, 0.489199 ), Vector3( -3.84093, 45.4892, -50.571 ), Vector3( -3.84093, 45.4892, -50.571 ), Vector3( -3.84093, 45.4892, -25.9604 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("kraken/foot7:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.7, 0.9, 1.1 ),
+"transitions": PoolRealArray( 0.5, 1, 0.5, 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( 0.0762184, -5.87034, -4.76618 ), Vector3( 0.638548, -2.78117, -5.33193 ), Vector3( 0.638548, -2.78117, -5.33193 ), Vector3( 0.588744, -3.1529, -5.24567 ), Vector3( -0.217452, -2.86108, -4.45354 ), Vector3( -0.4, -5, -4.137 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("kraken/foot7:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 0.7, 1.1 ),
+"transitions": PoolRealArray( 0.5, 3.03143, 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( 3.84097, 74.5109, 0.489183 ), Vector3( -2.35605, 51.1672, 0.181986 ), Vector3( 1.36873, 48.1756, -47.7445 ), Vector3( 1.36873, 48.1756, -47.7445 ), Vector3( -0.218038, 50.0998, -23.2394 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("player:translation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.4, 0.6, 0.7, 0.9, 1 ),
+"transitions": PoolRealArray( 2, 1, 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.65691, 3 ), Vector3( 0, 1.42952, 3 ), Vector3( 0, -0.171403, 3 ), Vector3( 0, 3, 3 ), Vector3( 0, 1.65691, 3 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("player:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.41, 0.49, 0.6 ),
+"transitions": PoolRealArray( 39.3964, 39.3964, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 3.73934 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 2 ],
+"method": "bossDoDamage"
+}, {
+"args": [ 2 ],
+"method": "bossDoDamage"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
 resource_name = "tentacleMovement"
 length = 2.0
 loop = true
@@ -300,6 +393,190 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 2, 0.5, 2, 0.5, 1 ),
 "update": 0,
 "values": [ Vector3( -3.84096, 45.4892, 0.489181 ), Vector3( -3.84096, 45.4892, -3.21932 ), Vector3( -3.84096, 45.4892, -6.92782 ), Vector3( -3.84096, 45.4892, -3.21932 ), Vector3( -3.84096, 45.4892, 0.489181 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("kraken/foot7:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 2, 0.5, 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( 3.84097, 74.5108, 0.489185 ), Vector3( 2.20497, 75.6854, -6.66578 ), Vector3( 0.568967, 76.8599, -13.8207 ), Vector3( 2.20497, 75.6854, -6.66578 ), Vector3( 3.84097, 74.5108, 0.489185 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("kraken/foot6:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 2, 0.5, 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( 14.4776, 134.496, 11.0329 ), Vector3( 14.4776, 134.496, 5.66143 ), Vector3( 14.4776, 134.496, 0.289992 ), Vector3( 14.4776, 134.496, 5.66143 ), Vector3( 14.4776, 134.496, 11.0329 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("kraken/foot5:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 2, 0.5, 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( 10.5453, -164.007, 25.7285 ), Vector3( 11.0044, -168.414, 20.316 ), Vector3( 11.4636, -172.821, 14.9035 ), Vector3( 11.0044, -168.414, 20.316 ), Vector3( 10.5453, -164.007, 25.7285 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("kraken/foot4:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 2, 0.5, 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( -15, -29.9999, 15 ), Vector3( -15.2009, -30.1595, 9.0412 ), Vector3( -15.4018, -30.319, 3.0824 ), Vector3( -15.2009, -30.1595, 9.0412 ), Vector3( -15, -29.9999, 15 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("kraken/foot3:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 2, 0.5, 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( -10.5453, -75.993, 25.7285 ), Vector3( -13.1559, -72.1565, 21.4731 ), Vector3( -15.7665, -68.32, 17.2176 ), Vector3( -13.1559, -72.1565, 21.4731 ), Vector3( -10.5453, -75.993, 25.7285 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("kraken/foot2:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 2, 0.5, 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( -7.43547, -90.8526, 28.0644 ), Vector3( -8.04654, -90.661, 22.4737 ), Vector3( -8.65761, -90.4694, 16.8831 ), Vector3( -8.04654, -90.661, 22.4737 ), Vector3( -7.43547, -90.8526, 28.0644 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("kraken/foot:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 2, 0.5, 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( 3.84093, -134.511, 29.5109 ), Vector3( 3.84092, -134.511, 22.8343 ), Vector3( 3.8409, -134.511, 16.1577 ), Vector3( 3.84092, -134.511, 22.8343 ), Vector3( 3.84093, -134.511, 29.5109 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "tentacleSink"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("kraken/foot:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector3( 1.84564, -1.79878, -1.62937 ), Vector3( 1.53285, -4.13348, -1.0876 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("kraken/foot2:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.5 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector3( -0.00436401, -2.08857, -2.57021 ), Vector3( -0.317154, -4.42327, -2.02844 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("kraken/foot3:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector3( -1.61493, -1.59953, -2.61548 ), Vector3( -1.92772, -3.93423, -2.07371 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("kraken/foot4:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector3( -3.29966, -0.875258, -0.874577 ), Vector3( -3.61245, -3.20996, -0.332802 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("kraken/foot5:translation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector3( 2.90697, -2.43017, 0.0493412 ), Vector3( 2.59418, -4.76487, 0.591112 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("kraken/foot6:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.2, 0.5 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector3( 1.99418, -1.46768, 2.59004 ), Vector3( 1.6814, -3.80238, 3.13181 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("kraken/foot7:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector3( -0.0620322, -1.23564, 3.48289 ), Vector3( -0.374819, -3.57034, 4.02466 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("kraken/foot8:translation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.2, 0.5 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector3( -2.96884, -1.12223, 2.29338 ), Vector3( -3.28163, -3.45692, 2.83515 ) ]
 }
 
 [node name="OctopusBoss" type="Spatial"]
@@ -323,10 +600,10 @@ material/0 = ExtResource( 2 )
 [node name="waterDark" type="MeshInstance" parent="."]
 transform = Transform( 1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0.0393219, -4.90852, 0.175392 )
 mesh = SubResource( 1 )
-material/0 = ExtResource( 8 )
+material/0 = ExtResource( 3 )
 
-[node name="player" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65691, 3 )
+[node name="player" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65685, 3 )
 
 [node name="kraken" type="MeshInstance" parent="."]
 transform = Transform( -2.84607, -0.267949, -2.79788, 0.517638, 3.8637, -0.896575, 2.7626, -1, -2.71441, -11, 3.18845, -21 )
@@ -336,116 +613,122 @@ material/1 = ExtResource( 7 )
 material/2 = ExtResource( 7 )
 
 [node name="foot" type="MeshInstance" parent="kraken"]
-transform = Transform( -0.237609, 0.113908, -0.266819, 0.184306, 0.325616, -0.0251202, 0.22405, -0.147053, -0.262301, 1.83098, -1.90817, -1.60399 )
-mesh = ExtResource( 9 )
+transform = Transform( -0.237609, 0.113908, -0.266818, 0.184306, 0.325616, -0.02512, 0.22405, -0.147053, -0.262302, 1.53285, -4.13348, -1.0876 )
+mesh = ExtResource( 8 )
 material/0 = ExtResource( 6 )
 material/1 = ExtResource( 7 )
 
 [node name="foot5" type="MeshInstance" parent="kraken"]
-transform = Transform( -0.332956, 0.139456, -0.101575, 0.160041, 0.332117, -0.0686298, 0.064437, -0.104285, -0.354397, 2.89231, -2.53956, 0.0747261 )
-mesh = ExtResource( 9 )
+transform = Transform( -0.332956, 0.139456, -0.101575, 0.160041, 0.332117, -0.0686298, 0.0644369, -0.104285, -0.354397, 2.59418, -4.76487, 0.591112 )
+mesh = ExtResource( 8 )
 material/0 = ExtResource( 6 )
 material/1 = ExtResource( 7 )
 
 [node name="foot6" type="MeshInstance" parent="kraken"]
-transform = Transform( -0.245167, 0.115933, 0.258994, 0.0694857, 0.356381, -0.09375, -0.275118, -0.0133014, -0.254476, 1.9482, -1.81091, 2.66968 )
-mesh = ExtResource( 9 )
+transform = Transform( -0.245167, 0.115933, 0.258994, 0.0694857, 0.356381, -0.0937502, -0.275118, -0.0133016, -0.254476, 1.6814, -3.80238, 3.13181 )
+mesh = ExtResource( 8 )
 material/0 = ExtResource( 6 )
 material/1 = ExtResource( 7 )
 
 [node name="foot7" type="MeshInstance" parent="kraken"]
-transform = Transform( 0.100349, 0.023352, 0.360569, 0.00319448, 0.374144, -0.0251202, -0.36131, 0.00979364, 0.0999213, -0.0766885, -1.34503, 3.50827 )
-mesh = ExtResource( 9 )
+transform = Transform( 0.100349, 0.0233521, 0.360569, 0.00319447, 0.374145, -0.0251203, -0.36131, 0.00979367, 0.099921, 0.0762184, -5.87034, -4.76618 )
+mesh = ExtResource( 8 )
 material/0 = ExtResource( 6 )
 material/1 = ExtResource( 7 )
 
 [node name="foot8" type="MeshInstance" parent="kraken"]
-transform = Transform( 0.26295, -0.0170343, 0.266819, -0.00125146, 0.374156, 0.0251202, -0.267359, -0.0185047, 0.262301, -2.9835, -1.23162, 2.31876 )
-mesh = ExtResource( 9 )
+transform = Transform( 0.262729, -0.0201576, 0.266819, 0.00319457, 0.374145, 0.0251201, -0.26756, -0.0153264, 0.262301, 1.24459, -5.76815, -3.49549 )
+mesh = ExtResource( 8 )
 material/0 = ExtResource( 6 )
 material/1 = ExtResource( 7 )
 
 [node name="foot2" type="MeshInstance" parent="kraken"]
-transform = Transform( 0.0179045, 0.045443, -0.371805, 0.17494, 0.328125, 0.0485286, 0.33121, -0.175767, -0.00553295, -0.0190207, -2.19796, -2.54483 )
-mesh = ExtResource( 9 )
+transform = Transform( 0.0179045, 0.0454431, -0.371805, 0.17494, 0.328125, 0.0485285, 0.33121, -0.175767, -0.00553304, -0.317154, -4.42327, -2.02844 )
+mesh = ExtResource( 8 )
 material/0 = ExtResource( 6 )
 material/1 = ExtResource( 7 )
 
 [node name="foot3" type="MeshInstance" parent="kraken"]
-transform = Transform( 0.110674, 0.0205855, -0.357704, 0.160041, 0.332117, 0.0686297, 0.320567, -0.172915, 0.0892323, -1.62959, -1.70892, -2.5901 )
-mesh = ExtResource( 9 )
+transform = Transform( 0.110674, 0.0205857, -0.357704, 0.160041, 0.332117, 0.0686298, 0.320567, -0.172915, 0.0892324, -1.92772, -3.93423, -2.07371 )
+mesh = ExtResource( 8 )
 material/0 = ExtResource( 6 )
 material/1 = ExtResource( 7 )
 
 [node name="foot4" type="MeshInstance" parent="kraken"]
-transform = Transform( 0.326254, -0.0371789, -0.181111, 0.09375, 0.34988, 0.0970571, 0.159356, -0.129718, 0.313693, -3.31432, -0.984651, -0.849195 )
-mesh = ExtResource( 9 )
+transform = Transform( 0.326254, -0.0371793, -0.18111, 0.09375, 0.34988, 0.0970567, 0.159356, -0.129718, 0.313693, -3.61245, -3.20996, -0.332802 )
+mesh = ExtResource( 8 )
 material/0 = ExtResource( 6 )
 material/1 = ExtResource( 7 )
 
 [node name="target" type="Area" parent="."]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 7.36, -13 )
 
 [node name="obj" type="MeshInstance" parent="target"]
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
 
 [node name="hitbox" type="CollisionShape" parent="target"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="target2" type="Area" parent="."]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 9.06405, -11 )
 
 [node name="obj" type="MeshInstance" parent="target2"]
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
 
 [node name="hitbox" type="CollisionShape" parent="target2"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="target3" type="Area" parent="."]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 10.7147, -12 )
 
 [node name="obj" type="MeshInstance" parent="target3"]
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
 
 [node name="hitbox" type="CollisionShape" parent="target3"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="target4" type="Area" parent="."]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 11.8867, -20 )
 
 [node name="obj" type="MeshInstance" parent="target4"]
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
 
 [node name="hitbox" type="CollisionShape" parent="target4"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="target5" type="Area" parent="."]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 10.7147, -18 )
 
 [node name="obj" type="MeshInstance" parent="target5"]
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
 
 [node name="hitbox" type="CollisionShape" parent="target5"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="target6" type="Area" parent="."]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 11.8867, -27 )
 
 [node name="obj" type="MeshInstance" parent="target6"]
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
 
 [node name="hitbox" type="CollisionShape" parent="target6"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="turnAnimations" type="AnimationPlayer" parent="."]
-anims/bossAttackTurn = SubResource( 7 )
-anims/playerAttackTurn = SubResource( 8 )
+anims/bossAttackTurn = SubResource( 5 )
+anims/playerAttackTurn = SubResource( 6 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 4.0
@@ -459,52 +742,57 @@ __meta__ = {
 }
 
 [node name="attackImg" type="Sprite3D" parent="."]
-transform = Transform( -3.49691e-07, 0, 1, 0, 4, 0, -8, 0, -4.37114e-08, -4.03005, 5.31899, 3.1515 )
+transform = Transform( -3.49691e-007, 0, 1, 0, 4, 0, -8, 0, -4.37114e-008, -4.03005, -0.0168333, 3.1515 )
+visible = false
 modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 
 [node name="attackImg2" type="Sprite3D" parent="attackImg"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
 modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 
 [node name="attackImg3" type="Sprite3D" parent="attackImg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, 0, 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-008, 0, 2 )
 modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 
 [node name="attackImg4" type="Sprite3D" parent="attackImg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, 0, 3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-008, 0, 3 )
 modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 
 [node name="attackImg5" type="Sprite3D" parent="attackImg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, 0, 4 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-008, 0, 4 )
 modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 
 [node name="attackImg6" type="Sprite3D" parent="attackImg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, 0, 5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-008, 0, 5 )
 modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 
 [node name="attackImg7" type="Sprite3D" parent="attackImg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, 0, 6 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-008, 0, 6 )
 modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 
 [node name="attackImg8" type="Sprite3D" parent="attackImg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, 0, 7 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-008, 0, 7 )
 modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 
 [node name="attackImg9" type="Sprite3D" parent="attackImg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, 0, 8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-008, 0, 8 )
 modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 
 [node name="krakenAnimations" type="AnimationPlayer" parent="."]
-anims/tentacleMovement = SubResource( 9 )
+autoplay = "tentacleMovement"
+playback_speed = 0.25
+anims/tentacleAttack = SubResource( 9 )
+anims/tentacleMovement = SubResource( 7 )
+anims/tentacleSink = SubResource( 8 )
 [connection signal="area_entered" from="target" to="." method="_on_target_area_entered"]
 [connection signal="area_entered" from="target2" to="." method="_on_target2_area_entered"]
 [connection signal="area_entered" from="target3" to="." method="_on_target3_area_entered"]
