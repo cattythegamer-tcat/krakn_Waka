@@ -21,13 +21,15 @@ var uiDownReleased = false
 var uiLeftReleased = false
 var uiRightReleased = false
 
-var food = 11
+var food = 110
 var scene = "null"
 var scene_end = false
 
 var fish_remaining = 0
 var fishTileProb = 0.1
 var octopusTileProb = 0.3
+
+var global_difficulty = 1
 
 var playerLocation = 0
 

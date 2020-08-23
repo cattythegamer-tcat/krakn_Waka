@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scripts/OctopusBoss.gd" type="Script" id=1]
 [ext_resource path="res://materials/water.tres" type="Material" id=2]
@@ -8,288 +8,14 @@
 [ext_resource path="res://materials/krakenSkin.tres" type="Material" id=6]
 [ext_resource path="res://materials/krakenEye.tres" type="Material" id=7]
 [ext_resource path="res://assets/3d/kraken/foot.obj" type="ArrayMesh" id=8]
-[ext_resource path="res://assets/2d/icons/fish_norm.png" type="Texture" id=9]
+[ext_resource path="res://materials/krakenLegCollision.tres" type="Shape" id=9]
 
 [sub_resource type="PlaneMesh" id=1]
 
-[sub_resource type="SphereMesh" id=2]
-
-[sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.211765, 0.576471, 0.843137, 1 )
-emission_enabled = true
-emission = Color( 0.0470588, 0.384314, 0.47451, 1 )
-emission_energy = 1.0
-emission_operator = 0
-emission_on_uv2 = false
-
-[sub_resource type="SphereShape" id=4]
-
-[sub_resource type="Animation" id=5]
-resource_name = "bossAttackTurn"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("attackImg:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.6, 1.1, 1.5, 1.7 ),
-"transitions": PoolRealArray( 2, 0.5, 2, 0.5, 2 ),
-"update": 0,
-"values": [ Vector3( -4.03005, 1.9592, 5.20353 ), Vector3( -4.03005, 4.93268, 5.20353 ), Vector3( -4.03005, 5.29294, 3.1515 ), Vector3( -4.03005, 5.7098, 3.1515 ), Vector3( -4.03005, -0.0168333, 3.1515 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("attackImg:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 1.6 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ 3 ],
-"method": "bossDoDamage"
-} ]
-}
-
-[sub_resource type="Animation" id=6]
-length = 4.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("target:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2.5, 3.1, 4 ),
-"transitions": PoolRealArray( 0.5, 2, 1, 1 ),
-"update": 0,
-"values": [ Vector3( -4, -17, -13 ), Vector3( -4, 12, -13 ), Vector3( -4, -17, -13 ), Vector3( -4, -100, -13 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("target2:translation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2.2, 2.8, 4 ),
-"transitions": PoolRealArray( 0.5, 2, 1, 1 ),
-"update": 0,
-"values": [ Vector3( -11, -17, -11 ), Vector3( -11, 12, -11 ), Vector3( -11, -17, -11 ), Vector3( -11, -100, -11 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("target3:translation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1.9, 2.5, 4 ),
-"transitions": PoolRealArray( 0.5, 2, 1, 1 ),
-"update": 0,
-"values": [ Vector3( -18, -17, -12 ), Vector3( -18, 12, -12 ), Vector3( -18, -17, -12 ), Vector3( -18, -100, -12 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("target4:translation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 1.6, 2.3, 4 ),
-"transitions": PoolRealArray( 0.5, 2, 1, 1 ),
-"update": 0,
-"values": [ Vector3( -22, -17, -20 ), Vector3( -22, 12, -20 ), Vector3( -22, -17, -20 ), Vector3( -22, -100, -20 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("target5:translation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 1.9, 2.6, 4 ),
-"transitions": PoolRealArray( 0.5, 2, 1, 1 ),
-"update": 0,
-"values": [ Vector3( -1, -17, -18 ), Vector3( -1, 12, -18 ), Vector3( -1, -17, -18 ), Vector3( -1, -100, -18 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("target6:translation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 1.6, 2.4, 4 ),
-"transitions": PoolRealArray( 0.5, 2, 1, 1 ),
-"update": 0,
-"values": [ Vector3( -2, -17, -27 ), Vector3( -2, 12, -27 ), Vector3( -2, -17, -27 ), Vector3( -2, -100, -27 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("target/hitbox:disabled")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 2.7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("target2/hitbox:disabled")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 2.7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("target3/hitbox:disabled")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0, 2.7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("target4/hitbox:disabled")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0, 2.7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("target5/hitbox:disabled")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0, 2.7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath("target6/hitbox:disabled")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"times": PoolRealArray( 0, 2.7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath("target/obj:visible")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"times": PoolRealArray( 0.7, 3.9 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/13/type = "value"
-tracks/13/path = NodePath("target2/obj:visible")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
-"times": PoolRealArray( 0.7, 3.9 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/14/type = "value"
-tracks/14/path = NodePath("target3/obj:visible")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
-"times": PoolRealArray( 0.7, 3.9 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/15/type = "value"
-tracks/15/path = NodePath("target4/obj:visible")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/keys = {
-"times": PoolRealArray( 0.7, 3.9 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("target5/obj:visible")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
-"times": PoolRealArray( 0.7, 3.9 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("target6/obj:visible")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
-"times": PoolRealArray( 0.7, 3.9 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-
-[sub_resource type="Animation" id=9]
-resource_name = "tentacleAttack"
+[sub_resource type="Animation" id=4]
 length = 1.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("kraken/foot8:translation")
+tracks/0/path = NodePath("kraken/footAttacker1:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -301,7 +27,7 @@ tracks/0/keys = {
 "values": [ Vector3( 1.24459, -5.76815, -3.49549 ), Vector3( 1.67452, -2.55912, -4.24015 ), Vector3( 1.67452, -2.55912, -4.24015 ), Vector3( 1.62471, -2.93085, -4.15388 ), Vector3( 0.818517, -2.63903, -3.36175 ), Vector3( 0.636, -5, -3.045 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("kraken/foot8:rotation_degrees")
+tracks/1/path = NodePath("kraken/footAttacker1:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -313,7 +39,7 @@ tracks/1/keys = {
 "values": [ Vector3( -3.84094, 45.4892, 0.489199 ), Vector3( -3.84094, 45.4892, 0.489199 ), Vector3( -3.84093, 45.4892, -50.571 ), Vector3( -3.84093, 45.4892, -50.571 ), Vector3( -3.84093, 45.4892, -25.9604 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("kraken/foot7:translation")
+tracks/2/path = NodePath("kraken/footAttacker2:translation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -325,7 +51,7 @@ tracks/2/keys = {
 "values": [ Vector3( 0.0762184, -5.87034, -4.76618 ), Vector3( 0.638548, -2.78117, -5.33193 ), Vector3( 0.638548, -2.78117, -5.33193 ), Vector3( 0.588744, -3.1529, -5.24567 ), Vector3( -0.217452, -2.86108, -4.45354 ), Vector3( -0.4, -5, -4.137 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("kraken/foot7:rotation_degrees")
+tracks/3/path = NodePath("kraken/footAttacker2:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -378,12 +104,11 @@ tracks/6/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "tentacleMovement"
+[sub_resource type="Animation" id=5]
 length = 2.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("kraken/foot8:rotation_degrees")
+tracks/0/path = NodePath("tentacles/foot8:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -395,7 +120,7 @@ tracks/0/keys = {
 "values": [ Vector3( -3.84096, 45.4892, 0.489181 ), Vector3( -3.84096, 45.4892, -3.21932 ), Vector3( -3.84096, 45.4892, -6.92782 ), Vector3( -3.84096, 45.4892, -3.21932 ), Vector3( -3.84096, 45.4892, 0.489181 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("kraken/foot7:rotation_degrees")
+tracks/1/path = NodePath("tentacles/foot7:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -407,7 +132,7 @@ tracks/1/keys = {
 "values": [ Vector3( 3.84097, 74.5108, 0.489185 ), Vector3( 2.20497, 75.6854, -6.66578 ), Vector3( 0.568967, 76.8599, -13.8207 ), Vector3( 2.20497, 75.6854, -6.66578 ), Vector3( 3.84097, 74.5108, 0.489185 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("kraken/foot6:rotation_degrees")
+tracks/2/path = NodePath("tentacles/foot6:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -419,7 +144,7 @@ tracks/2/keys = {
 "values": [ Vector3( 14.4776, 134.496, 11.0329 ), Vector3( 14.4776, 134.496, 5.66143 ), Vector3( 14.4776, 134.496, 0.289992 ), Vector3( 14.4776, 134.496, 5.66143 ), Vector3( 14.4776, 134.496, 11.0329 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("kraken/foot5:rotation_degrees")
+tracks/3/path = NodePath("tentacles/foot5:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -431,7 +156,7 @@ tracks/3/keys = {
 "values": [ Vector3( 10.5453, -164.007, 25.7285 ), Vector3( 11.0044, -168.414, 20.316 ), Vector3( 11.4636, -172.821, 14.9035 ), Vector3( 11.0044, -168.414, 20.316 ), Vector3( 10.5453, -164.007, 25.7285 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("kraken/foot4:rotation_degrees")
+tracks/4/path = NodePath("tentacles/foot4:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -443,7 +168,7 @@ tracks/4/keys = {
 "values": [ Vector3( -15, -29.9999, 15 ), Vector3( -15.2009, -30.1595, 9.0412 ), Vector3( -15.4018, -30.319, 3.0824 ), Vector3( -15.2009, -30.1595, 9.0412 ), Vector3( -15, -29.9999, 15 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("kraken/foot3:rotation_degrees")
+tracks/5/path = NodePath("tentacles/foot3:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -455,7 +180,7 @@ tracks/5/keys = {
 "values": [ Vector3( -10.5453, -75.993, 25.7285 ), Vector3( -13.1559, -72.1565, 21.4731 ), Vector3( -15.7665, -68.32, 17.2176 ), Vector3( -13.1559, -72.1565, 21.4731 ), Vector3( -10.5453, -75.993, 25.7285 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("kraken/foot2:rotation_degrees")
+tracks/6/path = NodePath("tentacles/foot2:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -467,7 +192,7 @@ tracks/6/keys = {
 "values": [ Vector3( -7.43547, -90.8526, 28.0644 ), Vector3( -8.04654, -90.661, 22.4737 ), Vector3( -8.65761, -90.4694, 16.8831 ), Vector3( -8.04654, -90.661, 22.4737 ), Vector3( -7.43547, -90.8526, 28.0644 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("kraken/foot:rotation_degrees")
+tracks/7/path = NodePath("tentacles/foot:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -479,11 +204,10 @@ tracks/7/keys = {
 "values": [ Vector3( 3.84093, -134.511, 29.5109 ), Vector3( 3.84092, -134.511, 22.8343 ), Vector3( 3.8409, -134.511, 16.1577 ), Vector3( 3.84092, -134.511, 22.8343 ), Vector3( 3.84093, -134.511, 29.5109 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "tentacleSink"
+[sub_resource type="Animation" id=6]
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("kraken/foot:translation")
+tracks/0/path = NodePath("tentacles/foot:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -495,7 +219,7 @@ tracks/0/keys = {
 "values": [ Vector3( 1.84564, -1.79878, -1.62937 ), Vector3( 1.53285, -4.13348, -1.0876 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("kraken/foot2:translation")
+tracks/1/path = NodePath("tentacles/foot2:translation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -507,7 +231,7 @@ tracks/1/keys = {
 "values": [ Vector3( -0.00436401, -2.08857, -2.57021 ), Vector3( -0.317154, -4.42327, -2.02844 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("kraken/foot3:translation")
+tracks/2/path = NodePath("tentacles/foot3:translation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -519,7 +243,7 @@ tracks/2/keys = {
 "values": [ Vector3( -1.61493, -1.59953, -2.61548 ), Vector3( -1.92772, -3.93423, -2.07371 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("kraken/foot4:translation")
+tracks/3/path = NodePath("tentacles/foot4:translation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -531,7 +255,7 @@ tracks/3/keys = {
 "values": [ Vector3( -3.29966, -0.875258, -0.874577 ), Vector3( -3.61245, -3.20996, -0.332802 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("kraken/foot5:translation")
+tracks/4/path = NodePath("tentacles/foot5:translation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -543,7 +267,7 @@ tracks/4/keys = {
 "values": [ Vector3( 2.90697, -2.43017, 0.0493412 ), Vector3( 2.59418, -4.76487, 0.591112 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("kraken/foot6:translation")
+tracks/5/path = NodePath("tentacles/foot6:translation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -555,7 +279,7 @@ tracks/5/keys = {
 "values": [ Vector3( 1.99418, -1.46768, 2.59004 ), Vector3( 1.6814, -3.80238, 3.13181 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("kraken/foot7:translation")
+tracks/6/path = NodePath("tentacles/foot7:translation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -567,7 +291,7 @@ tracks/6/keys = {
 "values": [ Vector3( -0.0620322, -1.23564, 3.48289 ), Vector3( -0.374819, -3.57034, 4.02466 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("kraken/foot8:translation")
+tracks/7/path = NodePath("tentacles/foot8:translation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -577,6 +301,359 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 2, 1 ),
 "update": 0,
 "values": [ Vector3( -2.96884, -1.12223, 2.29338 ), Vector3( -3.28163, -3.45692, 2.83515 ) ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "restartMovement"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "tentacle_1_destroyed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("tentacles/foot:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 3.84091, -134.511, 17.2095 ), Vector3( 3.84106, -134.511, 154.538 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("tentacles/foot:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.84564, -1.79878, -1.62937 ), Vector3( 1.65, -5, -1.29 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("tentacles/foot:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 90.5099, 1 ),
+"update": 0,
+"values": [ Vector3( 0.375, 0.375001, 0.375 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "tentacle_2_destroyed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("tentacles/foot2:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -7.60936, -90.7981, 26.4734 ), Vector3( -7.99936, -80.3491, 161.034 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("tentacles/foot2:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.0043642, -2.08857, -2.57021 ), Vector3( -0.251154, -3.93064, -2.14275 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("tentacles/foot2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 90.5099, 1 ),
+"update": 0,
+"values": [ Vector3( 0.375, 0.375001, 0.375 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "tentacle_3_destroyed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("tentacles/foot3:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -11.2882, -74.9012, 24.5176 ), Vector3( -12.1991, -80.433, 146.471 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("tentacles/foot3:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.61493, -1.59953, -2.61548 ), Vector3( -1.87244, -3.52161, -2.16945 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("tentacles/foot3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 90.5099, 1 ),
+"update": 0,
+"values": [ Vector3( 0.375, 0.375001, 0.375 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "tentacle_4_destroyed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("tentacles/foot4:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -15.0571, -30.0453, 13.3043 ), Vector3( -14.4003, -10.9829, 131.871 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("tentacles/foot4:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -3.29966, -0.875259, -0.874576 ), Vector3( -3.60184, -3.13076, -0.351181 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("tentacles/foot4:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 90.5099, 1 ),
+"update": 0,
+"values": [ Vector3( 0.375, 0.375001, 0.375 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "tentacle_5_destroyed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("tentacles/foot5:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 10.676, -165.261, 24.1883 ), Vector3( 7.77576, -168.658, 147.761 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("tentacles/foot5:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2.90697, -2.43017, 0.0493412 ), Vector3( 2.73233, -3.73366, 0.35182 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("tentacles/foot5:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 90.5099, 1 ),
+"update": 0,
+"values": [ Vector3( 0.375, 0.375001, 0.375 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "tentacle_6_destroyed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("tentacles/foot6:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 14.4776, 134.496, 9.50431 ), Vector3( 14.4775, 134.496, 156.913 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("tentacles/foot6:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.99418, -1.46768, 2.59004 ), Vector3( 1.77367, -3.11361, 2.97197 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("tentacles/foot6:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 90.5099, 1 ),
+"update": 0,
+"values": [ Vector3( 0.375, 0.375001, 0.375 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "tentacle_7_destroyed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("tentacles/foot7:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 3.37541, 74.8451, -1.54692 ), Vector3( 4.78627, 79.3259, 104.283 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("tentacles/foot7:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.0620325, -1.23564, 3.48289 ), Vector3( -0.180556, -2.12031, 3.68818 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("tentacles/foot7:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 90.5099, 1 ),
+"update": 0,
+"values": [ Vector3( 0.375, 0.375001, 0.375 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "tentacle_8_destroyed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("tentacles/foot8:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -3.84096, 45.4892, -0.566155 ), Vector3( -3.84095, 45.4892, 124.718 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("tentacles/foot8:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -2.96884, -1.12223, 2.29338 ), Vector3( -3.14017, -2.40106, 2.59013 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("tentacles/foot8:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 90.5099, 1 ),
+"update": 0,
+"values": [ Vector3( 0.375, 0.375001, 0.375 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="ConvexPolygonShape" id=20]
+points = PoolVector3Array( 0.126096, 1, -0.74167, 1, 1, -1, 0.920059, 3.31725, -0.601733, 1.20304, 2.51415, -0.810936, 1, 1, 1, 1, -1, 1, 0.126096, 1, 0.738648, 0.126096, -1, 0.738648, -0.262075, 1, -0.503061, -0.262075, -1, -0.503061, 0.126096, 1, -0.74167, 0.126096, -1, -0.74167, 0.878273, -1, -0.01225, 0.878273, -1, -0.371412, 0.878273, -2.62728, -0.01225, 0.878273, -2.62728, -0.371412, 1, 1, 0.706076, 1, -1, 0.706076, 1, 1, 1, 1, -1, 1, 0.126096, 1, -0.74167, 0.126096, -1, -0.74167, 1, 1, -1, 1, -1, -1, 0.920059, 3.31725, -0.601733, 1.20304, 2.51415, -0.810936, 2.04751, 4.68625, -0.487497, 1.81112, 3.72038, -0.656597, 1, 1, 1, 0.126096, 1, 0.738648, 1.20304, 2.51415, 0.810936, 0.920059, 3.31725, 0.598711, 0.126096, 1, 0.738648, -0.262075, 1, 0.483219, 0.920059, 3.31725, 0.598711, 0.531888, 3.31725, 0.391575, 1, 1, -1, 1, 1, -0.730575, 1.20304, 2.51415, -0.810936, 1.20304, 2.51415, -0.59245, 1.81112, 3.72038, -0.656597, 1.81112, 3.72038, -0.479693, 2.70886, 4.56039, -0.46759, 2.70886, 4.56039, -0.341609, 1.20304, 2.51415, -0.810936, 1.20304, 2.51415, -0.59245, 1.81112, 3.72038, -0.656597, 1.81112, 3.72038, -0.479693, 0.920059, 3.31725, 0.598711, 0.531888, 3.31725, 0.391575, 2.04751, 4.68625, 0.484475, 1.65934, 4.68625, 0.316762, 1.20304, 2.51415, 0.810936, 0.920059, 3.31725, 0.598711, 1.81112, 3.72038, 0.656597, 2.04751, 4.68625, 0.484475, 3.07387, 5.41799, 0.319496, 3.07387, 5.41799, 0.225144, 3.38567, 5.43978, 0.187036, 3.38567, 5.43978, 0.132061, 2.04751, 4.68625, 0.484475, 1.65934, 4.68625, 0.316762, 3.07387, 5.41799, 0.319496, 3.07387, 5.41799, 0.225144, 1.81112, 3.72038, 0.656597, 2.04751, 4.68625, 0.484475, 2.70886, 4.56039, 0.46759, 3.07387, 5.41799, 0.319496, 2.04751, 4.68625, -0.487497, 1.81112, 3.72038, -0.656597, 3.07387, 5.41799, -0.322518, 2.70886, 4.56039, -0.46759, 3.38567, 5.43978, -0.187036, 3.36758, 5.06615, -0.187036, 3.4795, 5.35391, -0.105798, 3.46927, 5.14256, -0.105798, 2.70886, 4.56039, 0.46759, 3.07387, 5.41799, 0.319496, 3.36758, 5.06615, 0.187036, 3.38567, 5.43978, 0.187036, 3.07387, 5.41799, -0.322518, 2.70886, 4.56039, -0.46759, 3.38567, 5.43978, -0.187036, 3.36758, 5.06615, -0.187036, 2.70886, 4.56039, -0.46759, 2.70886, 4.56039, -0.341609, 3.36758, 5.06615, -0.187036, 3.36758, 5.06615, -0.136644, 3.4795, 5.35391, 0.074702, 3.46927, 5.14256, 0.074702, 3.4795, 5.35391, 0.105798, 3.46927, 5.14256, 0.105798, 3.36758, 5.06615, -0.187036, 3.36758, 5.06615, -0.136644, 3.46927, 5.14256, -0.105798, 3.46927, 5.14256, -0.077294, 3.38567, 5.43978, 0.187036, 3.38567, 5.43978, 0.132061, 3.4795, 5.35391, 0.105798, 3.4795, 5.35391, 0.074702, 3.36758, 5.06615, 0.187036, 3.38567, 5.43978, 0.187036, 3.46927, 5.14256, 0.105798, 3.4795, 5.35391, 0.105798, 3.38567, 5.43978, -0.136644, 3.4795, 5.35391, -0.077294, 3.36758, 5.06615, 0.132061, 3.36758, 5.06615, 0.187036, 3.46927, 5.14256, 0.074702, 3.46927, 5.14256, 0.105798, 3.4795, 5.35391, -0.077294, 3.46927, 5.14256, -0.077294, 2.70886, 4.56039, 0.330154, 2.70886, 4.56039, 0.46759, 3.36758, 5.06615, 0.132061, 3.36758, 5.06615, 0.187036, 1.65934, 4.68625, 0.316762, 1.65934, 4.68625, -0.330827, 3.07387, 5.41799, 0.225144, 3.07387, 5.41799, -0.23603, 3.07387, 5.41799, -0.23603, 3.38567, 5.43978, -0.136644, 0.531888, 3.31725, 0.391575, 0.531888, 3.31725, -0.408236, 1.65934, 4.68625, 0.316762, 1.65934, 4.68625, -0.330827, 1.20304, 2.51415, 0.572582, 1.20304, 2.51415, 0.810936, 1.81112, 3.72038, 0.463607, 1.81112, 3.72038, 0.656597, 1.81112, 3.72038, 0.463607, 1.81112, 3.72038, 0.656597, 2.70886, 4.56039, 0.330154, 2.70886, 4.56039, 0.46759, 1, 1, 0.706076, 1, 1, 1, 1.20304, 2.51415, 0.572582, 1.20304, 2.51415, 0.810936, -0.262075, 1, 0.483219, -0.262075, 1, -0.503061, 0.531888, 3.31725, 0.391575, 0.531888, 3.31725, -0.408236, 3.36758, 5.06615, -0.136644, 2.70886, 4.56039, -0.341609, 3.24585, 5.06615, -0.136644, 3.08117, 4.93971, -0.187885, 2.91649, 4.81327, -0.239126, 2.75182, 4.68683, -0.290368, 2.58714, 4.56039, -0.341609, 0.126096, 1, 0.738648, 0.126096, -1, 0.738648, -0.262075, 1, 0.483219, -0.262075, -1, 0.483219, 1, -2.62728, -1, 0.126096, -2.62728, -0.74167, 1, 1, -1, 1, -1, -1, 1, 1, -0.730575, 1, -1, -0.730575, -0.262075, 1, -0.503061, 0.126096, 1, -0.74167, 0.531888, 3.31725, -0.408236, 0.920059, 3.31725, -0.601733, 0.531888, 3.31725, -0.408236, 0.920059, 3.31725, -0.601733, 1.65934, 4.68625, -0.330827, 2.04751, 4.68625, -0.487497, 3.07387, 5.41799, -0.322518, 3.38567, 5.43978, -0.187036, 1.65934, 4.68625, -0.330827, 2.04751, 4.68625, -0.487497, 3.07387, 5.41799, -0.23603, 3.07387, 5.41799, -0.322518, 3.4795, 5.35391, -0.105798, 3.46927, 5.14256, -0.105798, 3.38567, 5.43978, -0.187036, 3.4795, 5.35391, -0.105798, 2.70886, 4.56039, 0.330154, 3.36758, 5.06615, 0.132061, 2.58714, 4.56039, 0.330154, 2.75182, 4.68683, 0.280631, 2.91649, 4.81327, 0.231108, 3.08117, 4.93971, 0.181584, 3.24585, 5.06615, 0.132061, 3.36758, 5.06615, 0.132061, 3.36758, 5.06615, -0.136644, 3.24585, 5.06615, 0.132061, 3.24585, 5.06615, 0.064885, 3.24585, 5.06615, -0.002291, 3.24585, 5.06615, -0.069467, 3.24585, 5.06615, -0.136644, 1.20304, 2.51415, -0.59245, 1, 1, -0.730575, 1.08132, 2.51415, -0.59245, 1.03056, 2.13561, -0.626981, 0.979795, 1.75707, -0.661512, 0.929034, 1.37854, -0.696043, 0.878273, 1, -0.730575, 1, 1, 0.706076, 1.20304, 2.51415, 0.572582, 0.878273, 1, 0.706076, 0.929034, 1.37854, 0.672702, 0.979795, 1.75707, 0.639329, 1.03056, 2.13561, 0.605956, 1.08132, 2.51415, 0.572582, -0.262075, 1, 0.483219, -0.262075, -1, 0.483219, -0.262075, 1, -0.503061, -0.262075, -1, -0.503061, 1.20304, 2.51415, 0.572582, 1.81112, 3.72038, 0.463607, 1.08132, 2.51415, 0.572582, 1.23334, 2.81571, 0.545339, 1.38535, 3.11726, 0.518095, 1.53737, 3.41882, 0.490851, 1.68939, 3.72038, 0.463607, 1.81112, 3.72038, -0.479693, 1.20304, 2.51415, -0.59245, 1.68939, 3.72038, -0.479693, 1.53737, 3.41882, -0.507882, 1.38535, 3.11726, -0.536072, 1.23334, 2.81571, -0.564261, 1.08132, 2.51415, -0.59245, 1, -1, 0.706076, 1, 1, 0.706076, 0.878273, -1, 0.706076, 0.878273, -0.5, 0.706076, 0.878273, 0, 0.706076, 0.878273, 0.5, 0.706076, 0.878273, 1, 0.706076, 1.81112, 3.72038, 0.463607, 2.70886, 4.56039, 0.330154, 1.68939, 3.72038, 0.463607, 1.91383, 3.93038, 0.430244, 2.13826, 4.14038, 0.39688, 2.3627, 4.35038, 0.363517, 2.58714, 4.56039, 0.330154, 2.70886, 4.56039, -0.341609, 1.81112, 3.72038, -0.479693, 2.58714, 4.56039, -0.341609, 2.3627, 4.35038, -0.37613, 2.13826, 4.14038, -0.410651, 1.91383, 3.93038, -0.445172, 1.68939, 3.72038, -0.479693, 1, 1, -0.730575, 1, -1, -0.730575, 0.878273, 1, -0.730575, 0.878273, 0.5, -0.730575, 0.878273, 0, -0.730575, 0.878273, -0.5, -0.730575, 0.878273, -1, -0.730575, 0.126096, -2.62728, 0.738648, 1, -2.62728, 1, 1.03056, 2.13561, -0.010513, 1.03056, 2.13561, 0.297722, 1.08132, 2.51415, -0.009934, 1.08132, 2.51415, 0.281324, 0.929034, 1.37854, -0.011671, 0.929034, 1.37854, 0.330516, 0.979795, 1.75707, -0.011092, 0.979795, 1.75707, 0.314119, 2.3627, 4.35038, -0.006307, 2.3627, 4.35038, 0.178605, 2.58714, 4.56039, -0.005728, 2.58714, 4.56039, 0.162213, 1.91383, 3.93038, -0.007464, 1.91383, 3.93038, 0.21139, 2.13826, 4.14038, -0.006885, 2.13826, 4.14038, 0.194998, 1.53737, 3.41882, -0.008516, 1.53737, 3.41882, 0.241168, 1.68939, 3.72038, -0.008043, 1.68939, 3.72038, 0.227782, 1.23334, 2.81571, -0.009461, 1.23334, 2.81571, 0.267939, 1.38535, 3.11726, -0.008988, 1.38535, 3.11726, 0.254553, 3.08117, 4.93971, -0.00315, 3.08117, 4.93971, 0.089217, 3.24585, 5.06615, -0.002291, 3.24585, 5.06615, 0.064885, 2.75182, 4.68683, -0.004869, 2.75182, 4.68683, 0.137881, 2.91649, 4.81327, -0.004009, 2.91649, 4.81327, 0.113549, 0.878273, 0, -0.371412, 0.878273, -0.5, -0.371412, 0.878273, 0, -0.01225, 0.878273, -0.5, -0.01225, 0.878273, 1, -0.371412, 0.878273, 0.5, -0.371412, 0.878273, 1, -0.01225, 0.878273, 0.5, -0.01225, 0.878273, 0.5, -0.730575, 0.878273, 0, -0.730575, 0.878273, -0.5, -0.730575, 0.878273, -1, -0.730575, 0.878273, -0.5, 0.346913, 0.878273, -1, 0.346913, 0.878273, -0.5, 0.706076, 0.878273, -1, 0.706076, 0.878273, 0, 0.346913, 2.75182, 4.68683, -0.147618, 2.91649, 4.81327, -0.121568, 2.58714, 4.56039, -0.173668, 2.58714, 4.56039, -0.005728, 2.58714, 4.56039, -0.341609, 2.75182, 4.68683, -0.290368, 2.58714, 4.56039, 0.162213, 2.58714, 4.56039, 0.330154, 2.75182, 4.68683, 0.280631, 2.91649, 4.81327, 0.231108, 3.08117, 4.93971, 0.181584, 1.23334, 2.81571, -0.286861, 1.38535, 3.11726, -0.27253, 1.08132, 2.51415, -0.301192, 1.08132, 2.51415, -0.009934, 1.08132, 2.51415, -0.59245, 1.23334, 2.81571, -0.564261, 1.08132, 2.51415, 0.281324, 1.08132, 2.51415, 0.572582, 1.23334, 2.81571, 0.545339, 1.38535, 3.11726, 0.518095, 1.53737, 3.41882, 0.490851, 1.91383, 3.93038, -0.226318, 2.13826, 4.14038, -0.208768, 1.68939, 3.72038, -0.243868, 1.68939, 3.72038, -0.008043, 1.68939, 3.72038, -0.479693, 1.91383, 3.93038, -0.445172, 1.68939, 3.72038, 0.227782, 1.68939, 3.72038, 0.463607, 1.91383, 3.93038, 0.430244, 2.13826, 4.14038, 0.39688, 2.3627, 4.35038, 0.363517, 0.929034, 1.37854, -0.353857, 0.979795, 1.75707, -0.336302, 0.878273, 1, -0.371412, 0.878273, 1, -0.01225, 0.878273, 1, -0.730575, 0.929034, 1.37854, -0.696043, 0.878273, 1, 0.346913, 0.878273, 1, 0.706076, 0.929034, 1.37854, 0.672702, 0.979795, 1.75707, 0.639329, 1.03056, 2.13561, 0.605956, 1.03056, 2.13561, -0.318747, 1.08132, 2.51415, -0.301192, 0.979795, 1.75707, -0.661512, 1.03056, 2.13561, -0.626981, 2.3627, 4.35038, -0.191218, 2.58714, 4.56039, -0.173668, 2.13826, 4.14038, -0.410651, 2.3627, 4.35038, -0.37613, 1.53737, 3.41882, -0.258199, 1.68939, 3.72038, -0.243868, 1.38535, 3.11726, -0.536072, 1.53737, 3.41882, -0.507882, 3.08117, 4.93971, -0.095518, 3.24585, 5.06615, -0.069467, 2.91649, 4.81327, -0.239126, 3.08117, 4.93971, -0.187885, 0.878273, 0.5, 0.346913, 0.878273, 0.5, 0.706076, 0.878273, 0, 0.706076, 0.878273, 1, 0.346913, -0.262075, -2.62728, -0.503061, -0.262075, -2.62728, 0.483219, -0.262075, -2.62728, 0.483219, 0.126096, -2.62728, 0.738648, 0.878273, -2.62728, 0.706076, 0.126096, -2.62728, 0.738648, 1, -2.62728, 0.706076, 1, -2.62728, 1, 1, -2.62728, -1, 0.126096, -2.62728, -0.74167, 1, -2.62728, -0.730575, 0.878273, -2.62728, -0.730575, -0.262075, -2.62728, -0.503061, 0.878273, -2.62728, -0.371412, 0.878273, -2.62728, -0.01225, 0.878273, -2.62728, 0.346913, 0.878273, -2.62728, 0.706076, 0.878273, -2.62728, 0.706076, -0.262075, -2.62728, -0.503061, -0.262075, -2.62728, 0.483219, 0.126096, -2.62728, 0.738648, 0.878273, -2.62728, 0.346913, 0.878273, -2.62728, 0.706076, 1, -2.62728, 1, 1, -2.62728, 0.706076, 1, -2.62728, 0.706076, 0.878273, -2.62728, 0.706076, 1, -2.62728, -0.730575, 1, -2.62728, -1, 0.878273, -2.62728, -0.730575, 1, -2.62728, -0.730575, 0.126096, -2.62728, -0.74167, -0.262075, -2.62728, -0.503061, 0.878273, -2.62728, -0.730575, 0.878273, 0.5, 0.706076, 0.878273, 0.5, 0.346913, 0.878273, 1, 0.706076, 0.878273, 1, 0.346913, 3.24585, 5.06615, -0.069467, 3.08117, 4.93971, -0.095518, 3.24585, 5.06615, -0.136644, 3.08117, 4.93971, -0.187885, 1.68939, 3.72038, -0.243868, 1.53737, 3.41882, -0.258199, 1.68939, 3.72038, -0.479693, 1.53737, 3.41882, -0.507882, 2.58714, 4.56039, -0.173668, 2.3627, 4.35038, -0.191218, 2.58714, 4.56039, -0.341609, 2.3627, 4.35038, -0.37613, 1.08132, 2.51415, -0.301192, 1.03056, 2.13561, -0.318747, 1.08132, 2.51415, -0.59245, 1.03056, 2.13561, -0.626981, 0.979795, 1.75707, -0.336302, 0.929034, 1.37854, -0.353857, 0.979795, 1.75707, -0.661512, 0.929034, 1.37854, -0.696043, 2.13826, 4.14038, -0.208768, 1.91383, 3.93038, -0.226318, 2.13826, 4.14038, -0.410651, 1.91383, 3.93038, -0.445172, 1.38535, 3.11726, -0.27253, 1.23334, 2.81571, -0.286861, 1.38535, 3.11726, -0.536072, 1.23334, 2.81571, -0.564261, 2.91649, 4.81327, -0.121568, 2.75182, 4.68683, -0.147618, 2.91649, 4.81327, -0.239126, 2.75182, 4.68683, -0.290368, 0.878273, -0.5, 0.706076, 0.878273, -0.5, 0.346913, 0.878273, 0, 0.706076, 0.878273, 0, 0.346913, 0.878273, 0.5, -0.371412, 0.878273, 0.5, -0.730575, 0.878273, 1, -0.371412, 0.878273, 1, -0.730575, 0.878273, -0.5, -0.371412, 0.878273, -0.5, -0.730575, 0.878273, 0, -0.371412, 0.878273, 0, -0.730575, 2.91649, 4.81327, 0.231108, 2.75182, 4.68683, 0.280631, 2.91649, 4.81327, 0.113549, 2.75182, 4.68683, 0.137881, 3.24585, 5.06615, 0.132061, 3.08117, 4.93971, 0.181584, 3.24585, 5.06615, 0.064885, 3.08117, 4.93971, 0.089217, 1.38535, 3.11726, 0.518095, 1.23334, 2.81571, 0.545339, 1.38535, 3.11726, 0.254553, 1.23334, 2.81571, 0.267939, 1.68939, 3.72038, 0.463607, 1.53737, 3.41882, 0.490851, 1.68939, 3.72038, 0.227782, 1.53737, 3.41882, 0.241168, 2.13826, 4.14038, 0.39688, 1.91383, 3.93038, 0.430244, 2.13826, 4.14038, 0.194998, 1.91383, 3.93038, 0.21139, 2.58714, 4.56039, 0.330154, 2.3627, 4.35038, 0.363517, 2.58714, 4.56039, 0.162213, 2.3627, 4.35038, 0.178605, 0.979795, 1.75707, 0.639329, 0.929034, 1.37854, 0.672702, 0.979795, 1.75707, 0.314119, 0.929034, 1.37854, 0.330516, 1.08132, 2.51415, 0.572582, 1.03056, 2.13561, 0.605956, 1.08132, 2.51415, 0.281324, 1.03056, 2.13561, 0.297722, 0.91656, 0.980689, 0.346913, 0.91656, 0.480689, 0.346913, 0.91656, 0.980689, 0.706076, 0.91656, 0.480689, 0.706076, 3.11946, 4.9204, -0.187885, 3.11946, 4.9204, -0.095518, 3.28414, 5.04684, -0.136644, 3.28414, 5.04684, -0.069467, 1.57566, 3.39951, -0.507882, 1.57566, 3.39951, -0.258199, 1.72768, 3.70107, -0.479693, 1.72768, 3.70107, -0.243868, 2.40099, 4.33107, -0.37613, 2.40099, 4.33107, -0.191218, 2.62542, 4.54107, -0.341609, 2.62542, 4.54107, -0.173668, 1.06884, 2.1163, -0.626981, 1.06884, 2.1163, -0.318747, 1.1196, 2.49484, -0.59245, 1.1196, 2.49484, -0.301192, 0.967321, 1.35923, -0.696043, 0.967321, 1.35923, -0.353857, 1.01808, 1.73776, -0.661512, 1.01808, 1.73776, -0.336302, 1.95212, 3.91107, -0.445172, 1.95212, 3.91107, -0.226318, 2.17655, 4.12107, -0.410651, 2.17655, 4.12107, -0.208768, 1.27162, 2.7964, -0.564261, 1.27162, 2.7964, -0.286861, 1.42364, 3.09795, -0.536072, 1.42364, 3.09795, -0.27253, 2.7901, 4.66751, -0.290368, 2.7901, 4.66751, -0.147618, 2.95478, 4.79396, -0.239126, 2.95478, 4.79396, -0.121568, 0.91656, -0.019311, 0.346913, 0.91656, -0.519311, 0.346913, 0.91656, -0.019311, 0.706076, 0.91656, -0.519311, 0.706076, 0.91656, 0.980689, -0.730575, 0.91656, 0.480689, -0.730575, 0.91656, 0.980689, -0.371412, 0.91656, 0.480689, -0.371412, 0.91656, -0.019311, -0.730575, 0.91656, -0.519311, -0.730575, 0.91656, -0.019311, -0.371412, 0.91656, -0.519311, -0.371412, 2.7901, 4.66751, 0.137881, 2.7901, 4.66751, 0.280631, 2.95478, 4.79396, 0.113549, 2.95478, 4.79396, 0.231108, 3.11946, 4.9204, 0.089217, 3.11946, 4.9204, 0.181584, 3.28414, 5.04684, 0.064885, 3.28414, 5.04684, 0.132061, 1.27162, 2.7964, 0.267939, 1.27162, 2.7964, 0.545339, 1.42364, 3.09795, 0.254553, 1.42364, 3.09795, 0.518095, 1.57566, 3.39951, 0.241168, 1.57566, 3.39951, 0.490851, 1.72768, 3.70107, 0.227782, 1.72768, 3.70107, 0.463607, 1.95212, 3.91107, 0.21139, 1.95212, 3.91107, 0.430244, 2.17655, 4.12107, 0.194998, 2.17655, 4.12107, 0.39688, 2.40099, 4.33107, 0.178605, 2.40099, 4.33107, 0.363517, 2.62542, 4.54107, 0.162213, 2.62542, 4.54107, 0.330154, 0.967321, 1.35923, 0.330516, 0.967321, 1.35923, 0.672702, 1.01808, 1.73776, 0.314119, 1.01808, 1.73776, 0.639329, 1.06884, 2.1163, 0.297722, 1.06884, 2.1163, 0.605956, 1.1196, 2.49484, 0.281324, 1.1196, 2.49484, 0.572582, 0.878273, 0, 0.346913, 0.878273, -0.5, 0.346913, 0.91656, -0.019311, 0.346913, 0.91656, -0.519311, 0.346913, 2.13826, 4.14038, -0.410651, 1.91383, 3.93038, -0.445172, 2.17655, 4.12107, -0.410651, 1.95212, 3.91107, -0.445172, 2.3627, 4.35038, -0.191218, 2.58714, 4.56039, -0.173668, 2.40099, 4.33107, -0.191218, 2.62542, 4.54107, -0.173668, 2.75182, 4.68683, -0.147618, 2.91649, 4.81327, -0.121568, 2.7901, 4.66751, -0.147618, 2.95478, 4.79396, -0.121568, 0.979795, 1.75707, -0.661512, 0.929034, 1.37854, -0.696043, 1.01808, 1.73776, -0.661512, 0.967321, 1.35923, -0.696043, 2.3627, 4.35038, -0.37613, 2.3627, 4.35038, -0.191218, 2.40099, 4.33107, -0.37613, 2.40099, 4.33107, -0.191218, 2.75182, 4.68683, -0.290368, 2.75182, 4.68683, -0.147618, 2.7901, 4.66751, -0.290368, 2.7901, 4.66751, -0.147618, 0.979795, 1.75707, 0.639329, 0.979795, 1.75707, 0.314119, 1.01808, 1.73776, 0.639329, 1.01808, 1.73776, 0.314119, 1.53737, 3.41882, -0.258199, 1.68939, 3.72038, -0.243868, 1.57566, 3.39951, -0.258199, 1.72768, 3.70107, -0.243868, 2.91649, 4.81327, 0.113549, 2.75182, 4.68683, 0.137881, 2.95478, 4.79396, 0.113549, 2.7901, 4.66751, 0.137881, 2.13826, 4.14038, 0.39688, 2.13826, 4.14038, 0.194998, 2.17655, 4.12107, 0.39688, 2.17655, 4.12107, 0.194998, 1.53737, 3.41882, -0.507882, 1.53737, 3.41882, -0.258199, 1.57566, 3.39951, -0.507882, 1.57566, 3.39951, -0.258199, 2.75182, 4.68683, 0.137881, 2.75182, 4.68683, 0.280631, 2.7901, 4.66751, 0.137881, 2.7901, 4.66751, 0.280631, 1.38535, 3.11726, 0.518095, 1.38535, 3.11726, 0.254553, 1.42364, 3.09795, 0.518095, 1.42364, 3.09795, 0.254553, 3.08117, 4.93971, -0.095518, 3.24585, 5.06615, -0.069467, 3.11946, 4.9204, -0.095518, 3.28414, 5.04684, -0.069467, 3.24585, 5.06615, 0.064885, 3.08117, 4.93971, 0.089217, 3.28414, 5.04684, 0.064885, 3.11946, 4.9204, 0.089217, 2.91649, 4.81327, 0.231108, 2.91649, 4.81327, 0.113549, 2.95478, 4.79396, 0.231108, 2.95478, 4.79396, 0.113549, 3.08117, 4.93971, -0.187885, 3.08117, 4.93971, -0.095518, 3.11946, 4.9204, -0.187885, 3.11946, 4.9204, -0.095518, 3.08117, 4.93971, 0.089217, 3.08117, 4.93971, 0.181584, 3.11946, 4.9204, 0.089217, 3.11946, 4.9204, 0.181584, 0.878273, 0, 0.706076, 0.878273, 0, 0.346913, 0.91656, -0.019311, 0.706076, 0.91656, -0.019311, 0.346913, 0.878273, 0.5, 0.346913, 0.878273, 0.5, 0.706076, 0.91656, 0.480689, 0.346913, 0.91656, 0.480689, 0.706076, 1.23334, 2.81571, -0.286861, 1.38535, 3.11726, -0.27253, 1.27162, 2.7964, -0.286861, 1.42364, 3.09795, -0.27253, 0.878273, -0.5, 0.706076, 0.878273, 0, 0.706076, 0.91656, -0.519311, 0.706076, 0.91656, -0.019311, 0.706076, 0.878273, 1, 0.706076, 0.878273, 1, 0.346913, 0.91656, 0.980689, 0.706076, 0.91656, 0.980689, 0.346913, 0.878273, 1, 0.346913, 0.878273, 0.5, 0.346913, 0.91656, 0.980689, 0.346913, 0.91656, 0.480689, 0.346913, 1.23334, 2.81571, -0.564261, 1.23334, 2.81571, -0.286861, 1.27162, 2.7964, -0.564261, 1.27162, 2.7964, -0.286861, 0.878273, 0, -0.730575, 0.878273, -0.5, -0.730575, 0.91656, -0.019311, -0.730575, 0.91656, -0.519311, -0.730575, 1.08132, 2.51415, 0.572582, 1.08132, 2.51415, 0.281324, 1.1196, 2.49484, 0.572582, 1.1196, 2.49484, 0.281324, 1.38535, 3.11726, 0.254553, 1.23334, 2.81571, 0.267939, 1.42364, 3.09795, 0.254553, 1.27162, 2.7964, 0.267939, 0.878273, 1, -0.371412, 0.878273, 1, -0.730575, 0.91656, 0.980689, -0.371412, 0.91656, 0.980689, -0.730575, 1.68939, 3.72038, 0.463607, 1.68939, 3.72038, 0.227782, 1.72768, 3.70107, 0.463607, 1.72768, 3.70107, 0.227782, 1.23334, 2.81571, 0.267939, 1.23334, 2.81571, 0.545339, 1.27162, 2.7964, 0.267939, 1.27162, 2.7964, 0.545339, 1.08132, 2.51415, -0.301192, 1.08132, 2.51415, -0.59245, 1.1196, 2.49484, -0.301192, 1.1196, 2.49484, -0.59245, 2.58714, 4.56039, 0.330154, 2.58714, 4.56039, 0.162213, 2.62542, 4.54107, 0.330154, 2.62542, 4.54107, 0.162213, 1.68939, 3.72038, 0.227782, 1.53737, 3.41882, 0.241168, 1.72768, 3.70107, 0.227782, 1.57566, 3.39951, 0.241168, 1.68939, 3.72038, -0.243868, 1.68939, 3.72038, -0.479693, 1.72768, 3.70107, -0.243868, 1.72768, 3.70107, -0.479693, 3.24585, 5.06615, 0.132061, 3.24585, 5.06615, 0.064885, 3.28414, 5.04684, 0.132061, 3.28414, 5.04684, 0.064885, 1.53737, 3.41882, 0.241168, 1.53737, 3.41882, 0.490851, 1.57566, 3.39951, 0.241168, 1.57566, 3.39951, 0.490851, 2.58714, 4.56039, -0.173668, 2.58714, 4.56039, -0.341609, 2.62542, 4.54107, -0.173668, 2.62542, 4.54107, -0.341609, 3.08117, 4.93971, 0.181584, 3.24585, 5.06615, 0.132061, 3.11946, 4.9204, 0.181584, 3.28414, 5.04684, 0.132061, 1.91383, 3.93038, -0.226318, 2.13826, 4.14038, -0.208768, 1.95212, 3.91107, -0.226318, 2.17655, 4.12107, -0.208768, 3.24585, 5.06615, -0.069467, 3.24585, 5.06615, -0.136644, 3.28414, 5.04684, -0.069467, 3.28414, 5.04684, -0.136644, 1.53737, 3.41882, 0.490851, 1.68939, 3.72038, 0.463607, 1.57566, 3.39951, 0.490851, 1.72768, 3.70107, 0.463607, 1.91383, 3.93038, -0.445172, 1.91383, 3.93038, -0.226318, 1.95212, 3.91107, -0.445172, 1.95212, 3.91107, -0.226318, 0.878273, 0.5, 0.706076, 0.878273, 1, 0.706076, 0.91656, 0.480689, 0.706076, 0.91656, 0.980689, 0.706076, 2.3627, 4.35038, 0.363517, 2.58714, 4.56039, 0.330154, 2.40099, 4.33107, 0.363517, 2.62542, 4.54107, 0.330154, 2.13826, 4.14038, 0.194998, 1.91383, 3.93038, 0.21139, 2.17655, 4.12107, 0.194998, 1.95212, 3.91107, 0.21139, 0.878273, 1, -0.730575, 0.878273, 0.5, -0.730575, 0.91656, 0.980689, -0.730575, 0.91656, 0.480689, -0.730575, 1.03056, 2.13561, 0.605956, 1.08132, 2.51415, 0.572582, 1.06884, 2.1163, 0.605956, 1.1196, 2.49484, 0.572582, 1.91383, 3.93038, 0.21139, 1.91383, 3.93038, 0.430244, 1.95212, 3.91107, 0.21139, 1.95212, 3.91107, 0.430244, 0.979795, 1.75707, -0.336302, 0.979795, 1.75707, -0.661512, 1.01808, 1.73776, -0.336302, 1.01808, 1.73776, -0.661512, 3.24585, 5.06615, -0.136644, 3.08117, 4.93971, -0.187885, 3.28414, 5.04684, -0.136644, 3.11946, 4.9204, -0.187885, 2.58714, 4.56039, 0.162213, 2.3627, 4.35038, 0.178605, 2.62542, 4.54107, 0.162213, 2.40099, 4.33107, 0.178605, 2.13826, 4.14038, -0.208768, 2.13826, 4.14038, -0.410651, 2.17655, 4.12107, -0.208768, 2.17655, 4.12107, -0.410651, 1.68939, 3.72038, -0.479693, 1.53737, 3.41882, -0.507882, 1.72768, 3.70107, -0.479693, 1.57566, 3.39951, -0.507882, 2.3627, 4.35038, 0.178605, 2.3627, 4.35038, 0.363517, 2.40099, 4.33107, 0.178605, 2.40099, 4.33107, 0.363517, 1.38535, 3.11726, -0.27253, 1.38535, 3.11726, -0.536072, 1.42364, 3.09795, -0.27253, 1.42364, 3.09795, -0.536072, 2.58714, 4.56039, -0.341609, 2.3627, 4.35038, -0.37613, 2.62542, 4.54107, -0.341609, 2.40099, 4.33107, -0.37613, 0.929034, 1.37854, -0.353857, 0.979795, 1.75707, -0.336302, 0.967321, 1.35923, -0.353857, 1.01808, 1.73776, -0.336302, 2.91649, 4.81327, -0.121568, 2.91649, 4.81327, -0.239126, 2.95478, 4.79396, -0.121568, 2.95478, 4.79396, -0.239126, 1.08132, 2.51415, -0.59245, 1.03056, 2.13561, -0.626981, 1.1196, 2.49484, -0.59245, 1.06884, 2.1163, -0.626981, 0.929034, 1.37854, -0.696043, 0.929034, 1.37854, -0.353857, 0.967321, 1.35923, -0.696043, 0.967321, 1.35923, -0.353857, 0.878273, 0, -0.371412, 0.878273, 0, -0.730575, 0.91656, -0.019311, -0.371412, 0.91656, -0.019311, -0.730575, 2.75182, 4.68683, 0.280631, 2.91649, 4.81327, 0.231108, 2.7901, 4.66751, 0.280631, 2.95478, 4.79396, 0.231108, 0.979795, 1.75707, 0.314119, 0.929034, 1.37854, 0.330516, 1.01808, 1.73776, 0.314119, 0.967321, 1.35923, 0.330516, 0.878273, 0.5, -0.730575, 0.878273, 0.5, -0.371412, 0.91656, 0.480689, -0.730575, 0.91656, 0.480689, -0.371412, 1.23334, 2.81571, 0.545339, 1.38535, 3.11726, 0.518095, 1.27162, 2.7964, 0.545339, 1.42364, 3.09795, 0.518095, 0.929034, 1.37854, 0.330516, 0.929034, 1.37854, 0.672702, 0.967321, 1.35923, 0.330516, 0.967321, 1.35923, 0.672702, 0.878273, 0.5, -0.371412, 0.878273, 1, -0.371412, 0.91656, 0.480689, -0.371412, 0.91656, 0.980689, -0.371412, 1.91383, 3.93038, 0.430244, 2.13826, 4.14038, 0.39688, 1.95212, 3.91107, 0.430244, 2.17655, 4.12107, 0.39688, 1.08132, 2.51415, 0.281324, 1.03056, 2.13561, 0.297722, 1.1196, 2.49484, 0.281324, 1.06884, 2.1163, 0.297722, 0.878273, -0.5, -0.730575, 0.878273, -0.5, -0.371412, 0.91656, -0.519311, -0.730575, 0.91656, -0.519311, -0.371412, 0.929034, 1.37854, 0.672702, 0.979795, 1.75707, 0.639329, 0.967321, 1.35923, 0.672702, 1.01808, 1.73776, 0.639329, 1.03056, 2.13561, 0.297722, 1.03056, 2.13561, 0.605956, 1.06884, 2.1163, 0.297722, 1.06884, 2.1163, 0.605956, 0.878273, -0.5, -0.371412, 0.878273, 0, -0.371412, 0.91656, -0.519311, -0.371412, 0.91656, -0.019311, -0.371412, 2.91649, 4.81327, -0.239126, 2.75182, 4.68683, -0.290368, 2.95478, 4.79396, -0.239126, 2.7901, 4.66751, -0.290368, 1.03056, 2.13561, -0.318747, 1.08132, 2.51415, -0.301192, 1.06884, 2.1163, -0.318747, 1.1196, 2.49484, -0.301192, 0.878273, -0.5, 0.346913, 0.878273, -0.5, 0.706076, 0.91656, -0.519311, 0.346913, 0.91656, -0.519311, 0.706076, 1.38535, 3.11726, -0.536072, 1.23334, 2.81571, -0.564261, 1.42364, 3.09795, -0.536072, 1.27162, 2.7964, -0.564261, 1.03056, 2.13561, -0.626981, 1.03056, 2.13561, -0.318747, 1.06884, 2.1163, -0.626981, 1.06884, 2.1163, -0.318747 )
+
+[sub_resource type="Animation" id=15]
+resource_name = "rotateTentacles"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("tentacles:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 13.5318, 9.72369e-008, 7.86946 ), Vector3( 13.532, 180, 7.869 ), Vector3( 13.532, 360, 7.869 ) ]
 }
 
 [node name="OctopusBoss" type="Spatial"]
@@ -603,134 +680,34 @@ mesh = SubResource( 1 )
 material/0 = ExtResource( 3 )
 
 [node name="player" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65685, 3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65691, 3 )
+
+[node name="playerTurnTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
 
 [node name="kraken" type="MeshInstance" parent="."]
-transform = Transform( -2.84607, -0.267949, -2.79788, 0.517638, 3.8637, -0.896575, 2.7626, -1, -2.71441, -11, 3.18845, -21 )
+editor/display_folded = true
+transform = Transform( -2.42119, -0.441121, -3.15329, 0.46569, 3.86976, -0.898919, 3.14976, -0.911226, -2.291, -14.5228, 3.18845, -21 )
 mesh = ExtResource( 5 )
 material/0 = ExtResource( 6 )
 material/1 = ExtResource( 7 )
 material/2 = ExtResource( 7 )
 
-[node name="foot" type="MeshInstance" parent="kraken"]
-transform = Transform( -0.237609, 0.113908, -0.266818, 0.184306, 0.325616, -0.02512, 0.22405, -0.147053, -0.262302, 1.53285, -4.13348, -1.0876 )
+[node name="footAttacker1" type="MeshInstance" parent="kraken"]
+transform = Transform( 0.244207, 0.0989747, 0.266819, -0.163788, 0.336404, 0.02512, -0.232727, -0.132896, 0.262301, 0.636, -5, -3.045 )
 mesh = ExtResource( 8 )
 material/0 = ExtResource( 6 )
 material/1 = ExtResource( 7 )
 
-[node name="foot5" type="MeshInstance" parent="kraken"]
-transform = Transform( -0.332956, 0.139456, -0.101575, 0.160041, 0.332117, -0.0686298, 0.0644369, -0.104285, -0.354397, 2.59418, -4.76487, 0.591112 )
+[node name="footAttacker2" type="MeshInstance" parent="kraken"]
+transform = Transform( 0.22146, 0.0939068, 0.287684, -0.147964, 0.344572, 0.00142705, -0.263983, -0.114355, 0.240543, -0.4, -5, -4.137 )
 mesh = ExtResource( 8 )
 material/0 = ExtResource( 6 )
 material/1 = ExtResource( 7 )
 
-[node name="foot6" type="MeshInstance" parent="kraken"]
-transform = Transform( -0.245167, 0.115933, 0.258994, 0.0694857, 0.356381, -0.0937502, -0.275118, -0.0133016, -0.254476, 1.6814, -3.80238, 3.13181 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
-
-[node name="foot7" type="MeshInstance" parent="kraken"]
-transform = Transform( 0.100349, 0.0233521, 0.360569, 0.00319447, 0.374145, -0.0251203, -0.36131, 0.00979367, 0.099921, 0.0762184, -5.87034, -4.76618 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
-
-[node name="foot8" type="MeshInstance" parent="kraken"]
-transform = Transform( 0.262729, -0.0201576, 0.266819, 0.00319457, 0.374145, 0.0251201, -0.26756, -0.0153264, 0.262301, 1.24459, -5.76815, -3.49549 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
-
-[node name="foot2" type="MeshInstance" parent="kraken"]
-transform = Transform( 0.0179045, 0.0454431, -0.371805, 0.17494, 0.328125, 0.0485285, 0.33121, -0.175767, -0.00553304, -0.317154, -4.42327, -2.02844 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
-
-[node name="foot3" type="MeshInstance" parent="kraken"]
-transform = Transform( 0.110674, 0.0205857, -0.357704, 0.160041, 0.332117, 0.0686298, 0.320567, -0.172915, 0.0892324, -1.92772, -3.93423, -2.07371 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
-
-[node name="foot4" type="MeshInstance" parent="kraken"]
-transform = Transform( 0.326254, -0.0371793, -0.18111, 0.09375, 0.34988, 0.0970567, 0.159356, -0.129718, 0.313693, -3.61245, -3.20996, -0.332802 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
-
-[node name="target" type="Area" parent="."]
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 7.36, -13 )
-
-[node name="obj" type="MeshInstance" parent="target"]
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
-
-[node name="hitbox" type="CollisionShape" parent="target"]
-shape = SubResource( 4 )
-
-[node name="target2" type="Area" parent="."]
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 9.06405, -11 )
-
-[node name="obj" type="MeshInstance" parent="target2"]
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
-
-[node name="hitbox" type="CollisionShape" parent="target2"]
-shape = SubResource( 4 )
-
-[node name="target3" type="Area" parent="."]
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 10.7147, -12 )
-
-[node name="obj" type="MeshInstance" parent="target3"]
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
-
-[node name="hitbox" type="CollisionShape" parent="target3"]
-shape = SubResource( 4 )
-
-[node name="target4" type="Area" parent="."]
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 11.8867, -20 )
-
-[node name="obj" type="MeshInstance" parent="target4"]
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
-
-[node name="hitbox" type="CollisionShape" parent="target4"]
-shape = SubResource( 4 )
-
-[node name="target5" type="Area" parent="."]
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 10.7147, -18 )
-
-[node name="obj" type="MeshInstance" parent="target5"]
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
-
-[node name="hitbox" type="CollisionShape" parent="target5"]
-shape = SubResource( 4 )
-
-[node name="target6" type="Area" parent="."]
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 11.8867, -27 )
-
-[node name="obj" type="MeshInstance" parent="target6"]
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
-
-[node name="hitbox" type="CollisionShape" parent="target6"]
-shape = SubResource( 4 )
-
-[node name="turnAnimations" type="AnimationPlayer" parent="."]
-anims/bossAttackTurn = SubResource( 5 )
-anims/playerAttackTurn = SubResource( 6 )
-
-[node name="Label" type="Label" parent="."]
+[node name="bossHealth" type="Label" parent="."]
 margin_left = 4.0
 margin_top = 30.0
 margin_right = 154.0
@@ -741,61 +718,133 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="attackImg" type="Sprite3D" parent="."]
-transform = Transform( -3.49691e-007, 0, 1, 0, 4, 0, -8, 0, -4.37114e-008, -4.03005, -0.0168333, 3.1515 )
-visible = false
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 9 )
-
-[node name="attackImg2" type="Sprite3D" parent="attackImg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 9 )
-
-[node name="attackImg3" type="Sprite3D" parent="attackImg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-008, 0, 2 )
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 9 )
-
-[node name="attackImg4" type="Sprite3D" parent="attackImg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-008, 0, 3 )
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 9 )
-
-[node name="attackImg5" type="Sprite3D" parent="attackImg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-008, 0, 4 )
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 9 )
-
-[node name="attackImg6" type="Sprite3D" parent="attackImg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-008, 0, 5 )
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 9 )
-
-[node name="attackImg7" type="Sprite3D" parent="attackImg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-008, 0, 6 )
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 9 )
-
-[node name="attackImg8" type="Sprite3D" parent="attackImg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-008, 0, 7 )
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 9 )
-
-[node name="attackImg9" type="Sprite3D" parent="attackImg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-008, 0, 8 )
-modulate = Color( 0, 0, 0, 1 )
-texture = ExtResource( 9 )
-
 [node name="krakenAnimations" type="AnimationPlayer" parent="."]
-autoplay = "tentacleMovement"
 playback_speed = 0.25
-anims/tentacleAttack = SubResource( 9 )
-anims/tentacleMovement = SubResource( 7 )
-anims/tentacleSink = SubResource( 8 )
-[connection signal="area_entered" from="target" to="." method="_on_target_area_entered"]
-[connection signal="area_entered" from="target2" to="." method="_on_target2_area_entered"]
-[connection signal="area_entered" from="target3" to="." method="_on_target3_area_entered"]
-[connection signal="area_entered" from="target4" to="." method="_on_target4_area_entered"]
-[connection signal="area_entered" from="target5" to="." method="_on_target5_area_entered"]
-[connection signal="area_entered" from="target6" to="." method="_on_target6_area_entered"]
+anims/tentacleAttack = SubResource( 4 )
+anims/tentacleMovement = SubResource( 5 )
+anims/tentacleSink = SubResource( 6 )
+anims/tentacle_1_destroyed = SubResource( 7 )
+anims/tentacle_2_destroyed = SubResource( 8 )
+anims/tentacle_3_destroyed = SubResource( 9 )
+anims/tentacle_4_destroyed = SubResource( 10 )
+anims/tentacle_5_destroyed = SubResource( 11 )
+anims/tentacle_6_destroyed = SubResource( 12 )
+anims/tentacle_7_destroyed = SubResource( 13 )
+anims/tentacle_8_destroyed = SubResource( 14 )
+
+[node name="tentacles" type="Spatial" parent="."]
+transform = Transform( 3.96233, -0.547635, 6.79968e-007, 0.532431, 3.85234, -0.935955, 0.128139, 0.927141, 3.88896, -13.4323, 3.188, -21 )
+
+[node name="foot" type="MeshInstance" parent="tentacles"]
+transform = Transform( -0.237609, 0.113909, -0.266818, 0.184306, 0.325616, -0.02512, 0.224049, -0.147053, -0.262302, 1.84564, -1.79878, -1.62937 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 6 )
+material/1 = ExtResource( 7 )
+
+[node name="area_1" type="Area" parent="tentacles/foot"]
+
+[node name="CollisionShape" type="CollisionShape" parent="tentacles/foot/area_1"]
+transform = Transform( 1, -1.49012e-008, 0, -1.49012e-008, 1, 0, 0, 7.45058e-009, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="foot2" type="MeshInstance" parent="tentacles"]
+editor/display_folded = true
+transform = Transform( 0.0179044, 0.045443, -0.371806, 0.17494, 0.328125, 0.0485286, 0.33121, -0.175767, -0.00553314, -0.00436831, -2.08846, -2.57023 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 6 )
+material/1 = ExtResource( 7 )
+
+[node name="area_2" type="Area" parent="tentacles/foot2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="tentacles/foot2/area_2"]
+transform = Transform( 1, 0, -1.86265e-009, 1.49012e-008, 1, 0, -9.31323e-010, 4.65661e-010, 1, 0, 0, 0 )
+shape = ExtResource( 9 )
+
+[node name="foot3" type="MeshInstance" parent="tentacles"]
+editor/display_folded = true
+transform = Transform( 0.110674, 0.0205858, -0.357705, 0.160041, 0.332117, 0.0686299, 0.320567, -0.172914, 0.0892323, -1.61494, -1.59942, -2.6155 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 6 )
+material/1 = ExtResource( 7 )
+
+[node name="area_3" type="Area" parent="tentacles/foot3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="tentacles/foot3/area_3"]
+transform = Transform( 1, 1.49012e-008, 1.49012e-008, 0, 1, 3.72529e-009, -1.49012e-008, 0, 1, 0, 0, 0 )
+shape = ExtResource( 9 )
+
+[node name="foot4" type="MeshInstance" parent="tentacles"]
+editor/display_folded = true
+transform = Transform( 0.326255, -0.0371792, -0.18111, 0.0937502, 0.34988, 0.0970571, 0.159356, -0.129718, 0.313694, -3.29966, -0.875143, -0.874584 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 6 )
+material/1 = ExtResource( 7 )
+
+[node name="area_4" type="Area" parent="tentacles/foot4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="tentacles/foot4/area_4"]
+transform = Transform( 1, -3.72529e-009, 2.98023e-008, -2.6077e-008, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = ExtResource( 9 )
+
+[node name="foot5" type="MeshInstance" parent="tentacles"]
+transform = Transform( -0.332956, 0.139455, -0.101575, 0.160041, 0.332118, -0.0686299, 0.0644373, -0.104285, -0.354398, 2.90698, -2.43006, 0.049298 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 6 )
+material/1 = ExtResource( 7 )
+
+[node name="area_5" type="Area" parent="tentacles/foot5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="tentacles/foot5/area_5"]
+transform = Transform( 1, -2.98023e-008, 1.49012e-008, -9.31323e-010, 1, 3.72529e-009, 0, -3.72529e-009, 1, 0, 0, 0 )
+shape = ExtResource( 9 )
+
+[node name="foot6" type="MeshInstance" parent="tentacles"]
+editor/display_folded = true
+transform = Transform( -0.245167, 0.115933, 0.258993, 0.0694858, 0.356382, -0.0937506, -0.275117, -0.0133019, -0.254477, 1.99421, -1.46757, 2.59 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 6 )
+material/1 = ExtResource( 7 )
+
+[node name="area_6" type="Area" parent="tentacles/foot6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="tentacles/foot6/area_6"]
+shape = ExtResource( 9 )
+
+[node name="foot7" type="MeshInstance" parent="tentacles"]
+editor/display_folded = true
+transform = Transform( 0.100349, 0.0233521, 0.360569, 0.00319447, 0.374145, -0.0251203, -0.361309, 0.0097937, 0.0999214, -0.0620017, -1.23553, 3.48286 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 6 )
+material/1 = ExtResource( 7 )
+
+[node name="area_7" type="Area" parent="tentacles/foot7"]
+
+[node name="CollisionShape" type="CollisionShape" parent="tentacles/foot7/area_7"]
+shape = ExtResource( 9 )
+
+[node name="foot8" type="MeshInstance" parent="tentacles"]
+editor/display_folded = true
+transform = Transform( 0.262729, -0.0201575, 0.266819, 0.00319445, 0.374144, 0.0251202, -0.26756, -0.0153266, 0.262301, -2.96882, -1.12212, 2.29337 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 6 )
+material/1 = ExtResource( 7 )
+
+[node name="area_8" type="Area" parent="tentacles/foot8"]
+transform = Transform( 1, -1.49012e-008, 0, 0, 1, 7.10543e-015, 4.44089e-016, 3.88578e-015, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="tentacles/foot8/area_8"]
+shape = ExtResource( 9 )
+
+[node name="tentacleRotation" type="AnimationPlayer" parent="."]
+autoplay = "rotateTentacles"
+playback_speed = 0.05
+anims/rotateTentacles = SubResource( 15 )
+[connection signal="timeout" from="playerTurnTimer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="tentacles/foot/area_1" to="." method="_on_area_1_area_entered"]
+[connection signal="area_entered" from="tentacles/foot2/area_2" to="." method="_on_area_2_area_entered"]
+[connection signal="area_entered" from="tentacles/foot3/area_3" to="." method="_on_area_3_area_entered"]
+[connection signal="area_entered" from="tentacles/foot4/area_4" to="." method="_on_area_4_area_entered"]
+[connection signal="area_entered" from="tentacles/foot5/area_5" to="." method="_on_area_5_area_entered"]
+[connection signal="area_entered" from="tentacles/foot6/area_6" to="." method="_on_area_6_area_entered"]
+[connection signal="area_entered" from="tentacles/foot7/area_7" to="." method="_on_area_7_area_entered"]
+[connection signal="area_entered" from="tentacles/foot8/area_8" to="." method="_on_area_8_area_entered"]
