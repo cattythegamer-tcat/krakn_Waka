@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/person.obj-4df49769ff5563e232c3782febfc3f00.mesh"
+
+[deps]
+
+files=[ "res://.import/person.obj-4df49769ff5563e232c3782febfc3f00.mesh" ]
+
+source_file="res://assets/3d/tangaroa/person.obj"
+dest_files=[ "res://.import/person.obj-4df49769ff5563e232c3782febfc3f00.mesh", "res://.import/person.obj-4df49769ff5563e232c3782febfc3f00.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true
