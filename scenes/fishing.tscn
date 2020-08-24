@@ -5,8 +5,8 @@
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://materials/waterShader.tres" type="Material" id=4]
 [ext_resource path="res://scripts/fishPos.gd" type="Script" id=5]
-[ext_resource path="res://materials/fishYellow.tres" type="Material" id=6]
-[ext_resource path="res://assets/3d/fish/fish.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://assets/3d/fish/fish.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://materials/fishYellow.tres" type="Material" id=7]
 [ext_resource path="res://materials/fishGreen.tres" type="Material" id=8]
 
 [sub_resource type="PlaneMesh" id=1]
@@ -14,8 +14,96 @@ size = Vector2( 500, 500 )
 subdivide_width = 250
 subdivide_depth = 250
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=2]
 extents = Vector3( 2, 1.5, 1.5 )
+
+[sub_resource type="Animation" id=3]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("fish:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -21.6666, 11.2887 ), Vector3( 0, 6.773, 11.289 ), Vector3( 0, -15.721, 11.289 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("fish:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("fish:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -21.6666, 11.2887 ), Vector3( 0, 6.773, 11.289 ), Vector3( 0, -15.721, 11.289 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("fish:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=7]
 length = 3.0
@@ -369,94 +457,6 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=23]
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("fish:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 0.5, 2, 1 ),
-"update": 0,
-"values": [ Vector3( 0, -21.6666, 11.2887 ), Vector3( 0, 6.773, 11.289 ), Vector3( 0, -15.721, 11.289 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("fish:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-
-[sub_resource type="Animation" id=24]
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=25]
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("fish:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 0.5, 2, 1 ),
-"update": 0,
-"values": [ Vector3( 0, -21.6666, 11.2887 ), Vector3( 0, 6.773, 11.289 ), Vector3( 0, -15.721, 11.289 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("fish:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-
-[sub_resource type="Animation" id=26]
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
-}
-
 [node name="fishing" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -483,20 +483,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.336901, 11.2889 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos/fishCore/fish"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos/fishCore/fish"]
-transform = Transform( 1.89276e-08, 0.25, 0.433013, 1.09278e-08, -0.433013, 0.25, 0.5, 0, -2.18557e-08, 0.449391, -5.96046e-08, 0 )
-mesh = ExtResource( 7 )
-material/0 = ExtResource( 6 )
+transform = Transform( 1.89276e-008, 0.25, 0.433013, 1.09278e-008, -0.433013, 0.25, 0.5, 0, -2.18557e-008, 0.449391, -5.96046e-008, 0 )
+mesh = ExtResource( 6 )
+material/0 = ExtResource( 7 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 7 )
+anims/fishJump = SubResource( 3 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 8 )
+anims/side = SubResource( 4 )
 
 [node name="fishPos2" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74571, 0, 2 )
@@ -510,20 +510,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos2/fishCore/fish"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos2/fishCore/fish"]
-transform = Transform( -1.89276e-08, -0.25, 0.433013, -1.09278e-08, 0.433013, 0.25, -0.5, 0, -2.18557e-08, 0.223013, 0, 0 )
-mesh = ExtResource( 7 )
-material/0 = ExtResource( 6 )
+transform = Transform( -1.89276e-008, -0.25, 0.433013, -1.09278e-008, 0.433013, 0.25, -0.5, 0, -2.18557e-008, 0.223013, 0, 0 )
+mesh = ExtResource( 6 )
+material/0 = ExtResource( 7 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos2/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 9 )
+anims/fishJump = SubResource( 5 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos2/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 10 )
+anims/side = SubResource( 6 )
 
 [node name="fishPos3" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7457, 0, -18 )
@@ -537,20 +537,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos3/fishCore/fish"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos3/fishCore/fish"]
-transform = Transform( -2.53332e-08, -0.155291, 0.579556, -6.788e-09, 0.579556, 0.155291, -0.6, 0, -2.62268e-08, 0.46546, 0, 0 )
-mesh = ExtResource( 7 )
-material/0 = ExtResource( 6 )
+transform = Transform( -2.53332e-008, -0.155291, 0.579556, -6.788e-009, 0.579556, 0.155291, -0.6, 0, -2.62268e-008, 0.46546, 0, 0 )
+mesh = ExtResource( 6 )
+material/0 = ExtResource( 7 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos3/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 11 )
+anims/fishJump = SubResource( 7 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos3/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 12 )
+anims/side = SubResource( 8 )
 
 [node name="fishPos4" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.2543, 0, -13 )
@@ -564,20 +564,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos4/fishCore/fish"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos4/fishCore/fish"]
-transform = Transform( -1.51421e-08, -0.2, 0.34641, -8.74228e-09, 0.34641, 0.2, -0.4, 0, -1.74846e-08, 0, 0, 0 )
-mesh = ExtResource( 7 )
+transform = Transform( -1.51421e-008, -0.2, 0.34641, -8.74228e-009, 0.34641, 0.2, -0.4, 0, -1.74846e-008, 0, 0, 0 )
+mesh = ExtResource( 6 )
 material/0 = ExtResource( 8 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos4/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 13 )
+anims/fishJump = SubResource( 9 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos4/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 14 )
+anims/side = SubResource( 10 )
 
 [node name="fishPos5" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2543, 6, -36 )
@@ -591,20 +591,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos5/fishCore/fish"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos5/fishCore/fish"]
-transform = Transform( -2.1111e-08, -0.12941, 0.482963, -5.65667e-09, 0.482963, 0.12941, -0.5, 0, -2.18557e-08, 0.143167, -0.114048, 0 )
-mesh = ExtResource( 7 )
+transform = Transform( -2.1111e-008, -0.12941, 0.482963, -5.65667e-009, 0.482963, 0.12941, -0.5, 0, -2.18557e-008, 0.143167, -0.114048, 0 )
+mesh = ExtResource( 6 )
 material/0 = ExtResource( 8 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos5/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 15 )
+anims/fishJump = SubResource( 11 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos5/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 16 )
+anims/side = SubResource( 12 )
 
 [node name="fishPos6" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7457, 4, 10 )
@@ -618,20 +618,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos6/fishCore/fish"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos6/fishCore/fish"]
-transform = Transform( -2.53332e-08, -0.155291, 0.579556, -6.788e-09, 0.579556, 0.155291, -0.6, 0, -2.62268e-08, 0.540985, 0, 0 )
-mesh = ExtResource( 7 )
+transform = Transform( -2.53332e-008, -0.155291, 0.579556, -6.788e-009, 0.579556, 0.155291, -0.6, 0, -2.62268e-008, 0.540985, 0, 0 )
+mesh = ExtResource( 6 )
 material/0 = ExtResource( 8 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos6/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 17 )
+anims/fishJump = SubResource( 13 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos6/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 18 )
+anims/side = SubResource( 14 )
 
 [node name="fishPos7" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.2543, 6, -22 )
@@ -645,20 +645,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos7/fishCore/fish"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos7/fishCore/fish"]
-transform = Transform( -1.89276e-08, -0.25, 0.433013, -1.09278e-08, 0.433013, 0.25, -0.5, 0, -2.18557e-08, 0.357496, 0.160196, 0 )
-mesh = ExtResource( 7 )
-material/0 = ExtResource( 6 )
+transform = Transform( -1.89276e-008, -0.25, 0.433013, -1.09278e-008, 0.433013, 0.25, -0.5, 0, -2.18557e-008, 0.357496, 0.160196, 0 )
+mesh = ExtResource( 6 )
+material/0 = ExtResource( 7 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos7/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 19 )
+anims/fishJump = SubResource( 15 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos7/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 20 )
+anims/side = SubResource( 16 )
 
 [node name="fishPos8" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25429, 6, -8 )
@@ -672,20 +672,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos8/fishCore/fish"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos8/fishCore/fish"]
-transform = Transform( -2.53332e-08, -0.155291, 0.579556, -6.788e-09, 0.579556, 0.155291, -0.6, 0, -2.62268e-08, 0.488941, 0.248541, 0 )
-mesh = ExtResource( 7 )
-material/0 = ExtResource( 6 )
+transform = Transform( -2.53332e-008, -0.155291, 0.579556, -6.788e-009, 0.579556, 0.155291, -0.6, 0, -2.62268e-008, 0.488941, 0.248541, 0 )
+mesh = ExtResource( 6 )
+material/0 = ExtResource( 7 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos8/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 21 )
+anims/fishJump = SubResource( 17 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos8/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 22 )
+anims/side = SubResource( 18 )
 
 [node name="fishPos9" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7457, 6, -53 )
@@ -699,20 +699,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos9/fishCore/fish"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos9/fishCore/fish"]
-transform = Transform( -1.89276e-08, -0.25, 0.433013, -1.09278e-08, 0.433013, 0.25, -0.5, 0, -2.18557e-08, 0.373493, 0, 0 )
-mesh = ExtResource( 7 )
+transform = Transform( -1.89276e-008, -0.25, 0.433013, -1.09278e-008, 0.433013, 0.25, -0.5, 0, -2.18557e-008, 0.373493, 0, 0 )
+mesh = ExtResource( 6 )
 material/0 = ExtResource( 8 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos9/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 23 )
+anims/fishJump = SubResource( 19 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos9/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 24 )
+anims/side = SubResource( 20 )
 
 [node name="fishPos10" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74571, 7, -30 )
@@ -726,20 +726,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos10/fishCore/fish"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos10/fishCore/fish"]
-transform = Transform( -1.89276e-08, -0.25, 0.433013, -1.09278e-08, 0.433013, 0.25, -0.5, 0, -2.18557e-08, 0, 0.247306, 0 )
-mesh = ExtResource( 7 )
+transform = Transform( -1.89276e-008, -0.25, 0.433013, -1.09278e-008, 0.433013, 0.25, -0.5, 0, -2.18557e-008, 0, 0.247306, 0 )
+mesh = ExtResource( 6 )
 material/0 = ExtResource( 8 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos10/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 25 )
+anims/fishJump = SubResource( 21 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos10/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 26 )
+anims/side = SubResource( 22 )
 [connection signal="area_entered" from="fishPos/fishCore/fish" to="fishPos" method="_on_fish_area_entered"]
 [connection signal="area_entered" from="fishPos2/fishCore/fish" to="fishPos2" method="_on_fish_area_entered"]
 [connection signal="area_entered" from="fishPos3/fishCore/fish" to="fishPos3" method="_on_fish_area_entered"]

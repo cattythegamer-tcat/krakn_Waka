@@ -2,12 +2,12 @@
 
 [ext_resource path="res://scripts/OctopusBoss.gd" type="Script" id=1]
 [ext_resource path="res://materials/waterShader.tres" type="Material" id=2]
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/3d/kraken/head.obj" type="ArrayMesh" id=5]
-[ext_resource path="res://materials/krakenSkin.tres" type="Material" id=6]
-[ext_resource path="res://materials/krakenEye.tres" type="Material" id=7]
-[ext_resource path="res://assets/3d/kraken/foot.obj" type="ArrayMesh" id=8]
-[ext_resource path="res://materials/krakenLegCollision.tres" type="Shape" id=9]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/3d/kraken/head.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://materials/krakenSkin.tres" type="Material" id=5]
+[ext_resource path="res://materials/krakenEye.tres" type="Material" id=6]
+[ext_resource path="res://assets/3d/kraken/foot.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://materials/krakenLegCollision.tres" type="Shape" id=8]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 500, 500 )
@@ -655,7 +655,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 13.5318, 9.72369e-08, 7.86946 ), Vector3( 13.532, 180, 7.869 ), Vector3( 13.532, 360, 7.869 ) ]
+"values": [ Vector3( 13.5318, 9.72369e-008, 7.86946 ), Vector3( 13.532, 180, 7.869 ), Vector3( 13.532, 360, 7.869 ) ]
 }
 
 [node name="OctopusBoss" type="Spatial"]
@@ -666,7 +666,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.158937, -0.356289, 0.0568264
 mesh = SubResource( 1 )
 material/0 = ExtResource( 2 )
 
-[node name="player" parent="." instance=ExtResource( 4 )]
+[node name="player" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65691, 3 )
 
 [node name="playerTurnTimer" type="Timer" parent="."]
@@ -676,22 +676,22 @@ autostart = true
 
 [node name="kraken" type="MeshInstance" parent="."]
 transform = Transform( -2.42119, -0.441121, -3.15329, 0.46569, 3.86976, -0.898919, 3.14976, -0.911226, -2.291, -14.5228, 3.18845, -21 )
-mesh = ExtResource( 5 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
-material/2 = ExtResource( 7 )
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 6 )
+material/2 = ExtResource( 6 )
 
 [node name="footAttacker1" type="MeshInstance" parent="kraken"]
 transform = Transform( 0.244207, 0.0989747, 0.266819, -0.163788, 0.336404, 0.02512, -0.232727, -0.132896, 0.262301, 0.636, -5, -3.045 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 6 )
 
 [node name="footAttacker2" type="MeshInstance" parent="kraken"]
 transform = Transform( 0.22146, 0.0939068, 0.287684, -0.147964, 0.344572, 0.00142705, -0.263983, -0.114355, 0.240543, -0.4, -5, -4.137 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 6 )
 
 [node name="bossHealth" type="Label" parent="."]
 margin_left = 4.0
@@ -719,101 +719,101 @@ anims/tentacle_7_destroyed = SubResource( 11 )
 anims/tentacle_8_destroyed = SubResource( 12 )
 
 [node name="tentacles" type="Spatial" parent="."]
-transform = Transform( 3.96233, -0.547635, 6.79968e-07, 0.532431, 3.85234, -0.935955, 0.128139, 0.927141, 3.88896, -13.4323, 3.188, -21 )
+transform = Transform( 3.96233, -0.547635, 6.79968e-007, 0.532431, 3.85234, -0.935955, 0.128139, 0.927141, 3.88896, -13.4323, 3.188, -21 )
 
 [node name="foot" type="MeshInstance" parent="tentacles"]
 transform = Transform( -0.237609, 0.113909, -0.266818, 0.184306, 0.325616, -0.02512, 0.224049, -0.147053, -0.262302, 1.84564, -1.79878, -1.62937 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 6 )
 
 [node name="area_1" type="Area" parent="tentacles/foot"]
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot/area_1"]
-transform = Transform( 1, -1.49012e-08, 0, -1.49012e-08, 1, 0, 0, 7.45058e-09, 1, 0, 0, 0 )
+transform = Transform( 1, -1.49012e-008, 0, -1.49012e-008, 1, 0, 0, 7.45058e-009, 1, 0, 0, 0 )
 shape = SubResource( 13 )
 
 [node name="foot2" type="MeshInstance" parent="tentacles"]
 transform = Transform( 0.0179044, 0.045443, -0.371806, 0.17494, 0.328125, 0.0485286, 0.33121, -0.175767, -0.00553314, -0.00436831, -2.08846, -2.57023 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 6 )
 
 [node name="area_2" type="Area" parent="tentacles/foot2"]
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot2/area_2"]
-transform = Transform( 1, 0, -1.86265e-09, 1.49012e-08, 1, 0, -9.31323e-10, 4.65661e-10, 1, 0, 0, 0 )
-shape = ExtResource( 9 )
+transform = Transform( 1, 0, -1.86265e-009, 1.49012e-008, 1, 0, -9.31323e-010, 4.65661e-010, 1, 0, 0, 0 )
+shape = ExtResource( 8 )
 
 [node name="foot3" type="MeshInstance" parent="tentacles"]
 transform = Transform( 0.110674, 0.0205858, -0.357705, 0.160041, 0.332117, 0.0686299, 0.320567, -0.172914, 0.0892323, -1.61494, -1.59942, -2.6155 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 6 )
 
 [node name="area_3" type="Area" parent="tentacles/foot3"]
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot3/area_3"]
-transform = Transform( 1, 1.49012e-08, 1.49012e-08, 0, 1, 3.72529e-09, -1.49012e-08, 0, 1, 0, 0, 0 )
-shape = ExtResource( 9 )
+transform = Transform( 1, 1.49012e-008, 1.49012e-008, 0, 1, 3.72529e-009, -1.49012e-008, 0, 1, 0, 0, 0 )
+shape = ExtResource( 8 )
 
 [node name="foot4" type="MeshInstance" parent="tentacles"]
 transform = Transform( 0.326255, -0.0371792, -0.18111, 0.0937502, 0.34988, 0.0970571, 0.159356, -0.129718, 0.313694, -3.29966, -0.875143, -0.874584 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 6 )
 
 [node name="area_4" type="Area" parent="tentacles/foot4"]
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot4/area_4"]
-transform = Transform( 1, -3.72529e-09, 2.98023e-08, -2.6077e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
-shape = ExtResource( 9 )
+transform = Transform( 1, -3.72529e-009, 2.98023e-008, -2.6077e-008, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = ExtResource( 8 )
 
 [node name="foot5" type="MeshInstance" parent="tentacles"]
 transform = Transform( -0.332956, 0.139455, -0.101575, 0.160041, 0.332118, -0.0686299, 0.0644373, -0.104285, -0.354398, 2.90698, -2.43006, 0.049298 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 6 )
 
 [node name="area_5" type="Area" parent="tentacles/foot5"]
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot5/area_5"]
-transform = Transform( 1, -2.98023e-08, 1.49012e-08, -9.31323e-10, 1, 3.72529e-09, 0, -3.72529e-09, 1, 0, 0, 0 )
-shape = ExtResource( 9 )
+transform = Transform( 1, -2.98023e-008, 1.49012e-008, -9.31323e-010, 1, 3.72529e-009, 0, -3.72529e-009, 1, 0, 0, 0 )
+shape = ExtResource( 8 )
 
 [node name="foot6" type="MeshInstance" parent="tentacles"]
 transform = Transform( -0.245167, 0.115933, 0.258993, 0.0694858, 0.356382, -0.0937506, -0.275117, -0.0133019, -0.254477, 1.99421, -1.46757, 2.59 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 6 )
 
 [node name="area_6" type="Area" parent="tentacles/foot6"]
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot6/area_6"]
-shape = ExtResource( 9 )
+shape = ExtResource( 8 )
 
 [node name="foot7" type="MeshInstance" parent="tentacles"]
 transform = Transform( 0.100349, 0.0233521, 0.360569, 0.00319447, 0.374145, -0.0251203, -0.361309, 0.0097937, 0.0999214, -0.0620017, -1.23553, 3.48286 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 6 )
 
 [node name="area_7" type="Area" parent="tentacles/foot7"]
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot7/area_7"]
-shape = ExtResource( 9 )
+shape = ExtResource( 8 )
 
 [node name="foot8" type="MeshInstance" parent="tentacles"]
 transform = Transform( 0.262729, -0.0201575, 0.266819, 0.00319445, 0.374144, 0.0251202, -0.26756, -0.0153266, 0.262301, -2.96882, -1.12212, 2.29337 )
-mesh = ExtResource( 8 )
-material/0 = ExtResource( 6 )
-material/1 = ExtResource( 7 )
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 6 )
 
 [node name="area_8" type="Area" parent="tentacles/foot8"]
-transform = Transform( 1, -1.49012e-08, 0, 0, 1, 7.10543e-15, 4.44089e-16, 3.88578e-15, 1, 0, 0, 0 )
+transform = Transform( 1, -1.49012e-008, 0, 0, 1, 7.10543e-015, 4.44089e-016, 3.88578e-015, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot8/area_8"]
-shape = ExtResource( 9 )
+shape = ExtResource( 8 )
 
 [node name="tentacleRotation" type="AnimationPlayer" parent="."]
 autoplay = "rotateTentacles"

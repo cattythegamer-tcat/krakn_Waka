@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
-[sub_resource type="Shader" id=2]
+[sub_resource type="Shader" id=1]
 code = "shader_type spatial;
 
 uniform vec4 out_color : hint_color = vec4(0.0, 0.2, 1.0, 1.0);
@@ -45,7 +45,7 @@ void fragment() {
 }"
 
 [resource]
-shader = SubResource( 2 )
+shader = SubResource( 1 )
 shader_param/out_color = Color( 0, 0.552941, 1, 1 )
 shader_param/amount = 0.311
-shader_param/beer_factor = 0.2
+shader_param/beer_factor = 0.5
