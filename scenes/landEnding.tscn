@@ -1,9 +1,12 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://materials/water.tres" type="Material" id=1]
+[ext_resource path="res://materials/waterShader.tres" type="Material" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
 
 [sub_resource type="PlaneMesh" id=1]
+size = Vector2( 500, 500 )
+subdivide_width = 250
+subdivide_depth = 250
 
 [sub_resource type="CubeMesh" id=2]
 
@@ -13,7 +16,6 @@ albedo_color = Color( 0.101961, 0.662745, 0.266667, 1 )
 [node name="landEnding" type="Spatial"]
 
 [node name="water" type="MeshInstance" parent="."]
-transform = Transform( 1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )
 
