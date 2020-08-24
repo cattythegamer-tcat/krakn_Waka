@@ -44,7 +44,7 @@ func _process(delta):
 				krakA.play_backwards("tentacleSink")
 				sunk = false
 		elif $playerTurnTimer.is_stopped():
-				$playerTurnTimer.wait_time = DEF_WAIT_TIME / difficulty
+				$playerTurnTimer.wait_time = DEF_WAIT_TIME / (difficulty - 0.5)
 				$playerTurnTimer.start()
 
 
@@ -53,6 +53,7 @@ func bossDoDamage(amt = 10):
 
 func tentacleKilled(num):
 	if !tentacleShot and !sunk:
+		print("PONG")
 		difficulty = float(STARTING_BOSSHEALTH) / float(bossHealth) * starting_difficulty
 		$tentacleRotation.playback_speed = DEF_ROTATION * difficulty
 		bossHealth -= 10
