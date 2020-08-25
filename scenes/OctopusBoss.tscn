@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scripts/OctopusBoss.gd" type="Script" id=1]
 [ext_resource path="res://materials/waterShader.tres" type="Material" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://materials/tangaroaBoss.tres" type="Material" id=10]
 [ext_resource path="res://materials/fishGreen.tres" type="Material" id=11]
 [ext_resource path="res://materials/black.tres" type="Material" id=12]
+[ext_resource path="res://materials/newLegCollision.tres" type="Shape" id=13]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 500, 500 )
@@ -710,7 +711,7 @@ anims/tentacle_7_destroyed = SubResource( 11 )
 anims/tentacle_8_destroyed = SubResource( 12 )
 
 [node name="tentacles" type="Spatial" parent="."]
-transform = Transform( 3.96233, -0.547667, 6.59998e-09, 0.532463, 3.85234, -0.935941, 0.128146, 0.927126, 3.88896, -13.4323, 3.188, -21 )
+transform = Transform( 3.96233, -0.547667, 6.59997e-09, 0.532463, 3.85234, -0.93594, 0.128146, 0.927127, 3.88896, -13.4323, 3.188, -21 )
 
 [node name="foot" type="Area" parent="tentacles"]
 transform = Transform( -0.237609, 0.113909, -0.266818, 0.184306, 0.325616, -0.02512, 0.224049, -0.147053, -0.262302, 1.84564, -1.79878, -1.62937 )
@@ -725,7 +726,7 @@ material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot2" type="Area" parent="tentacles"]
-transform = Transform( 0.0179044, 0.0454431, -0.371806, 0.17494, 0.328126, 0.0485286, 0.33121, -0.175768, -0.00553314, -0.00436401, -2.08857, -2.57021 )
+transform = Transform( 0.0174583, 0.0467743, -0.371662, 0.165696, 0.332723, 0.0496569, 0.335954, -0.166533, -0.00517745, -0.0043642, -2.08857, -2.57021 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot2"]
 transform = Transform( 1, 0, -1.86265e-09, 1.49012e-08, 1, 0, -9.31323e-10, 4.65661e-10, 1, 0, 0, 0 )
@@ -764,8 +765,8 @@ material/1 = ExtResource( 6 )
 transform = Transform( -0.332956, 0.139456, -0.101575, 0.160041, 0.332118, -0.0686298, 0.0644373, -0.104285, -0.354397, 2.90697, -2.43017, 0.0493412 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot5"]
-transform = Transform( 1, -2.98023e-08, 1.49012e-08, -9.31323e-10, 1, 3.72529e-09, 0, -3.72529e-09, 1, 0, 0, 0 )
-shape = ExtResource( 8 )
+transform = Transform( 0.923474, 0.347038, 0.163585, -0.346575, 0.937466, -0.0323004, -0.164565, -0.0268658, 0.986, 0.878, 0.972, 0.101 )
+shape = ExtResource( 13 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot5"]
 mesh = ExtResource( 7 )
@@ -776,7 +777,8 @@ material/1 = ExtResource( 6 )
 transform = Transform( -0.245167, 0.115934, 0.258993, 0.0694859, 0.356382, -0.0937506, -0.275118, -0.0133019, -0.254477, 1.99418, -1.46768, 2.59004 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot6"]
-shape = ExtResource( 8 )
+transform = Transform( 0.923474, 0.347038, 0.163585, -0.346575, 0.937466, -0.0323004, -0.164565, -0.0268658, 0.986, 0.878, 0.972, 0.101 )
+shape = ExtResource( 13 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot6"]
 mesh = ExtResource( 7 )
@@ -787,7 +789,8 @@ material/1 = ExtResource( 6 )
 transform = Transform( 0.100349, 0.0233521, 0.360569, 0.00319448, 0.374145, -0.0251203, -0.36131, 0.0097937, 0.0999213, -0.0620325, -1.23564, 3.48289 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot7"]
-shape = ExtResource( 8 )
+transform = Transform( 0.923474, 0.347038, 0.163585, -0.346575, 0.937466, -0.0323004, -0.164565, -0.0268658, 0.986, 0.878, 0.972, 0.101 )
+shape = ExtResource( 13 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot7"]
 mesh = ExtResource( 7 )
@@ -798,7 +801,8 @@ material/1 = ExtResource( 6 )
 transform = Transform( 0.262729, -0.0201576, 0.266819, 0.00319445, 0.374145, 0.0251202, -0.26756, -0.0153266, 0.262301, -2.96884, -1.12223, 2.29338 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot8"]
-shape = ExtResource( 8 )
+transform = Transform( 0.923472, 0.347042, 0.163592, -0.346577, 0.937465, -0.0322985, -0.164569, -0.0268706, 0.985998, 0.877656, 0.971812, 0.101421 )
+shape = ExtResource( 13 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot8"]
 mesh = ExtResource( 7 )

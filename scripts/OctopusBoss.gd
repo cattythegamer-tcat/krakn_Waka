@@ -53,13 +53,14 @@ func bossDoDamage(amt = 10):
 
 func tentacleKilled(num):
 	if !tentacleShot and !sunk:
-		print("PONG")
+		print(num)
 		difficulty = float(STARTING_BOSSHEALTH) / float(bossHealth) * starting_difficulty
 		$tentacleRotation.playback_speed = DEF_ROTATION * difficulty
 		bossHealth -= 10
 		tentacleShot = true
 		endEarly = true
 		playerTurnEnd = true
+		pass
 		if num == 1:
 			$krakenAnimations.play("tentacle_1_destroyed")
 		elif num == 2:

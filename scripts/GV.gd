@@ -29,7 +29,7 @@ var fish_remaining = 0
 var fishTileProb = 0.1
 var octopusTileProb = 0.3
 
-var global_difficulty = 1
+var global_difficulty = 5
 
 var playerLocation = 0
 
