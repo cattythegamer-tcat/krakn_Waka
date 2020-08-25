@@ -1,7 +1,7 @@
 extends Spatial
 
 const DEF_WAIT_TIME = 3
-const STARTING_BOSSHEALTH = 90
+const STARTING_BOSSHEALTH = 80
 const DEF_ROTATION = 0.04
 
 var bossHealth = STARTING_BOSSHEALTH

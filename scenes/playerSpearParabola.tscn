@@ -1,0 +1,125 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/3d/waka.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/2d/crosshair.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=17]
+script/source = "extends Spatial
+
+var mouse_sens = 0.3
+var camera_anglev = 0
+
+var justFired = 0
+
+onready var camera = $head/Camera
+onready var head = $head
+
+# Called when the node enters the scene tree for the first time.
+func _input(event):         
+	if event is InputEventMouseMotion:
+		head.rotate_y(deg2rad(-event.relative.x*mouse_sens))
+		var changev=-event.relative.y*mouse_sens
+		if camera_anglev+changev>-75 and camera_anglev+changev<75: #Stopped this script so that the player cant look up or down.
+			camera_anglev+=changev
+			camera.rotate_x(deg2rad(changev))
+
+func _process(delta):
+	if GV.actionFireJust:
+		justFired = 10
+	elif justFired >= 0:
+		if justFired == 1:
+			GV.food -= 1
+		justFired -= 1
+	$crosshair/Label.text = \"Resources: \" + str(GV.food - 1)
+
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+"
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.211765, 0.0705882, 0.0431373, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.784314, 0.556863, 0.160784, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.364706, 0.207843, 0.027451, 1 )
+
+[sub_resource type="ProceduralSky" id=4]
+sky_top_color = Color( 0.333333, 0.662745, 0.980392, 1 )
+sky_horizon_color = Color( 0.184314, 0.627451, 0.984314, 1 )
+sky_curve = 0.0869342
+ground_bottom_color = Color( 0.184314, 0.627451, 0.984314, 1 )
+ground_horizon_color = Color( 0.184314, 0.627451, 0.984314, 1 )
+
+[sub_resource type="Environment" id=5]
+background_mode = 2
+background_sky = SubResource( 4 )
+ambient_light_color = Color( 0.984314, 0.917647, 0.831373, 1 )
+ambient_light_energy = 0.8
+ambient_light_sky_contribution = 0.0
+
+[sub_resource type="Animation" id=15]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("waka:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5, 2.5 ),
+"transitions": PoolRealArray( 0.5, 2, 0.5, 2 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 2.77071 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, -1.56827 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 2.0
+loop = true
+
+[node name="player" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.61611, 4.45782, 4.03151 )
+script = SubResource( 17 )
+
+[node name="waka" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0933299, 0 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
+
+[node name="head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.699666, 0 )
+
+[node name="Camera" type="Camera" parent="head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+environment = SubResource( 5 )
+far = 1000.0
+
+[node name="crosshair" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="crosshair"]
+margin_left = -254.0
+margin_top = -148.0
+margin_right = -141.0
+margin_bottom = -134.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Food: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="boatAnimations" type="AnimationPlayer" parent="."]
+autoplay = "swaying"
+playback_speed = 0.25
+anims/swaying = SubResource( 15 )
+
+[node name="playerAnimations" type="AnimationPlayer" parent="."]
+autoplay = "bobbing"
+playback_speed = 0.25
+anims/bobbing = SubResource( 16 )
