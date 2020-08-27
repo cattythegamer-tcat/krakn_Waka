@@ -638,7 +638,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 13.5318, 9.72369e-08, 7.86946 ), Vector3( 13.532, 180, 7.869 ), Vector3( 13.532, 360, 7.869 ) ]
+"values": [ Vector3( 13.5318, 9.72369e-008, 7.86946 ), Vector3( 13.532, 180, 7.869 ), Vector3( 13.532, 360, 7.869 ) ]
 }
 
 [node name="OctopusBoss" type="Spatial"]
@@ -658,6 +658,7 @@ one_shot = true
 autostart = true
 
 [node name="kraken" type="MeshInstance" parent="."]
+editor/display_folded = true
 transform = Transform( -2.42119, -0.441121, -3.15329, 0.46569, 3.86976, -0.898919, 3.14976, -0.911226, -2.291, -14.5228, 3.18845, -21 )
 mesh = ExtResource( 4 )
 material/0 = ExtResource( 5 )
@@ -677,12 +678,13 @@ material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="bossHealth" type="Label" parent="."]
-margin_left = 4.0
-margin_top = 30.0
-margin_right = 154.0
-margin_bottom = 48.0
+margin_left = 426.0
+margin_top = 26.0
+margin_right = 576.0
+margin_bottom = 44.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Boss Health"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -702,9 +704,11 @@ anims/tentacle_7_destroyed = SubResource( 11 )
 anims/tentacle_8_destroyed = SubResource( 12 )
 
 [node name="tentacles" type="Spatial" parent="."]
-transform = Transform( 3.96233, -0.547667, 6.59997e-09, 0.532463, 3.85234, -0.93594, 0.128146, 0.927127, 3.88896, -13.4323, 3.188, -21 )
+editor/display_folded = true
+transform = Transform( 3.96233, -0.547667, 6.59997e-009, 0.532463, 3.85234, -0.93594, 0.128146, 0.927127, 3.88896, -13.4323, 3.188, -21 )
 
 [node name="foot" type="Area" parent="tentacles"]
+editor/display_folded = true
 transform = Transform( -0.237609, 0.113909, -0.266818, 0.184306, 0.325616, -0.02512, 0.224049, -0.147053, -0.262302, 1.84564, -1.79878, -1.62937 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot"]
@@ -717,6 +721,7 @@ material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot2" type="Area" parent="tentacles"]
+editor/display_folded = true
 transform = Transform( 0.0174583, 0.0467743, -0.371662, 0.165696, 0.332723, 0.0496569, 0.335954, -0.166533, -0.00517745, -0.0043642, -2.08857, -2.57021 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot2"]
@@ -729,6 +734,7 @@ material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot3" type="Area" parent="tentacles"]
+editor/display_folded = true
 transform = Transform( 0.110674, 0.0205859, -0.357705, 0.160041, 0.332118, 0.0686298, 0.320567, -0.172915, 0.0892322, -1.61493, -1.59953, -2.61548 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot3"]
@@ -741,6 +747,7 @@ material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot4" type="Area" parent="tentacles"]
+editor/display_folded = true
 transform = Transform( 0.326254, -0.0371793, -0.181111, 0.09375, 0.349881, 0.0970571, 0.159356, -0.129719, 0.313694, -3.29966, -0.875259, -0.874576 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot4"]
@@ -753,6 +760,7 @@ material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot5" type="Area" parent="tentacles"]
+editor/display_folded = true
 transform = Transform( -0.332956, 0.139456, -0.101575, 0.160041, 0.332118, -0.0686298, 0.0644373, -0.104285, -0.354397, 2.90697, -2.43017, 0.0493412 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot5"]
@@ -765,6 +773,7 @@ material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot6" type="Area" parent="tentacles"]
+editor/display_folded = true
 transform = Transform( -0.245167, 0.115934, 0.258993, 0.0694859, 0.356382, -0.0937506, -0.275118, -0.0133019, -0.254477, 1.99418, -1.46768, 2.59004 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot6"]
@@ -777,6 +786,7 @@ material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot7" type="Area" parent="tentacles"]
+editor/display_folded = true
 transform = Transform( 0.100349, 0.0233521, 0.360569, 0.00319448, 0.374145, -0.0251203, -0.36131, 0.0097937, 0.0999213, -0.0620325, -1.23564, 3.48289 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot7"]
@@ -789,6 +799,7 @@ material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot8" type="Area" parent="tentacles"]
+editor/display_folded = true
 transform = Transform( 0.262729, -0.0201576, 0.266819, 0.00319445, 0.374145, 0.0251202, -0.26756, -0.0153266, 0.262301, -2.96884, -1.12223, 2.29338 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot8"]
