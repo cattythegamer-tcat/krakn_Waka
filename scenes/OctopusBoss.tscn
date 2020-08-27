@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/OctopusBoss.gd" type="Script" id=1]
 [ext_resource path="res://materials/waterShader.tres" type="Material" id=2]
@@ -8,10 +8,6 @@
 [ext_resource path="res://materials/krakenEye.tres" type="Material" id=6]
 [ext_resource path="res://assets/3d/kraken/foot.obj" type="ArrayMesh" id=7]
 [ext_resource path="res://materials/newLegCollision.tres" type="Shape" id=8]
-[ext_resource path="res://materials/black.tres" type="Material" id=9]
-[ext_resource path="res://materials/tangaroaBoss.tres" type="Material" id=10]
-[ext_resource path="res://materials/fishGreen.tres" type="Material" id=11]
-[ext_resource path="res://materials/tangaroaMinion.tres" type="Material" id=12]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 500, 500 )
@@ -629,7 +625,7 @@ tracks/2/keys = {
 "values": [ Vector3( 0.375, 0.375001, 0.375 ), Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=13]
 resource_name = "rotateTentacles"
 loop = true
 tracks/0/type = "value"
@@ -642,7 +638,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 13.5318, 9.72369e-008, 7.86946 ), Vector3( 13.532, 180, 7.869 ), Vector3( 13.532, 360, 7.869 ) ]
+"values": [ Vector3( 13.5318, 9.72369e-08, 7.86946 ), Vector3( 13.532, 180, 7.869 ), Vector3( 13.532, 360, 7.869 ) ]
 }
 
 [node name="OctopusBoss" type="Spatial"]
@@ -706,7 +702,7 @@ anims/tentacle_7_destroyed = SubResource( 11 )
 anims/tentacle_8_destroyed = SubResource( 12 )
 
 [node name="tentacles" type="Spatial" parent="."]
-transform = Transform( 3.96233, -0.547667, 6.59997e-009, 0.532463, 3.85234, -0.93594, 0.128146, 0.927127, 3.88896, -13.4323, 3.188, -21 )
+transform = Transform( 3.96233, -0.547667, 6.59997e-09, 0.532463, 3.85234, -0.93594, 0.128146, 0.927127, 3.88896, -13.4323, 3.188, -21 )
 
 [node name="foot" type="Area" parent="tentacles"]
 transform = Transform( -0.237609, 0.113909, -0.266818, 0.184306, 0.325616, -0.02512, 0.224049, -0.147053, -0.262302, 1.84564, -1.79878, -1.62937 )
@@ -741,7 +737,7 @@ shape = ExtResource( 8 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot3"]
 mesh = ExtResource( 7 )
-material/0 = ExtResource( 2 )
+material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot4" type="Area" parent="tentacles"]
@@ -753,7 +749,7 @@ shape = ExtResource( 8 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot4"]
 mesh = ExtResource( 7 )
-material/0 = ExtResource( 9 )
+material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot5" type="Area" parent="tentacles"]
@@ -765,7 +761,7 @@ shape = ExtResource( 8 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot5"]
 mesh = ExtResource( 7 )
-material/0 = ExtResource( 6 )
+material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot6" type="Area" parent="tentacles"]
@@ -777,7 +773,7 @@ shape = ExtResource( 8 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot6"]
 mesh = ExtResource( 7 )
-material/0 = ExtResource( 10 )
+material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot7" type="Area" parent="tentacles"]
@@ -789,7 +785,7 @@ shape = ExtResource( 8 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot7"]
 mesh = ExtResource( 7 )
-material/0 = ExtResource( 11 )
+material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot8" type="Area" parent="tentacles"]
@@ -801,13 +797,13 @@ shape = ExtResource( 8 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot8"]
 mesh = ExtResource( 7 )
-material/0 = ExtResource( 12 )
+material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="tentacleRotation" type="AnimationPlayer" parent="."]
 autoplay = "rotateTentacles"
 playback_speed = 0.05
-anims/rotateTentacles = SubResource( 14 )
+anims/rotateTentacles = SubResource( 13 )
 [connection signal="timeout" from="playerTurnTimer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="tentacles/foot" to="." method="_on_area_1_area_entered"]
 [connection signal="area_entered" from="tentacles/foot2" to="." method="_on_area_2_area_entered"]
