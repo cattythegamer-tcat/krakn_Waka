@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/fish.obj-edb59ecfd1df8a6ee0bc53a80b8647bd.mesh"
+
+[deps]
+
+files=[ "res://.import/fish.obj-edb59ecfd1df8a6ee0bc53a80b8647bd.mesh" ]
+
+source_file="res://assets/3d/fish/fish.obj"
+dest_files=[ "res://.import/fish.obj-edb59ecfd1df8a6ee0bc53a80b8647bd.mesh", "res://.import/fish.obj-edb59ecfd1df8a6ee0bc53a80b8647bd.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

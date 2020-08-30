@@ -1,6 +1,5 @@
 extends Spatial
 
-
 var mouse_sens = 0.3
 var camera_anglev = 0
 
