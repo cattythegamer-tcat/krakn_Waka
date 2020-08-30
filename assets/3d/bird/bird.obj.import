@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/bird.obj-6c5bd854b1064849cdd0d76ab3e7ddf1.mesh"
+
+[deps]
+
+files=[ "res://.import/bird.obj-6c5bd854b1064849cdd0d76ab3e7ddf1.mesh" ]
+
+source_file="res://assets/3d/bird/bird.obj"
+dest_files=[ "res://.import/bird.obj-6c5bd854b1064849cdd0d76ab3e7ddf1.mesh", "res://.import/bird.obj-6c5bd854b1064849cdd0d76ab3e7ddf1.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
