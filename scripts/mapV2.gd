@@ -14,8 +14,6 @@ func _ready():
 	elif GV.playerLocation == 3:
 		GV.global_difficulty = 5 
 		$transitionAnimations.play("fourthMove")
-	else:
-		$transitionAnimations.play("fifthMove")
 
 func _process(delta):
 	if !$transitionAnimations.is_playing():

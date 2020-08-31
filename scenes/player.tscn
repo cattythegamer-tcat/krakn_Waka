@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/3d/waka/wakafront.obj" type="ArrayMesh" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://materials/wakawood.tres" type="Material" id=4]
 [ext_resource path="res://materials/wakaThings.tres" type="Material" id=5]
 [ext_resource path="res://assets/3d/bird/bird.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/font/CaviarDreams.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/3d/waka/wakatail.obj" type="ArrayMesh" id=8]
 [ext_resource path="res://materials/worldEnviroment.tres" type="Environment" id=9]
 [ext_resource path="res://assets/3d/gun/gun.obj" type="ArrayMesh" id=10]
@@ -258,6 +259,10 @@ tracks/0/keys = {
 "values": [ Vector3( 0.5, -0.475, -0.8 ), Vector3( 0.5, -0.45, -0.8 ), Vector3( 0.5, -0.425, -0.8 ), Vector3( 0.5, -0.45, -0.8 ) ]
 }
 
+[sub_resource type="DynamicFont" id=20]
+size = 64
+font_data = ExtResource( 7 )
+
 [node name="player" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.61611, 4.45782, 4.03151 )
 script = ExtResource( 1 )
@@ -366,6 +371,7 @@ playback_speed = 0.25
 anims/bobbing = SubResource( 19 )
 
 [node name="GUI" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -373,11 +379,12 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="GUI"]
-margin_left = 388.282
+margin_left = 421.398
 margin_top = -0.910004
-margin_right = 501.282
-margin_bottom = 13.09
-rect_scale = Vector2( 2, 2 )
+margin_right = 826.398
+margin_bottom = 61.09
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 20 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Resources: 0"
 align = 1

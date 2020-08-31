@@ -345,7 +345,7 @@ transform = Transform( 0.0909718, 0, -0.491654, 0, 0.5, 0, 0.491654, 0, 0.090971
 transform = Transform( 0.365135, 0, -0.34158, 0, 0.5, 0, 0.34158, 0, 0.365135, -4.55965, 4.4965, 78.0275 )
 
 [node name="bird4" parent="." instance=ExtResource( 15 )]
-transform = Transform( 0.093802, 0, -0.491122, 0, 0.5, 0, 0.491122, 0, 0.093802, -5.16834, 4.70142, 75.9776 )
+transform = Transform( -0.0916874, 0.019805, -0.491122, -0.105568, -0.488728, 0, -0.480051, 0.103694, 0.093802, -5.16806, 17.4452, 75.9779 )
 
 [node name="berds" type="AnimationPlayer" parent="."]
 autoplay = "jumping"
