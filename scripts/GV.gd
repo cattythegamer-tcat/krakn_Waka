@@ -76,3 +76,17 @@ func _process(delta):
 
 func fishingScene():
 	get_tree().change_scene("res://scenes/fishing.tscn")
+
+func reset():
+	food = 11
+	scene = "null"
+	scene_end = false
+	
+	octopusTileProb = 0.3
+	fishTileProb = 0.1
+	fish_remaining = 0
+	
+	global_difficulty = 1
+	playerLocation = 0
+	
+	get_tree().change_scene_to(mapScene)
