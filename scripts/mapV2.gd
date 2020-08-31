@@ -4,17 +4,15 @@ onready var levels = ["potato", GV.octopusScene, GV.octopusScene, GV.octopusScen
 
 func _ready():
 	if GV.playerLocation == 0:
-		$transitionAnimations.play("firstMove")
+		$transitionAnimations.play("secondMove")
 	elif GV.playerLocation == 1:
 		GV.global_difficulty = 3
-		$transitionAnimations.play("secondMove")
+		$transitionAnimations.play("thirdMove")
 	elif GV.playerLocation == 2:
 		GV.global_difficulty = 4
-		$transitionAnimations.play("thirdMove")
+		$transitionAnimations.play("fourthMove")
 	elif GV.playerLocation == 3:
 		GV.global_difficulty = 5
-		$transitionAnimations.play("fourthMove")
-	else:
 		$transitionAnimations.play("fifthMove")
 
 func _process(delta):

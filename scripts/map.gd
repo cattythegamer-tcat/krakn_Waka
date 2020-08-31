@@ -2,27 +2,29 @@ extends Node2D
 
 var grid_count = 84
 var grid_buttons = []
+var grid_images = []
+var grid_objs = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	GV.grid_images = []
+	grid_images = []
 	for x in range(84):
-		GV.grid_images.append(get_node("gridTiles/grid_tile_" + str(x+1)))
+		grid_images.append(get_node("gridTiles/grid_tile_" + str(x+1)))
 		grid_buttons.append(get_node("gridButtons/grid_button_" + str(x+1)))
 		if rand_range(0, 1) < GV.fishTileProb:
-			GV.grid_objs[str(x)] = "fish"
+			grid_objs[str(x)] = "fish"
 		elif rand_range(0, 1) < GV.octopusTileProb:
-			GV.grid_objs[str(x)] = "octopus"
+			grid_objs[str(x)] = "octopus"
 		else:
-			GV.grid_objs[str(x)] = "water"
+			grid_objs[str(x)] = "water"
 	for pos in range(84):
-		if GV.grid_objs[str(pos)] == "octopus":
-			GV.grid_images[pos - 1].texture = GV.octopusIcon
-		elif GV.grid_objs[str(pos)] == "fish":
-			GV.grid_images[pos - 1].texture = GV.fishIcon
-	GV.grid_images[-1].texture = GV.landIcon
-	GV.grid_images[GV.playerLocation].texture = GV.wakaIcon
+		if grid_objs[str(pos)] == "octopus":
+			grid_images[pos - 1].texture = GV.octopusIcon
+		elif grid_objs[str(pos)] == "fish":
+			grid_images[pos - 1].texture = GV.fishIcon
+	grid_images[-1].texture = GV.landIcon
+	grid_images[GV.playerLocation].texture = GV.wakaIcon
 
 func moveTo(gridPos):
 	GV.grid_images[gridPos-1].texture = GV.wakaIcon
