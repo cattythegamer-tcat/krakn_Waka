@@ -16,12 +16,20 @@ _global_script_class_icons={
 [application]
 
 config/name="Krak'n Waka"
-run/main_scene="res://scenes/fishing.tscn"
+run/main_scene="res://scenes/mapV2.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 GV="*res://scripts/GV.gd"
+
+[debug]
+
+settings/stdout/print_fps=true
+
+[display]
+
+window/vsync/use_vsync=false
 
 [input]
 

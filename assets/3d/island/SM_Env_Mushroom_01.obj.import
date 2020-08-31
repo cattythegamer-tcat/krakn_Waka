@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/SM_Env_Mushroom_01.obj-db2eba8c9d79be82538964166096bcde.mesh"
+
+[deps]
+
+files=[ "res://.import/SM_Env_Mushroom_01.obj-db2eba8c9d79be82538964166096bcde.mesh" ]
+
+source_file="res://assets/3d/island/SM_Env_Mushroom_01.obj"
+dest_files=[ "res://.import/SM_Env_Mushroom_01.obj-db2eba8c9d79be82538964166096bcde.mesh", "res://.import/SM_Env_Mushroom_01.obj-db2eba8c9d79be82538964166096bcde.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

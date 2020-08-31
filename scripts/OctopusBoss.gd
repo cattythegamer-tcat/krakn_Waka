@@ -26,6 +26,7 @@ func _process(delta):
 	$bossHealth.text = "Boss Health: " + str(bossHealth - 10)
 	if bossHealth <= 10:
 		GV.scene_end = true
+		GV.food += int(round(rand_range(8, 12)))
 	if !krakA.is_playing():
 		if playerTurnEnd and !sunk:
 			krakA.play("tentacleSink")

@@ -12,7 +12,7 @@ func _ready():
 		GV.global_difficulty = 4
 		$transitionAnimations.play("thirdMove")
 	elif GV.playerLocation == 3:
-		GV.global_difficulty = 5
+		GV.global_difficulty = 5 
 		$transitionAnimations.play("fourthMove")
 	else:
 		$transitionAnimations.play("fifthMove")
@@ -20,7 +20,7 @@ func _ready():
 func _process(delta):
 	if !$transitionAnimations.is_playing():
 		GV.playerLocation += 1
-		if GV.playerLocation == 0:
+		if GV.playerLocation == 1:
 			GV.fishingScene()
 		else:
 			get_tree().change_scene_to(levels[GV.playerLocation])
