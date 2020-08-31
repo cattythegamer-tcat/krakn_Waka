@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/3d/bird/bird.obj" type="ArrayMesh" id=2]
@@ -195,7 +195,35 @@ tracks/3/keys = {
 }
 
 [sub_resource type="BoxShape" id=13]
-extents = Vector3( 2, 2, 1 )
+extents = Vector3( 2, 2, 2 )
+
+[sub_resource type="CubeMesh" id=17]
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_color = Color( 0.2, 0.2, 0.2, 1 )
+
+[sub_resource type="Curve" id=19]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=20]
+width = 2049
+curve = SubResource( 19 )
+
+[sub_resource type="ParticlesMaterial" id=21]
+angular_velocity = 7.0
+scale_curve = SubResource( 20 )
+
+[sub_resource type="SpatialMaterial" id=22]
+albedo_color = Color( 1, 0.607843, 0, 1 )
+emission_enabled = true
+emission = Color( 1, 0.423529, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=23]
+material = SubResource( 22 )
+size = Vector3( 1, 1, 1 )
 
 [sub_resource type="Animation" id=14]
 length = 0.2
@@ -205,7 +233,19 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/keys = PoolRealArray( 0, 1, 0.000483751, -0.020484, -1.13309, 0, 0, 0, 1, 0.15, 0.15, 5, 0.2, 1, 0, -0.02, -200, 0, 0, 0, 1, 0.15, 0.15, 5 )
+tracks/0/keys = PoolRealArray( 0, 1, 0.502116, -0.460758, -1.13309, 0, 0, 0, 1, 0.15, 0.15, 0.15, 0.2, 1, -0.0242503, 0.0355358, -84.1331, 0, 0, 0, 1, 0.15, 0.15, 0.15 )
+tracks/1/type = "value"
+tracks/1/path = NodePath("bullet:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=15]
 length = 3.0
@@ -320,13 +360,25 @@ color = Color( 0, 0, 0, 1 )
 anims/reload = SubResource( 12 )
 
 [node name="bullet" type="Area" parent="head/Camera"]
-transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 5, 0.000483751, -0.020484, -1.13309 )
+transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.502116, -0.460758, -1.13309 )
 
 [node name="collision" type="CollisionShape" parent="head/Camera/bullet"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 shape = SubResource( 13 )
 
+[node name="visual" type="MeshInstance" parent="head/Camera/bullet"]
+mesh = SubResource( 17 )
+material/0 = SubResource( 18 )
+
+[node name="Particles" type="Particles" parent="head/Camera/bullet"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 0, 0 )
+lifetime = 5.0
+speed_scale = 3.0
+process_material = SubResource( 21 )
+draw_pass_1 = SubResource( 23 )
+
 [node name="bulletAnimations" type="AnimationPlayer" parent="head/Camera"]
+playback_speed = 0.5
 anims/bulletFire = SubResource( 14 )
 
 [node name="boatAnimations" type="AnimationPlayer" parent="."]

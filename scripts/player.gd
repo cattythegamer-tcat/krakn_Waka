@@ -19,9 +19,9 @@ func _input(event):
 			camera.rotate_x(deg2rad(changev))
 
 func _process(delta):
-	if GV.food <= 0:
+	if GV.food <= 1:
 		$waka/wakaDestroy.play("destroy")
-	if GV.actionFireJust and !gunAnims.is_playing():
+	elif GV.actionFireJust and !gunAnims.is_playing():
 		$head/Camera/bullet/collision.disabled = false
 		gunAnims.play("reload")
 		justFired = 10
