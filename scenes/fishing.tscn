@@ -486,7 +486,7 @@ collision_layer = 0
 shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos/fishCore/fish"]
-transform = Transform( 1.89276e-08, 0.25, 0.433013, 1.09278e-08, -0.433013, 0.25, 0.5, 0, -2.18557e-08, 0.449391, -5.96046e-08, 0 )
+transform = Transform( 1.89276e-008, 0.25, 0.433013, 1.09278e-008, -0.433013, 0.25, 0.5, 0, -2.18557e-008, 0.449391, -5.96046e-008, 0 )
 mesh = ExtResource( 6 )
 material/0 = ExtResource( 7 )
 
@@ -513,7 +513,7 @@ collision_layer = 0
 shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos2/fishCore/fish"]
-transform = Transform( -1.89276e-08, -0.25, 0.433013, -1.09278e-08, 0.433013, 0.25, -0.5, 0, -2.18557e-08, 0.223013, 0, 0 )
+transform = Transform( -1.89276e-008, -0.25, 0.433013, -1.09278e-008, 0.433013, 0.25, -0.5, 0, -2.18557e-008, 0.223013, 0, 0 )
 mesh = ExtResource( 6 )
 material/0 = ExtResource( 7 )
 
@@ -540,7 +540,7 @@ collision_layer = 0
 shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos3/fishCore/fish"]
-transform = Transform( -2.53332e-08, -0.155291, 0.579556, -6.788e-09, 0.579556, 0.155291, -0.6, 0, -2.62268e-08, 0.46546, 0, 0 )
+transform = Transform( -2.53332e-008, -0.155291, 0.579556, -6.788e-009, 0.579556, 0.155291, -0.6, 0, -2.62268e-008, 0.46546, 0, 0 )
 mesh = ExtResource( 6 )
 material/0 = ExtResource( 7 )
 
@@ -567,7 +567,7 @@ collision_layer = 0
 shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos4/fishCore/fish"]
-transform = Transform( -1.51421e-08, -0.2, 0.34641, -8.74228e-09, 0.34641, 0.2, -0.4, 0, -1.74846e-08, 0, 0, 0 )
+transform = Transform( -1.51421e-008, -0.2, 0.34641, -8.74228e-009, 0.34641, 0.2, -0.4, 0, -1.74846e-008, 0, 0, 0 )
 mesh = ExtResource( 6 )
 material/0 = ExtResource( 8 )
 
@@ -594,7 +594,7 @@ collision_layer = 0
 shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos5/fishCore/fish"]
-transform = Transform( -2.1111e-08, -0.12941, 0.482963, -5.65667e-09, 0.482963, 0.12941, -0.5, 0, -2.18557e-08, 0.143167, -0.114048, 0 )
+transform = Transform( -2.1111e-008, -0.12941, 0.482963, -5.65667e-009, 0.482963, 0.12941, -0.5, 0, -2.18557e-008, 0.143167, -0.114048, 0 )
 mesh = ExtResource( 6 )
 material/0 = ExtResource( 8 )
 
@@ -621,7 +621,7 @@ collision_layer = 0
 shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos6/fishCore/fish"]
-transform = Transform( -2.53332e-08, -0.155291, 0.579556, -6.788e-09, 0.579556, 0.155291, -0.6, 0, -2.62268e-08, 0.540985, 0, 0 )
+transform = Transform( -2.53332e-008, -0.155291, 0.579556, -6.788e-009, 0.579556, 0.155291, -0.6, 0, -2.62268e-008, 0.540985, 0, 0 )
 mesh = ExtResource( 6 )
 material/0 = ExtResource( 8 )
 
@@ -648,7 +648,7 @@ collision_layer = 0
 shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos7/fishCore/fish"]
-transform = Transform( -1.89276e-08, -0.25, 0.433013, -1.09278e-08, 0.433013, 0.25, -0.5, 0, -2.18557e-08, 0.357496, 0.160196, 0 )
+transform = Transform( -1.89276e-008, -0.25, 0.433013, -1.09278e-008, 0.433013, 0.25, -0.5, 0, -2.18557e-008, 0.357496, 0.160196, 0 )
 mesh = ExtResource( 6 )
 material/0 = ExtResource( 7 )
 
@@ -675,7 +675,7 @@ collision_layer = 0
 shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos8/fishCore/fish"]
-transform = Transform( -2.53332e-08, -0.155291, 0.579556, -6.788e-09, 0.579556, 0.155291, -0.6, 0, -2.62268e-08, 0.488941, 0.248541, 0 )
+transform = Transform( -2.53332e-008, -0.155291, 0.579556, -6.788e-009, 0.579556, 0.155291, -0.6, 0, -2.62268e-008, 0.488941, 0.248541, 0 )
 mesh = ExtResource( 6 )
 material/0 = ExtResource( 7 )
 
@@ -702,7 +702,7 @@ collision_layer = 0
 shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos9/fishCore/fish"]
-transform = Transform( -1.89276e-08, -0.25, 0.433013, -1.09278e-08, 0.433013, 0.25, -0.5, 0, -2.18557e-08, 0.373493, 0, 0 )
+transform = Transform( -1.89276e-008, -0.25, 0.433013, -1.09278e-008, 0.433013, 0.25, -0.5, 0, -2.18557e-008, 0.373493, 0, 0 )
 mesh = ExtResource( 6 )
 material/0 = ExtResource( 8 )
 
@@ -729,7 +729,7 @@ collision_layer = 0
 shape = SubResource( 2 )
 
 [node name="obj" type="MeshInstance" parent="fishPos10/fishCore/fish"]
-transform = Transform( -1.89276e-08, -0.25, 0.433013, -1.09278e-08, 0.433013, 0.25, -0.5, 0, -2.18557e-08, 0, 0.247306, 0 )
+transform = Transform( -1.89276e-008, -0.25, 0.433013, -1.09278e-008, 0.433013, 0.25, -0.5, 0, -2.18557e-008, 0, 0.247306, 0 )
 mesh = ExtResource( 6 )
 material/0 = ExtResource( 8 )
 
