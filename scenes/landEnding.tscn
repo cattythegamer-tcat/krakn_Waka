@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://materials/waterShader.tres" type="Material" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -17,16 +17,6 @@ albedo_color = Color( 0.027451, 0.196078, 0.0156863, 1 )
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.180392, 0.180392, 0.180392, 1 )
-
-[sub_resource type="GIProbeData" id=4]
-bounds = AABB( -439.919, -98.2188, -359.714, 879.838, 196.438, 719.428 )
-cell_size = 13.7475
-to_cell_xform = Transform( 0.0727406, 0, 0, 0, 0.0727406, 0, 0, 0, 0.0727406, 32, 7.1445, 26.1658 )
-dynamic_data = PoolIntArray( 0, 7, 64, 16, 64, 1, 0, 0, 0, 1098907648, 1098907648, -1011623062, 272986064, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
-dynamic_range = 4
-bias = 1.5
-normal_bias = 0.0
-propagation = 0.7
 
 [node name="landEnding" type="Spatial"]
 
@@ -48,7 +38,6 @@ mesh = ExtResource( 3 )
 material/0 = SubResource( 3 )
 
 [node name="tree" type="MeshInstance" parent="."]
-editor/display_folded = true
 transform = Transform( 0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -28.1801, 1.52918, -13.6994 )
 mesh = ExtResource( 4 )
 material/0 = ExtResource( 5 )
@@ -130,10 +119,3 @@ material/0 = ExtResource( 5 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 6 )
-
-[node name="GIProbe" type="GIProbe" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.18, 21.585, -102.912 )
-visible = false
-subdiv = 0
-extents = Vector3( 439.919, 98.2188, 359.714 )
-data = SubResource( 4 )

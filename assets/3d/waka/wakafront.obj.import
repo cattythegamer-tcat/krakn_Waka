@@ -15,4 +15,5 @@ dest_files=[ "res://.import/wakafront.obj-f40c807b533e9d7bae49a86a2d537c9d.mesh"
 
 generate_tangents=true
 scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
 optimize_mesh=true
