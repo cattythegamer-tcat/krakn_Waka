@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/wakafront.obj-f40c807b533e9d7bae49a86a2d537c9d.mesh"
+
+[deps]
+
+files=[ "res://.import/wakafront.obj-f40c807b533e9d7bae49a86a2d537c9d.mesh" ]
+
+source_file="res://assets/3d/waka/wakafront.obj"
+dest_files=[ "res://.import/wakafront.obj-f40c807b533e9d7bae49a86a2d537c9d.mesh", "res://.import/wakafront.obj-f40c807b533e9d7bae49a86a2d537c9d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
