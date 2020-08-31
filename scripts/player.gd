@@ -19,6 +19,8 @@ func _input(event):
 			camera.rotate_x(deg2rad(changev))
 
 func _process(delta):
+	if GV.food <= 0:
+		$waka/wakaDestroy.play("destroy")
 	if GV.actionFireJust and !gunAnims.is_playing():
 		$head/Camera/bullet/collision.disabled = false
 		gunAnims.play("reload")
@@ -33,3 +35,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	gunAnims.play("reload")
 	$head/Camera/bullet/collision.disabled = true
+
+func destroy_ended():
+	get_tree().quit()

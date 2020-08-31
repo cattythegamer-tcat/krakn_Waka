@@ -70,9 +70,7 @@ func _process(delta):
 	uiLeftReleased = Input.is_action_just_released("ui_left")
 	uiRightReleased = Input.is_action_just_released("ui_right")
 	
-	if GV.food <= 0:
-		get_tree().quit()
-	elif scene_end:
+	if scene_end:
 		scene_end = false
 		get_tree().change_scene_to(mapScene)
 
