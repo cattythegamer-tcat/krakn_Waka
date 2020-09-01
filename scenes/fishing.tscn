@@ -484,7 +484,7 @@ script = ExtResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 
 [node name="fish" type="Area" parent="fishPos/fishCore"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.336901, 11.2889 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos/fishCore/fish"]

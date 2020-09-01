@@ -6,6 +6,7 @@ var uiUpPressed = false
 var uiDownPressed = false
 var uiLeftPressed = false
 var uiRightPressed = false
+var uiMenuPressed = false
 
 var actionFireJust = false
 var uiExitJust = false
@@ -13,6 +14,7 @@ var uiUpJust = false
 var uiDownJust = false
 var uiLeftJust = false
 var uiRightJust = false
+var uiMenuJust = false
 
 var actionFireReleased = false
 var uiExitReleased = false
@@ -20,6 +22,7 @@ var uiUpReleased = false
 var uiDownReleased = false
 var uiLeftReleased = false
 var uiRightReleased = false
+var uiMenuReleased = false
 
 var food = 11
 var scene = "null"
@@ -55,6 +58,7 @@ func _process(delta):
 	uiDownPressed = Input.is_action_pressed("ui_end")
 	uiLeftPressed = Input.is_action_pressed("ui_left")
 	uiRightPressed = Input.is_action_pressed("ui_right")
+	uiMenuPressed = Input.is_action_pressed("menu")
 	
 	actionFireJust = Input.is_action_just_pressed("action_fire")
 	uiExitJust = Input.is_action_just_pressed("ui_end")
@@ -62,6 +66,7 @@ func _process(delta):
 	uiDownJust = Input.is_action_just_pressed("ui_down")
 	uiLeftJust = Input.is_action_just_pressed("ui_left")
 	uiRightJust = Input.is_action_just_pressed("ui_right")
+	uiMenuJust = Input.is_action_just_pressed("menu")
 	
 	actionFireReleased = Input.is_action_just_released("action_fire")
 	uiExitReleased = Input.is_action_just_released("ui_end")
@@ -69,6 +74,7 @@ func _process(delta):
 	uiDownReleased = Input.is_action_just_released("ui_down")
 	uiLeftReleased = Input.is_action_just_released("ui_left")
 	uiRightReleased = Input.is_action_just_released("ui_right")
+	uiMenuReleased = Input.is_action_just_released("menu")
 	
 	if scene_end:
 		scene_end = false
