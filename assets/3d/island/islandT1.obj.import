@@ -15,5 +15,4 @@ dest_files=[ "res://.import/islandT1.obj-14ad910f5bcff9f1876e5b07bde29bf5.mesh",
 
 generate_tangents=true
 scale_mesh=Vector3( 1, 1, 1 )
-offset_mesh=Vector3( 0, 0, 0 )
 optimize_mesh=true

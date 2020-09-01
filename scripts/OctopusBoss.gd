@@ -1,7 +1,7 @@
 extends Spatial
 
 const DEF_WAIT_TIME = 3
-const STARTING_BOSSHEALTH = 80
+const STARTING_BOSSHEALTH = 70
 const DEF_ROTATION = 0.04
 
 var bossHealth = STARTING_BOSSHEALTH
@@ -12,7 +12,7 @@ var sunk = false
 var playerTurnEnd = false
 var krakenAttack = false
 var endEarly = false
-var starting_difficulty = 1.0 * GV.global_difficulty
+var starting_difficulty = 1.0
 var difficulty = starting_difficulty
 
 onready var krakA = $krakenAnimations
@@ -27,7 +27,7 @@ func _process(delta):
 		GV.scene_end = true
 		GV.food += int(round(rand_range(8, 12)))
 	if !krakA.is_playing():
-		$bossHealth.text = str(float(bossHealth) / float(STARTING_BOSSHEALTH) * 100.0) + "%"
+		$bossHealth.text = str(round(float(bossHealth) / float(STARTING_BOSSHEALTH) * 100.0)) + "%"
 		if playerTurnEnd and !sunk:
 			krakA.play("tentacleSink")
 			sunk = true
