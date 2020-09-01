@@ -25,6 +25,7 @@ GV="*res://scripts/GV.gd"
 
 [debug]
 
+settings/fps/force_fps=40
 settings/stdout/print_fps=true
 
 [display]

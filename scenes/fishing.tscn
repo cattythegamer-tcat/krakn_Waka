@@ -612,7 +612,7 @@ autoplay = "side"
 anims/side = SubResource( 12 )
 
 [node name="fishPos6" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7457, 4, 10 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7563, 4, 7.57882 )
 script = ExtResource( 5 )
 
 [node name="fishCore" type="Spatial" parent="fishPos6"]
@@ -639,7 +639,7 @@ autoplay = "side"
 anims/side = SubResource( 14 )
 
 [node name="fishPos7" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.2543, 6, -22 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.7551, 6, -22 )
 script = ExtResource( 5 )
 
 [node name="fishCore" type="Spatial" parent="fishPos7"]
@@ -693,7 +693,7 @@ autoplay = "side"
 anims/side = SubResource( 18 )
 
 [node name="fishPos9" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7457, 6, -37.6764 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.37713, 6, -35.4482 )
 script = ExtResource( 5 )
 
 [node name="fishCore" type="Spatial" parent="fishPos9"]
