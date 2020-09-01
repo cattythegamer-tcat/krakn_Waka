@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/2d/icons/playerlocation.png" type="Texture" id=6]
 [ext_resource path="res://assets/2d/icons/selected.png" type="Texture" id=7]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("selected:position")
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ Vector2( 784, 304 ), Vector2( 624, 304 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "fourthMove"
 length = 0.5
 tracks/0/type = "value"
@@ -39,7 +39,7 @@ tracks/0/keys = {
 "values": [ Vector2( 376, 304 ), Vector2( 240, 304 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("selected:position")
@@ -54,7 +54,7 @@ tracks/0/keys = {
 "values": [ Vector2( 624, 304 ), Vector2( 496, 304 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("selected:position")
@@ -107,7 +107,7 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 7 )
 
 [node name="transitionAnimations" type="AnimationPlayer" parent="."]
-anims/firstMove = SubResource( 2 )
-anims/fourthMove = SubResource( 3 )
-anims/secondMove = SubResource( 4 )
-anims/thirdMove = SubResource( 5 )
+anims/firstMove = SubResource( 1 )
+anims/fourthMove = SubResource( 2 )
+anims/secondMove = SubResource( 3 )
+anims/thirdMove = SubResource( 4 )

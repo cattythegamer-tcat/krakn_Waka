@@ -29,7 +29,7 @@ func _process(delta):
 		if justFired == 1:
 			GV.food -= 1
 		justFired -= 1
-	$GUI/Label.text = "Resources: " + str(GV.food - 1)
+	$GUI/resources.text = str(GV.food - 1)
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

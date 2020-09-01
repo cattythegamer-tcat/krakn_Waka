@@ -23,11 +23,11 @@ func _ready():
 	$tentacleRotation.playback_speed = DEF_ROTATION * difficulty
 
 func _process(delta):
-	$bossHealth.text = "Boss Health: " + str(bossHealth - 10)
-	if bossHealth <= 10:
+	if bossHealth <= 0:
 		GV.scene_end = true
 		GV.food += int(round(rand_range(8, 12)))
 	if !krakA.is_playing():
+		$bossHealth.text = str(float(bossHealth) / float(STARTING_BOSSHEALTH) * 100.0) + "%"
 		if playerTurnEnd and !sunk:
 			krakA.play("tentacleSink")
 			sunk = true
