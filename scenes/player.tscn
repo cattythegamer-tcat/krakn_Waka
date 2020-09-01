@@ -176,7 +176,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="BoxShape" id=9]
-extents = Vector3( 2, 2, 2 )
+extents = Vector3( 2, 2, 8 )
 
 [sub_resource type="CubeMesh" id=10]
 
@@ -343,7 +343,7 @@ transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.0242503, 0.0355358
 visible = false
 
 [node name="collision" type="CollisionShape" parent="head/Camera/bullet"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 11.9919 )
 shape = SubResource( 9 )
 
 [node name="visual" type="MeshInstance" parent="head/Camera/bullet"]
