@@ -54,30 +54,30 @@ func bossDoDamage(amt = 10):
 
 func tentacleKilled(num):
 	if !tentacleShot and !sunk and !krakA.is_playing():
-		print(num)
 		difficulty = float(STARTING_BOSSHEALTH) / float(bossHealth) * starting_difficulty
 		$tentacleRotation.playback_speed = DEF_ROTATION * difficulty
 		bossHealth -= 10
 		tentacleShot = true
 		endEarly = true
 		playerTurnEnd = true
-		pass
-		if num == 1:
-			krakA.play("tentacle_1_destroyed")
-		elif num == 2:
-			krakA.play("tentacle_2_destroyed")
-		elif num == 3:
-			krakA.play("tentacle_3_destroyed")
-		elif num == 4:
-			krakA.play("tentacle_4_destroyed")
-		elif num == 5:
-			krakA.play("tentacle_5_destroyed")
-		elif num == 6:
-			krakA.play("tentacle_6_destroyed")
-		elif num == 7:
-			krakA.play("tentacle_7_destroyed")
-		elif num == 8:
-			krakA.play("tentacle_8_destroyed")
+		
+		match num:
+			1:
+				krakA.play("tentacle_1_destroyed")
+			2:
+				krakA.play("tentacle_2_destroyed")
+			3:
+				krakA.play("tentacle_3_destroyed")
+			4:
+				krakA.play("tentacle_4_destroyed")
+			5:
+				krakA.play("tentacle_5_destroyed")
+			6:
+				krakA.play("tentacle_6_destroyed")
+			7:
+				krakA.play("tentacle_7_destroyed")
+			8:
+				krakA.play("tentacle_8_destroyed")
 
 func _on_area_1_area_entered(area): tentacleKilled(1)
 
