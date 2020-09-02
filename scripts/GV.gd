@@ -24,7 +24,7 @@ var uiLeftReleased = false
 var uiRightReleased = false
 var uiMenuReleased = false
 
-var food = 11
+var food = 110
 var scene = "null"
 var scene_end = false
 

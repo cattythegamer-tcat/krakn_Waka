@@ -1,6 +1,6 @@
 extends Spatial
 
-const DEF_WAIT_TIME = 3
+const DEF_WAIT_TIME = 2
 const STARTING_BOSSHEALTH = 70
 const DEF_ROTATION = 0.04
 
@@ -53,7 +53,7 @@ func bossDoDamage(amt = 10):
 	GV.food -= amt
 
 func tentacleKilled(num):
-	if !tentacleShot and !sunk:
+	if !tentacleShot and !sunk and !krakA.is_playing():
 		print(num)
 		difficulty = float(STARTING_BOSSHEALTH) / float(bossHealth) * starting_difficulty
 		$tentacleRotation.playback_speed = DEF_ROTATION * difficulty
@@ -63,21 +63,21 @@ func tentacleKilled(num):
 		playerTurnEnd = true
 		pass
 		if num == 1:
-			$krakenAnimations.play("tentacle_1_destroyed")
+			krakA.play("tentacle_1_destroyed")
 		elif num == 2:
-			$krakenAnimations.play("tentacle_2_destroyed")
+			krakA.play("tentacle_2_destroyed")
 		elif num == 3:
-			$krakenAnimations.play("tentacle_3_destroyed")
+			krakA.play("tentacle_3_destroyed")
 		elif num == 4:
-			$krakenAnimations.play("tentacle_4_destroyed")
+			krakA.play("tentacle_4_destroyed")
 		elif num == 5:
-			$krakenAnimations.play("tentacle_5_destroyed")
+			krakA.play("tentacle_5_destroyed")
 		elif num == 6:
-			$krakenAnimations.play("tentacle_6_destroyed")
+			krakA.play("tentacle_6_destroyed")
 		elif num == 7:
-			$krakenAnimations.play("tentacle_7_destroyed")
+			krakA.play("tentacle_7_destroyed")
 		elif num == 8:
-			$krakenAnimations.play("tentacle_8_destroyed")
+			krakA.play("tentacle_8_destroyed")
 
 func _on_area_1_area_entered(area): tentacleKilled(1)
 
