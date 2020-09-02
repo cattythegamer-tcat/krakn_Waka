@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/3d/waka/wakafront.obj" type="ArrayMesh" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://assets/font/CaviarDreams.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://assets/2d/crosshair.png" type="Texture" id=12]
 [ext_resource path="res://assets/2d/blank.png" type="Texture" id=13]
+[ext_resource path="res://assets/2d/GUI_pieces/menu.png" type="Texture" id=14]
+[ext_resource path="res://assets/2d/GUI_pieces/button.png" type="Texture" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "destroy"
@@ -405,6 +407,47 @@ modulate = Color( 0, 0, 0, 0 )
 position = Vector2( 502.79, 306.034 )
 scale = Vector2( 1500, 1000 )
 texture = ExtResource( 13 )
+
+[node name="menu" type="Sprite" parent="GUI"]
+position = Vector2( 175.001, 269.563 )
+scale = Vector2( 0.902804, 0.902804 )
+texture = ExtResource( 14 )
+
+[node name="button" type="Sprite" parent="GUI"]
+position = Vector2( 160, 80 )
+scale = Vector2( 0.817776, 0.817776 )
+texture = ExtResource( 15 )
+offset = Vector2( 18, 8 )
+
+[node name="button2" type="Sprite" parent="GUI"]
+position = Vector2( 160, 130 )
+scale = Vector2( 0.817776, 0.817776 )
+texture = ExtResource( 15 )
+offset = Vector2( 18, 8 )
+
+[node name="button3" type="Sprite" parent="GUI"]
+position = Vector2( 160, 180 )
+scale = Vector2( 0.817776, 0.817776 )
+texture = ExtResource( 15 )
+offset = Vector2( 18, 8 )
+
+[node name="button4" type="Sprite" parent="GUI"]
+position = Vector2( 160, 230 )
+scale = Vector2( 0.817776, 0.817776 )
+texture = ExtResource( 15 )
+offset = Vector2( 18, 8 )
+
+[node name="button5" type="Sprite" parent="GUI"]
+position = Vector2( 160, 280 )
+scale = Vector2( 0.817776, 0.817776 )
+texture = ExtResource( 15 )
+offset = Vector2( 18, 8 )
+
+[node name="button6" type="Sprite" parent="GUI"]
+position = Vector2( 160, 330 )
+scale = Vector2( 0.817776, 0.817776 )
+texture = ExtResource( 15 )
+offset = Vector2( 18, 8 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 2.38419e-007, 4.97146, -24.6868 )
