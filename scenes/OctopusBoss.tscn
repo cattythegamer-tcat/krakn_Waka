@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scripts/OctopusBoss.gd" type="Script" id=1]
 [ext_resource path="res://materials/waterShader.tres" type="Material" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://materials/krakenEye.tres" type="Material" id=6]
 [ext_resource path="res://assets/3d/kraken/foot.obj" type="ArrayMesh" id=7]
 [ext_resource path="res://assets/font/CaviarDreams.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://materials/newLegCollision.tres" type="Shape" id=9]
+[ext_resource path="res://materials/krakenNoHitSkin.tres" type="Material" id=9]
+[ext_resource path="res://materials/newLegCollision.tres" type="Shape" id=10]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 500, 500 )
@@ -213,6 +214,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id=5]
 length = 0.5
+step = 0.02
 tracks/0/type = "value"
 tracks/0/path = NodePath("tentacles/foot:translation")
 tracks/0/interp = 1
@@ -308,6 +310,102 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 2, 1 ),
 "update": 0,
 "values": [ Vector3( -2.96884, -1.12223, 2.29338 ), Vector3( -3.28163, -3.45692, 2.83515 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("tentacles/foot/visual:material/0")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.02, 0.04 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 9 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("tentacles/foot2/visual:material/0")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.04, 0.06 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 9 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("tentacles/foot3/visual:material/0")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.02 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 9 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("tentacles/foot4/visual:material/0")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.02, 0.04 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 9 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("tentacles/foot5/visual:material/0")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.02 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 9 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("tentacles/foot6/visual:material/0")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0.04, 0.06 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 9 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("tentacles/foot7/visual:material/0")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.02 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 9 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("tentacles/foot8/visual:material/0")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0.02, 0.04 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 9 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -634,7 +732,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 13.5318, 9.72369e-08, 7.86946 ), Vector3( 13.532, 180, 7.869 ), Vector3( 13.532, 360, 7.869 ) ]
+"values": [ Vector3( 13.5318, 9.72369e-008, 7.86946 ), Vector3( 13.532, 180, 7.869 ), Vector3( 13.532, 360, 7.869 ) ]
 }
 
 [node name="OctopusBoss" type="Spatial"]
@@ -701,14 +799,14 @@ anims/tentacle_7_destroyed = SubResource( 12 )
 anims/tentacle_8_destroyed = SubResource( 13 )
 
 [node name="tentacles" type="Spatial" parent="."]
-transform = Transform( 3.96233, -0.547667, 6.59997e-09, 0.532463, 3.85234, -0.93594, 0.128146, 0.927127, 3.88896, -13.4323, 3.188, -21 )
+transform = Transform( 3.96233, -0.547667, 6.59997e-009, 0.532463, 3.85234, -0.93594, 0.128146, 0.927127, 3.88896, -13.4323, 3.188, -21 )
 
 [node name="foot" type="Area" parent="tentacles"]
 transform = Transform( -0.237609, 0.113909, -0.266818, 0.184306, 0.325616, -0.02512, 0.224049, -0.147053, -0.262302, 1.84564, -1.79878, -1.62937 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot"]
 transform = Transform( 0.923474, 0.347038, 0.163585, -0.346575, 0.937466, -0.0323004, -0.164565, -0.0268658, 0.986, 0.878, 0.972, 0.101 )
-shape = ExtResource( 9 )
+shape = ExtResource( 10 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot"]
 mesh = ExtResource( 7 )
@@ -716,11 +814,11 @@ material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot2" type="Area" parent="tentacles"]
-transform = Transform( 0.0174583, 0.0467743, -0.371662, 0.165696, 0.332723, 0.0496569, 0.335954, -0.166533, -0.00517745, -0.0043642, -2.08857, -2.57021 )
+transform = Transform( 0.0174583, 0.0467743, -0.371662, 0.165696, 0.332723, 0.0496569, 0.335954, -0.166533, -0.00517745, -0.00436401, -2.08857, -2.57021 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot2"]
 transform = Transform( 0.923474, 0.347038, 0.163585, -0.346575, 0.937466, -0.0323004, -0.164565, -0.0268658, 0.986, 0.878, 0.972, 0.101 )
-shape = ExtResource( 9 )
+shape = ExtResource( 10 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot2"]
 mesh = ExtResource( 7 )
@@ -732,7 +830,7 @@ transform = Transform( 0.110674, 0.0205859, -0.357705, 0.160041, 0.332118, 0.068
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot3"]
 transform = Transform( 0.923474, 0.347038, 0.163585, -0.346575, 0.937466, -0.0323004, -0.164565, -0.0268658, 0.986, 0.878, 0.972, 0.101 )
-shape = ExtResource( 9 )
+shape = ExtResource( 10 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot3"]
 mesh = ExtResource( 7 )
@@ -740,11 +838,11 @@ material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot4" type="Area" parent="tentacles"]
-transform = Transform( 0.326254, -0.0371793, -0.181111, 0.09375, 0.349881, 0.0970571, 0.159356, -0.129719, 0.313694, -3.29966, -0.875259, -0.874576 )
+transform = Transform( 0.326254, -0.0371793, -0.181111, 0.09375, 0.349881, 0.0970571, 0.159356, -0.129719, 0.313694, -3.29966, -0.875258, -0.874577 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot4"]
 transform = Transform( 0.923474, 0.347038, 0.163585, -0.346575, 0.937466, -0.0323004, -0.164565, -0.0268658, 0.986, 0.878, 0.972, 0.101 )
-shape = ExtResource( 9 )
+shape = ExtResource( 10 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot4"]
 mesh = ExtResource( 7 )
@@ -756,7 +854,7 @@ transform = Transform( -0.332956, 0.139456, -0.101575, 0.160041, 0.332118, -0.06
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot5"]
 transform = Transform( 0.923474, 0.347038, 0.163585, -0.346575, 0.937466, -0.0323004, -0.164565, -0.0268658, 0.986, 0.878, 0.972, 0.101 )
-shape = ExtResource( 9 )
+shape = ExtResource( 10 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot5"]
 mesh = ExtResource( 7 )
@@ -768,7 +866,7 @@ transform = Transform( -0.245167, 0.115934, 0.258993, 0.0694859, 0.356382, -0.09
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot6"]
 transform = Transform( 0.923474, 0.347038, 0.163585, -0.346575, 0.937466, -0.0323004, -0.164565, -0.0268658, 0.986, 0.878, 0.972, 0.101 )
-shape = ExtResource( 9 )
+shape = ExtResource( 10 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot6"]
 mesh = ExtResource( 7 )
@@ -776,11 +874,11 @@ material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="foot7" type="Area" parent="tentacles"]
-transform = Transform( 0.100349, 0.0233521, 0.360569, 0.00319448, 0.374145, -0.0251203, -0.36131, 0.0097937, 0.0999213, -0.0620325, -1.23564, 3.48289 )
+transform = Transform( 0.100349, 0.0233521, 0.360569, 0.00319448, 0.374145, -0.0251203, -0.36131, 0.0097937, 0.0999213, -0.0620322, -1.23564, 3.48289 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot7"]
 transform = Transform( 0.923474, 0.347038, 0.163585, -0.346575, 0.937466, -0.0323004, -0.164565, -0.0268658, 0.986, 0.878, 0.972, 0.101 )
-shape = ExtResource( 9 )
+shape = ExtResource( 10 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot7"]
 mesh = ExtResource( 7 )
@@ -792,7 +890,7 @@ transform = Transform( 0.262729, -0.0201576, 0.266819, 0.00319445, 0.374145, 0.0
 
 [node name="CollisionShape" type="CollisionShape" parent="tentacles/foot8"]
 transform = Transform( 0.923472, 0.347042, 0.163592, -0.346577, 0.937465, -0.0322985, -0.164569, -0.0268706, 0.985998, 0.877656, 0.971812, 0.101421 )
-shape = ExtResource( 9 )
+shape = ExtResource( 10 )
 
 [node name="visual" type="MeshInstance" parent="tentacles/foot8"]
 mesh = ExtResource( 7 )
