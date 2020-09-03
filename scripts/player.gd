@@ -20,6 +20,7 @@ func _input(event):
 
 func _process(delta):
 	if !GV.menu:
+		$GUI/menu/submenu/settingsMenu/foodInput.text = str(GV.food)
 		$GUI/menu.visible = false
 		$GUI/menu/submenu/settingsMenu.visible = false
 		$GUI/menu/submenu.visible = false
@@ -60,4 +61,18 @@ func _on_exit_button_down():
 
 
 func _on_difficultySlider_value_changed(value):
-	pass # Replace with function body.
+	GV.difficultyMultipiler = value
+
+
+func _on_foodInput_text_changed(new_text):
+	var valid = true
+	
+	if len(new_text) > 0:
+		for x in new_text:
+			if !(x in "0123456789"):
+				$GUI/menu/submenu/settingsMenu/foodInput.text = str(GV.food - 1)
+				valid = false
+				break
+		if valid:
+			GV.food = int(new_text) - 1
+		

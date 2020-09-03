@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/3d/waka/wakafront.obj" type="ArrayMesh" id=2]
@@ -294,6 +294,19 @@ region_rect = Rect2( 0, 0, 281, 46 )
 axis_stretch_horizontal = 1
 modulate_color = Color( 1, 0.721569, 0.54902, 1 )
 
+[sub_resource type="StyleBoxEmpty" id=31]
+
+[sub_resource type="StyleBoxTexture" id=29]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 281, 46 )
+modulate_color = Color( 0.129412, 0.0470588, 0, 1 )
+
+[sub_resource type="DynamicFont" id=30]
+size = 24
+outline_color = Color( 1, 0.721569, 0.54902, 1 )
+use_filter = true
+font_data = ExtResource( 11 )
+
 [sub_resource type="StyleBoxTexture" id=21]
 texture = ExtResource( 15 )
 region_rect = Rect2( 0, 0, 281, 46 )
@@ -512,6 +525,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="food" type="Label" parent="GUI/menu/submenu/settingsMenu"]
+margin_left = -114.286
+margin_top = -148.571
+margin_right = 171.714
+margin_bottom = -105.571
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 26 )
+custom_colors/font_color = Color( 1, 0.721569, 0.54902, 1 )
+text = "Food"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="foodInput" type="LineEdit" parent="GUI/menu/submenu/settingsMenu"]
+margin_left = -57.1428
+margin_top = -114.286
+margin_right = 57.8572
+margin_bottom = -90.2857
+custom_styles/focus = SubResource( 31 )
+custom_styles/normal = SubResource( 29 )
+custom_fonts/font = SubResource( 30 )
+custom_colors/font_color = Color( 1, 0.721569, 0.54902, 1 )
+align = 1
+max_length = 4
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="help" type="Button" parent="GUI/menu"]
 margin_left = -124.058
 margin_top = -203.81
@@ -671,6 +716,7 @@ transform = Transform( 1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 2.38419e-
 shadow_enabled = true
 shadow_bias = 0.01
 [connection signal="value_changed" from="GUI/menu/submenu/settingsMenu/difficultySlider" to="." method="_on_difficultySlider_value_changed"]
+[connection signal="text_changed" from="GUI/menu/submenu/settingsMenu/foodInput" to="." method="_on_foodInput_text_changed"]
 [connection signal="button_down" from="GUI/menu/settings" to="." method="_on_settings_button_down"]
 [connection signal="button_down" from="GUI/menu/exit" to="." method="_on_exit_button_down"]
 [connection signal="button_down" from="GUI/menu/back2game" to="." method="_on_back2game_button_down"]

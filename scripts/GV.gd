@@ -1,5 +1,7 @@
 extends Node
 
+const STARTING_FOOD = 11
+
 var difficultyMultipiler = 1
 
 var actionFirePressed = false
@@ -11,7 +13,7 @@ var uiExitJust = false
 var actionFireReleased = false
 var uiExitReleased = false
 
-var food = 11
+var food = STARTING_FOOD
 var scene = "null"
 var scene_end = false
 
