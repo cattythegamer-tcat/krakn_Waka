@@ -1,4 +1,4 @@
-extends Spatial
+extends Camera
 
 
 # Declare member variables here. Examples:
@@ -16,10 +16,5 @@ func _ready():
 #	pass
 
 
-func _on_Area_area_entered(area):
+func _on_back_button_button_down():
 	GV.reset()
-
-
-func _on_StaticBody_area_entered(area):
-	$bird4.queue_free()
-	GV.easter_egg = true

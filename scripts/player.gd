@@ -23,6 +23,8 @@ func _process(delta):
 		$GUI/menu/submenu/settingsMenu/foodInput.text = str(GV.food)
 		$GUI/menu.visible = false
 		$GUI/menu/submenu/settingsMenu.visible = false
+		$GUI/menu/submenu/creditsMenu.visible = false
+		$GUI/menu/submenu/helpMenu.visible = false
 		$GUI/menu/submenu.visible = false
 		if GV.food <= 1:
 			$waka/wakaDestroy.play("destroy")
@@ -75,4 +77,77 @@ func _on_foodInput_text_changed(new_text):
 				break
 		if valid:
 			GV.food = int(new_text) - 1
-		
+
+
+func _on_shadowEnable_toggled(button_pressed):
+	if button_pressed:
+		$DirectionalLight.visible = true
+	else:
+		$DirectionalLight.visible = false
+
+
+func _on_pC1_button_down(): get_tree().change_scene("res://uselessScenes/option1_combat.tscn")
+
+
+func _on_pC2_button_down(): get_tree().change_scene("res://uselessScenes/option2_combat.tscn")
+
+
+func _on_pC3_button_down(): get_tree().change_scene("res://scenes/player.tscn")
+
+
+func _on_pC4_button_down(): get_tree().change_scene("res://uselessScenes/water_t1.tscn")
+
+
+func _on_pC5_button_down(): get_tree().change_scene("res://uselessScenes/water_t2.tscn")
+
+
+func _on_pC6_button_down(): get_tree().change_scene("res://scenes/map.tscn")
+
+
+func _on_pC7_button_down(): get_tree().change_scene("res://scenes/mapV2.tscn")
+
+
+func _on_restart_button_down():
+	GV.reset()
+
+
+func _on_credits_button_down():
+	$GUI/menu/submenu/creditsMenu.visible = true
+	$GUI/menu/submenu.visible = true
+
+
+func _on_controls_button_down():
+	pass # Replace with function body.
+
+
+func _on_goal_button_down():
+	pass # Replace with function body.
+
+
+func _on_health_button_down():
+	pass # Replace with function body.
+
+
+func _on_kraken_button_down():
+	pass # Replace with function body.
+
+
+func _on_tangaroa_button_down():
+	pass # Replace with function body.
+
+
+func _on_fishing_button_down():
+	pass # Replace with function body.
+
+
+func _on_shooting_button_down():
+	pass # Replace with function body.
+
+
+func _on_waka_history_button_down():
+	pass # Replace with function body.
+
+
+func _on_help_button_down():
+	$GUI/menu/submenu/helpMenu.visible = true
+	$GUI/menu/submenu.visible = true

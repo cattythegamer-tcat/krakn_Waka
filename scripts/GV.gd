@@ -2,6 +2,8 @@ extends Node
 
 const STARTING_FOOD = 11
 
+var easter_egg = false
+
 var difficultyMultipiler = 1
 
 var actionFirePressed = false
@@ -80,5 +82,6 @@ func reset():
 	
 	global_difficulty = 1
 	playerLocation = 0
+	menu = false
 	
 	get_tree().change_scene_to(mapScene)

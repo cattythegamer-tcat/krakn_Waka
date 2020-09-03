@@ -18,6 +18,8 @@ var difficulty = starting_difficulty
 onready var krakA = $krakenAnimations
 
 func _ready():
+	if GV.easter_egg:
+		$bird.visible = true
 	GV.scene = "octopus"
 	GV.scene_end = false
 	$tentacleRotation.playback_speed = DEF_ROTATION * difficulty
