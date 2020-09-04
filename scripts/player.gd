@@ -12,10 +12,11 @@ onready var gunAnims = $head/Camera/gunAnimations
 # Called when the node enters the scene tree for the first time.
 func _input(event):         
 	if event is InputEventMouseMotion and !GV.menu:
-		head.rotate_y(deg2rad(-event.relative.x*mouse_sens))
-		var changev=-event.relative.y*mouse_sens
-		if camera_anglev+changev>-75 and camera_anglev+changev<75: #Stopped this script so that the player cant look up or down.
-			camera_anglev+=changev
+		head.rotate_y(deg2rad(-event.relative.x * mouse_sens))
+		var changev =- event.relative.y * mouse_sens
+		
+		if camera_anglev + changev > -75 and camera_anglev + changev < 75: #Stopped this script so that the player cant look up or down.
+			camera_anglev += changev
 			camera.rotate_x(deg2rad(changev))
 
 func _process(delta):

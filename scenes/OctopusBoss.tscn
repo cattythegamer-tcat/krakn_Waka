@@ -905,6 +905,7 @@ anims/rotateTentacles = SubResource( 14 )
 
 [node name="bird" parent="." instance=ExtResource( 11 )]
 transform = Transform( 3.93279, 0, -3.08758, 0, 5, 0, 3.08758, 0, 3.93279, -13.9279, 15.0454, -22.5552 )
+visible = false
 [connection signal="timeout" from="playerTurnTimer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="tentacles/foot" to="." method="_on_area_1_area_entered"]
 [connection signal="area_entered" from="tentacles/foot2" to="." method="_on_area_2_area_entered"]
