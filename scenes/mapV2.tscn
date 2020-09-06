@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/mapV2.gd" type="Script" id=1]
 [ext_resource path="res://assets/2d/icons/map.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/2d/icons/fish_norm.png" type="Texture" id=5]
 [ext_resource path="res://assets/2d/icons/playerlocation.png" type="Texture" id=6]
 [ext_resource path="res://assets/2d/icons/selected.png" type="Texture" id=7]
+[ext_resource path="res://assets/2d/icons/arrow.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 length = 0.5
@@ -113,3 +114,23 @@ anims/firstMove = SubResource( 1 )
 anims/fourthMove = SubResource( 2 )
 anims/secondMove = SubResource( 3 )
 anims/thirdMove = SubResource( 4 )
+
+[node name="arrow" type="Sprite" parent="."]
+position = Vector2( 695.615, 303.499 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+
+[node name="arrow2" type="Sprite" parent="."]
+position = Vector2( 555.921, 302.555 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+
+[node name="arrow3" type="Sprite" parent="."]
+position = Vector2( 431.819, 303.815 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+
+[node name="arrow4" type="Sprite" parent="."]
+position = Vector2( 301.417, 305.075 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
