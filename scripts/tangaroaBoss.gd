@@ -1,6 +1,6 @@
-extends MeshInstance
+extends Spatial
 
-signal shot
+var firing_amt = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,7 +10,11 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func hit():
+	if firing_amt != 0:
+		$collision.play("collide")
+	else:
+		firing_amt = 1
 
-func _on_StaticBody_area_entered(area):
-	emit_signal("shot")
-	visible = false
+func _on_orb_hit():
+	firing_amt -= 1
