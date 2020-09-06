@@ -9,3 +9,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func hit():
+	if !central_stopped:
+		$collision.play("collide")
+	else:
+		central_stopped = false
+
+
+func _on_centralOrb_shot():
+	central_stopped = true

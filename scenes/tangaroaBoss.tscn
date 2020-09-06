@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/tangaroaBoss.gd" type="Script" id=1]
 [ext_resource path="res://materials/waterShader.tres" type="Material" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://assets/3d/tangaroa/person.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://materials/tangaroaBoss.tres" type="Material" id=5]
 [ext_resource path="res://materials/tangaroaMinion.tres" type="Material" id=6]
-[ext_resource path="res://materials/casting.tres" type="CubeMesh" id=7]
 [ext_resource path="res://scripts/centralOrb.gd" type="Script" id=8]
 
 [sub_resource type="PlaneMesh" id=1]
@@ -68,105 +67,58 @@ albedo_color = Color( 0.0627451, 0.564706, 0.964706, 1 )
 material = SubResource( 9 )
 size = Vector3( 1, 1, 1 )
 
-[sub_resource type="Curve" id=11]
-max_value = 100.0
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.255154, 7.42999 ), -4.71834, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=12]
-curve = SubResource( 11 )
-
-[sub_resource type="Curve" id=13]
-min_value = -1.0
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0197999 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=14]
-curve = SubResource( 13 )
-
-[sub_resource type="Curve" id=15]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.607549, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.85926, 0 ), -3.13235, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=16]
-curve = SubResource( 15 )
-
-[sub_resource type="Curve" id=17]
-min_value = -200.0
-max_value = 200.0
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.607549, 3.08002 ), 0.0, 0.0, 0, 0, Vector2( 0.72654, -10.56 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=18]
-curve = SubResource( 17 )
-
-[sub_resource type="ParticlesMaterial" id=19]
-spread = 10.0
-gravity = Vector3( 0, 0, -1 )
-initial_velocity = 1.0
-linear_accel_curve = SubResource( 14 )
-tangential_accel_curve = SubResource( 18 )
-damping_curve = SubResource( 12 )
-scale_curve = SubResource( 16 )
-
 [sub_resource type="Animation" id=20]
 length = 8.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("spiral:emitting")
+tracks/0/path = NodePath("centralOrb:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("spiral:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2.5, 5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -180 ), Vector3( 0, 0, -360 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("centralOrb:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 1, 2.1, 4.9, 5 ),
 "transitions": PoolRealArray( 1, 0.5, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 0, 0, 0 ) ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("centralOrb:translation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/1/type = "value"
+tracks/1/path = NodePath("centralOrb:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 3, 5 ),
 "transitions": PoolRealArray( 1, 2, 1 ),
 "update": 0,
 "values": [ Vector3( -1, 11, -48 ), Vector3( -1, 11, -48 ), Vector3( -1, 1.80917, -1 ) ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("centralOrb:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
+tracks/2/type = "value"
+tracks/2/path = NodePath("centralOrb:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 7.5 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
 }
 
 [sub_resource type="SphereMesh" id=21]
@@ -260,22 +212,12 @@ draw_pass_1 = SubResource( 10 )
 
 [node name="center_beam" type="Spatial" parent="."]
 
-[node name="spiral" type="Particles" parent="center_beam"]
-transform = Transform( -0.0780489, 0.237504, 0, -0.237504, -0.0780489, 0, 0, 0, 0.25, -0.919768, 10.9767, -47.0472 )
-emitting = false
-amount = 35
-lifetime = 50.0
-speed_scale = 10.0
-explosiveness = 0.95
-process_material = SubResource( 19 )
-draw_pass_1 = ExtResource( 7 )
-
 [node name="laser" type="AnimationPlayer" parent="center_beam"]
 autoplay = "laser"
 anims/laser = SubResource( 20 )
 
 [node name="centralOrb" type="MeshInstance" parent="center_beam"]
-transform = Transform( 0.705113, 0, 0, 0, 0.705113, 0, 0, 0, 0.705113, -1, 11, -48 )
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1.80917, -1 )
 mesh = SubResource( 21 )
 material/0 = SubResource( 22 )
 script = ExtResource( 8 )
@@ -286,4 +228,5 @@ transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="center_beam/centralOrb/StaticBody"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 shape = SubResource( 23 )
+[connection signal="shot" from="center_beam/centralOrb" to="." method="_on_centralOrb_shot"]
 [connection signal="area_entered" from="center_beam/centralOrb/StaticBody" to="center_beam/centralOrb" method="_on_StaticBody_area_entered"]

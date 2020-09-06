@@ -1,6 +1,6 @@
 extends MeshInstance
 
-signal hit
+signal shot
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,5 +12,5 @@ func _ready():
 
 
 func _on_StaticBody_area_entered(area):
-	emit_signal("hit")
+	emit_signal("shot")
 	visible = false
