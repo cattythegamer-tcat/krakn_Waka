@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/mapV2.gd" type="Script" id=1]
 [ext_resource path="res://assets/2d/icons/map.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/2d/icons/playerlocation.png" type="Texture" id=6]
 [ext_resource path="res://assets/2d/icons/selected.png" type="Texture" id=7]
 [ext_resource path="res://assets/2d/icons/arrow.png" type="Texture" id=8]
+[ext_resource path="res://assets/2d/icons/tangaroa.png" type="Texture" id=9]
 
 [sub_resource type="Animation" id=1]
 length = 0.5
@@ -90,7 +91,7 @@ texture = ExtResource( 4 )
 [node name="octopus_norm3" type="Sprite" parent="."]
 position = Vector2( 368, 304 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 
 [node name="fish_norm" type="Sprite" parent="."]
 position = Vector2( 624, 304 )
