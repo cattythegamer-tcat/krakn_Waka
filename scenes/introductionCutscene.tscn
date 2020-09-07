@@ -264,6 +264,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/combat:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=13]
 resource_name = "third_pos"
@@ -281,6 +293,18 @@ tracks/0/keys = {
 "args": [  ],
 "method": "third_pos"
 } ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/combat:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [node name="introductionCutscene" type="Spatial"]
@@ -387,7 +411,7 @@ texture = ExtResource( 6 )
 
 [node name="lightningBolt" type="Sprite" parent="Control"]
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 510.944, 297.168 )
+position = Vector2( 510, 300 )
 scale = Vector2( 1024, 600 )
 texture = ExtResource( 6 )
 
@@ -448,6 +472,53 @@ custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
 text = "The first level involves shooting fish.
 If you hit a fish, you gain an extra 
 resource, but if you miss you lose one."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="combat" type="Node2D" parent="Control"]
+visible = false
+
+[node name="title" type="Label" parent="Control/combat"]
+margin_left = 30.0
+margin_top = 20.0
+margin_right = 770.0
+margin_bottom = 144.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 9 )
+text = "Combat"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="intro" type="Label" parent="Control/combat"]
+margin_left = 50.0
+margin_top = 80.0
+margin_right = 2362.0
+margin_bottom = 585.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+text = "You have a gun.
+
+Shoot stuff."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="use" type="Label" parent="Control/combat"]
+margin_left = 50.0
+margin_top = 130.0
+margin_right = 2465.0
+margin_bottom = 762.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+text = "Extra blurb: You only have one gun,
+it doesn't need to reload and only has
+a short cooldown. You also have as
+much ammo as resources, but don't go
+too trigger happy."
 __meta__ = {
 "_edit_use_anchors_": false
 }
