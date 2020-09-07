@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://materials/raining.tres" type="Environment" id=1]
 [ext_resource path="res://materials/wakaOars.tres" type="Material" id=2]
@@ -157,8 +157,6 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="PrismMesh" id=10]
-
 [sub_resource type="Animation" id=11]
 resource_name = "first_pos"
 length = 0.3
@@ -224,6 +222,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Vector2( 420, 170 ), Vector2( 428.485, 600 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Control/resources:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=12]
 resource_name = "second_pos"
@@ -241,6 +251,18 @@ tracks/0/keys = {
 "args": [  ],
 "method": "second_pos"
 } ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/resources:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -369,6 +391,67 @@ position = Vector2( 510.944, 297.168 )
 scale = Vector2( 1024, 600 )
 texture = ExtResource( 6 )
 
+[node name="resources" type="Node2D" parent="Control"]
+visible = false
+
+[node name="title" type="Label" parent="Control/resources"]
+margin_left = 30.0
+margin_top = 20.0
+margin_right = 770.0
+margin_bottom = 144.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 9 )
+text = "Health"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="intro" type="Label" parent="Control/resources"]
+margin_left = 50.0
+margin_top = 80.0
+margin_right = 2362.0
+margin_bottom = 585.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+text = "In Krak'n Waka, your health is the 
+amount of resources you have 
+(shown at the botton of your screen).
+If you run out of resources, you die."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="use" type="Label" parent="Control/resources"]
+margin_left = 50.0
+margin_top = 140.0
+margin_right = 2362.0
+margin_bottom = 645.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+text = "Resources are used up when you fire
+your gun (Cost: 1 Resource) or when
+you are attacked by an enemy."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gain" type="Label" parent="Control/resources"]
+margin_left = 50.0
+margin_top = 190.0
+margin_right = 2397.0
+margin_bottom = 695.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+text = "The first level involves shooting fish.
+If you hit a fish, you gain an extra 
+resource, but if you miss you lose one."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="fadeIn" type="AnimationPlayer" parent="."]
 autoplay = "fadeIn"
 anims/fadeIn = SubResource( 8 )
@@ -441,26 +524,11 @@ material/0 = ExtResource( 15 )
 [node name="point_1" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
 
-[node name="MeshInstance" type="MeshInstance" parent="point_1"]
-transform = Transform( -0.965926, 0.258819, -1.13133e-08, 0, -4.37114e-08, -1, -0.258819, -0.965926, 4.2222e-08, 0, 7, -7 )
-mesh = SubResource( 10 )
-material/0 = null
-
 [node name="point_2" type="Spatial" parent="."]
 transform = Transform( 0.0858317, 0.173648, -0.98106, -0.0151344, 0.984808, 0.172987, 0.996195, 0, 0.0871558, 5, 19, 23 )
 
-[node name="MeshInstance" type="MeshInstance" parent="point_2"]
-transform = Transform( -0.965926, 0.258819, -1.13133e-08, 0, -4.37114e-08, -1, -0.258819, -0.965926, 4.2222e-08, 0, 7, -7 )
-mesh = SubResource( 10 )
-material/0 = null
-
 [node name="point_3" type="Spatial" parent="."]
 transform = Transform( -0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, -0.984808, 0, 4, 75 )
-
-[node name="MeshInstance" type="MeshInstance" parent="point_3"]
-transform = Transform( -0.965926, 0.258819, -1.13133e-08, 0, -4.37114e-08, -1, -0.258819, -0.965926, 4.2222e-08, 0, 7, -7 )
-mesh = SubResource( 10 )
-material/0 = null
 
 [node name="move_camera" type="AnimationPlayer" parent="."]
 anims/first_pos = SubResource( 11 )
