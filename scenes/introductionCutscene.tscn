@@ -137,12 +137,11 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.564706, 0.564706, 0.564706, 0.607843 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.533333, 0.533333, 0.533333, 0.862745 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=8]
 size = 128
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=8]
-resource_name = "fadeIn"
+[sub_resource type="Animation" id=9]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control/fadeIn:modulate")
@@ -157,7 +156,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 resource_name = "first_pos"
 length = 0.3
 tracks/0/type = "method"
@@ -182,7 +181,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 2, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -223,19 +222,67 @@ tracks/4/keys = {
 "values": [ Vector2( 420, 170 ), Vector2( 428.485, 600 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Control/resources:visible")
+tracks/5/path = NodePath("Control/resources/title:percent_visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Control/resources/intro:percent_visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Control/resources/use:percent_visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.757858, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Control/resources/gain:percent_visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Control/resources:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ true ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 resource_name = "second_pos"
 length = 0.3
 tracks/0/type = "method"
@@ -271,13 +318,25 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/combat:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=12]
 resource_name = "third_pos"
 length = 0.3
 tracks/0/type = "method"
@@ -305,6 +364,30 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/goal:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -200 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/goal:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [node name="introductionCutscene" type="Spatial"]
@@ -357,7 +440,7 @@ margin_top = 110.012
 margin_right = 1087.0
 margin_bottom = 234.012
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "Krak'n Waka"
 align = 1
 __meta__ = {
@@ -370,7 +453,7 @@ margin_top = 170.0
 margin_right = 711.0
 margin_bottom = 294.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
 text = "press "
 __meta__ = {
@@ -383,7 +466,7 @@ margin_top = 170.0
 margin_right = 1200.0
 margin_bottom = 294.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
 text = "to continue"
 __meta__ = {
@@ -396,7 +479,7 @@ margin_top = 170.0
 margin_right = 829.0
 margin_bottom = 294.001
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 0.721569, 0.54902, 1 )
 text = "SPACE"
 __meta__ = {
@@ -424,8 +507,9 @@ margin_top = 20.0
 margin_right = 770.0
 margin_bottom = 144.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "Health"
+percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -436,12 +520,13 @@ margin_top = 80.0
 margin_right = 2362.0
 margin_bottom = 585.0
 rect_scale = Vector2( 0.1, 0.1 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
 text = "In Krak'n Waka, your health is the 
 amount of resources you have 
 (shown at the botton of your screen).
 If you run out of resources, you die."
+percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -452,11 +537,12 @@ margin_top = 140.0
 margin_right = 2362.0
 margin_bottom = 645.0
 rect_scale = Vector2( 0.1, 0.1 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
 text = "Resources are used up when you fire
 your gun (Cost: 1 Resource) or when
 you are attacked by an enemy."
+percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -467,17 +553,19 @@ margin_top = 190.0
 margin_right = 2397.0
 margin_bottom = 695.0
 rect_scale = Vector2( 0.1, 0.1 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
 text = "The first level involves shooting fish.
 If you hit a fish, you gain an extra 
 resource, but if you miss you lose one."
+percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="combat" type="Node2D" parent="Control"]
 visible = false
+modulate = Color( 1, 1, 1, 0 )
 
 [node name="title" type="Label" parent="Control/combat"]
 margin_left = 30.0
@@ -485,7 +573,7 @@ margin_top = 20.0
 margin_right = 770.0
 margin_bottom = 144.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "Combat"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -497,7 +585,7 @@ margin_top = 80.0
 margin_right = 2362.0
 margin_bottom = 585.0
 rect_scale = Vector2( 0.1, 0.1 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
 text = "You have a gun.
 
@@ -512,20 +600,60 @@ margin_top = 130.0
 margin_right = 2465.0
 margin_bottom = 762.0
 rect_scale = Vector2( 0.1, 0.1 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
-text = "Extra blurb: You only have one gun,
+text = "EXTRA BLURB:
+You only have one gun,
 it doesn't need to reload and only has
 a short cooldown. You also have as
-much ammo as resources, but don't go
-too trigger happy."
+much ammo as resources.
+
+CONTROLS:
+LClick to shoot, Exit to bring up the
+menu and F1 to quit."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="goal" type="Node2D" parent="Control"]
+visible = false
+position = Vector2( 0, -200 )
+
+[node name="title" type="Label" parent="Control/goal"]
+margin_left = 30.0
+margin_top = 20.0
+margin_right = 770.0
+margin_bottom = 144.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 8 )
+text = "Mission"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="intro" type="Label" parent="Control/goal"]
+margin_left = 50.0
+margin_top = 80.0
+margin_right = 2362.0
+margin_bottom = 585.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+text = "You are lost in the middle of the ocean,
+only a Waka and Gun to your name.
+
+Fight deadly monsters, hunt fish and
+find your way back home to land.
+
+
+Good luck."
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="fadeIn" type="AnimationPlayer" parent="."]
 autoplay = "fadeIn"
-anims/fadeIn = SubResource( 8 )
+anims/fadeIn = SubResource( 9 )
 
 [node name="fish" type="MeshInstance" parent="."]
 transform = Transform( 2.5, -1.12072, 4.18258, 0, 4.82963, 1.2941, -4.33013, -0.647048, 2.41481, 8.56896, 2.13948, -35.4946 )
@@ -602,6 +730,6 @@ transform = Transform( 0.0858317, 0.173648, -0.98106, -0.0151344, 0.984808, 0.17
 transform = Transform( -0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, -0.984808, 0, 4, 75 )
 
 [node name="move_camera" type="AnimationPlayer" parent="."]
-anims/first_pos = SubResource( 11 )
-anims/second_pos = SubResource( 12 )
-anims/third_pos = SubResource( 13 )
+anims/first_pos = SubResource( 10 )
+anims/second_pos = SubResource( 11 )
+anims/third_pos = SubResource( 12 )

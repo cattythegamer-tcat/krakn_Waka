@@ -797,112 +797,7 @@ custom_styles/hover = SubResource( 29 )
 custom_styles/normal = SubResource( 30 )
 custom_fonts/font = SubResource( 31 )
 custom_colors/font_color = Color( 1, 0.721569, 0.54902, 1 )
-text = "controls"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="goal" type="Button" parent="GUI/menu/submenu/helpMenu"]
-margin_left = -68.5717
-margin_top = -137.143
-margin_right = 113.429
-margin_bottom = -105.143
-rect_scale = Vector2( 0.75, 0.75 )
-custom_styles/hover = SubResource( 29 )
-custom_styles/normal = SubResource( 30 )
-custom_fonts/font = SubResource( 31 )
-custom_colors/font_color = Color( 1, 0.721569, 0.54902, 1 )
-text = "goal"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="health" type="Button" parent="GUI/menu/submenu/helpMenu"]
-margin_left = -68.5717
-margin_top = -102.857
-margin_right = 113.429
-margin_bottom = -70.8571
-rect_scale = Vector2( 0.75, 0.75 )
-custom_styles/hover = SubResource( 29 )
-custom_styles/normal = SubResource( 30 )
-custom_fonts/font = SubResource( 31 )
-custom_colors/font_color = Color( 1, 0.721569, 0.54902, 1 )
-text = "health"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="kraken" type="Button" parent="GUI/menu/submenu/helpMenu"]
-margin_left = -68.5717
-margin_top = -45.7143
-margin_right = 113.429
-margin_bottom = -13.7143
-rect_scale = Vector2( 0.75, 0.75 )
-custom_styles/hover = SubResource( 29 )
-custom_styles/normal = SubResource( 30 )
-custom_fonts/font = SubResource( 31 )
-custom_colors/font_color = Color( 1, 0.721569, 0.54902, 1 )
-text = "kraken"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="tangaroa" type="Button" parent="GUI/menu/submenu/helpMenu"]
-margin_left = -68.5717
-margin_top = -11.4286
-margin_right = 113.429
-margin_bottom = 20.5714
-rect_scale = Vector2( 0.75, 0.75 )
-custom_styles/hover = SubResource( 29 )
-custom_styles/normal = SubResource( 30 )
-custom_fonts/font = SubResource( 31 )
-custom_colors/font_color = Color( 1, 0.721569, 0.54902, 1 )
-text = "tangaroa"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="fishing" type="Button" parent="GUI/menu/submenu/helpMenu"]
-margin_left = -68.5717
-margin_top = 22.8572
-margin_right = 113.429
-margin_bottom = 54.8572
-rect_scale = Vector2( 0.75, 0.75 )
-custom_styles/hover = SubResource( 29 )
-custom_styles/normal = SubResource( 30 )
-custom_fonts/font = SubResource( 31 )
-custom_colors/font_color = Color( 1, 0.721569, 0.54902, 1 )
-text = "fishing"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="shooting" type="Button" parent="GUI/menu/submenu/helpMenu"]
-margin_left = -68.5717
-margin_top = 80.0001
-margin_right = 113.429
-margin_bottom = 112.0
-rect_scale = Vector2( 0.75, 0.75 )
-custom_styles/hover = SubResource( 29 )
-custom_styles/normal = SubResource( 30 )
-custom_fonts/font = SubResource( 31 )
-custom_colors/font_color = Color( 1, 0.721569, 0.54902, 1 )
-text = "shooting"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="waka_history" type="Button" parent="GUI/menu/submenu/helpMenu"]
-margin_left = -68.5717
-margin_top = 114.286
-margin_right = 113.429
-margin_bottom = 146.286
-rect_scale = Vector2( 0.75, 0.75 )
-custom_styles/hover = SubResource( 29 )
-custom_styles/normal = SubResource( 30 )
-custom_fonts/font = SubResource( 31 )
-custom_colors/font_color = Color( 1, 0.721569, 0.54902, 1 )
-text = "waka history"
+text = "Introduction"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1255,13 +1150,6 @@ shadow_bias = 0.01
 [connection signal="button_down" from="GUI/menu/submenu/settingsMenu/pC6" to="." method="_on_pC6_button_down"]
 [connection signal="button_down" from="GUI/menu/submenu/settingsMenu/pC7" to="." method="_on_pC7_button_down"]
 [connection signal="button_down" from="GUI/menu/submenu/helpMenu/controls" to="." method="_on_controls_button_down"]
-[connection signal="button_down" from="GUI/menu/submenu/helpMenu/goal" to="." method="_on_goal_button_down"]
-[connection signal="button_down" from="GUI/menu/submenu/helpMenu/health" to="." method="_on_health_button_down"]
-[connection signal="button_down" from="GUI/menu/submenu/helpMenu/kraken" to="." method="_on_kraken_button_down"]
-[connection signal="button_down" from="GUI/menu/submenu/helpMenu/tangaroa" to="." method="_on_tangaroa_button_down"]
-[connection signal="button_down" from="GUI/menu/submenu/helpMenu/fishing" to="." method="_on_fishing_button_down"]
-[connection signal="button_down" from="GUI/menu/submenu/helpMenu/shooting" to="." method="_on_shooting_button_down"]
-[connection signal="button_down" from="GUI/menu/submenu/helpMenu/waka_history" to="." method="_on_waka_history_button_down"]
 [connection signal="button_down" from="GUI/menu/help" to="." method="_on_help_button_down"]
 [connection signal="button_down" from="GUI/menu/settings" to="." method="_on_settings_button_down"]
 [connection signal="button_down" from="GUI/menu/credits" to="." method="_on_credits_button_down"]

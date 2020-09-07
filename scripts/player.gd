@@ -118,35 +118,7 @@ func _on_credits_button_down():
 
 
 func _on_controls_button_down():
-	pass # Replace with function body.
-
-
-func _on_goal_button_down():
-	pass # Replace with function body.
-
-
-func _on_health_button_down():
-	pass # Replace with function body.
-
-
-func _on_kraken_button_down():
-	pass # Replace with function body.
-
-
-func _on_tangaroa_button_down():
-	pass # Replace with function body.
-
-
-func _on_fishing_button_down():
-	pass # Replace with function body.
-
-
-func _on_shooting_button_down():
-	pass # Replace with function body.
-
-
-func _on_waka_history_button_down():
-	pass # Replace with function body.
+	get_tree().change_scene("res://scenes/introductionCutscene.tscn")
 
 
 func _on_help_button_down():
