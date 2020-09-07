@@ -1,0 +1,136 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://materials/raining.tres" type="Environment" id=1]
+[ext_resource path="res://materials/wakaOars.tres" type="Material" id=2]
+[ext_resource path="res://materials/wakawood.tres" type="Material" id=3]
+[ext_resource path="res://materials/wakaThings.tres" type="Material" id=4]
+[ext_resource path="res://assets/3d/waka.obj" type="ArrayMesh" id=5]
+
+[sub_resource type="PlaneMesh" id=2]
+size = Vector2( 250, 250 )
+subdivide_width = 100
+subdivide_depth = 100
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+
+uniform vec4 out_color : hint_color = vec4(0.0, 0.2, 1.0, 1.0);
+uniform float amount : hint_range(0.2, 1.5) = 0.8;
+uniform float beer_factor = 0.2;
+
+float generateOffset(float x, float z, float val1, float val2, float time){
+	float speed = 1.0;
+	
+	float radiansX = ((mod(x + z * x * val1, amount) / amount) + (time * speed) * mod(x * 0.8 + z, 1.5)) * 2.0 * 3.14;
+	float radiansZ = ((mod(val2 * (z * x + x * z), amount) / amount) + (time * speed) * 2.0 * mod(x, 2.0)) * 2.0 * 3.14;
+	
+	return amount * 0.5 * (sin(radiansZ) + cos(radiansX));
+}
+
+vec3 applyDistortion(vec3 vertex, float time) {
+	float xd = generateOffset(vertex.x, vertex.z, 0.2, 0.1, time);
+	float yd = generateOffset(vertex.x, vertex.z, 0.1, 0.3, time);
+	float zd = generateOffset(vertex.x, vertex.z, 0.15, 0.2, time);
+	
+	return vertex + vec3(xd, yd, zd);
+}
+
+void vertex() {
+	VERTEX = applyDistortion(VERTEX, TIME * 0.1);
+}
+
+void fragment() {
+	NORMAL = normalize(cross(dFdx(VERTEX), dFdy(VERTEX)));
+	METALLIC = 0.2;
+	SPECULAR = 0.5;
+	ROUGHNESS = 0.2;
+	ALBEDO = out_color.xyz;
+	
+	float depth = texture(DEPTH_TEXTURE, SCREEN_UV).r;
+	depth = depth * 2.0 - 1.0;
+	depth = PROJECTION_MATRIX[3][2] / (depth + PROJECTION_MATRIX[2][2]);
+	depth = depth + VERTEX.z;
+	
+	depth = exp(-depth * beer_factor);
+	ALPHA = clamp(1.0 - depth, 0.0, 1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 1 )
+shader_param/out_color = Color( 0.0980392, 0.223529, 0.32549, 1 )
+shader_param/amount = 0.7
+shader_param/beer_factor = 0.5
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 100, 1, 100 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.392157, 0.462745, 0.596078, 1 )
+
+[sub_resource type="CubeMesh" id=6]
+material = SubResource( 5 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "wakaMove"
+length = 4.0
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("waka:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75 ),
+"transitions": PoolRealArray( 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -3.4315 ), Vector3( 0, 0, -6.863 ), Vector3( 0, 0, 1.12561 ), Vector3( 0, 0, 9.11421 ), Vector3( 0, 0, 2.48754 ), Vector3( 0, 0, -4.13913 ), Vector3( 0, 0, -0.608395 ), Vector3( 0, 0, 2.92234 ), Vector3( 0, 0, -1.84448 ), Vector3( 0, 0, -6.6113 ), Vector3( 0, 0, -2.03343 ), Vector3( 0, 0, 2.54445 ), Vector3( 0, 0, -0.899922 ), Vector3( 0, 0, -4.3443 ), Vector3( 0, 0, -2.17215 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("waka:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 0.5, 2, 0.5, 2 ),
+"update": 0,
+"values": [ Vector3( -51.3726, 1.00499, 3.61201 ), Vector3( -51.3726, 2.82873, 3.61201 ), Vector3( -51.3726, 1.00499, 3.61201 ), Vector3( -51.3726, 0.121642, 3.61201 ) ]
+}
+
+[node name="introductionCutscene" type="Spatial"]
+
+[node name="water" type="MeshInstance" parent="."]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="rain" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.8301, 125.985, 14.0753 )
+amount = 500
+lifetime = 25.0
+speed_scale = 3.0
+visibility_aabb = AABB( -53.4807, -129.036, -43.5877, 106.961, 258.072, 87.1755 )
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 6 )
+
+[node name="waka" type="MeshInstance" parent="."]
+transform = Transform( 0.987383, -0.158351, 0, 0.158351, 0.987383, 0, 0, 0, 1, -51.3726, 2.82868, 3.61201 )
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="waka"]
+transform = Transform( 0.495946, -0.127082, 0.859004, 0.0635409, 0.991892, 0.110056, -0.866025, -8.88464e-09, 0.5, 8.18731, 3.6395, 4.36402 )
+environment = ExtResource( 1 )
+far = 500.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "wakaMove"
+playback_speed = 0.2
+anims/wakaMove = SubResource( 7 )

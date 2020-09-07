@@ -51,7 +51,7 @@ enabled = true
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.88299, 2.62846, -5.12764 )
 
 [node name="waka" type="MeshInstance" parent="."]
-transform = Transform( -4.37165e-08, 5.59663e-13, -1, 0.0152953, 0.999883, -6.68099e-10, 0.999883, -0.0152953, -4.37114e-08, 14.0968, -1.26568, -4.27358 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.0968, -1.26568, -4.27358 )
 mesh = ExtResource( 3 )
 material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
@@ -75,7 +75,6 @@ __meta__ = {
 }
 
 [node name="title" type="Node2D" parent="information"]
-visible = false
 
 [node name="titleText" type="Label" parent="information/title"]
 margin_left = 280.0
@@ -206,6 +205,7 @@ __meta__ = {
 }
 
 [node name="health" type="Node2D" parent="information"]
+visible = false
 
 [node name="pressText2" type="Label" parent="information/health"]
 margin_left = 24.0
