@@ -180,7 +180,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="BoxShape" id=9]
-extents = Vector3( 2, 2, 16 )
+extents = Vector3( 2, 2, 128 )
 
 [sub_resource type="CubeMesh" id=10]
 
@@ -230,6 +230,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bullet/collision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=18]
@@ -435,7 +447,7 @@ anims/reload = SubResource( 8 )
 transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.502116, -0.460758, -1.13309 )
 
 [node name="collision" type="CollisionShape" parent="head/Camera/bullet"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 11.9683 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -247.945 )
 shape = SubResource( 9 )
 
 [node name="visual" type="MeshInstance" parent="head/Camera/bullet"]
@@ -450,7 +462,6 @@ process_material = SubResource( 14 )
 draw_pass_1 = SubResource( 16 )
 
 [node name="bulletAnimations" type="AnimationPlayer" parent="head/Camera"]
-playback_speed = 0.25
 anims/bulletFire = SubResource( 17 )
 
 [node name="boatAnimations" type="AnimationPlayer" parent="."]
