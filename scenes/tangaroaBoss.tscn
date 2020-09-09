@@ -68,11 +68,11 @@ albedo_color = Color( 0.0627451, 0.564706, 0.964706, 1 )
 material = SubResource( 9 )
 size = Vector3( 1, 1, 1 )
 
-[sub_resource type="SpatialMaterial" id=15]
+[sub_resource type="SpatialMaterial" id=11]
 params_cull_mode = 2
 albedo_color = Color( 0.721569, 0.117647, 0.788235, 1 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 length = 8.0
 loop = true
 tracks/0/type = "value"
@@ -150,14 +150,14 @@ tracks/5/keys = {
 "values": [ Vector3( 0, 90, 0 ), Vector3( 180, 90, 0 ), Vector3( 360, 90, 0 ) ]
 }
 
-[sub_resource type="BoxShape" id=17]
+[sub_resource type="BoxShape" id=13]
 
-[sub_resource type="PrismMesh" id=16]
+[sub_resource type="PrismMesh" id=14]
 
-[sub_resource type="SpatialMaterial" id=18]
+[sub_resource type="SpatialMaterial" id=15]
 albedo_color = Color( 0.556863, 0.141176, 0.811765, 1 )
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=16]
 length = 8.0
 loop = true
 tracks/0/type = "value"
@@ -322,11 +322,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46478, 0 )
 [node name="brokenRing" type="MeshInstance" parent="center_beam"]
 transform = Transform( -2.08539e-07, -1.21735, -0.395541, 0, -0.395541, 1.21735, -1.28, 1.98332e-07, 6.44419e-08, -1.12964, 11.0062, -48.0499 )
 mesh = ExtResource( 8 )
-material/0 = SubResource( 15 )
+material/0 = SubResource( 11 )
 
 [node name="laser" type="AnimationPlayer" parent="center_beam"]
 autoplay = "laser"
-anims/laser = SubResource( 11 )
+anims/laser = SubResource( 12 )
 
 [node name="orb" type="Area" parent="center_beam"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 11, -48 )
@@ -334,12 +334,12 @@ script = ExtResource( 7 )
 
 [node name="hitbox" type="CollisionShape" parent="center_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-shape = SubResource( 17 )
+shape = SubResource( 13 )
 
 [node name="visual" type="MeshInstance" parent="center_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-mesh = SubResource( 16 )
-material/0 = SubResource( 18 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
 
 [node name="right_beam" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3.53522, 0 )
@@ -347,11 +347,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3.53522, 0 )
 [node name="brokenRing" type="MeshInstance" parent="right_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
 mesh = ExtResource( 8 )
-material/0 = SubResource( 15 )
+material/0 = SubResource( 11 )
 
 [node name="laser" type="AnimationPlayer" parent="right_beam"]
 autoplay = "laser"
-anims/laser = SubResource( 19 )
+anims/laser = SubResource( 16 )
 
 [node name="orb" type="Area" parent="right_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -8, -3.14017, -1 )
@@ -359,12 +359,12 @@ script = ExtResource( 7 )
 
 [node name="hitbox" type="CollisionShape" parent="right_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-shape = SubResource( 17 )
+shape = SubResource( 13 )
 
 [node name="visual" type="MeshInstance" parent="right_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-mesh = SubResource( 16 )
-material/0 = SubResource( 18 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
 [connection signal="area_entered" from="center_beam/orb" to="center_beam/orb" method="_on_orb_area_entered"]
 [connection signal="hit" from="center_beam/orb" to="." method="_on_orb_hit"]
 [connection signal="area_entered" from="right_beam/orb" to="right_beam/orb" method="_on_orb_area_entered"]
