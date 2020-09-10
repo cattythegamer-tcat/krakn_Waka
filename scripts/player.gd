@@ -21,7 +21,7 @@ func _input(event):
 
 func _process(delta):
 	if !GV.menu:
-		$GUI/menu/submenu/settingsMenu/foodInput.text = str(GV.food)
+		$GUI/menu/submenu/settingsMenu/foodInput.text = str(GV.food - 1)
 		$GUI/menu.visible = false
 		$GUI/menu/submenu/settingsMenu.visible = false
 		$GUI/menu/submenu/creditsMenu.visible = false
@@ -30,6 +30,8 @@ func _process(delta):
 		if GV.food <= 1:
 			$waka/wakaDestroy.play("destroy")
 		elif GV.actionFireJust and !gunAnims.is_playing():
+			$head/Camera/bullet.set_collision_layer_bit(0, true)
+			$head/Camera/bullet.set_collision_layer_bit(1, true)
 			$head/Camera/bullet/collision.disabled = false
 			gunAnims.play("reload")
 			justFired = 10
@@ -44,10 +46,11 @@ func _process(delta):
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	gunAnims.play("reload")
-	$head/Camera/bullet/collision.disabled = true
+	$head/Camera/bullet.set_collision_layer_bit(0, false)
+	$head/Camera/bullet.set_collision_layer_bit(1, false)
 
 func destroy_ended():
-	get_tree().quit()
+	GV.reset()
 
 
 func _on_settings_button_down():
@@ -73,11 +76,11 @@ func _on_foodInput_text_changed(new_text):
 	if len(new_text) > 0:
 		for x in new_text:
 			if !(x in "0123456789"):
-				$GUI/menu/submenu/settingsMenu/foodInput.text = str(GV.food - 1)
+				$GUI/menu/submenu/settingsMenu/foodInput.text = str(GV.food)
 				valid = false
 				break
 		if valid:
-			GV.food = int(new_text) - 1
+			GV.food = int(new_text) + 1
 
 
 func _on_shadowEnable_toggled(button_pressed):

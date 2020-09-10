@@ -75,6 +75,7 @@ shader_param/beer_factor = 0.5
 [sub_resource type="ParticlesMaterial" id=4]
 emission_shape = 2
 emission_box_extents = Vector3( 100, 1, 100 )
+gravity = Vector3( 2, -9.8, 3 )
 
 [sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.392157, 0.462745, 0.596078, 1 )

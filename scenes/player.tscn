@@ -444,11 +444,13 @@ color = Color( 0, 0, 0, 1 )
 anims/reload = SubResource( 8 )
 
 [node name="bullet" type="Area" parent="head/Camera"]
-transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.502116, -0.460758, -1.13309 )
+transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.0242503, 0.0355358, -84.1331 )
+visible = false
 
 [node name="collision" type="CollisionShape" parent="head/Camera/bullet"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -247.945 )
 shape = SubResource( 9 )
+disabled = true
 
 [node name="visual" type="MeshInstance" parent="head/Camera/bullet"]
 mesh = SubResource( 10 )
@@ -1148,7 +1150,6 @@ texture = ExtResource( 13 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 2.38419e-07, 4.97146, -24.6868 )
-visible = false
 shadow_enabled = true
 shadow_bias = 0.01
 [connection signal="value_changed" from="GUI/menu/submenu/settingsMenu/difficultySlider" to="." method="_on_difficultySlider_value_changed"]
