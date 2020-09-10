@@ -20,6 +20,7 @@ var scene = "null"
 var scene_end = false
 
 var menu = false
+var warning_shot = false
 
 var fish_remaining = 0
 var fishTileProb = 0.1

@@ -30,6 +30,7 @@ func _process(delta):
 		if GV.food <= 1:
 			$waka/wakaDestroy.play("destroy")
 		elif GV.actionFireJust and !gunAnims.is_playing():
+			GV.warning_shot = false
 			$head/Camera/bullet.set_collision_layer_bit(0, true)
 			$head/Camera/bullet.set_collision_layer_bit(1, true)
 			$head/Camera/bullet/collision.disabled = false
@@ -48,6 +49,7 @@ func _ready():
 	gunAnims.play("reload")
 	$head/Camera/bullet.set_collision_layer_bit(0, false)
 	$head/Camera/bullet.set_collision_layer_bit(1, false)
+	GV.warning_shot = true
 
 func destroy_ended():
 	GV.reset()

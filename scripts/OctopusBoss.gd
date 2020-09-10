@@ -55,7 +55,7 @@ func bossDoDamage(amt = 10):
 	GV.food -= amt
 
 func tentacleKilled(num):
-	if !tentacleShot and !sunk and !krakA.is_playing():
+	if !tentacleShot and !sunk and !krakA.is_playing() and !GV.warning_shot:
 		difficulty = float(STARTING_BOSSHEALTH) / float(bossHealth) * starting_difficulty
 		$tentacleRotation.playback_speed = DEF_ROTATION * difficulty
 		bossHealth -= 10
