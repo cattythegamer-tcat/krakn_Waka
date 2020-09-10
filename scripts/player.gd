@@ -56,6 +56,8 @@ func destroy_ended():
 
 
 func _on_settings_button_down():
+	$GUI/menu/submenu/creditsMenu.visible = false
+	$GUI/menu/submenu/helpMenu.visible = false
 	$GUI/menu/submenu/settingsMenu.visible = true
 	$GUI/menu/submenu.visible = true
 
@@ -118,6 +120,8 @@ func _on_restart_button_down():
 
 
 func _on_credits_button_down():
+	$GUI/menu/submenu/settingsMenu.visible = false
+	$GUI/menu/submenu/helpMenu.visible = false
 	$GUI/menu/submenu/creditsMenu.visible = true
 	$GUI/menu/submenu.visible = true
 
@@ -127,5 +131,7 @@ func _on_controls_button_down():
 
 
 func _on_help_button_down():
+	$GUI/menu/submenu/settingsMenu.visible = false
+	$GUI/menu/submenu/creditsMenu.visible = false
 	$GUI/menu/submenu/helpMenu.visible = true
 	$GUI/menu/submenu.visible = true
