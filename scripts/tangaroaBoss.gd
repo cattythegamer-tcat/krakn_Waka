@@ -9,6 +9,7 @@ func hit():
 	if rung == firing_amt:
 		if firing_amt != 0:
 			$collision.play("collide")
+			GV.food -= firing_amt * 2
 		firing_amt = 2
 		rung = 0
 
