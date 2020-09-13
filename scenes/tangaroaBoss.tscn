@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scripts/tangaroaBoss.gd" type="Script" id=1]
 [ext_resource path="res://materials/waterShader.tres" type="Material" id=2]
@@ -183,6 +183,162 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 2, 1 ),
 "update": 0,
 "values": [ Vector3( -1, 11, -48 ), Vector3( -1, 11, -48 ), Vector3( -8, -3.14017, -1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("orb:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 7.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("brokenRing:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 4 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 2, 2, 2 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("brokenRing:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 180, 90, 0 ), Vector3( 360, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("orb:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.1, 4.9, 5 ),
+"transitions": PoolRealArray( 1, 0.5, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("orb:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3, 5 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector3( -1, 11, -48 ), Vector3( -1, 11, -48 ), Vector3( -17.3175, -5.76151, -5.5825 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("orb:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 7.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("brokenRing:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 4 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 2, 2, 2 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("brokenRing:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 180, 90, 0 ), Vector3( 360, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("orb:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.1, 4.9, 5 ),
+"transitions": PoolRealArray( 1, 0.5, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("orb:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3, 5 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector3( -1, 11, -48 ), Vector3( -1, 11, -48 ), Vector3( 15.6825, -5.76151, -2.5825 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("orb:visible")
@@ -446,6 +602,58 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
 mesh = SubResource( 14 )
 material/0 = SubResource( 15 )
 
+[node name="far_right_beam" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1845, 6.47392, 0.856822 )
+
+[node name="brokenRing" type="MeshInstance" parent="far_right_beam"]
+transform = Transform( -8.49944e-08, 1.37493, -1.37493, 0, -1.37493, -1.37493, -1.94444, -6.01001e-08, 6.01001e-08, -1.12964, 11.0062, -48.0499 )
+mesh = ExtResource( 8 )
+material/0 = SubResource( 11 )
+
+[node name="laser" type="AnimationPlayer" parent="far_right_beam"]
+autoplay = "laser"
+anims/laser = SubResource( 18 )
+
+[node name="orb" type="Area" parent="far_right_beam"]
+transform = Transform( 0.702479, 0, 0, 0, 0.702479, 0, 0, 0, 0.702479, -1, 11, -48 )
+collision_layer = 0
+script = ExtResource( 7 )
+
+[node name="hitbox" type="CollisionShape" parent="far_right_beam/orb"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
+shape = SubResource( 13 )
+
+[node name="visual" type="MeshInstance" parent="far_right_beam/orb"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
+
+[node name="far_left_beam" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8155, 6.47392, 0.856822 )
+
+[node name="brokenRing" type="MeshInstance" parent="far_left_beam"]
+transform = Transform( -8.49944e-08, 1.37493, -1.37493, 0, -1.37493, -1.37493, -1.94444, -6.01001e-08, 6.01001e-08, -1.12964, 11.0062, -48.0499 )
+mesh = ExtResource( 8 )
+material/0 = SubResource( 11 )
+
+[node name="laser" type="AnimationPlayer" parent="far_left_beam"]
+autoplay = "laser"
+anims/laser = SubResource( 19 )
+
+[node name="orb" type="Area" parent="far_left_beam"]
+transform = Transform( 0.702479, 0, 0, 0, 0.702479, 0, 0, 0, 0.702479, -1, 11, -48 )
+collision_layer = 0
+script = ExtResource( 7 )
+
+[node name="hitbox" type="CollisionShape" parent="far_left_beam/orb"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
+shape = SubResource( 13 )
+
+[node name="visual" type="MeshInstance" parent="far_left_beam/orb"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
+
 [node name="left_beam" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3.53522, 0 )
 
@@ -475,5 +683,9 @@ material/0 = SubResource( 15 )
 [connection signal="hit" from="center_beam/orb" to="." method="_on_orb_hit"]
 [connection signal="area_entered" from="right_beam/orb" to="right_beam/orb" method="_on_orb_area_entered"]
 [connection signal="hit" from="right_beam/orb" to="." method="_on_orb_hit"]
+[connection signal="area_entered" from="far_right_beam/orb" to="far_right_beam/orb" method="_on_orb_area_entered"]
+[connection signal="hit" from="far_right_beam/orb" to="." method="_on_orb_hit"]
+[connection signal="area_entered" from="far_left_beam/orb" to="far_left_beam/orb" method="_on_orb_area_entered"]
+[connection signal="hit" from="far_left_beam/orb" to="." method="_on_orb_hit"]
 [connection signal="area_entered" from="left_beam/orb" to="left_beam/orb" method="_on_orb_area_entered"]
 [connection signal="hit" from="left_beam/orb" to="." method="_on_orb_hit"]
