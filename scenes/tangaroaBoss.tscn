@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scripts/tangaroaBoss.gd" type="Script" id=1]
 [ext_resource path="res://materials/waterShader.tres" type="Material" id=2]
@@ -323,7 +323,163 @@ tracks/5/keys = {
 "values": [ Vector3( 0, 90, 0 ), Vector3( 180, 90, 0 ), Vector3( 360, 90, 0 ) ]
 }
 
+[sub_resource type="Animation" id=28]
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("orb:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.1, 4.9, 5 ),
+"transitions": PoolRealArray( 1, 0.5, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("orb:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3, 5 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector3( -1, 11, -48 ), Vector3( -1, 11, -48 ), Vector3( -17.3175, -5.76151, -5.5825 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("orb:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 7.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("brokenRing:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 4 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 2, 2, 2 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("brokenRing:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 180, 90, 0 ), Vector3( 360, 90, 0 ) ]
+}
+
 [sub_resource type="Animation" id=18]
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("orb:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.1, 4.9, 5 ),
+"transitions": PoolRealArray( 1, 0.5, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("orb:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3, 5 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector3( -1, 11, -48 ), Vector3( -1, 11, -48 ), Vector3( 15.6825, -5.76151, -2.5825 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("orb:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 7.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("brokenRing:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 4 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 2, 2, 2 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("brokenRing:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 180, 90, 0 ), Vector3( 360, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=27]
 length = 8.0
 loop = true
 tracks/0/type = "value"
@@ -669,6 +825,169 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 )
 }
 
+[sub_resource type="Animation" id=29]
+resource_name = "third_level"
+tracks/0/type = "value"
+tracks/0/path = NodePath("far_right_beam:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("far_left_beam:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "transform"
+tracks/2/path = NodePath("far_right_beam")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, 16.1845, 6.47392, 0.856822, 0, 0, 0, 1, 1, 1, 1 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("far_left_beam")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, -15.8155, 6.47392, 0.856822, 0, 0, 0, 1, 1, 1, 1 )
+tracks/4/type = "animation"
+tracks/4/path = NodePath("far_left_beam/laser")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": PoolStringArray( "laser" ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "animation"
+tracks/5/path = NodePath("far_right_beam/laser")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": PoolStringArray( "laser" ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "animation"
+tracks/6/path = NodePath("right_beam/laser")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": PoolStringArray( "laser" ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "animation"
+tracks/7/path = NodePath("left_beam/laser")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"clips": PoolStringArray( "laser" ),
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("super_far_right_beam:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("super_far_left_beam:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "animation"
+tracks/10/path = NodePath("super_far_left_beam/laser")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"clips": PoolStringArray( "laser" ),
+"times": PoolRealArray( 0 )
+}
+tracks/11/type = "animation"
+tracks/11/path = NodePath("super_far_right_beam/laser")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"clips": PoolStringArray( "laser" ),
+"times": PoolRealArray( 0 )
+}
+tracks/12/type = "transform"
+tracks/12/path = NodePath("super_far_right_beam")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = PoolRealArray( 0, 1, 24.1845, 6.47392, 0.856822, 0, 0, 0, 1, 1, 1, 1 )
+tracks/13/type = "transform"
+tracks/13/path = NodePath("super_far_left_beam")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = PoolRealArray( 0, 1, -23.8155, 6.47392, 0.856822, 0, 0, 0, 1, 1, 1, 1 )
+tracks/14/type = "value"
+tracks/14/path = NodePath("minion_5:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( -29.7843, -4.64264, -54.1622 ), Vector3( -29.7843, 6.56812, -54.1622 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("minion_6:translation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( 26.37, -4.64264, -54.48 ), Vector3( 26.37, 6.56812, -54.48 ) ]
+}
+
 [sub_resource type="Animation" id=22]
 resource_name = "zero_level"
 length = 0.1
@@ -830,7 +1149,7 @@ material/2 = SubResource( 4 )
 material/3 = ExtResource( 5 )
 
 [node name="minion_1" type="MeshInstance" parent="."]
-transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -11.392, 4.56812, -62.1622 )
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -11.392, -3.43188, -62.1622 )
 mesh = ExtResource( 4 )
 material/0 = SubResource( 2 )
 material/1 = SubResource( 3 )
@@ -838,7 +1157,7 @@ material/2 = SubResource( 4 )
 material/3 = ExtResource( 6 )
 
 [node name="minion_3" type="MeshInstance" parent="."]
-transform = Transform( -1, 0, 1.73205, 0, 2, 0, -1.73205, 0, -1, -21.392, 5.56812, -60.1622 )
+transform = Transform( -1, 0, 1.73205, 0, 2, 0, -1.73205, 0, -1, -21.392, -3.43188, -60.1622 )
 mesh = ExtResource( 4 )
 material/0 = SubResource( 2 )
 material/1 = SubResource( 3 )
@@ -846,7 +1165,7 @@ material/2 = SubResource( 4 )
 material/3 = ExtResource( 6 )
 
 [node name="minion_5" type="MeshInstance" parent="."]
-transform = Transform( -1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, -1.41421, -29.7843, 6.56812, -54.1622 )
+transform = Transform( -1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, -1.41421, -29.7843, -4.64264, -54.1622 )
 mesh = ExtResource( 4 )
 material/0 = SubResource( 2 )
 material/1 = SubResource( 3 )
@@ -854,7 +1173,7 @@ material/2 = SubResource( 4 )
 material/3 = ExtResource( 6 )
 
 [node name="minion_6" type="MeshInstance" parent="."]
-transform = Transform( 0.999999, 0, 1.73205, 0, 2, 0, -1.73205, 0, 0.999999, 26.37, 6.56812, -54.48 )
+transform = Transform( 0.999999, 0, 1.73205, 0, 2, 0, -1.73205, 0, 0.999999, 26.37, -4.64264, -54.48 )
 mesh = ExtResource( 4 )
 material/0 = SubResource( 2 )
 material/1 = SubResource( 3 )
@@ -862,7 +1181,7 @@ material/2 = SubResource( 4 )
 material/3 = ExtResource( 6 )
 
 [node name="minion_4" type="MeshInstance" parent="."]
-transform = Transform( 0.845236, 0, 1.81262, 0, 2, 0, -1.81262, 0, 0.845236, 19.608, 5.56812, -60.1622 )
+transform = Transform( 0.845236, 0, 1.81262, 0, 2, 0, -1.81262, 0, 0.845236, 19.608, -3.43188, -60.1622 )
 mesh = ExtResource( 4 )
 material/0 = SubResource( 2 )
 material/1 = SubResource( 3 )
@@ -870,7 +1189,7 @@ material/2 = SubResource( 4 )
 material/3 = ExtResource( 6 )
 
 [node name="minion_2" type="MeshInstance" parent="."]
-transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 9.60798, 4.56812, -62.1622 )
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 9.60798, -3.43188, -62.1622 )
 mesh = ExtResource( 4 )
 material/0 = SubResource( 2 )
 material/1 = SubResource( 3 )
@@ -918,10 +1237,11 @@ mesh = SubResource( 14 )
 material/0 = SubResource( 15 )
 
 [node name="right_beam" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3.53522, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -51.4648, 0 )
+visible = false
 
 [node name="brokenRing" type="MeshInstance" parent="right_beam"]
-transform = Transform( -8.74228e-08, 2, -8.74228e-08, 0, -8.74228e-08, -2, -2, -8.74228e-08, 3.82137e-15, -1.12964, 11.0062, -48.0499 )
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
 mesh = ExtResource( 8 )
 material/0 = SubResource( 11 )
 
@@ -943,10 +1263,11 @@ mesh = SubResource( 14 )
 material/0 = SubResource( 15 )
 
 [node name="far_right_beam" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1845, 6.47392, 0.856822 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1845, -48.5261, 0.856822 )
+visible = false
 
 [node name="brokenRing" type="MeshInstance" parent="far_right_beam"]
-transform = Transform( -8.74228e-08, 2, -8.74228e-08, 0, -8.74228e-08, -2, -2, -8.74228e-08, 3.82137e-15, -1.12964, 11.0062, -48.0499 )
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
 mesh = ExtResource( 8 )
 material/0 = SubResource( 11 )
 
@@ -967,11 +1288,37 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
 mesh = SubResource( 14 )
 material/0 = SubResource( 15 )
 
+[node name="super_far_right_beam" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1845, 6.47392, 0.856822 )
+
+[node name="brokenRing" type="MeshInstance" parent="super_far_right_beam"]
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
+mesh = ExtResource( 8 )
+material/0 = SubResource( 11 )
+
+[node name="laser" type="AnimationPlayer" parent="super_far_right_beam"]
+anims/laser = SubResource( 28 )
+
+[node name="orb" type="Area" parent="super_far_right_beam"]
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 11, -48 )
+collision_layer = 0
+script = ExtResource( 7 )
+
+[node name="hitbox" type="CollisionShape" parent="super_far_right_beam/orb"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
+shape = SubResource( 13 )
+
+[node name="visual" type="MeshInstance" parent="super_far_right_beam/orb"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
+
 [node name="far_left_beam" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8155, 6.47392, 0.856822 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8155, -48.5261, 0.856822 )
+visible = false
 
 [node name="brokenRing" type="MeshInstance" parent="far_left_beam"]
-transform = Transform( -8.74228e-08, 2, -8.74228e-08, 0, -8.74228e-08, -2, -2, -8.74228e-08, 3.82137e-15, -1.12964, 11.0062, -48.0499 )
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
 mesh = ExtResource( 8 )
 material/0 = SubResource( 11 )
 
@@ -992,11 +1339,37 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
 mesh = SubResource( 14 )
 material/0 = SubResource( 15 )
 
+[node name="super_far_left_beam" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8155, 6.47392, 0.856822 )
+
+[node name="brokenRing" type="MeshInstance" parent="super_far_left_beam"]
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
+mesh = ExtResource( 8 )
+material/0 = SubResource( 11 )
+
+[node name="laser" type="AnimationPlayer" parent="super_far_left_beam"]
+anims/laser = SubResource( 27 )
+
+[node name="orb" type="Area" parent="super_far_left_beam"]
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 11, -48 )
+collision_layer = 0
+script = ExtResource( 7 )
+
+[node name="hitbox" type="CollisionShape" parent="super_far_left_beam/orb"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
+shape = SubResource( 13 )
+
+[node name="visual" type="MeshInstance" parent="super_far_left_beam/orb"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
+
 [node name="left_beam" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3.53522, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -51.4648, 0 )
+visible = false
 
 [node name="brokenRing" type="MeshInstance" parent="left_beam"]
-transform = Transform( -8.74228e-08, 2, -8.74228e-08, 0, -8.74228e-08, -2, -2, -8.74228e-08, 3.82137e-15, -1.12964, 11.0062, -48.0499 )
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
 mesh = ExtResource( 8 )
 material/0 = SubResource( 11 )
 
@@ -1021,6 +1394,7 @@ material/0 = SubResource( 15 )
 autoplay = "zero_level"
 anims/first_level = SubResource( 20 )
 anims/second_level = SubResource( 21 )
+anims/third_level = SubResource( 29 )
 anims/zero_level = SubResource( 22 )
 
 [node name="islandT1" type="MeshInstance" parent="."]
@@ -1048,7 +1422,11 @@ material/0 = ExtResource( 12 )
 [connection signal="hit" from="right_beam/orb" to="." method="_on_orb_hit"]
 [connection signal="area_entered" from="far_right_beam/orb" to="far_right_beam/orb" method="_on_orb_area_entered"]
 [connection signal="hit" from="far_right_beam/orb" to="." method="_on_orb_hit"]
+[connection signal="area_entered" from="super_far_right_beam/orb" to="super_far_right_beam/orb" method="_on_orb_area_entered"]
+[connection signal="hit" from="super_far_right_beam/orb" to="." method="_on_orb_hit"]
 [connection signal="area_entered" from="far_left_beam/orb" to="far_left_beam/orb" method="_on_orb_area_entered"]
 [connection signal="hit" from="far_left_beam/orb" to="." method="_on_orb_hit"]
+[connection signal="area_entered" from="super_far_left_beam/orb" to="super_far_left_beam/orb" method="_on_orb_area_entered"]
+[connection signal="hit" from="super_far_left_beam/orb" to="." method="_on_orb_hit"]
 [connection signal="area_entered" from="left_beam/orb" to="left_beam/orb" method="_on_orb_area_entered"]
 [connection signal="hit" from="left_beam/orb" to="." method="_on_orb_hit"]

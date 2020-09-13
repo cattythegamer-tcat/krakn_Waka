@@ -18,12 +18,16 @@ func hit():
 				$minion_emerge.play("first_level")
 			elif FIRING == 5:
 				$minion_emerge.play("second_level")
+			elif FIRING == 7:
+				$minion_emerge.play("third_level")
 			else:
 				$center_beam.queue_free()
 				$left_beam.queue_free()
 				$right_beam.queue_free()
 				$far_left_beam.queue_free()
 				$far_right_beam.queue_free()
+				$super_far_left_beam.queue_free()
+				$super_far_right_beam.queue_free()
 		firing_amt = FIRING
 		rung = 0
 
