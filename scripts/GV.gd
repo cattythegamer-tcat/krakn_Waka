@@ -1,6 +1,6 @@
 extends Node
 
-const STARTING_FOOD = 11
+const STARTING_FOOD = 30
 
 var easter_egg = false
 
@@ -40,6 +40,7 @@ onready var octopusIcon = preload("res://assets/2d/icons/octopus_norm.png")
 onready var mapScene = preload("res://scenes/mapV2.tscn")
 onready var octopusScene = preload("res://scenes/OctopusBoss.tscn")
 onready var landScene = preload("res://scenes/landEnding.tscn")
+onready var tangaroaScene = preload("res://scenes/tangaroaBoss.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

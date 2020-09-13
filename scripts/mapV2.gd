@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var levels = ["potato", GV.octopusScene, GV.octopusScene, GV.octopusScene, GV.landScene]
+onready var levels = ["potato", GV.octopusScene, GV.octopusScene, GV.tangaroaScene, GV.landScene]
 
 func _ready():
 	match GV.playerLocation:
