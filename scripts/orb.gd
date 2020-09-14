@@ -15,4 +15,6 @@ func _ready():
 
 func _on_orb_area_entered(area):
 	emit_signal("hit")
-	visible = false
+	$visual.visible = false
+	$hitbox.disabled = true
+	$explode.emitting = true

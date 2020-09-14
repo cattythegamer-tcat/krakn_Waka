@@ -5,11 +5,14 @@ var FIRING = 1
 var firing_amt = FIRING
 var rung = 0
 
+func _ready():
+	GV.scene_end = false
+
 func hit():
 	rung += 1
 	
 	if rung == FIRING:
-		if firing_amt != 0:
+		if firing_amt > 0:
 			$collision.play("collide")
 			GV.food -= firing_amt * 2
 		else:
@@ -21,6 +24,7 @@ func hit():
 			elif FIRING == 7:
 				$minion_emerge.play("third_level")
 			else:
+				print("FLOP")
 				$center_beam.queue_free()
 				$left_beam.queue_free()
 				$right_beam.queue_free()
@@ -28,6 +32,7 @@ func hit():
 				$far_right_beam.queue_free()
 				$super_far_left_beam.queue_free()
 				$super_far_right_beam.queue_free()
+				GV.scene_end = true
 		firing_amt = FIRING
 		rung = 0
 
