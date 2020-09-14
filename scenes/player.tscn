@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/3d/waka/wakafront.obj" type="ArrayMesh" id=2]
@@ -17,6 +17,9 @@
 [ext_resource path="res://assets/2d/GUI_pieces/button.png" type="Texture" id=15]
 [ext_resource path="res://assets/2d/GUI_pieces/on_button.png" type="Texture" id=16]
 [ext_resource path="res://assets/2d/GUI_pieces/off_button.png" type="Texture" id=17]
+[ext_resource path="res://assets/audio/243953__mmiron__waves-barcelona2.wav" type="AudioStream" id=18]
+[ext_resource path="res://assets/audio/524912__andrest2003__gunshot-pitch-a.wav" type="AudioStream" id=19]
+[ext_resource path="res://assets/audio/275151__bird-man__gun-shot.wav" type="AudioStream" id=20]
 
 [sub_resource type="Animation" id=1]
 resource_name = "destroy"
@@ -176,6 +179,20 @@ tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
 "clips": PoolStringArray( "bulletFire" ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("gun/shot")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 19 )
+} ],
 "times": PoolRealArray( 0 )
 }
 
@@ -406,7 +423,7 @@ environment = ExtResource( 8 )
 far = 1000.0
 
 [node name="gun" type="MeshInstance" parent="head/Camera"]
-transform = Transform( -1.10127e-09, -7.20743e-12, -0.025, -0.00326315, 0.0247861, 1.36598e-10, 0.0247861, 0.00326315, -1.09278e-09, 0.5, -0.45, -0.8 )
+transform = Transform( -1.09278e-09, 0, -0.025, 0, 0.025, 0, 0.025, 0, -1.09278e-09, 0.5, -0.475, -0.8 )
 mesh = ExtResource( 9 )
 material/0 = SubResource( 2 )
 material/1 = SubResource( 3 )
@@ -439,6 +456,13 @@ gravity = Vector3( 0, -50, 0 )
 initial_velocity = 100.0
 scale_amount_curve = SubResource( 6 )
 color = Color( 0, 0, 0, 1 )
+
+[node name="shot" type="AudioStreamPlayer3D" parent="head/Camera/gun"]
+transform = Transform( 40, 9.53674e-07, -1.60298e-11, -9.53674e-07, 40, -7.24754e-13, -4.54747e-13, -7.10543e-14, 40, -33.053, 0.546707, 0 )
+stream = ExtResource( 20 )
+unit_db = -15.0
+pitch_scale = 0.7
+area_mask = 2147483649
 
 [node name="gunAnimations" type="AnimationPlayer" parent="head/Camera"]
 anims/reload = SubResource( 8 )
@@ -943,7 +967,7 @@ margin_bottom = -128.429
 rect_scale = Vector2( 0.8, 0.8 )
 custom_fonts/font = SubResource( 33 )
 custom_colors/font_color = Color( 1, 0.137255, 0.337255, 1 )
-text = "Cattythegamer"
+text = "SFX - Freesound"
 align = 1
 valign = 1
 clip_text = true
@@ -1152,6 +1176,11 @@ texture = ExtResource( 13 )
 transform = Transform( 1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 2.38419e-07, 4.97146, -24.6868 )
 shadow_enabled = true
 shadow_bias = 0.01
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -4.0
+autoplay = true
 [connection signal="value_changed" from="GUI/menu/submenu/settingsMenu/difficultySlider" to="." method="_on_difficultySlider_value_changed"]
 [connection signal="text_changed" from="GUI/menu/submenu/settingsMenu/foodInput" to="." method="_on_foodInput_text_changed"]
 [connection signal="toggled" from="GUI/menu/submenu/settingsMenu/shadowEnable" to="." method="_on_shadowEnable_toggled"]

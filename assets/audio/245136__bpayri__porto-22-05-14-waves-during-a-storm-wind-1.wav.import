@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/245136__bpayri__porto-22-05-14-waves-during-a-storm-wind-1.wav-280202af6c546526d5f00a141215df47.sample"
+
+[deps]
+
+source_file="res://assets/audio/245136__bpayri__porto-22-05-14-waves-during-a-storm-wind-1.wav"
+dest_files=[ "res://.import/245136__bpayri__porto-22-05-14-waves-during-a-storm-wind-1.wav-280202af6c546526d5f00a141215df47.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

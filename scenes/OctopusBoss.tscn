@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scripts/OctopusBoss.gd" type="Script" id=1]
 [ext_resource path="res://materials/waterShader.tres" type="Material" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://materials/krakenNoHitSkin.tres" type="Material" id=9]
 [ext_resource path="res://materials/newLegCollision.tres" type="Shape" id=10]
 [ext_resource path="res://assets/3d/bird/bird.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/audio/Ludum Dare 30 - Track 2.wav" type="AudioStream" id=12]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 500, 500 )
@@ -906,6 +907,11 @@ anims/rotateTentacles = SubResource( 14 )
 [node name="bird" parent="." instance=ExtResource( 11 )]
 transform = Transform( 3.93279, 0, -3.08758, 0, 5, 0, 3.08758, 0, 3.93279, -13.9279, 15.0454, -22.5552 )
 visible = false
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -27.5
+autoplay = true
 [connection signal="timeout" from="playerTurnTimer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="tentacles/foot" to="." method="_on_area_1_area_entered"]
 [connection signal="area_entered" from="tentacles/foot2" to="." method="_on_area_2_area_entered"]

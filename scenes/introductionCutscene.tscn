@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://materials/raining.tres" type="Environment" id=1]
 [ext_resource path="res://materials/wakaOars.tres" type="Material" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://assets/3d/island/SM_Env_Rock_05.obj" type="ArrayMesh" id=14]
 [ext_resource path="res://materials/polygonAdventure.tres" type="Material" id=15]
 [ext_resource path="res://scripts/introductionCutscene.gd" type="Script" id=16]
+[ext_resource path="res://assets/audio/245136__bpayri__porto-22-05-14-waves-during-a-storm-wind-1.wav" type="AudioStream" id=17]
+[ext_resource path="res://assets/audio/Medieval Theme #2.wav" type="AudioStream" id=18]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 250, 250 )
@@ -734,3 +736,13 @@ transform = Transform( -0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, -0.984808,
 anims/first_pos = SubResource( 10 )
 anims/second_pos = SubResource( 11 )
 anims/third_pos = SubResource( 12 )
+
+[node name="storm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -15.0
+autoplay = true
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -10.0
+autoplay = true

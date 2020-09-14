@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scripts/fishing.gd" type="Script" id=1]
 [ext_resource path="res://scripts/GV.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://materials/fishYellow.tres" type="Material" id=7]
 [ext_resource path="res://materials/fishGreen.tres" type="Material" id=8]
 [ext_resource path="res://assets/font/CaviarDreams.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://assets/audio/Ludum Dare 30 - Track 9.wav" type="AudioStream" id=10]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 500, 500 )
@@ -762,6 +763,11 @@ text = "60s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -27.5
+autoplay = true
 [connection signal="area_entered" from="fishPos/fishCore/fish" to="fishPos" method="_on_fish_area_entered"]
 [connection signal="area_entered" from="fishPos2/fishCore/fish" to="fishPos2" method="_on_fish_area_entered"]
 [connection signal="area_entered" from="fishPos3/fishCore/fish" to="fishPos3" method="_on_fish_area_entered"]

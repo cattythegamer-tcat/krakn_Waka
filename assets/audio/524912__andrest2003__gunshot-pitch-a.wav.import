@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/524912__andrest2003__gunshot-pitch-a.wav-b0f2f033636a71230bc5e2007bff79cf.sample"
+
+[deps]
+
+source_file="res://assets/audio/524912__andrest2003__gunshot-pitch-a.wav"
+dest_files=[ "res://.import/524912__andrest2003__gunshot-pitch-a.wav-b0f2f033636a71230bc5e2007bff79cf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

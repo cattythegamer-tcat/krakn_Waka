@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://materials/waterShader.tres" type="Material" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://scripts/landEnding.gd" type="Script" id=14]
 [ext_resource path="res://assets/3d/bird/bird.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/font/CaviarDreams.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://assets/audio/Revival of Hero.wav" type="AudioStream" id=17]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 500, 500 )
@@ -375,5 +376,10 @@ text = "YOU WIN"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -27.5
+autoplay = true
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
 [connection signal="area_entered" from="bird4/StaticBody" to="." method="_on_StaticBody_area_entered"]

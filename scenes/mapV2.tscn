@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/mapV2.gd" type="Script" id=1]
 [ext_resource path="res://assets/2d/icons/map.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/2d/icons/selected.png" type="Texture" id=7]
 [ext_resource path="res://assets/2d/icons/arrow.png" type="Texture" id=8]
 [ext_resource path="res://assets/2d/icons/tangaroa.png" type="Texture" id=9]
+[ext_resource path="res://assets/audio/Ludum Dare 38 - Track 10.wav" type="AudioStream" id=10]
 
 [sub_resource type="Animation" id=1]
 length = 0.5
@@ -20,7 +21,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 784, 304 ), Vector2( 624, 304 ) ]
 }
@@ -36,7 +37,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 376, 304 ), Vector2( 240, 304 ) ]
 }
@@ -51,7 +52,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 624, 304 ), Vector2( 496, 304 ) ]
 }
@@ -66,7 +67,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 504, 304 ), Vector2( 368, 304 ) ]
 }
@@ -105,12 +106,12 @@ texture = ExtResource( 6 )
 
 [node name="selected" type="Sprite" parent="."]
 modulate = Color( 0.129412, 0.0470588, 0, 1 )
-position = Vector2( 784, 304 )
+position = Vector2( 376, 304 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 7 )
 
 [node name="transitionAnimations" type="AnimationPlayer" parent="."]
-playback_speed = 0.5
+playback_speed = 0.25
 anims/firstMove = SubResource( 1 )
 anims/fourthMove = SubResource( 2 )
 anims/secondMove = SubResource( 3 )
@@ -135,3 +136,8 @@ texture = ExtResource( 8 )
 position = Vector2( 301.417, 305.075 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 8 )
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -35.0
+autoplay = true

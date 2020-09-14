@@ -1,7 +1,7 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://scripts/tangaroaBoss.gd" type="Script" id=1]
-[ext_resource path="res://materials/waterShader.tres" type="Material" id=2]
+[ext_resource path="res://assets/audio/Battle Loop #1.wav" type="AudioStream" id=2]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/3d/tangaroa/person.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://materials/tangaroaBoss.tres" type="Material" id=5]
@@ -26,6 +26,56 @@ albedo_color = Color( 0.290196, 0.290196, 0.290196, 1 )
 size = Vector2( 500, 500 )
 subdivide_width = 250
 subdivide_depth = 250
+
+[sub_resource type="Shader" id=47]
+code = "shader_type spatial;
+
+uniform vec4 out_color : hint_color = vec4(0.0, 0.2, 1.0, 1.0);
+uniform float amount : hint_range(0.2, 1.5) = 0.8;
+uniform float beer_factor = 0.2;
+
+float generateOffset(float x, float z, float val1, float val2, float time){
+	float speed = 1.0;
+	
+	float radiansX = ((mod(x + z * x * val1, amount) / amount) + (time * speed) * mod(x * 0.8 + z, 1.5)) * 2.0 * 3.14;
+	float radiansZ = ((mod(val2 * (z * x + x * z), amount) / amount) + (time * speed) * 2.0 * mod(x, 2.0)) * 2.0 * 3.14;
+	
+	return amount * 0.5 * (sin(radiansZ) + cos(radiansX));
+}
+
+vec3 applyDistortion(vec3 vertex, float time) {
+	float xd = generateOffset(vertex.x, vertex.z, 0.2, 0.1, time);
+	float yd = generateOffset(vertex.x, vertex.z, 0.1, 0.3, time);
+	float zd = generateOffset(vertex.x, vertex.z, 0.15, 0.2, time);
+	
+	return vertex + vec3(xd, yd, zd);
+}
+
+void vertex() {
+	VERTEX = applyDistortion(VERTEX, TIME * 0.1);
+}
+
+void fragment() {
+	NORMAL = normalize(cross(dFdx(VERTEX), dFdy(VERTEX)));
+	METALLIC = 0.2;
+	SPECULAR = 0.5;
+	ROUGHNESS = 0.2;
+	ALBEDO = out_color.xyz;
+	
+	float depth = texture(DEPTH_TEXTURE, SCREEN_UV).r;
+	depth = depth * 2.0 - 1.0;
+	depth = PROJECTION_MATRIX[3][2] / (depth + PROJECTION_MATRIX[2][2]);
+	depth = depth + VERTEX.z;
+	
+	depth = exp(-depth * beer_factor);
+	ALPHA = clamp(1.0 - depth, 0.0, 1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=48]
+shader = SubResource( 47 )
+shader_param/out_color = Color( 0.0705882, 0.243137, 0.384314, 1 )
+shader_param/amount = 0.75
+shader_param/beer_factor = 0.5
 
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.635294, 0.368627, 0.290196, 1 )
@@ -1627,7 +1677,7 @@ material/0 = SubResource( 1 )
 [node name="water" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.312664, 0 )
 mesh = SubResource( 3 )
-material/0 = ExtResource( 2 )
+material/0 = SubResource( 48 )
 
 [node name="player" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0859, 2.02287, 0.455187 )
@@ -1742,8 +1792,7 @@ process_material = SubResource( 20 )
 draw_pass_1 = ExtResource( 13 )
 
 [node name="right_beam" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -51.4648, 0 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3.53522, 0 )
 
 [node name="brokenRing" type="MeshInstance" parent="right_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
@@ -1933,8 +1982,7 @@ process_material = SubResource( 20 )
 draw_pass_1 = ExtResource( 13 )
 
 [node name="left_beam" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -51.4648, 0 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3.53522, 0 )
 
 [node name="brokenRing" type="MeshInstance" parent="left_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
@@ -2092,6 +2140,11 @@ text = "Phase 1/4"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="boss_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -27.5
+autoplay = true
 [connection signal="area_entered" from="center_beam/orb" to="center_beam/orb" method="_on_orb_area_entered"]
 [connection signal="hit" from="center_beam/orb" to="." method="_on_orb_hit"]
 [connection signal="area_entered" from="right_beam/orb" to="right_beam/orb" method="_on_orb_area_entered"]
