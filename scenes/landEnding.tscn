@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://materials/waterShader.tres" type="Material" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/2d/restartText.png" type="Texture" id=13]
 [ext_resource path="res://scripts/landEnding.gd" type="Script" id=14]
 [ext_resource path="res://assets/3d/bird/bird.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/font/CaviarDreams.ttf" type="DynamicFontData" id=16]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 500, 500 )
@@ -122,6 +123,10 @@ tracks/5/keys = {
 "update": 1,
 "values": [ true ]
 }
+
+[sub_resource type="DynamicFont" id=12]
+size = 64
+font_data = ExtResource( 16 )
 
 [node name="landEnding" type="Spatial"]
 script = ExtResource( 14 )
@@ -357,5 +362,18 @@ shape = SubResource( 10 )
 [node name="berds" type="AnimationPlayer" parent="."]
 autoplay = "jumping"
 anims/jumping = SubResource( 11 )
+
+[node name="winningText" type="Label" parent="."]
+margin_left = 505.016
+margin_top = 549.962
+margin_right = 796.016
+margin_bottom = 611.962
+rect_scale = Vector2( 0.3, 0.3 )
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 1, 0.862745, 0.619608, 1 )
+text = "YOU WIN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
 [connection signal="area_entered" from="bird4/StaticBody" to="." method="_on_StaticBody_area_entered"]

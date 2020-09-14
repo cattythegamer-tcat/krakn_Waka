@@ -1,6 +1,6 @@
 extends Node
 
-const STARTING_FOOD = 110
+const STARTING_FOOD = 11
 
 var easter_egg = false
 
