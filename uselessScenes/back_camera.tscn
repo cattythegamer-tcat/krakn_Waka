@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/2d/GUI_pieces/back_button.png" type="Texture" id=1]
+[ext_resource path="res://scripts/back_camera.gd" type="Script" id=2]
+[ext_resource path="res://materials/worldEnviroment.tres" type="Environment" id=3]
+
+[node name="Camera" type="Camera"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24, 0, 0 )
+environment = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="back_button" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 32.0
+margin_bottom = 32.0
+icon = ExtResource( 1 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="back_button" to="." method="_on_back_button_button_down"]

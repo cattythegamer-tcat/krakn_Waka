@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/mapV2.gd" type="Script" id=1]
 [ext_resource path="res://assets/2d/icons/map.png" type="Texture" id=2]
@@ -7,9 +7,11 @@
 [ext_resource path="res://assets/2d/icons/fish_norm.png" type="Texture" id=5]
 [ext_resource path="res://assets/2d/icons/playerlocation.png" type="Texture" id=6]
 [ext_resource path="res://assets/2d/icons/selected.png" type="Texture" id=7]
+[ext_resource path="res://assets/2d/icons/arrow.png" type="Texture" id=8]
+[ext_resource path="res://assets/2d/icons/tangaroa.png" type="Texture" id=9]
+[ext_resource path="res://assets/audio/Ludum Dare 38 - Track 10.wav" type="AudioStream" id=10]
 
 [sub_resource type="Animation" id=1]
-resource_name = "fifthMove"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("selected:position")
@@ -18,28 +20,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.5 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
-"values": [ Vector2( 304, 304 ), Vector2( 176, 304 ) ]
+"values": [ Vector2( 784, 304 ), Vector2( 624, 304 ) ]
 }
 
 [sub_resource type="Animation" id=2]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("selected:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.5 ),
-"transitions": PoolRealArray( 0.5, 1 ),
-"update": 0,
-"values": [ Vector2( 848, 304 ), Vector2( 688, 304 ) ]
-}
-
-[sub_resource type="Animation" id=3]
 resource_name = "fourthMove"
 length = 0.5
 tracks/0/type = "value"
@@ -49,10 +36,25 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.5 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
-"values": [ Vector2( 432, 304 ), Vector2( 304, 304 ) ]
+"values": [ Vector2( 376, 304 ), Vector2( 240, 304 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("selected:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 624, 304 ), Vector2( 496, 304 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -64,25 +66,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.5 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
-"values": [ Vector2( 688, 304 ), Vector2( 560, 304 ) ]
-}
-
-[sub_resource type="Animation" id=5]
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("selected:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.5 ),
-"transitions": PoolRealArray( 0.5, 1 ),
-"update": 0,
-"values": [ Vector2( 560, 304 ), Vector2( 432, 304 ) ]
+"values": [ Vector2( 504, 304 ), Vector2( 368, 304 ) ]
 }
 
 [node name="mapV2" type="Node2D"]
@@ -92,44 +79,65 @@ script = ExtResource( 1 )
 position = Vector2( 512, 300 )
 texture = ExtResource( 2 )
 
-[node name="land" type="Sprite" parent="."]
-position = Vector2( 176, 304 )
+[node name="octopus_norm" type="Sprite" parent="."]
+position = Vector2( 240, 304 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
-[node name="octopus_norm" type="Sprite" parent="."]
-position = Vector2( 304, 304 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
-
 [node name="octopus_norm2" type="Sprite" parent="."]
-position = Vector2( 560, 304 )
+position = Vector2( 496, 304 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 
 [node name="octopus_norm3" type="Sprite" parent="."]
-position = Vector2( 432, 304 )
+position = Vector2( 368, 304 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 
 [node name="fish_norm" type="Sprite" parent="."]
-position = Vector2( 688, 304 )
+position = Vector2( 624, 304 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
 [node name="playerlocation" type="Sprite" parent="."]
-position = Vector2( 848, 304 )
+position = Vector2( 784, 304 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 
 [node name="selected" type="Sprite" parent="."]
-position = Vector2( 848, 304 )
+modulate = Color( 0.129412, 0.0470588, 0, 1 )
+position = Vector2( 376, 304 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 7 )
 
 [node name="transitionAnimations" type="AnimationPlayer" parent="."]
-anims/fifthMove = SubResource( 1 )
-anims/firstMove = SubResource( 2 )
-anims/fourthMove = SubResource( 3 )
-anims/secondMove = SubResource( 4 )
-anims/thirdMove = SubResource( 5 )
+playback_speed = 0.25
+anims/firstMove = SubResource( 1 )
+anims/fourthMove = SubResource( 2 )
+anims/secondMove = SubResource( 3 )
+anims/thirdMove = SubResource( 4 )
+
+[node name="arrow" type="Sprite" parent="."]
+position = Vector2( 695.615, 303.499 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+
+[node name="arrow2" type="Sprite" parent="."]
+position = Vector2( 555.921, 302.555 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+
+[node name="arrow3" type="Sprite" parent="."]
+position = Vector2( 431.819, 303.815 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+
+[node name="arrow4" type="Sprite" parent="."]
+position = Vector2( 301.417, 305.075 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -35.0
+autoplay = true

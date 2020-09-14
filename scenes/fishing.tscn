@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scripts/fishing.gd" type="Script" id=1]
 [ext_resource path="res://scripts/GV.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://assets/3d/fish/fish.obj" type="ArrayMesh" id=6]
 [ext_resource path="res://materials/fishYellow.tres" type="Material" id=7]
 [ext_resource path="res://materials/fishGreen.tres" type="Material" id=8]
+[ext_resource path="res://assets/font/CaviarDreams.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://assets/audio/Ludum Dare 30 - Track 9.wav" type="AudioStream" id=10]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 500, 500 )
@@ -457,6 +459,10 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
 }
 
+[sub_resource type="DynamicFont" id=23]
+size = 64
+font_data = ExtResource( 9 )
+
 [node name="fishing" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -479,7 +485,7 @@ script = ExtResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 
 [node name="fish" type="Area" parent="fishPos/fishCore"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.336901, 11.2889 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos/fishCore/fish"]
@@ -607,7 +613,7 @@ autoplay = "side"
 anims/side = SubResource( 12 )
 
 [node name="fishPos6" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7457, 4, 10 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7563, 4, 7.57882 )
 script = ExtResource( 5 )
 
 [node name="fishCore" type="Spatial" parent="fishPos6"]
@@ -634,7 +640,7 @@ autoplay = "side"
 anims/side = SubResource( 14 )
 
 [node name="fishPos7" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.2543, 6, -22 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.7551, 6, -22 )
 script = ExtResource( 5 )
 
 [node name="fishCore" type="Spatial" parent="fishPos7"]
@@ -688,7 +694,7 @@ autoplay = "side"
 anims/side = SubResource( 18 )
 
 [node name="fishPos9" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7457, 6, -53 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.37713, 6, -35.4482 )
 script = ExtResource( 5 )
 
 [node name="fishCore" type="Spatial" parent="fishPos9"]
@@ -740,6 +746,28 @@ anims/fishJump = SubResource( 21 )
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos10/fishCore"]
 autoplay = "side"
 anims/side = SubResource( 22 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="timerDisplay" type="Label" parent="."]
+margin_left = 535.803
+margin_top = 549.441
+margin_right = 649.803
+margin_bottom = 611.441
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 23 )
+custom_colors/font_color = Color( 0.662745, 0.854902, 1, 1 )
+text = "60s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -27.5
+autoplay = true
 [connection signal="area_entered" from="fishPos/fishCore/fish" to="fishPos" method="_on_fish_area_entered"]
 [connection signal="area_entered" from="fishPos2/fishCore/fish" to="fishPos2" method="_on_fish_area_entered"]
 [connection signal="area_entered" from="fishPos3/fishCore/fish" to="fishPos3" method="_on_fish_area_entered"]
@@ -750,3 +778,4 @@ anims/side = SubResource( 22 )
 [connection signal="area_entered" from="fishPos8/fishCore/fish" to="fishPos8" method="_on_fish_area_entered"]
 [connection signal="area_entered" from="fishPos9/fishCore/fish" to="fishPos9" method="_on_fish_area_entered"]
 [connection signal="area_entered" from="fishPos10/fishCore/fish" to="fishPos10" method="_on_fish_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

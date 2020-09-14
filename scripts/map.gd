@@ -5,33 +5,35 @@ var grid_buttons = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	GV.grid_images = []
-	for x in range(84):
-		GV.grid_images.append(get_node("gridTiles/grid_tile_" + str(x+1)))
-		grid_buttons.append(get_node("gridButtons/grid_button_" + str(x+1)))
-		if rand_range(0, 1) < GV.fishTileProb:
-			GV.grid_objs[str(x)] = "fish"
-		elif rand_range(0, 1) < GV.octopusTileProb:
-			GV.grid_objs[str(x)] = "octopus"
-		else:
-			GV.grid_objs[str(x)] = "water"
-	for pos in range(84):
-		if GV.grid_objs[str(pos)] == "octopus":
-			GV.grid_images[pos - 1].texture = GV.octopusIcon
-		elif GV.grid_objs[str(pos)] == "fish":
-			GV.grid_images[pos - 1].texture = GV.fishIcon
-	GV.grid_images[-1].texture = GV.landIcon
-	GV.grid_images[GV.playerLocation].texture = GV.wakaIcon
+	pass
+	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	#GV.grid_images = []
+	#for x in range(84):
+	#	GV.grid_images.append(get_node("gridTiles/grid_tile_" + str(x+1)))
+	#	grid_buttons.append(get_node("gridButtons/grid_button_" + str(x+1)))
+	#	if rand_range(0, 1) < GV.fishTileProb:
+	#		GV.grid_objs[str(x)] = "fish"
+	#	elif rand_range(0, 1) < GV.octopusTileProb:
+	#		GV.grid_objs[str(x)] = "octopus"
+	#	else:
+	#		GV.grid_objs[str(x)] = "water"
+	#for pos in range(84):
+	#	if GV.grid_objs[str(pos)] == "octopus":
+	#		GV.grid_images[pos - 1].texture = GV.octopusIcon
+	#	elif GV.grid_objs[str(pos)] == "fish":
+	#		GV.grid_images[pos - 1].texture = GV.fishIcon
+	#GV.grid_images[-1].texture = GV.landIcon
+	#GV.grid_images[GV.playerLocation].texture = GV.wakaIcon
 
 func moveTo(gridPos):
-	GV.grid_images[gridPos-1].texture = GV.wakaIcon
-	GV.grid_images[GV.playerLocation].texture = GV.waterIcon
-	GV.playerLocation = gridPos - 1
-	if GV.grid_objs[str(gridPos)] == "octopus":
-		get_tree().change_scene_to(GV.octopusScene)
-	elif GV.grid_objs[str(gridPos)] == "fish":
-		get_tree().change_scene_to(GV.fishingScene)
+	pass
+	#GV.grid_images[gridPos-1].texture = GV.wakaIcon
+	#GV.grid_images[GV.playerLocation].texture = GV.waterIcon
+	#GV.playerLocation = gridPos - 1
+	#if GV.grid_objs[str(gridPos)] == "octopus":
+	#	get_tree().change_scene_to(GV.octopusScene)
+	#elif GV.grid_objs[str(gridPos)] == "fish":
+	#	get_tree().change_scene_to(GV.fishingScene)
 
 func _on_grid_button_1_button_down(): moveTo(1)
 

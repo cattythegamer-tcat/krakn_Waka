@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/brokenRing.obj-487722d9dcca5a8e4f6ae411c214c9df.mesh"
+
+[deps]
+
+files=[ "res://.import/brokenRing.obj-487722d9dcca5a8e4f6ae411c214c9df.mesh" ]
+
+source_file="res://assets/3d/rings/brokenRing.obj"
+dest_files=[ "res://.import/brokenRing.obj-487722d9dcca5a8e4f6ae411c214c9df.mesh", "res://.import/brokenRing.obj-487722d9dcca5a8e4f6ae411c214c9df.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

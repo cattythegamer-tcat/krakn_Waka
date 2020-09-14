@@ -1,7 +1,7 @@
 extends Spatial
 
-const DEF_WAIT_TIME = 3
-const STARTING_BOSSHEALTH = 80
+const DEF_WAIT_TIME = 2
+const STARTING_BOSSHEALTH = 70
 const DEF_ROTATION = 0.04
 
 var bossHealth = STARTING_BOSSHEALTH
@@ -12,21 +12,24 @@ var sunk = false
 var playerTurnEnd = false
 var krakenAttack = false
 var endEarly = false
-var starting_difficulty = 1.0 * GV.global_difficulty
+var starting_difficulty = 1.0
 var difficulty = starting_difficulty
 
 onready var krakA = $krakenAnimations
 
 func _ready():
+	if GV.easter_egg:
+		$bird.visible = true
 	GV.scene = "octopus"
 	GV.scene_end = false
 	$tentacleRotation.playback_speed = DEF_ROTATION * difficulty
 
 func _process(delta):
-	$bossHealth.text = "Boss Health: " + str(bossHealth - 10)
-	if bossHealth <= 10:
+	if bossHealth <= 0:
 		GV.scene_end = true
+		GV.food += int(round(rand_range(8, 12)))
 	if !krakA.is_playing():
+		$bossHealth.text = str(round(float(bossHealth) / float(STARTING_BOSSHEALTH) * 100.0)) + "%"
 		if playerTurnEnd and !sunk:
 			krakA.play("tentacleSink")
 			sunk = true
@@ -52,31 +55,31 @@ func bossDoDamage(amt = 10):
 	GV.food -= amt
 
 func tentacleKilled(num):
-	if !tentacleShot and !sunk:
-		print(num)
+	if !tentacleShot and !sunk and !krakA.is_playing() and !GV.warning_shot:
 		difficulty = float(STARTING_BOSSHEALTH) / float(bossHealth) * starting_difficulty
 		$tentacleRotation.playback_speed = DEF_ROTATION * difficulty
 		bossHealth -= 10
 		tentacleShot = true
 		endEarly = true
 		playerTurnEnd = true
-		pass
-		if num == 1:
-			$krakenAnimations.play("tentacle_1_destroyed")
-		elif num == 2:
-			$krakenAnimations.play("tentacle_2_destroyed")
-		elif num == 3:
-			$krakenAnimations.play("tentacle_3_destroyed")
-		elif num == 4:
-			$krakenAnimations.play("tentacle_4_destroyed")
-		elif num == 5:
-			$krakenAnimations.play("tentacle_5_destroyed")
-		elif num == 6:
-			$krakenAnimations.play("tentacle_6_destroyed")
-		elif num == 7:
-			$krakenAnimations.play("tentacle_7_destroyed")
-		elif num == 8:
-			$krakenAnimations.play("tentacle_8_destroyed")
+		
+		match num:
+			1:
+				krakA.play("tentacle_1_destroyed")
+			2:
+				krakA.play("tentacle_2_destroyed")
+			3:
+				krakA.play("tentacle_3_destroyed")
+			4:
+				krakA.play("tentacle_4_destroyed")
+			5:
+				krakA.play("tentacle_5_destroyed")
+			6:
+				krakA.play("tentacle_6_destroyed")
+			7:
+				krakA.play("tentacle_7_destroyed")
+			8:
+				krakA.play("tentacle_8_destroyed")
 
 func _on_area_1_area_entered(area): tentacleKilled(1)
 

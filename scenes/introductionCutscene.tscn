@@ -1,0 +1,748 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://materials/raining.tres" type="Environment" id=1]
+[ext_resource path="res://materials/wakaOars.tres" type="Material" id=2]
+[ext_resource path="res://materials/wakawood.tres" type="Material" id=3]
+[ext_resource path="res://materials/wakaThings.tres" type="Material" id=4]
+[ext_resource path="res://assets/3d/waka.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://assets/2d/blank.png" type="Texture" id=6]
+[ext_resource path="res://assets/font/CaviarDreams.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/3d/fish/fish.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://materials/fishYellow.tres" type="Material" id=9]
+[ext_resource path="res://assets/3d/kraken/head.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://materials/krakenEye.tres" type="Material" id=11]
+[ext_resource path="res://materials/krakenSkin.tres" type="Material" id=12]
+[ext_resource path="res://assets/3d/kraken/foot.obj" type="ArrayMesh" id=13]
+[ext_resource path="res://assets/3d/island/SM_Env_Rock_05.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://materials/polygonAdventure.tres" type="Material" id=15]
+[ext_resource path="res://scripts/introductionCutscene.gd" type="Script" id=16]
+[ext_resource path="res://assets/audio/245136__bpayri__porto-22-05-14-waves-during-a-storm-wind-1.wav" type="AudioStream" id=17]
+[ext_resource path="res://assets/audio/Medieval Theme #2.wav" type="AudioStream" id=18]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 250, 250 )
+subdivide_width = 100
+subdivide_depth = 100
+
+[sub_resource type="Shader" id=2]
+code = "shader_type spatial;
+
+uniform vec4 out_color : hint_color = vec4(0.0, 0.2, 1.0, 1.0);
+uniform float amount : hint_range(0.2, 1.5) = 0.8;
+uniform float beer_factor = 0.2;
+
+float generateOffset(float x, float z, float val1, float val2, float time){
+	float speed = 1.0;
+	
+	float radiansX = ((mod(x + z * x * val1, amount) / amount) + (time * speed) * mod(x * 0.8 + z, 1.5)) * 2.0 * 3.14;
+	float radiansZ = ((mod(val2 * (z * x + x * z), amount) / amount) + (time * speed) * 2.0 * mod(x, 2.0)) * 2.0 * 3.14;
+	
+	return amount * 0.5 * (sin(radiansZ) + cos(radiansX));
+}
+
+vec3 applyDistortion(vec3 vertex, float time) {
+	float xd = generateOffset(vertex.x, vertex.z, 0.2, 0.1, time);
+	float yd = generateOffset(vertex.x, vertex.z, 0.1, 0.3, time);
+	float zd = generateOffset(vertex.x, vertex.z, 0.15, 0.2, time);
+	
+	return vertex + vec3(xd, yd, zd);
+}
+
+void vertex() {
+	VERTEX = applyDistortion(VERTEX, TIME * 0.1);
+}
+
+void fragment() {
+	NORMAL = normalize(cross(dFdx(VERTEX), dFdy(VERTEX)));
+	METALLIC = 0.2;
+	SPECULAR = 0.5;
+	ROUGHNESS = 0.2;
+	ALBEDO = out_color.xyz;
+	
+	float depth = texture(DEPTH_TEXTURE, SCREEN_UV).r;
+	depth = depth * 2.0 - 1.0;
+	depth = PROJECTION_MATRIX[3][2] / (depth + PROJECTION_MATRIX[2][2]);
+	depth = depth + VERTEX.z;
+	
+	depth = exp(-depth * beer_factor);
+	ALPHA = clamp(1.0 - depth, 0.0, 1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/out_color = Color( 0.0980392, 0.223529, 0.32549, 1 )
+shader_param/amount = 0.7
+shader_param/beer_factor = 0.5
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 100, 1, 100 )
+gravity = Vector3( 2, -9.8, 3 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.392157, 0.462745, 0.596078, 1 )
+
+[sub_resource type="CubeMesh" id=6]
+material = SubResource( 5 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "wakaMove"
+length = 4.0
+loop = true
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("waka:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75 ),
+"transitions": PoolRealArray( 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -3.4315 ), Vector3( 0, 0, -6.863 ), Vector3( 0, 0, 1.12561 ), Vector3( 0, 0, 9.11421 ), Vector3( 0, 0, 2.48754 ), Vector3( 0, 0, -4.13913 ), Vector3( 0, 0, -0.608395 ), Vector3( 0, 0, 2.92234 ), Vector3( 0, 0, -1.84448 ), Vector3( 0, 0, -6.6113 ), Vector3( 0, 0, -2.03343 ), Vector3( 0, 0, 2.54445 ), Vector3( 0, 0, -0.899922 ), Vector3( 0, 0, -4.3443 ), Vector3( 0, 0, -2.17215 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("waka:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 0.5, 2, 0.5, 2 ),
+"update": 0,
+"values": [ Vector3( -51.3726, 1.00499, 3.61201 ), Vector3( -51.3726, 2.82873, 3.61201 ), Vector3( -51.3726, 1.00499, 3.61201 ), Vector3( -51.3726, 0.121642, 3.61201 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/lightningBolt:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.975, 3, 3.075 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/title:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.75, 0.775, 0.825, 2.05, 2.075, 2.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.564706, 0.564706, 0.564706, 0.607843 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.533333, 0.533333, 0.533333, 0.862745 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=8]
+size = 128
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=9]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/fadeIn:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "first_pos"
+length = 0.3
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "first_pos"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/title:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/instruction:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 340, 170 ), Vector2( -92.7493, 170 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/instruction3:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 510, 170 ), Vector2( 1026.19, 168.586 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Control/spaceInstruction:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 420, 170 ), Vector2( 428.485, 600 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Control/resources/title:percent_visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Control/resources/intro:percent_visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Control/resources/use:percent_visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.757858, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Control/resources/gain:percent_visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Control/resources:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "second_pos"
+length = 0.3
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "second_pos"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/resources:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/combat:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/combat:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "third_pos"
+length = 0.3
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "third_pos"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/combat:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/goal:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -200 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/goal:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="introductionCutscene" type="Spatial"]
+script = ExtResource( 16 )
+
+[node name="water" type="MeshInstance" parent="."]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="waka" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.3726, 1.00499, 3.61201 )
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 2 )
+
+[node name="Camera" type="InterpolatedCamera" parent="waka"]
+transform = Transform( 0.495946, -0.127082, 0.859004, 0.0635409, 0.991892, 0.110056, -0.866025, -8.88464e-09, 0.5, 8.18731, 3.6395, 4.36402 )
+environment = ExtResource( 1 )
+far = 500.0
+target = NodePath(".")
+enabled = true
+
+[node name="rain" type="Particles" parent="waka/Camera"]
+transform = Transform( 0.495946, 0.0635409, -0.866025, -0.127082, 0.991892, -8.56196e-08, 0.859004, 0.110056, 0.5, -15.7459, 125.014, -15.0741 )
+amount = 500
+lifetime = 25.0
+speed_scale = 3.0
+visibility_aabb = AABB( -53.4807, -129.036, -43.5877, 106.961, 258.072, 87.1755 )
+local_coords = false
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 6 )
+
+[node name="wakaMove" type="AnimationPlayer" parent="."]
+autoplay = "wakaMove"
+playback_speed = 0.2
+anims/wakaMove = SubResource( 7 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="Control"]
+margin_left = 290.0
+margin_top = 110.012
+margin_right = 1087.0
+margin_bottom = 234.012
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 8 )
+text = "Krak'n Waka"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="instruction" type="Label" parent="Control"]
+margin_left = 340.0
+margin_top = 170.0
+margin_right = 711.0
+margin_bottom = 294.0
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+text = "press "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="instruction3" type="Label" parent="Control"]
+margin_left = 510.0
+margin_top = 170.0
+margin_right = 1200.0
+margin_bottom = 294.0
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+text = "to continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spaceInstruction" type="Label" parent="Control"]
+margin_left = 420.0
+margin_top = 170.0
+margin_right = 829.0
+margin_bottom = 294.001
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 0.721569, 0.54902, 1 )
+text = "SPACE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fadeIn" type="Sprite" parent="Control"]
+modulate = Color( 0, 0, 0, 0 )
+position = Vector2( 512, 300 )
+scale = Vector2( 1024, 600 )
+texture = ExtResource( 6 )
+
+[node name="lightningBolt" type="Sprite" parent="Control"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 510, 300 )
+scale = Vector2( 1024, 600 )
+texture = ExtResource( 6 )
+
+[node name="resources" type="Node2D" parent="Control"]
+visible = false
+
+[node name="title" type="Label" parent="Control/resources"]
+margin_left = 30.0
+margin_top = 20.0
+margin_right = 770.0
+margin_bottom = 144.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 8 )
+text = "Health"
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="intro" type="Label" parent="Control/resources"]
+margin_left = 50.0
+margin_top = 80.0
+margin_right = 2362.0
+margin_bottom = 585.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+text = "In Krak'n Waka, your health is the 
+amount of resources you have 
+(shown at the botton of your screen).
+If you run out of resources, you die."
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="use" type="Label" parent="Control/resources"]
+margin_left = 50.0
+margin_top = 140.0
+margin_right = 2362.0
+margin_bottom = 645.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+text = "Resources are used up when you fire
+your gun (Cost: 1 Resource) or when
+you are attacked by an enemy."
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gain" type="Label" parent="Control/resources"]
+margin_left = 50.0
+margin_top = 190.0
+margin_right = 2397.0
+margin_bottom = 695.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+text = "The first level involves shooting fish.
+If you hit a fish, you gain an extra 
+resource, but if you miss you lose one."
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="combat" type="Node2D" parent="Control"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="title" type="Label" parent="Control/combat"]
+margin_left = 30.0
+margin_top = 20.0
+margin_right = 770.0
+margin_bottom = 144.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 8 )
+text = "Combat"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="intro" type="Label" parent="Control/combat"]
+margin_left = 50.0
+margin_top = 80.0
+margin_right = 2362.0
+margin_bottom = 585.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+text = "You have a gun.
+
+Shoot stuff."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="use" type="Label" parent="Control/combat"]
+margin_left = 50.0
+margin_top = 130.0
+margin_right = 2465.0
+margin_bottom = 762.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+text = "EXTRA BLURB:
+You only have one gun,
+it doesn't need to reload and only has
+a short cooldown. You also have as
+much ammo as resources.
+
+CONTROLS:
+LClick to shoot, Exit to bring up the
+menu and F1 to quit."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="goal" type="Node2D" parent="Control"]
+visible = false
+position = Vector2( 0, -200 )
+
+[node name="title" type="Label" parent="Control/goal"]
+margin_left = 30.0
+margin_top = 20.0
+margin_right = 770.0
+margin_bottom = 144.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 8 )
+text = "Mission"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="intro" type="Label" parent="Control/goal"]
+margin_left = 50.0
+margin_top = 80.0
+margin_right = 2362.0
+margin_bottom = 585.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+text = "You are lost in the middle of the ocean,
+only a Waka and Gun to your name.
+
+Fight deadly monsters, hunt fish and
+find your way back home to land.
+
+
+Good luck."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fadeIn" type="AnimationPlayer" parent="."]
+autoplay = "fadeIn"
+anims/fadeIn = SubResource( 9 )
+
+[node name="fish" type="MeshInstance" parent="."]
+transform = Transform( 2.5, -1.12072, 4.18258, 0, 4.82963, 1.2941, -4.33013, -0.647048, 2.41481, 8.56896, 2.13948, -35.4946 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 9 )
+
+[node name="head" type="MeshInstance" parent="."]
+transform = Transform( -2.58819, 0, 9.65926, 0, 10, 0, -9.65926, 0, -2.58819, 77.1979, 17.7605, 19.9694 )
+mesh = ExtResource( 10 )
+material/0 = ExtResource( 12 )
+material/1 = ExtResource( 11 )
+material/2 = ExtResource( 11 )
+
+[node name="foot" type="MeshInstance" parent="head"]
+transform = Transform( 0.321394, 0, -0.383022, 0, 0.5, 0, 0.383022, 0, 0.321394, -2.57836, -1.90564, -3.98118 )
+mesh = ExtResource( 13 )
+material/0 = ExtResource( 12 )
+material/1 = ExtResource( 11 )
+
+[node name="foot2" type="MeshInstance" parent="head"]
+transform = Transform( 0.482963, 0, -0.12941, 0, 0.5, 0, 0.12941, 0, 0.482963, -4.78671, -1.90564, -1.36354 )
+mesh = ExtResource( 13 )
+material/0 = ExtResource( 12 )
+material/1 = ExtResource( 11 )
+
+[node name="foot3" type="MeshInstance" parent="head"]
+transform = Transform( 0.469847, 0, 0.17101, 0, 0.5, 0, -0.17101, 0, 0.469847, -3.8245, -1.47491, 2.00011 )
+mesh = ExtResource( 13 )
+material/0 = ExtResource( 12 )
+material/1 = ExtResource( 11 )
+
+[node name="foot4" type="MeshInstance" parent="head"]
+transform = Transform( 0.25, 0, 0.433013, 0, 0.5, 0, -0.433013, 0, 0.25, -1.38058, -2.55247, 5.24315 )
+mesh = ExtResource( 13 )
+material/0 = ExtResource( 12 )
+material/1 = ExtResource( 11 )
+
+[node name="foot5" type="MeshInstance" parent="head"]
+transform = Transform( -0.211309, 0, 0.453154, 0, 0.5, 0, -0.453154, 0, -0.211309, 2.36914, -1.90564, 5.15117 )
+mesh = ExtResource( 13 )
+material/0 = ExtResource( 12 )
+material/1 = ExtResource( 11 )
+
+[node name="foot6" type="MeshInstance" parent="head"]
+transform = Transform( -0.433013, 0, 0.25, 0, 0.5, 0, -0.25, 0, -0.433013, 5.17973, -2.16737, 3.1943 )
+mesh = ExtResource( 13 )
+material/0 = ExtResource( 12 )
+material/1 = ExtResource( 11 )
+
+[node name="foot7" type="MeshInstance" parent="head"]
+transform = Transform( -0.498098, 0, -0.0435778, 0, 0.5, 0, 0.0435778, 0, -0.498098, 5.12088, -1.90564, -0.303781 )
+mesh = ExtResource( 13 )
+material/0 = ExtResource( 12 )
+material/1 = ExtResource( 11 )
+
+[node name="foot8" type="MeshInstance" parent="head"]
+transform = Transform( -0.353554, 0, -0.353553, 0, 0.5, 0, 0.353553, 0, -0.353554, 3.5996, -2.71439, -4.06885 )
+mesh = ExtResource( 13 )
+material/0 = ExtResource( 12 )
+material/1 = ExtResource( 11 )
+
+[node name="SM_Env_Rock_05" type="MeshInstance" parent="."]
+transform = Transform( -0.193185, 0, 0.0517638, 0, 0.2, 0, -0.0517638, 0, -0.193185, -6.19012, -1.03047, 130.055 )
+mesh = ExtResource( 14 )
+material/0 = ExtResource( 15 )
+
+[node name="point_1" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+
+[node name="point_2" type="Spatial" parent="."]
+transform = Transform( 0.0858317, 0.173648, -0.98106, -0.0151344, 0.984808, 0.172987, 0.996195, 0, 0.0871558, 5, 19, 23 )
+
+[node name="point_3" type="Spatial" parent="."]
+transform = Transform( -0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, -0.984808, 0, 4, 75 )
+
+[node name="move_camera" type="AnimationPlayer" parent="."]
+anims/first_pos = SubResource( 10 )
+anims/second_pos = SubResource( 11 )
+anims/third_pos = SubResource( 12 )
+
+[node name="storm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -15.0
+autoplay = true
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -10.0
+autoplay = true
