@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://scripts/fishing.gd" type="Script" id=1]
 [ext_resource path="res://scripts/GV.gd" type="Script" id=2]
@@ -20,6 +20,23 @@ subdivide_depth = 250
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 2, 1.5, 1.5 )
+
+[sub_resource type="Curve" id=28]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=29]
+curve = SubResource( 28 )
+
+[sub_resource type="ParticlesMaterial" id=30]
+spread = 180.0
+gravity = Vector3( 0, -1, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+scale_curve = SubResource( 29 )
+
+[sub_resource type="CubeMesh" id=31]
+material = ExtResource( 7 )
+size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="Animation" id=3]
 length = 3.0
@@ -47,6 +64,22 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "die"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("fish/fishParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -461,7 +494,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
 }
 
-[sub_resource type="BoxShape" id=27]
+[sub_resource type="BoxShape" id=23]
 extents = Vector3( 7.77357, 1.5, 5.71438 )
 
 [sub_resource type="SpatialMaterial" id=24]
@@ -480,7 +513,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 0.5, 2, 1 ),
 "update": 0,
-"values": [ Vector3( 0, -21.6666, 11.2887 ), Vector3( 0, 20, 11.289 ), Vector3( 0, -25, 11.289 ) ]
+"values": [ Vector3( 0, -30, 11.289 ), Vector3( 0, 20, 11.289 ), Vector3( 0, -30, 11.289 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("fish:rotation_degrees")
@@ -523,7 +556,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 100, 0, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=23]
+[sub_resource type="DynamicFont" id=27]
 size = 64
 font_data = ExtResource( 9 )
 
@@ -546,7 +579,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25429, 0, 0 )
 script = ExtResource( 5 )
 
 [node name="fishCore" type="Spatial" parent="fishPos"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 
 [node name="fish" type="Area" parent="fishPos/fishCore"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
@@ -560,12 +592,21 @@ transform = Transform( 1.89276e-08, 0.25, 0.433013, 1.09278e-08, -0.433013, 0.25
 mesh = ExtResource( 6 )
 material/0 = ExtResource( 7 )
 
+[node name="fishParticles" type="Particles" parent="fishPos/fishCore/fish"]
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 30 )
+draw_pass_1 = SubResource( 31 )
+
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos/fishCore"]
 autoplay = "fishJump"
 anims/fishJump = SubResource( 3 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos/fishCore"]
 autoplay = "side"
+anims/die = SubResource( 32 )
 anims/side = SubResource( 4 )
 
 [node name="fishPos2" type="Spatial" parent="."]
@@ -819,12 +860,12 @@ script = ExtResource( 12 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0 )
 
 [node name="fish" type="Area" parent="manta/fishCore"]
-transform = Transform( -6.55671e-08, 1.5, 0, -1.5, -6.55671e-08, 0, 0, 0, 1.5, 0, -25, 11.289 )
+transform = Transform( 1.06066, -1.06066, 0, 1.06066, 1.06066, 0, 0, 0, 1.5, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="manta/fishCore/fish"]
 transform = Transform( 0.968787, -0.247895, 0, 0.247895, 0.968787, 0, 0, 0, 1, -7.05787, -1.14668, 0 )
-shape = SubResource( 27 )
+shape = SubResource( 23 )
 
 [node name="manta" type="MeshInstance" parent="manta/fishCore/fish"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.13414, -0.0904789, -0.526524 )
@@ -850,7 +891,7 @@ margin_top = 549.441
 margin_right = 649.803
 margin_bottom = 611.441
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 23 )
+custom_fonts/font = SubResource( 27 )
 custom_colors/font_color = Color( 0.662745, 0.854902, 1, 1 )
 text = "60s"
 __meta__ = {
