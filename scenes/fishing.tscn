@@ -40,7 +40,7 @@ scale_curve = SubResource( 4 )
 material = ExtResource( 7 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "die"
 length = 1.5
 tracks/0/type = "value"
@@ -56,7 +56,39 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="Animation" id=8]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
+}
+
 [sub_resource type="Animation" id=9]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=10]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -88,7 +120,39 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=12]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
+}
+
 [sub_resource type="Animation" id=13]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=14]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -120,6 +184,22 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=16]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
+}
+
 [sub_resource type="Animation" id=17]
 length = 3.0
 loop = true
@@ -136,106 +216,26 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=19]
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=21]
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=23]
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=25]
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=27]
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
-}
-
-[sub_resource type="BoxShape" id=28]
+[sub_resource type="BoxShape" id=18]
 extents = Vector3( 7.77357, 1.5, 5.71438 )
 
-[sub_resource type="Curve" id=33]
+[sub_resource type="Curve" id=19]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=34]
-curve = SubResource( 33 )
+[sub_resource type="CurveTexture" id=20]
+curve = SubResource( 19 )
 
-[sub_resource type="ParticlesMaterial" id=35]
-scale_curve = SubResource( 34 )
+[sub_resource type="ParticlesMaterial" id=21]
+scale_curve = SubResource( 20 )
 
-[sub_resource type="CubeMesh" id=36]
+[sub_resource type="CubeMesh" id=22]
 material = ExtResource( 13 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
-[sub_resource type="SpatialMaterial" id=29]
+[sub_resource type="SpatialMaterial" id=23]
 albedo_color = Color( 0.0509804, 0, 0.301961, 1 )
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=24]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -275,7 +275,7 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=25]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -291,7 +291,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 100, 0, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=32]
+[sub_resource type="DynamicFont" id=26]
 size = 64
 font_data = ExtResource( 9 )
 
@@ -341,8 +341,8 @@ anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos/fishCore"]
 autoplay = "side"
-anims/die = SubResource( 8 )
-anims/side = SubResource( 9 )
+anims/die = SubResource( 7 )
+anims/side = SubResource( 8 )
 
 [node name="fishPos2" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74571, 0, 2 )
@@ -369,7 +369,7 @@ anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos2/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 11 )
+anims/side = SubResource( 9 )
 
 [node name="fishPos3" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7457, 0, -18 )
@@ -396,7 +396,7 @@ anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos3/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 13 )
+anims/side = SubResource( 10 )
 
 [node name="fishPos4" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.2543, 0, -13 )
@@ -423,7 +423,7 @@ anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos4/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 15 )
+anims/side = SubResource( 11 )
 
 [node name="fishPos5" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2543, 6, -36 )
@@ -450,7 +450,7 @@ anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos5/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 17 )
+anims/side = SubResource( 12 )
 
 [node name="fishPos6" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7563, 4, 7.57882 )
@@ -477,7 +477,7 @@ anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos6/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 19 )
+anims/side = SubResource( 13 )
 
 [node name="fishPos7" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.7551, 6, -22 )
@@ -504,7 +504,7 @@ anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos7/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 21 )
+anims/side = SubResource( 14 )
 
 [node name="fishPos8" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25429, 6, -8 )
@@ -531,7 +531,7 @@ anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos8/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 23 )
+anims/side = SubResource( 15 )
 
 [node name="fishPos9" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.37713, 6, -35.4482 )
@@ -558,7 +558,7 @@ anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos9/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 25 )
+anims/side = SubResource( 16 )
 
 [node name="fishPos10" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74571, 7, -30 )
@@ -585,7 +585,7 @@ anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos10/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 27 )
+anims/side = SubResource( 17 )
 
 [node name="manta" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3201, 7, -94.3624 )
@@ -600,36 +600,36 @@ collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="manta/fishCore/fish"]
 transform = Transform( 0.968787, -0.247895, 0, 0.247895, 0.968787, 0, 0, 0, 1, -7.05787, -1.14668, 0 )
-shape = SubResource( 28 )
+shape = SubResource( 18 )
 
 [node name="Particles" type="Particles" parent="manta/fishCore/fish"]
 transform = Transform( 1, 0, -3.01458e-14, 0, 1, 0, 0, 0, 1, -6.59971, -0.942806, -4.66666 )
 amount = 10
 lifetime = 2.0
 local_coords = false
-process_material = SubResource( 35 )
-draw_pass_1 = SubResource( 36 )
+process_material = SubResource( 21 )
+draw_pass_1 = SubResource( 22 )
 
 [node name="Particles2" type="Particles" parent="manta/fishCore/fish"]
 transform = Transform( 1, 0, -3.01458e-14, 0, 1, 0, 0, 0, 1, -6.59971, -0.942806, 3.33334 )
 amount = 10
 lifetime = 2.0
 local_coords = false
-process_material = SubResource( 35 )
-draw_pass_1 = SubResource( 36 )
+process_material = SubResource( 21 )
+draw_pass_1 = SubResource( 22 )
 
 [node name="manta" type="MeshInstance" parent="manta/fishCore/fish"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.13414, -0.0904789, -0.526524 )
 mesh = ExtResource( 11 )
-material/0 = SubResource( 29 )
+material/0 = SubResource( 23 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="manta/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 30 )
+anims/fishJump = SubResource( 24 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="manta/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 31 )
+anims/side = SubResource( 25 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 30.0
@@ -641,7 +641,7 @@ margin_top = 549.441
 margin_right = 649.803
 margin_bottom = 611.441
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 32 )
+custom_fonts/font = SubResource( 26 )
 custom_colors/font_color = Color( 0.662745, 0.854902, 1, 1 )
 text = "60s"
 __meta__ = {
