@@ -17,3 +17,10 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	GV.scene_end = true
+
+
+func _on_manta_attacked_manta():
+	pass
+
+func manta_damage():
+	GV.food -= 4
