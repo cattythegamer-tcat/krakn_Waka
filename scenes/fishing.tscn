@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://scripts/fishing.gd" type="Script" id=1]
 [ext_resource path="res://scripts/GV.gd" type="Script" id=2]
@@ -233,26 +233,26 @@ scale_curve = SubResource( 20 )
 material = ExtResource( 13 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
-[sub_resource type="Curve" id=27]
+[sub_resource type="Curve" id=23]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=28]
-curve = SubResource( 27 )
+[sub_resource type="CurveTexture" id=24]
+curve = SubResource( 23 )
 
-[sub_resource type="ParticlesMaterial" id=29]
+[sub_resource type="ParticlesMaterial" id=25]
 direction = Vector3( 1, 1, 1 )
 spread = 180.0
 flatness = 1.0
 gravity = Vector3( 0, -5, 0 )
 initial_velocity = 10.0
 initial_velocity_random = 1.0
-scale_curve = SubResource( 28 )
+scale_curve = SubResource( 24 )
 
-[sub_resource type="CubeMesh" id=30]
+[sub_resource type="CubeMesh" id=26]
 material = ExtResource( 15 )
 size = Vector3( 1, 1, 1 )
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=27]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -292,7 +292,7 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=28]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -308,12 +308,150 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 100, 0, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=26]
+[sub_resource type="Animation" id=32]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("fish:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -30, 11.289 ), Vector3( 0, 20, 11.289 ), Vector3( 0, -30, 11.289 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("fish:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 45 ), Vector3( 0, 0, -15 ), Vector3( 0, 0, -90 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("fish/manta:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=33]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 100, 0, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=29]
 size = 64
 font_data = ExtResource( 9 )
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=30]
 resource_name = "manta_attack"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("left_manta/attacking_manta:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 0.5, 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -5.89283, 6 ), Vector3( 0, 18.1072, -2 ), Vector3( 0, -0.89283, -5 ), Vector3( 0, -18.8928, -5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("left_manta/attacking_manta:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 0.5, 2, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 73.2326, -17.1997, -27.1462 ), Vector3( -15.9969, -5.0913, -9.23057 ), Vector3( -74.8324, 85.452, -95.3579 ), Vector3( -74.8324, 85.452, -95.3579 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("player:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1, 1.1, 1.3, 1.4, 1.9, 2, 2.2, 2.4, 2.5, 2.6 ),
+"transitions": PoolRealArray( 0.5, 2, 2, 1, 0.5, 2, 0.5, 2, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -15 ), Vector3( 0, 0, 3.553 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 15 ), Vector3( 0, 0, -6.412 ), Vector3( 0, 0, -0.403553 ), Vector3( 0, 0, -2.88933 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("right/attacking_manta:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1, 1.5, 2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector3( 74.8324, 94.548, 84.6421 ), Vector3( 1.18879, 15.122, -9.74809 ), Vector3( -58.3139, 109.416, -112.73 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("right/attacking_manta:translation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1, 1.5, 2, 2.4, 2.5 ),
+"transitions": PoolRealArray( 0.5, 2, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -4.76837e-07, -8.89283, -5 ), Vector3( -4.76837e-07, 17.5873, -11 ), Vector3( -2, -1.70873, -9.8 ), Vector3( -1.8, -16.4271, -9.32 ), Vector3( -1.8, -26.4271, -9.32 ) ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "manta_damage"
+}, {
+"args": [  ],
+"method": "manta_damage"
+} ]
+}
+
+[sub_resource type="SpatialMaterial" id=31]
+params_cull_mode = 2
+albedo_color = Color( 0.0588235, 0.00784314, 0.317647, 1 )
 
 [node name="fishing" type="Spatial"]
 script = ExtResource( 1 )
@@ -651,18 +789,77 @@ one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 randomness = 1.0
-process_material = SubResource( 29 )
-draw_pass_1 = SubResource( 30 )
+process_material = SubResource( 25 )
+draw_pass_1 = SubResource( 26 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="manta/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 24 )
+anims/fishJump = SubResource( 27 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="manta/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 25 )
+anims/side = SubResource( 28 )
 
 [node name="deathCooldown" type="Timer" parent="manta"]
+wait_time = 1.5
+one_shot = true
+
+[node name="manta2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.6799, 7, 34.6376 )
+script = ExtResource( 12 )
+
+[node name="fishCore" type="Spatial" parent="manta2"]
+
+[node name="fish" type="Area" parent="manta2/fishCore"]
+transform = Transform( 1.06066, -1.06066, 0, 1.06066, 1.06066, 0, 0, 0, 1.5, 0, -30, 11.289 )
+collision_layer = 0
+
+[node name="hitbox" type="CollisionShape" parent="manta2/fishCore/fish"]
+transform = Transform( 0.968787, -0.247895, 0, 0.247895, 0.968787, 0, 0, 0, 1, -7.05787, -1.14668, 0 )
+shape = SubResource( 18 )
+
+[node name="leftWing" type="Particles" parent="manta2/fishCore/fish"]
+transform = Transform( 1, 0, -3.01458e-14, 0, 1, 0, 0, 0, 1, -6.59971, -0.942806, -4.66666 )
+amount = 10
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 21 )
+draw_pass_1 = SubResource( 22 )
+
+[node name="rightWing" type="Particles" parent="manta2/fishCore/fish"]
+transform = Transform( 1, 0, -3.01458e-14, 0, 1, 0, 0, 0, 1, -6.59971, -0.942806, 3.33334 )
+amount = 10
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 21 )
+draw_pass_1 = SubResource( 22 )
+
+[node name="manta" type="MeshInstance" parent="manta2/fishCore/fish"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.13414, -0.0904789, -0.526524 )
+mesh = ExtResource( 11 )
+material/0 = ExtResource( 15 )
+
+[node name="die" type="Particles" parent="manta2/fishCore/fish"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24262, -0.471424, -0.21656 )
+emitting = false
+amount = 15
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource( 25 )
+draw_pass_1 = SubResource( 26 )
+
+[node name="fishUpAnimation" type="AnimationPlayer" parent="manta2/fishCore"]
+autoplay = "fishJump"
+anims/fishJump = SubResource( 32 )
+
+[node name="fishSideAnimation" type="AnimationPlayer" parent="manta2/fishCore"]
+autoplay = "side"
+anims/side = SubResource( 33 )
+
+[node name="deathCooldown" type="Timer" parent="manta2"]
 wait_time = 1.5
 one_shot = true
 
@@ -676,7 +873,7 @@ margin_top = 549.441
 margin_right = 649.803
 margin_bottom = 611.441
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 29 )
 custom_colors/font_color = Color( 0.662745, 0.854902, 1, 1 )
 text = "60s"
 __meta__ = {
@@ -689,7 +886,23 @@ volume_db = -27.5
 autoplay = true
 
 [node name="manta_attack" type="AnimationPlayer" parent="."]
-anims/manta_attack = SubResource( 31 )
+anims/manta_attack = SubResource( 30 )
+
+[node name="left_manta" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5615, 0, 0 )
+
+[node name="attacking_manta" type="MeshInstance" parent="left_manta"]
+transform = Transform( 0.950517, 0.168788, 0.26082, -0.2605, -0.0244314, 0.965165, 0.16928, -0.98535, 0.0207468, 0, -18.8928, -5 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 31 )
+
+[node name="right" type="Spatial" parent="."]
+transform = Transform( -1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, -1, -6.4385, 0, -16.0059 )
+
+[node name="attacking_manta" type="MeshInstance" parent="right"]
+transform = Transform( 0.868661, 0.00349054, 0.495394, -0.484471, -0.202956, 0.850939, 0.103513, -0.979182, -0.174609, -1.8, -26.4271, -9.32 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 31 )
 [connection signal="area_entered" from="fishPos/fishCore/fish" to="fishPos" method="_on_fish_area_entered"]
 [connection signal="area_entered" from="fishPos2/fishCore/fish" to="fishPos2" method="_on_fish_area_entered"]
 [connection signal="area_entered" from="fishPos3/fishCore/fish" to="fishPos3" method="_on_fish_area_entered"]
@@ -703,4 +916,7 @@ anims/manta_attack = SubResource( 31 )
 [connection signal="attacked_manta" from="manta" to="." method="_on_manta_attacked_manta"]
 [connection signal="area_entered" from="manta/fishCore/fish" to="manta" method="_on_fish_area_entered"]
 [connection signal="timeout" from="manta/deathCooldown" to="manta" method="_on_deathCooldown_timeout"]
+[connection signal="attacked_manta" from="manta2" to="." method="_on_manta_attacked_manta"]
+[connection signal="area_entered" from="manta2/fishCore/fish" to="manta2" method="_on_fish_area_entered"]
+[connection signal="timeout" from="manta2/deathCooldown" to="manta2" method="_on_deathCooldown_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -20,7 +20,7 @@ func _on_Timer_timeout():
 
 
 func _on_manta_attacked_manta():
-	pass
+	$manta_attack.play("manta_attack")
 
 func manta_damage():
-	GV.food -= 4
+	GV.food -= 2
