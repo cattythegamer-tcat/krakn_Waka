@@ -25,7 +25,8 @@ func _process(delta):
 	if !GV.menu:
 		if GV.actionFirePressed:
 			$helpPopupWait.stop()
-		elif !helpPoppedUp:
+			$lClickIcon.visible = false
+		elif !helpPoppedUp and $helpPopupWait.is_stopped():
 			$helpPopupWait.start()
 		$GUI/menu/submenu/settingsMenu/foodInput.text = str(GV.food - 1)
 		$GUI/menu.visible = false
@@ -144,4 +145,4 @@ func _on_help_button_down():
 
 
 func _on_Timer_timeout():
-	pass # Replace with function body.
+	$lClickIcon.visible = true
