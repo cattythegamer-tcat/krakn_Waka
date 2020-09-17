@@ -490,7 +490,7 @@ __meta__ = {
 }
 
 [node name="fadeIn" type="Sprite" parent="Control"]
-modulate = Color( 0, 0, 0, 0 )
+modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 512, 300 )
 scale = Vector2( 1024, 600 )
 texture = ExtResource( 6 )
@@ -502,7 +502,6 @@ scale = Vector2( 1024, 600 )
 texture = ExtResource( 6 )
 
 [node name="resources" type="Node2D" parent="Control"]
-visible = false
 
 [node name="title" type="Label" parent="Control/resources"]
 margin_left = 30.0

@@ -9,7 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("continue"):
+	if Input.is_action_just_pressed("continue") and !$move_camera.is_playing():
 		$wakaMove.stop()
 		if pos_num == 0:
 			pos_num += 1
