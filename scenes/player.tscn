@@ -1181,6 +1181,10 @@ shadow_bias = 0.01
 stream = ExtResource( 18 )
 volume_db = -4.0
 autoplay = true
+
+[node name="helpPopupWait" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 [connection signal="value_changed" from="GUI/menu/submenu/settingsMenu/difficultySlider" to="." method="_on_difficultySlider_value_changed"]
 [connection signal="text_changed" from="GUI/menu/submenu/settingsMenu/foodInput" to="." method="_on_foodInput_text_changed"]
 [connection signal="toggled" from="GUI/menu/submenu/settingsMenu/shadowEnable" to="." method="_on_shadowEnable_toggled"]
@@ -1198,3 +1202,4 @@ autoplay = true
 [connection signal="button_down" from="GUI/menu/restart" to="." method="_on_restart_button_down"]
 [connection signal="button_down" from="GUI/menu/exit" to="." method="_on_exit_button_down"]
 [connection signal="button_down" from="GUI/menu/back2game" to="." method="_on_back2game_button_down"]
+[connection signal="timeout" from="helpPopupWait" to="." method="_on_Timer_timeout"]

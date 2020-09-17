@@ -5,6 +5,8 @@ var camera_anglev = 0
 
 var justFired = 0
 
+var helpPoppedUp = false
+
 onready var camera = $head/Camera
 onready var head = $head
 onready var gunAnims = $head/Camera/gunAnimations
@@ -21,6 +23,10 @@ func _input(event):
 
 func _process(delta):
 	if !GV.menu:
+		if GV.actionFirePressed:
+			$helpPopupWait.stop()
+		elif !helpPoppedUp:
+			$helpPopupWait.start()
 		$GUI/menu/submenu/settingsMenu/foodInput.text = str(GV.food - 1)
 		$GUI/menu.visible = false
 		$GUI/menu/submenu/settingsMenu.visible = false
@@ -135,3 +141,7 @@ func _on_help_button_down():
 	$GUI/menu/submenu/creditsMenu.visible = false
 	$GUI/menu/submenu/helpMenu.visible = true
 	$GUI/menu/submenu.visible = true
+
+
+func _on_Timer_timeout():
+	pass # Replace with function body.

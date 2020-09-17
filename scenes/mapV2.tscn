@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/mapV2.gd" type="Script" id=1]
 [ext_resource path="res://assets/2d/icons/map.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/2d/icons/arrow.png" type="Texture" id=8]
 [ext_resource path="res://assets/2d/icons/tangaroa.png" type="Texture" id=9]
 [ext_resource path="res://assets/audio/Ludum Dare 38 - Track 10.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/font/CaviarDreams.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="Animation" id=1]
 length = 0.5
@@ -71,6 +72,11 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 504, 304 ), Vector2( 368, 304 ) ]
 }
+
+[sub_resource type="DynamicFont" id=5]
+size = 84
+use_filter = true
+font_data = ExtResource( 11 )
 
 [node name="mapV2" type="Node2D"]
 script = ExtResource( 1 )
@@ -141,3 +147,19 @@ texture = ExtResource( 8 )
 stream = ExtResource( 10 )
 volume_db = -35.0
 autoplay = true
+
+[node name="tip" type="Label" parent="."]
+margin_left = 235.0
+margin_top = 399.0
+margin_right = 2514.0
+margin_bottom = 655.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 0.956863, 0.796078, 1 )
+text = "The name Krak’n Waka was originally suggested by a play tester"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
