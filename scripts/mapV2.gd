@@ -3,7 +3,7 @@ extends Node2D
 onready var levels = ["potato", GV.octopusScene, GV.octopusScene, GV.tangaroaScene, GV.landScene]
 
 func _ready():
-	match int(round(rand_range(0, 10))):
+	match int(round(rand_range(0, 11))):
 		0:
 			$tip.text = "Tangaroa is the Maori Mythological Sea God"
 		1:
@@ -26,6 +26,8 @@ func _ready():
 			$tip.text = "Krak’n Waka took 7 Weeks to make"
 		10:
 			$tip.text = "The name Krak’n Waka was originally suggested by a play tester"
+		11:
+			$tip.text = "Fuelled by Chickens"
 	
 	match GV.playerLocation:
 		0:

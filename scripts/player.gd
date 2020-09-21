@@ -146,3 +146,11 @@ func _on_help_button_down():
 
 func _on_Timer_timeout():
 	$lClickIcon.visible = true
+
+
+func _on_touchSupport_button_down():
+	Input.action_press("action_fire")
+
+
+func _on_touchSupport_button_up():
+	Input.action_release("action_fire")
