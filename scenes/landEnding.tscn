@@ -365,10 +365,10 @@ autoplay = "jumping"
 anims/jumping = SubResource( 11 )
 
 [node name="winningText" type="Label" parent="."]
-margin_left = 505.016
-margin_top = 549.962
-margin_right = 796.016
-margin_bottom = 611.962
+margin_left = 497.873
+margin_top = 520.595
+margin_right = 788.873
+margin_bottom = 582.595
 rect_scale = Vector2( 0.3, 0.3 )
 custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 0.862745, 0.619608, 1 )
