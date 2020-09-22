@@ -773,10 +773,10 @@ material/0 = ExtResource( 5 )
 material/1 = ExtResource( 6 )
 
 [node name="bossHealth" type="Label" parent="."]
-margin_left = 505.278
-margin_top = 549.349
-margin_right = 685.278
-margin_bottom = 611.349
+margin_left = 498.151
+margin_top = 513.713
+margin_right = 678.151
+margin_bottom = 575.713
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.862745, 0.619608, 1 )

@@ -2132,10 +2132,10 @@ process_material = SubResource( 40 )
 draw_pass_1 = SubResource( 42 )
 
 [node name="bossHealth" type="Label" parent="."]
-margin_left = 488.349
-margin_top = 547.629
-margin_right = 789.349
-margin_bottom = 609.629
+margin_left = 485.012
+margin_top = 515.593
+margin_right = 786.012
+margin_bottom = 577.593
 rect_scale = Vector2( 0.35, 0.35 )
 custom_fonts/font = SubResource( 43 )
 custom_colors/font_color = Color( 1, 0.862745, 0.619608, 1 )
