@@ -1205,6 +1205,18 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="touchSupport" type="Button" parent="."]
+margin_left = -16.0
+margin_top = 515.0
+margin_right = 128.0
+margin_bottom = 608.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="value_changed" from="GUI/menu/submenu/settingsMenu/difficultySlider" to="." method="_on_difficultySlider_value_changed"]
 [connection signal="text_changed" from="GUI/menu/submenu/settingsMenu/foodInput" to="." method="_on_foodInput_text_changed"]
 [connection signal="toggled" from="GUI/menu/submenu/settingsMenu/shadowEnable" to="." method="_on_shadowEnable_toggled"]
@@ -1223,3 +1235,5 @@ __meta__ = {
 [connection signal="button_down" from="GUI/menu/exit" to="." method="_on_exit_button_down"]
 [connection signal="button_down" from="GUI/menu/back2game" to="." method="_on_back2game_button_down"]
 [connection signal="timeout" from="helpPopupWait" to="." method="_on_Timer_timeout"]
+[connection signal="button_down" from="touchSupport" to="." method="_on_touchSupport_button_down"]
+[connection signal="button_up" from="touchSupport" to="." method="_on_touchSupport_button_up"]
