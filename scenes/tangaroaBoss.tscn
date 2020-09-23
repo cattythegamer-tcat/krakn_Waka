@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=2]
+[gd_scene load_steps=119 format=2]
 
 [ext_resource path="res://scripts/tangaroaBoss.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/Battle Loop #1.wav" type="AudioStream" id=2]
@@ -36,6 +36,7 @@
 [ext_resource path="res://materials/raining.tres" type="Environment" id=34]
 [ext_resource path="res://materials/polygonAdventure.tres" type="Material" id=35]
 [ext_resource path="res://assets/2d/tangaroaName.png" type="Texture" id=36]
+[ext_resource path="res://materials/etherial.tres" type="Material" id=37]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 250, 250 )
@@ -617,6 +618,10 @@ tracks/7/keys = {
 extents = Vector3( 1.5, 1.5, 1.5 )
 
 [sub_resource type="PrismMesh" id=52]
+
+[sub_resource type="SpatialMaterial" id=81]
+flags_unshaded = true
+params_cull_mode = 2
 
 [sub_resource type="Curve" id=53]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
@@ -2196,6 +2201,7 @@ __meta__ = {
 
 [node name="bottomHUD" type="Sprite" parent="player/GUI"]
 position = Vector2( 520, 520 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 24 )
 
 [node name="resources" type="Label" parent="player/GUI"]
@@ -2917,7 +2923,7 @@ material/2 = SubResource( 43 )
 material/3 = ExtResource( 5 )
 
 [node name="minion_1" type="MeshInstance" parent="."]
-transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -11.392, 4.56812, -62.1622 )
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -11.392, -3.43188, -62.1622 )
 mesh = ExtResource( 4 )
 material/0 = SubResource( 41 )
 material/1 = SubResource( 42 )
@@ -2957,7 +2963,7 @@ material/2 = SubResource( 43 )
 material/3 = ExtResource( 6 )
 
 [node name="minion_2" type="MeshInstance" parent="."]
-transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 9.60798, 4.56812, -62.1622 )
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 9.60798, -3.43188, -62.1622 )
 mesh = ExtResource( 4 )
 material/0 = SubResource( 41 )
 material/1 = SubResource( 42 )
@@ -2984,7 +2990,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46478, 0 )
 [node name="brokenRing" type="MeshInstance" parent="center_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
 mesh = ExtResource( 8 )
-material/0 = ExtResource( 12 )
+material/0 = ExtResource( 37 )
 
 [node name="laser" type="AnimationPlayer" parent="center_beam"]
 autoplay = "laser"
@@ -3003,7 +3009,7 @@ shape = SubResource( 51 )
 [node name="visual" type="MeshInstance" parent="center_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
 mesh = SubResource( 52 )
-material/0 = ExtResource( 12 )
+material/0 = SubResource( 81 )
 
 [node name="explode" type="Particles" parent="center_beam/orb"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.210055, 0, 0 )
@@ -3021,7 +3027,7 @@ draw_pass_1 = ExtResource( 13 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3.53522, 0 )
 
 [node name="brokenRing" type="MeshInstance" parent="right_beam"]
-transform = Transform( -8.74228e-08, 2, -8.74228e-08, 0, -8.74228e-08, -2, -2, -8.74228e-08, 3.82137e-15, -1.12964, 11.0062, -48.0499 )
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
 mesh = ExtResource( 8 )
 material/0 = ExtResource( 12 )
 
@@ -3056,8 +3062,7 @@ process_material = SubResource( 55 )
 draw_pass_1 = ExtResource( 13 )
 
 [node name="far_right_beam" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1845, -48.5261, 0.856822 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1845, 6.47392, 0.856822 )
 
 [node name="brokenRing" type="MeshInstance" parent="far_right_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
@@ -3095,8 +3100,7 @@ process_material = SubResource( 55 )
 draw_pass_1 = ExtResource( 13 )
 
 [node name="super_far_right_beam" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1845, -23.5261, 0.856822 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1845, 6.47392, 0.856822 )
 
 [node name="brokenRing" type="MeshInstance" parent="super_far_right_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
@@ -3134,8 +3138,7 @@ process_material = SubResource( 55 )
 draw_pass_1 = ExtResource( 13 )
 
 [node name="far_left_beam" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8155, -48.5261, 0.856822 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8155, 6.47392, 0.856822 )
 
 [node name="brokenRing" type="MeshInstance" parent="far_left_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
@@ -3173,8 +3176,7 @@ process_material = SubResource( 55 )
 draw_pass_1 = ExtResource( 13 )
 
 [node name="super_far_left_beam" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8155, -31.5261, 0.856822 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8155, 6.47392, 0.856822 )
 
 [node name="brokenRing" type="MeshInstance" parent="super_far_left_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
@@ -3215,7 +3217,7 @@ draw_pass_1 = ExtResource( 13 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3.53522, 0 )
 
 [node name="brokenRing" type="MeshInstance" parent="left_beam"]
-transform = Transform( -8.74228e-08, 2, -8.74228e-08, 0, -8.74228e-08, -2, -2, -8.74228e-08, 3.82137e-15, -1.12964, 11.0062, -48.0499 )
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
 mesh = ExtResource( 8 )
 material/0 = ExtResource( 12 )
 
@@ -3282,12 +3284,14 @@ anims/tangaroaDamaged = SubResource( 69 )
 
 [node name="tangaroaAttack" type="Sprite3D" parent="."]
 transform = Transform( -4.37114e-07, -2.28735e-07, -1, 0, 10, -2.28735e-08, 10, -9.99834e-15, -4.37114e-08, -5, -13, -52 )
-alpha_cut = 1
+cast_shadow = 0
+alpha_cut = 2
 texture = ExtResource( 14 )
 
 [node name="secondWakaGhost" type="Sprite3D" parent="tangaroaAttack"]
 transform = Transform( 1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 1.42109e-14, 2.84217e-14, 1, 0, 0, -9 )
-alpha_cut = 1
+cast_shadow = 0
+alpha_cut = 2
 texture = ExtResource( 14 )
 
 [node name="leftAttackParticles" type="Particles" parent="."]

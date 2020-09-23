@@ -18,7 +18,7 @@ _global_script_class_icons={
 config/name="Krak'n Waka"
 config/description="Explore an ocean filled with combat, fishing and exploration. Fight the Kraken, Tangaroa and fish to find your way back home."
 run/main_scene="res://scenes/introductionCutscene.tscn"
-boot_splash/image="res://assets/2d/GUI_pieces/splashScreen.png"
+boot_splash/image="res://assets/2d/icons/splashscreenLarge.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://assets/2d/icons/logo.png"
 
@@ -130,4 +130,3 @@ quality/shadow_atlas/size=2048
 quality/shadows/filter_mode=0
 quality/shading/force_vertex_shading=true
 quality/filters/msaa=1
-environment/default_environment="res://default_env.tres"
