@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/dolphin.obj-a93b0d5ab042cde43200c7dd43046b4f.mesh"
+
+[deps]
+
+files=[ "res://.import/dolphin.obj-a93b0d5ab042cde43200c7dd43046b4f.mesh" ]
+
+source_file="res://assets/3d/dolphin/dolphin.obj"
+dest_files=[ "res://.import/dolphin.obj-a93b0d5ab042cde43200c7dd43046b4f.mesh", "res://.import/dolphin.obj-a93b0d5ab042cde43200c7dd43046b4f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
