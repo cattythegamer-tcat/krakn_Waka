@@ -1,6 +1,7 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://scripts/OctopusBoss.gd" type="Script" id=1]
+[ext_resource path="res://assets/3d/dolphin/dolphin.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/3d/kraken/head.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://materials/krakenSkin.tres" type="Material" id=5]
@@ -13,6 +14,7 @@
 [ext_resource path="res://assets/audio/Ludum Dare 30 - Track 2.wav" type="AudioStream" id=12]
 [ext_resource path="res://assets/3d/bird/distantBird.obj" type="ArrayMesh" id=13]
 [ext_resource path="res://assets/2d/krakenName.png" type="Texture" id=14]
+[ext_resource path="res://materials/etherial.tres" type="Material" id=15]
 
 [sub_resource type="PlaneMesh" id=2]
 size = Vector2( 500, 500 )
@@ -65,7 +67,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 1 )
-shader_param/out_color = Color( 0.152941, 0.368627, 0.658824, 1 )
+shader_param/out_color = Color( 0.154724, 0.366928, 0.660156, 1 )
 shader_param/amount = 0.5
 shader_param/beer_factor = 0.5
 
@@ -816,8 +818,6 @@ tracks/1/keys = {
 "values": [ Vector3( -11.8814, -5.6064, -35.437 ), Vector3( -12.4012, -2.65861, -35.638 ), Vector3( -12.921, 0.289173, -35.839 ), Vector3( -12.4012, -2.65861, -35.638 ) ]
 }
 
-[sub_resource type="SpatialMaterial" id=18]
-
 [sub_resource type="Curve" id=19]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.0958904, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
@@ -893,6 +893,180 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 2, 0.5, 2, 0.5 ),
 "update": 0,
 "values": [ Vector3( -11.8814, -5.6064, -35.437 ), Vector3( -12.4012, -2.65861, -35.638 ), Vector3( -12.921, 0.289173, -35.839 ), Vector3( -12.4012, -2.65861, -35.638 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "dolphinJump"
+length = 2.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -85, 0, 0 ), Vector3( 85, 0, 0 ), Vector3( 85, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("dolphin:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "dolphinJump"
+length = 2.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -85, 0, 0 ), Vector3( 85, 0, 0 ), Vector3( 85, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("dolphin:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "dolphinJump"
+length = 2.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -85, 0, 0 ), Vector3( 85, 0, 0 ), Vector3( 85, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("dolphin:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "dolphinJump"
+length = 2.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -85, 0, 0 ), Vector3( 85, 0, 0 ), Vector3( 85, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("dolphin:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "dolphinJump"
+length = 2.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -85, 0, 0 ), Vector3( 85, 0, 0 ), Vector3( 85, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("dolphin:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "dolphinJump"
+length = 2.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -85, 0, 0 ), Vector3( 85, 0, 0 ), Vector3( 85, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("dolphin:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [node name="OctopusBoss" type="Spatial"]
@@ -1085,7 +1259,7 @@ transform = Transform( 0.641941, 0.0453775, 0.76541, -0.0484107, 0.998654, -0.01
 [node name="distantBird" type="MeshInstance" parent="FirstBirdLoop/firstBird"]
 transform = Transform( 0.0528301, -0.0161439, 0.24382, -0.0277397, 0.247445, 0.0223944, -0.242775, -0.0317864, 0.0504988, -12.5094, -2.04515, -35.6798 )
 mesh = ExtResource( 13 )
-material/0 = SubResource( 18 )
+material/0 = ExtResource( 15 )
 
 [node name="trail" type="Particles" parent="FirstBirdLoop/firstBird/distantBird"]
 transform = Transform( 1, -2.04891e-08, -1.78814e-07, 2.98023e-08, 1, -1.49012e-08, 1.78814e-07, -7.45058e-09, 0.999999, 0.249718, -0.32402, -12.7255 )
@@ -1109,7 +1283,7 @@ transform = Transform( 0.992686, 0.00697389, 0.120523, -0.00671207, 0.999974, -0
 [node name="distantBird" type="MeshInstance" parent="FirstBirdLoop2/firstBird"]
 transform = Transform( 0.0528301, -0.0161439, 0.24382, -0.0277397, 0.247445, 0.0223944, -0.242775, -0.0317864, 0.0504988, -11.8937, -5.53664, -35.4418 )
 mesh = ExtResource( 13 )
-material/0 = SubResource( 18 )
+material/0 = ExtResource( 15 )
 
 [node name="trail" type="Particles" parent="FirstBirdLoop2/firstBird/distantBird"]
 transform = Transform( -0.916421, -0.160843, 0.366472, -0.154881, 0.98687, 0.0458302, -0.369032, -0.0147597, -0.929299, 0.25, -0.324, -12.725 )
@@ -1133,7 +1307,7 @@ transform = Transform( 0.246142, 0.0454118, 0.968169, -0.0732025, 0.99692, -0.02
 [node name="distantBird" type="MeshInstance" parent="FirstBirdLoop3/firstBird"]
 transform = Transform( -0.0528301, -0.0161439, -0.24382, 0.0277397, 0.247445, -0.0223944, 0.242775, -0.0317864, -0.0504988, -12.0444, -4.68215, -35.5 )
 mesh = ExtResource( 13 )
-material/0 = SubResource( 18 )
+material/0 = ExtResource( 15 )
 
 [node name="trail" type="Particles" parent="FirstBirdLoop3/firstBird/distantBird"]
 transform = Transform( 0.622253, 0.141323, -0.769953, -0.0969829, 0.989909, 0.103316, 0.776785, 0.0103834, 0.62968, 0.25, -0.324, -12.725 )
@@ -1143,9 +1317,87 @@ local_coords = false
 process_material = SubResource( 21 )
 draw_pass_1 = SubResource( 23 )
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="name" type="Sprite3D" parent="."]
 transform = Transform( 0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, 0.819152, -13.3861, 12, -20 )
 texture = ExtResource( 14 )
+
+[node name="dolphin_pivot_1" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.0871558, -0.996195, 0, 0.996195, 0.0871558, 59, -16.3246, 53 )
+
+[node name="dolphin" type="MeshInstance" parent="dolphin_pivot_1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03117, 26.3123, 2.47244 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 15 )
+
+[node name="jumping" type="AnimationPlayer" parent="dolphin_pivot_1"]
+autoplay = "dolphinJump"
+playback_speed = 0.5
+anims/dolphinJump = SubResource( 26 )
+
+[node name="dolphin_pivot_2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.0871558, -0.996195, 0, 0.996195, 0.0871558, 82, -16.3246, 53 )
+
+[node name="dolphin" type="MeshInstance" parent="dolphin_pivot_2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03117, 26.3123, 2.47244 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 15 )
+
+[node name="jumping" type="AnimationPlayer" parent="dolphin_pivot_2"]
+autoplay = "dolphinJump"
+playback_speed = 0.4
+anims/dolphinJump = SubResource( 27 )
+
+[node name="dolphin_pivot_3" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.0871558, -0.996195, 0, 0.996195, 0.0871558, -200, -16.3246, 143 )
+
+[node name="dolphin" type="MeshInstance" parent="dolphin_pivot_3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03117, 26.3123, 2.47244 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 15 )
+
+[node name="jumping" type="AnimationPlayer" parent="dolphin_pivot_3"]
+autoplay = "dolphinJump"
+playback_speed = 0.5
+anims/dolphinJump = SubResource( 28 )
+
+[node name="dolphin_pivot_4" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.0871558, -0.996195, 0, 0.996195, 0.0871558, -177, -16.3246, 143 )
+
+[node name="dolphin" type="MeshInstance" parent="dolphin_pivot_4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03117, 26.3123, 2.47244 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 15 )
+
+[node name="jumping" type="AnimationPlayer" parent="dolphin_pivot_4"]
+autoplay = "dolphinJump"
+playback_speed = 0.4
+anims/dolphinJump = SubResource( 29 )
+
+[node name="dolphin_pivot_5" type="Spatial" parent="."]
+transform = Transform( -0.707107, -0.704416, -0.0616285, 0, 0.0871558, -0.996195, 0.707107, -0.704416, -0.0616285, -180.368, -16.3246, -163.132 )
+
+[node name="dolphin" type="MeshInstance" parent="dolphin_pivot_5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03117, 26.3123, 2.47244 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 15 )
+
+[node name="jumping" type="AnimationPlayer" parent="dolphin_pivot_5"]
+autoplay = "dolphinJump"
+playback_speed = 0.5
+anims/dolphinJump = SubResource( 30 )
+
+[node name="dolphin_pivot_6" type="Spatial" parent="."]
+transform = Transform( -0.707107, -0.704416, -0.0616285, 0, 0.0871558, -0.996195, 0.707107, -0.704416, -0.0616285, -196.632, -16.3246, -146.868 )
+
+[node name="dolphin" type="MeshInstance" parent="dolphin_pivot_6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03117, 26.3123, 2.47244 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 15 )
+
+[node name="jumping" type="AnimationPlayer" parent="dolphin_pivot_6"]
+autoplay = "dolphinJump"
+playback_speed = 0.4
+anims/dolphinJump = SubResource( 31 )
 [connection signal="timeout" from="playerTurnTimer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="tentacles/foot" to="." method="_on_area_1_area_entered"]
 [connection signal="area_entered" from="tentacles/foot2" to="." method="_on_area_2_area_entered"]

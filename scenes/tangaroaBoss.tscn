@@ -2917,7 +2917,7 @@ material/2 = SubResource( 43 )
 material/3 = ExtResource( 5 )
 
 [node name="minion_1" type="MeshInstance" parent="."]
-transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -11.392, -3.43188, -62.1622 )
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -11.392, 4.56812, -62.1622 )
 mesh = ExtResource( 4 )
 material/0 = SubResource( 41 )
 material/1 = SubResource( 42 )
@@ -2957,7 +2957,7 @@ material/2 = SubResource( 43 )
 material/3 = ExtResource( 6 )
 
 [node name="minion_2" type="MeshInstance" parent="."]
-transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 9.60798, -3.43188, -62.1622 )
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 9.60798, 4.56812, -62.1622 )
 mesh = ExtResource( 4 )
 material/0 = SubResource( 41 )
 material/1 = SubResource( 42 )
@@ -3018,11 +3018,10 @@ process_material = SubResource( 55 )
 draw_pass_1 = ExtResource( 13 )
 
 [node name="right_beam" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -51.4648, 0 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3.53522, 0 )
 
 [node name="brokenRing" type="MeshInstance" parent="right_beam"]
-transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
+transform = Transform( -8.74228e-08, 2, -8.74228e-08, 0, -8.74228e-08, -2, -2, -8.74228e-08, 3.82137e-15, -1.12964, 11.0062, -48.0499 )
 mesh = ExtResource( 8 )
 material/0 = ExtResource( 12 )
 
@@ -3213,11 +3212,10 @@ process_material = SubResource( 55 )
 draw_pass_1 = ExtResource( 13 )
 
 [node name="left_beam" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -51.4648, 0 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3.53522, 0 )
 
 [node name="brokenRing" type="MeshInstance" parent="left_beam"]
-transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
+transform = Transform( -8.74228e-08, 2, -8.74228e-08, 0, -8.74228e-08, -2, -2, -8.74228e-08, 3.82137e-15, -1.12964, 11.0062, -48.0499 )
 mesh = ExtResource( 8 )
 material/0 = ExtResource( 12 )
 
