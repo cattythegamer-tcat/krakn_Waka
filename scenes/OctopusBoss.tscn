@@ -768,7 +768,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="SpatialMaterial" id=15]
-albedo_color = Color( 0.203922, 0.203922, 0.203922, 1 )
 
 [sub_resource type="Curve" id=19]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.0958904, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
@@ -780,7 +779,12 @@ curve = SubResource( 19 )
 scale_curve = SubResource( 20 )
 
 [sub_resource type="SpatialMaterial" id=22]
-albedo_color = Color( 0.831373, 0.831373, 0.831373, 1 )
+albedo_color = Color( 0.615686, 0.87451, 0.964706, 1 )
+emission_enabled = true
+emission = Color( 0.529412, 0.858824, 0.827451, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="CubeMesh" id=23]
 material = SubResource( 22 )
@@ -1029,10 +1033,10 @@ playback_speed = 0.7
 anims/birdFlightLoops = SubResource( 16 )
 
 [node name="firstBird" type="Spatial" parent="FirstBirdLoop"]
-transform = Transform( 0.0730028, -0.0259391, -0.996994, -0.0832024, 0.996018, -0.032006, 0.993855, 0.0852889, 0.0705539, -18.0439, 24, -111.713 )
+transform = Transform( -0.741646, -0.134782, -0.657111, -0.13405, 0.989625, -0.0516906, 0.657261, 0.0497496, -0.752019, -18.0439, 24, -111.713 )
 
 [node name="distantBird" type="MeshInstance" parent="FirstBirdLoop/firstBird"]
-transform = Transform( 0.0528301, -0.0161439, 0.24382, -0.0277397, 0.247445, 0.0223944, -0.242775, -0.0317864, 0.0504988, -12.0921, -4.41147, -35.5185 )
+transform = Transform( 0.0528301, -0.0161439, 0.24382, -0.0277397, 0.247445, 0.0223944, -0.242775, -0.0317864, 0.0504988, -12.4305, -2.49274, -35.6493 )
 mesh = ExtResource( 13 )
 material/0 = SubResource( 15 )
 
@@ -1053,10 +1057,10 @@ playback_speed = 0.3
 anims/birdFlightLoops = SubResource( 17 )
 
 [node name="firstBird" type="Spatial" parent="FirstBirdLoop2"]
-transform = Transform( 0.62521, 0.0161964, -0.780289, -0.0497124, 0.998581, -0.0191047, 0.778872, 0.0507344, 0.625127, -18.0439, 24, -111.713 )
+transform = Transform( -0.664969, -0.0485093, 0.745294, -0.127237, 0.990659, -0.0490442, -0.735953, -0.127442, -0.66493, -18.0439, 24, -111.713 )
 
 [node name="distantBird" type="MeshInstance" parent="FirstBirdLoop2/firstBird"]
-transform = Transform( 0.0528301, -0.0161439, 0.24382, -0.0277397, 0.247445, 0.0223944, -0.242775, -0.0317864, 0.0504988, -11.9565, -5.18074, -35.466 )
+transform = Transform( 0.0528301, -0.0161439, 0.24382, -0.0277397, 0.247445, 0.0223944, -0.242775, -0.0317864, 0.0504988, -12.8713, 0.00739932, -35.8197 )
 mesh = ExtResource( 13 )
 material/0 = SubResource( 15 )
 
@@ -1077,10 +1081,10 @@ playback_speed = 0.5
 anims/birdFlightLoops = SubResource( 18 )
 
 [node name="firstBird" type="Spatial" parent="FirstBirdLoop3"]
-transform = Transform( -0.979168, -0.156999, 0.128771, -0.16622, 0.983994, -0.0642326, -0.116625, -0.0842988, -0.989592, -18.0439, 24, -111.713 )
+transform = Transform( -0.303634, 0.00661203, 0.952766, -0.103997, 0.993771, -0.0400392, -0.947096, -0.111242, -0.301055, -18.0439, 24, -111.713 )
 
 [node name="distantBird" type="MeshInstance" parent="FirstBirdLoop3/firstBird"]
-transform = Transform( -0.0528301, -0.0161439, -0.24382, 0.0277397, 0.247445, -0.0223944, 0.242775, -0.0317864, -0.0504988, -12.6504, -1.2457, -35.7343 )
+transform = Transform( -0.0528301, -0.0161439, -0.24382, 0.0277397, 0.247445, -0.0223944, 0.242775, -0.0317864, -0.0504988, -12.2112, -3.73601, -35.5645 )
 mesh = ExtResource( 13 )
 material/0 = SubResource( 15 )
 
