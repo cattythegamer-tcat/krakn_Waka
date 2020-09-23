@@ -1034,10 +1034,10 @@ playback_speed = 0.7
 anims/birdFlightLoops = SubResource( 16 )
 
 [node name="firstBird" type="Spatial" parent="FirstBirdLoop"]
-transform = Transform( -0.97786, -0.173516, -0.11697, -0.166869, 0.983868, -0.0644863, 0.126272, -0.04354, -0.99104, -18.0439, 24, -111.713 )
+transform = Transform( 0.641941, 0.0453775, 0.76541, -0.0484107, 0.998654, -0.018604, -0.765224, -0.0251113, 0.643274, -18.0439, 24, -111.713 )
 
 [node name="distantBird" type="MeshInstance" parent="FirstBirdLoop/firstBird"]
-transform = Transform( 0.0528301, -0.0161439, 0.24382, -0.0277397, 0.247445, 0.0223944, -0.242775, -0.0317864, 0.0504988, -12.6541, -1.22426, -35.7358 )
+transform = Transform( 0.0528301, -0.0161439, 0.24382, -0.0277397, 0.247445, 0.0223944, -0.242775, -0.0317864, 0.0504988, -12.5094, -2.04515, -35.6798 )
 mesh = ExtResource( 13 )
 material/0 = SubResource( 15 )
 
@@ -1058,10 +1058,10 @@ playback_speed = 0.3
 anims/birdFlightLoops = SubResource( 17 )
 
 [node name="firstBird" type="Spatial" parent="FirstBirdLoop2"]
-transform = Transform( -0.455234, -0.0127962, 0.89028, -0.113081, 0.99263, -0.0435554, -0.883162, -0.120502, -0.453326, -18.0439, 24, -111.713 )
+transform = Transform( 0.992686, 0.00697389, 0.120523, -0.00671207, 0.999974, -0.00257813, -0.120538, 0.00175031, 0.992707, -18.0439, 24, -111.713 )
 
 [node name="distantBird" type="MeshInstance" parent="FirstBirdLoop2/firstBird"]
-transform = Transform( 0.0528301, -0.0161439, 0.24382, -0.0277397, 0.247445, 0.0223944, -0.242775, -0.0317864, 0.0504988, -12.9002, 0.171393, -35.8309 )
+transform = Transform( 0.0528301, -0.0161439, 0.24382, -0.0277397, 0.247445, 0.0223944, -0.242775, -0.0317864, 0.0504988, -11.8937, -5.53664, -35.4418 )
 mesh = ExtResource( 13 )
 material/0 = SubResource( 15 )
 
@@ -1082,10 +1082,10 @@ playback_speed = 0.5
 anims/birdFlightLoops = SubResource( 18 )
 
 [node name="firstBird" type="Spatial" parent="FirstBirdLoop3"]
-transform = Transform( -0.670492, -0.0496313, 0.740254, -0.127651, 0.990598, -0.0492048, -0.730852, -0.127485, -0.670524, -18.0439, 24, -111.713 )
+transform = Transform( 0.246142, 0.0454118, 0.968169, -0.0732025, 0.99692, -0.0281497, -0.966465, -0.0639435, 0.248708, -18.0439, 24, -111.713 )
 
 [node name="distantBird" type="MeshInstance" parent="FirstBirdLoop3/firstBird"]
-transform = Transform( -0.0528301, -0.0161439, -0.24382, 0.0277397, 0.247445, -0.0223944, 0.242775, -0.0317864, -0.0504988, -12.3797, -2.78089, -35.6297 )
+transform = Transform( -0.0528301, -0.0161439, -0.24382, 0.0277397, 0.247445, -0.0223944, 0.242775, -0.0317864, -0.0504988, -12.0444, -4.68215, -35.5 )
 mesh = ExtResource( 13 )
 material/0 = SubResource( 15 )
 
