@@ -946,15 +946,18 @@ stream = ExtResource( 12 )
 volume_db = -27.5
 autoplay = true
 
-[node name="flyingBirds" type="AnimationPlayer" parent="."]
+[node name="FirstBirdLoop" type="Spatial" parent="."]
+
+[node name="flyingBirds" type="AnimationPlayer" parent="FirstBirdLoop"]
+autoplay = "birdFlightLoops"
 playback_speed = 0.5
 anims/birdFlightLoops = SubResource( 16 )
 
-[node name="firstBird" type="Spatial" parent="."]
-transform = Transform( -0.573433, -0.108495, -0.812037, -0.121368, 0.991505, -0.046767, 0.810212, 0.0717374, -0.58173, -18.0439, 24, -111.713 )
+[node name="firstBird" type="Spatial" parent="FirstBirdLoop"]
+transform = Transform( -0.98169, -0.160568, 0.102482, -0.167664, 0.983712, -0.0647973, -0.0904086, -0.0807934, -0.992622, -18.0439, 24, -111.713 )
 
-[node name="distantBird" type="MeshInstance" parent="firstBird"]
-transform = Transform( 0.10566, -0.0322878, 0.487641, -0.0554794, 0.49489, 0.0447888, -0.485549, -0.0635727, 0.100998, -12.3315, -3.05413, -35.611 )
+[node name="distantBird" type="MeshInstance" parent="FirstBirdLoop/firstBird"]
+transform = Transform( 0.10566, -0.0322878, 0.487641, -0.0554794, 0.49489, 0.0447888, -0.485549, -0.0635727, 0.100998, -12.7193, -0.854961, -35.7609 )
 mesh = ExtResource( 13 )
 material/0 = SubResource( 15 )
 [connection signal="timeout" from="playerTurnTimer" to="." method="_on_Timer_timeout"]
