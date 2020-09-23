@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://scripts/OctopusBoss.gd" type="Script" id=1]
 [ext_resource path="res://materials/waterShader.tres" type="Material" id=2]
@@ -738,6 +738,35 @@ tracks/0/keys = {
 "values": [ Vector3( 13.5318, 9.72369e-08, 7.86946 ), Vector3( 13.532, 180, 7.869 ), Vector3( 13.532, 360, 7.869 ) ]
 }
 
+[sub_resource type="Animation" id=16]
+resource_name = "birdFlightLoops"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("firstBird:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 3.841, -180, -10 ), Vector3( 0, -360, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("firstBird/distantBird:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3, 3.5 ),
+"transitions": PoolRealArray( 2, 0.5, 2, 0.5 ),
+"update": 0,
+"values": [ Vector3( -11.8814, -5.6064, -35.437 ), Vector3( -12.4012, -2.65861, -35.638 ), Vector3( -12.921, 0.289173, -35.839 ), Vector3( -12.4012, -2.65861, -35.638 ) ]
+}
+
 [sub_resource type="SpatialMaterial" id=15]
 albedo_color = Color( 0.203922, 0.203922, 0.203922, 1 )
 
@@ -917,12 +946,17 @@ stream = ExtResource( 12 )
 volume_db = -27.5
 autoplay = true
 
-[node name="distantBird" type="MeshInstance" parent="."]
-transform = Transform( 0.25, 0, -0.433013, 0, 0.5, 0, 0.433013, 0, 0.25, 32.0966, 26.2304, -82.8968 )
+[node name="flyingBirds" type="AnimationPlayer" parent="."]
+playback_speed = 0.5
+anims/birdFlightLoops = SubResource( 16 )
+
+[node name="firstBird" type="Spatial" parent="."]
+transform = Transform( -0.573433, -0.108495, -0.812037, -0.121368, 0.991505, -0.046767, 0.810212, 0.0717374, -0.58173, -18.0439, 24, -111.713 )
+
+[node name="distantBird" type="MeshInstance" parent="firstBird"]
+transform = Transform( 0.10566, -0.0322878, 0.487641, -0.0554794, 0.49489, 0.0447888, -0.485549, -0.0635727, 0.100998, -12.3315, -3.05413, -35.611 )
 mesh = ExtResource( 13 )
 material/0 = SubResource( 15 )
-
-[node name="flyingBirds" type="AnimationPlayer" parent="."]
 [connection signal="timeout" from="playerTurnTimer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="tentacles/foot" to="." method="_on_area_1_area_entered"]
 [connection signal="area_entered" from="tentacles/foot2" to="." method="_on_area_2_area_entered"]
