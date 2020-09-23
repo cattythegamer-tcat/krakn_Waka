@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scripts/OctopusBoss.gd" type="Script" id=1]
 [ext_resource path="res://materials/waterShader.tres" type="Material" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://assets/3d/bird/bird.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/audio/Ludum Dare 30 - Track 2.wav" type="AudioStream" id=12]
 [ext_resource path="res://assets/3d/bird/distantBird.obj" type="ArrayMesh" id=13]
+[ext_resource path="res://assets/2d/krakenName.png" type="Texture" id=14]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 500, 500 )
@@ -1033,10 +1034,10 @@ playback_speed = 0.7
 anims/birdFlightLoops = SubResource( 16 )
 
 [node name="firstBird" type="Spatial" parent="FirstBirdLoop"]
-transform = Transform( -0.741646, -0.134782, -0.657111, -0.13405, 0.989625, -0.0516906, 0.657261, 0.0497496, -0.752019, -18.0439, 24, -111.713 )
+transform = Transform( -0.97786, -0.173516, -0.11697, -0.166869, 0.983868, -0.0644863, 0.126272, -0.04354, -0.99104, -18.0439, 24, -111.713 )
 
 [node name="distantBird" type="MeshInstance" parent="FirstBirdLoop/firstBird"]
-transform = Transform( 0.0528301, -0.0161439, 0.24382, -0.0277397, 0.247445, 0.0223944, -0.242775, -0.0317864, 0.0504988, -12.4305, -2.49274, -35.6493 )
+transform = Transform( 0.0528301, -0.0161439, 0.24382, -0.0277397, 0.247445, 0.0223944, -0.242775, -0.0317864, 0.0504988, -12.6541, -1.22426, -35.7358 )
 mesh = ExtResource( 13 )
 material/0 = SubResource( 15 )
 
@@ -1057,10 +1058,10 @@ playback_speed = 0.3
 anims/birdFlightLoops = SubResource( 17 )
 
 [node name="firstBird" type="Spatial" parent="FirstBirdLoop2"]
-transform = Transform( -0.664969, -0.0485093, 0.745294, -0.127237, 0.990659, -0.0490442, -0.735953, -0.127442, -0.66493, -18.0439, 24, -111.713 )
+transform = Transform( -0.455234, -0.0127962, 0.89028, -0.113081, 0.99263, -0.0435554, -0.883162, -0.120502, -0.453326, -18.0439, 24, -111.713 )
 
 [node name="distantBird" type="MeshInstance" parent="FirstBirdLoop2/firstBird"]
-transform = Transform( 0.0528301, -0.0161439, 0.24382, -0.0277397, 0.247445, 0.0223944, -0.242775, -0.0317864, 0.0504988, -12.8713, 0.00739932, -35.8197 )
+transform = Transform( 0.0528301, -0.0161439, 0.24382, -0.0277397, 0.247445, 0.0223944, -0.242775, -0.0317864, 0.0504988, -12.9002, 0.171393, -35.8309 )
 mesh = ExtResource( 13 )
 material/0 = SubResource( 15 )
 
@@ -1081,10 +1082,10 @@ playback_speed = 0.5
 anims/birdFlightLoops = SubResource( 18 )
 
 [node name="firstBird" type="Spatial" parent="FirstBirdLoop3"]
-transform = Transform( -0.303634, 0.00661203, 0.952766, -0.103997, 0.993771, -0.0400392, -0.947096, -0.111242, -0.301055, -18.0439, 24, -111.713 )
+transform = Transform( -0.670492, -0.0496313, 0.740254, -0.127651, 0.990598, -0.0492048, -0.730852, -0.127485, -0.670524, -18.0439, 24, -111.713 )
 
 [node name="distantBird" type="MeshInstance" parent="FirstBirdLoop3/firstBird"]
-transform = Transform( -0.0528301, -0.0161439, -0.24382, 0.0277397, 0.247445, -0.0223944, 0.242775, -0.0317864, -0.0504988, -12.2112, -3.73601, -35.5645 )
+transform = Transform( -0.0528301, -0.0161439, -0.24382, 0.0277397, 0.247445, -0.0223944, 0.242775, -0.0317864, -0.0504988, -12.3797, -2.78089, -35.6297 )
 mesh = ExtResource( 13 )
 material/0 = SubResource( 15 )
 
@@ -1095,6 +1096,10 @@ lifetime = 0.5
 local_coords = false
 process_material = SubResource( 21 )
 draw_pass_1 = SubResource( 23 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, 0.819152, -13.3861, 12, -20 )
+texture = ExtResource( 14 )
 [connection signal="timeout" from="playerTurnTimer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="tentacles/foot" to="." method="_on_area_1_area_entered"]
 [connection signal="area_entered" from="tentacles/foot2" to="." method="_on_area_2_area_entered"]
