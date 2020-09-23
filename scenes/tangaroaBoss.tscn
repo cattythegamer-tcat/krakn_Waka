@@ -512,7 +512,11 @@ albedo_color = Color( 0.0627451, 0.564706, 0.964706, 1 )
 material = SubResource( 48 )
 size = Vector3( 1, 1, 1 )
 
-[sub_resource type="Animation" id=50]
+[sub_resource type="SpatialMaterial" id=50]
+flags_unshaded = true
+params_cull_mode = 2
+
+[sub_resource type="Animation" id=51]
 length = 8.0
 loop = true
 tracks/0/type = "value"
@@ -614,28 +618,24 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="BoxShape" id=51]
+[sub_resource type="BoxShape" id=52]
 extents = Vector3( 1.5, 1.5, 1.5 )
 
-[sub_resource type="PrismMesh" id=52]
+[sub_resource type="PrismMesh" id=53]
 
-[sub_resource type="SpatialMaterial" id=81]
-flags_unshaded = true
-params_cull_mode = 2
-
-[sub_resource type="Curve" id=53]
+[sub_resource type="Curve" id=54]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=54]
-curve = SubResource( 53 )
+[sub_resource type="CurveTexture" id=55]
+curve = SubResource( 54 )
 
-[sub_resource type="ParticlesMaterial" id=55]
+[sub_resource type="ParticlesMaterial" id=56]
 gravity = Vector3( 0, -9.8, -10 )
 initial_velocity = 15.0
 initial_velocity_random = 1.0
-scale_curve = SubResource( 54 )
+scale_curve = SubResource( 55 )
 
-[sub_resource type="Animation" id=56]
+[sub_resource type="Animation" id=57]
 length = 8.0
 loop = true
 tracks/0/type = "value"
@@ -737,108 +737,6 @@ tracks/7/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=57]
-length = 8.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("orb:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2.1, 4.9, 5 ),
-"transitions": PoolRealArray( 1, 0.5, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 0, 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("orb:translation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 3, 5 ),
-"transitions": PoolRealArray( 1, 2, 1 ),
-"update": 0,
-"values": [ Vector3( -1, 11, -48 ), Vector3( -1, 11, -48 ), Vector3( -17.3175, -5.76151, -5.5825 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("orb:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 7.5 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath("..")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 5 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "hit"
-} ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("brokenRing:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 1, 4 ),
-"transitions": PoolRealArray( 0.5, 2, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 2, 2, 2 ), Vector3( 0, 0, 0 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("brokenRing:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 90, 0 ), Vector3( 180, 90, 0 ), Vector3( 360, 90, 0 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("orb/hitbox:disabled")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("orb/visual:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
 [sub_resource type="Animation" id=58]
 length = 8.0
 loop = true
@@ -923,6 +821,108 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("orb/visual:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=59]
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("orb:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.1, 4.9, 5 ),
+"transitions": PoolRealArray( 1, 0.5, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("orb:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3, 5 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector3( -1, 11, -48 ), Vector3( -1, 11, -48 ), Vector3( -17.3175, -5.76151, -5.5825 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("orb:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 7.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("brokenRing:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 4 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 2, 2, 2 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("brokenRing:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 180, 90, 0 ), Vector3( 360, 90, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("orb/hitbox:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
 "times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -941,7 +941,7 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=59]
+[sub_resource type="Animation" id=60]
 length = 8.0
 loop = true
 tracks/0/type = "value"
@@ -1043,7 +1043,7 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=60]
+[sub_resource type="Animation" id=61]
 length = 8.0
 loop = true
 tracks/0/type = "value"
@@ -1145,7 +1145,7 @@ tracks/7/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=61]
+[sub_resource type="Animation" id=62]
 length = 8.0
 loop = true
 tracks/0/type = "value"
@@ -1247,7 +1247,7 @@ tracks/7/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=62]
+[sub_resource type="Animation" id=63]
 tracks/0/type = "value"
 tracks/0/path = NodePath("minion_1:translation")
 tracks/0/interp = 1
@@ -1331,7 +1331,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=63]
+[sub_resource type="Animation" id=64]
 tracks/0/type = "value"
 tracks/0/path = NodePath("minion_3:translation")
 tracks/0/interp = 1
@@ -1435,7 +1435,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=64]
+[sub_resource type="Animation" id=65]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("far_right_beam:visible")
@@ -1598,7 +1598,7 @@ tracks/15/keys = {
 "values": [ Vector3( 26.37, -4.64264, -54.48 ), Vector3( 26.37, 6.56812, -54.48 ) ]
 }
 
-[sub_resource type="Animation" id=65]
+[sub_resource type="Animation" id=66]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("far_right_beam:visible")
@@ -1715,13 +1715,13 @@ tracks/11/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="SpatialMaterial" id=66]
+[sub_resource type="SpatialMaterial" id=67]
 albedo_color = Color( 0.0509804, 0.317647, 0.0313726, 1 )
 
-[sub_resource type="SpatialMaterial" id=67]
+[sub_resource type="SpatialMaterial" id=68]
 albedo_color = Color( 0.211765, 0.211765, 0.211765, 1 )
 
-[sub_resource type="Animation" id=68]
+[sub_resource type="Animation" id=69]
 length = 10.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("deathParticles/splash_1:emitting")
@@ -1906,7 +1906,7 @@ tracks/14/keys = {
 "values": [ -18.0, -22.0, -25.0 ]
 }
 
-[sub_resource type="Animation" id=69]
+[sub_resource type="Animation" id=70]
 length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("tangaroaAttack:translation")
@@ -1957,50 +1957,50 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Curve" id=70]
+[sub_resource type="Curve" id=71]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=71]
-curve = SubResource( 70 )
+[sub_resource type="CurveTexture" id=72]
+curve = SubResource( 71 )
 
-[sub_resource type="ParticlesMaterial" id=72]
+[sub_resource type="ParticlesMaterial" id=73]
 spread = 180.0
 initial_velocity = 10.0
 initial_velocity_random = 0.11
-scale_curve = SubResource( 71 )
+scale_curve = SubResource( 72 )
 
-[sub_resource type="SpatialMaterial" id=73]
+[sub_resource type="SpatialMaterial" id=74]
 emission_enabled = true
 emission = Color( 0.698039, 0.698039, 0.698039, 1 )
 emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="CubeMesh" id=74]
-material = SubResource( 73 )
+[sub_resource type="CubeMesh" id=75]
+material = SubResource( 74 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
-[sub_resource type="Curve" id=75]
+[sub_resource type="Curve" id=76]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=76]
-curve = SubResource( 75 )
+[sub_resource type="CurveTexture" id=77]
+curve = SubResource( 76 )
 
-[sub_resource type="ParticlesMaterial" id=77]
+[sub_resource type="ParticlesMaterial" id=78]
 direction = Vector3( 0, 100, 0 )
 spread = 1.0
 gravity = Vector3( 0, -15, 0 )
 initial_velocity = 15.0
-scale_curve = SubResource( 76 )
+scale_curve = SubResource( 77 )
 
-[sub_resource type="SpatialMaterial" id=78]
+[sub_resource type="SpatialMaterial" id=79]
 albedo_color = Color( 0.00392157, 0.627451, 1, 1 )
 
-[sub_resource type="CubeMesh" id=79]
-material = SubResource( 78 )
+[sub_resource type="CubeMesh" id=80]
+material = SubResource( 79 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
-[sub_resource type="DynamicFont" id=80]
+[sub_resource type="DynamicFont" id=81]
 size = 64
 font_data = ExtResource( 15 )
 
@@ -2990,12 +2990,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46478, 0 )
 [node name="brokenRing" type="MeshInstance" parent="center_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.12964, 11.0062, -48.0499 )
 mesh = ExtResource( 8 )
-material/0 = ExtResource( 37 )
+material/0 = SubResource( 50 )
 
 [node name="laser" type="AnimationPlayer" parent="center_beam"]
 autoplay = "laser"
 playback_speed = 0.8
-anims/laser = SubResource( 50 )
+anims/laser = SubResource( 51 )
 
 [node name="orb" type="Area" parent="center_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 11, -48 )
@@ -3004,12 +3004,12 @@ script = ExtResource( 7 )
 
 [node name="hitbox" type="CollisionShape" parent="center_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-shape = SubResource( 51 )
+shape = SubResource( 52 )
 
 [node name="visual" type="MeshInstance" parent="center_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-mesh = SubResource( 52 )
-material/0 = SubResource( 81 )
+mesh = SubResource( 53 )
+material/0 = ExtResource( 37 )
 
 [node name="explode" type="Particles" parent="center_beam/orb"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.210055, 0, 0 )
@@ -3020,7 +3020,7 @@ one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 randomness = 1.0
-process_material = SubResource( 55 )
+process_material = SubResource( 56 )
 draw_pass_1 = ExtResource( 13 )
 
 [node name="right_beam" type="Spatial" parent="."]
@@ -3033,7 +3033,7 @@ material/0 = ExtResource( 12 )
 
 [node name="laser" type="AnimationPlayer" parent="right_beam"]
 playback_speed = 0.8
-anims/laser = SubResource( 56 )
+anims/laser = SubResource( 57 )
 
 [node name="orb" type="Area" parent="right_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 11, -48 )
@@ -3042,11 +3042,11 @@ script = ExtResource( 7 )
 
 [node name="hitbox" type="CollisionShape" parent="right_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-shape = SubResource( 51 )
+shape = SubResource( 52 )
 
 [node name="visual" type="MeshInstance" parent="right_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-mesh = SubResource( 52 )
+mesh = SubResource( 53 )
 material/0 = ExtResource( 12 )
 
 [node name="explode" type="Particles" parent="right_beam/orb"]
@@ -3058,7 +3058,7 @@ one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 randomness = 1.0
-process_material = SubResource( 55 )
+process_material = SubResource( 56 )
 draw_pass_1 = ExtResource( 13 )
 
 [node name="far_right_beam" type="Spatial" parent="."]
@@ -3071,7 +3071,7 @@ material/0 = ExtResource( 12 )
 
 [node name="laser" type="AnimationPlayer" parent="far_right_beam"]
 playback_speed = 0.8
-anims/laser = SubResource( 57 )
+anims/laser = SubResource( 58 )
 
 [node name="orb" type="Area" parent="far_right_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 11, -48 )
@@ -3080,11 +3080,11 @@ script = ExtResource( 7 )
 
 [node name="hitbox" type="CollisionShape" parent="far_right_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-shape = SubResource( 51 )
+shape = SubResource( 52 )
 
 [node name="visual" type="MeshInstance" parent="far_right_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-mesh = SubResource( 52 )
+mesh = SubResource( 53 )
 material/0 = ExtResource( 12 )
 
 [node name="explode" type="Particles" parent="far_right_beam/orb"]
@@ -3096,7 +3096,7 @@ one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 randomness = 1.0
-process_material = SubResource( 55 )
+process_material = SubResource( 56 )
 draw_pass_1 = ExtResource( 13 )
 
 [node name="super_far_right_beam" type="Spatial" parent="."]
@@ -3109,7 +3109,7 @@ material/0 = ExtResource( 12 )
 
 [node name="laser" type="AnimationPlayer" parent="super_far_right_beam"]
 playback_speed = 0.8
-anims/laser = SubResource( 58 )
+anims/laser = SubResource( 59 )
 
 [node name="orb" type="Area" parent="super_far_right_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 11, -48 )
@@ -3118,11 +3118,11 @@ script = ExtResource( 7 )
 
 [node name="hitbox" type="CollisionShape" parent="super_far_right_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-shape = SubResource( 51 )
+shape = SubResource( 52 )
 
 [node name="visual" type="MeshInstance" parent="super_far_right_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-mesh = SubResource( 52 )
+mesh = SubResource( 53 )
 material/0 = ExtResource( 12 )
 
 [node name="explode" type="Particles" parent="super_far_right_beam/orb"]
@@ -3134,7 +3134,7 @@ one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 randomness = 1.0
-process_material = SubResource( 55 )
+process_material = SubResource( 56 )
 draw_pass_1 = ExtResource( 13 )
 
 [node name="far_left_beam" type="Spatial" parent="."]
@@ -3147,7 +3147,7 @@ material/0 = ExtResource( 12 )
 
 [node name="laser" type="AnimationPlayer" parent="far_left_beam"]
 playback_speed = 0.8
-anims/laser = SubResource( 59 )
+anims/laser = SubResource( 60 )
 
 [node name="orb" type="Area" parent="far_left_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 11, -48 )
@@ -3156,11 +3156,11 @@ script = ExtResource( 7 )
 
 [node name="hitbox" type="CollisionShape" parent="far_left_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-shape = SubResource( 51 )
+shape = SubResource( 52 )
 
 [node name="visual" type="MeshInstance" parent="far_left_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-mesh = SubResource( 52 )
+mesh = SubResource( 53 )
 material/0 = ExtResource( 12 )
 
 [node name="explode" type="Particles" parent="far_left_beam/orb"]
@@ -3172,7 +3172,7 @@ one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 randomness = 1.0
-process_material = SubResource( 55 )
+process_material = SubResource( 56 )
 draw_pass_1 = ExtResource( 13 )
 
 [node name="super_far_left_beam" type="Spatial" parent="."]
@@ -3185,7 +3185,7 @@ material/0 = ExtResource( 12 )
 
 [node name="laser" type="AnimationPlayer" parent="super_far_left_beam"]
 playback_speed = 0.8
-anims/laser = SubResource( 60 )
+anims/laser = SubResource( 61 )
 
 [node name="orb" type="Area" parent="super_far_left_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 11, -48 )
@@ -3194,11 +3194,11 @@ script = ExtResource( 7 )
 
 [node name="hitbox" type="CollisionShape" parent="super_far_left_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-shape = SubResource( 51 )
+shape = SubResource( 52 )
 
 [node name="visual" type="MeshInstance" parent="super_far_left_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-mesh = SubResource( 52 )
+mesh = SubResource( 53 )
 material/0 = ExtResource( 12 )
 
 [node name="explode" type="Particles" parent="super_far_left_beam/orb"]
@@ -3210,7 +3210,7 @@ one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 randomness = 1.0
-process_material = SubResource( 55 )
+process_material = SubResource( 56 )
 draw_pass_1 = ExtResource( 13 )
 
 [node name="left_beam" type="Spatial" parent="."]
@@ -3223,7 +3223,7 @@ material/0 = ExtResource( 12 )
 
 [node name="laser" type="AnimationPlayer" parent="left_beam"]
 playback_speed = 0.8
-anims/laser = SubResource( 61 )
+anims/laser = SubResource( 62 )
 
 [node name="orb" type="Area" parent="left_beam"]
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 11, -48 )
@@ -3232,11 +3232,11 @@ script = ExtResource( 7 )
 
 [node name="hitbox" type="CollisionShape" parent="left_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-shape = SubResource( 51 )
+shape = SubResource( 52 )
 
 [node name="visual" type="MeshInstance" parent="left_beam/orb"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.208301, 0.144508, 0 )
-mesh = SubResource( 52 )
+mesh = SubResource( 53 )
 material/0 = ExtResource( 12 )
 
 [node name="explode" type="Particles" parent="left_beam/orb"]
@@ -3248,25 +3248,25 @@ one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 randomness = 1.0
-process_material = SubResource( 55 )
+process_material = SubResource( 56 )
 draw_pass_1 = ExtResource( 13 )
 
 [node name="minion_emerge" type="AnimationPlayer" parent="."]
 autoplay = "zero_level"
-anims/first_level = SubResource( 62 )
-anims/second_level = SubResource( 63 )
-anims/third_level = SubResource( 64 )
-anims/zero_level = SubResource( 65 )
+anims/first_level = SubResource( 63 )
+anims/second_level = SubResource( 64 )
+anims/third_level = SubResource( 65 )
+anims/zero_level = SubResource( 66 )
 
 [node name="islandT1" type="MeshInstance" parent="."]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -320.295, 6.54476, -58.6878 )
 mesh = ExtResource( 10 )
-material/0 = SubResource( 66 )
+material/0 = SubResource( 67 )
 
 [node name="islandT2" type="MeshInstance" parent="."]
 transform = Transform( 5, 0, 0, 0, 25, 0, 0, 0, 5, -361.295, 6.54476, -140.688 )
 mesh = ExtResource( 10 )
-material/0 = SubResource( 67 )
+material/0 = SubResource( 68 )
 
 [node name="SM_Env_Tree_01" type="MeshInstance" parent="."]
 transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -296.952, 4.02358, -17.7439 )
@@ -3279,8 +3279,8 @@ mesh = ExtResource( 11 )
 material/0 = ExtResource( 35 )
 
 [node name="damage" type="AnimationPlayer" parent="."]
-anims/dying = SubResource( 68 )
-anims/tangaroaDamaged = SubResource( 69 )
+anims/dying = SubResource( 69 )
+anims/tangaroaDamaged = SubResource( 70 )
 
 [node name="tangaroaAttack" type="Sprite3D" parent="."]
 transform = Transform( -4.37114e-07, -2.28735e-07, -1, 0, 10, -2.28735e-08, 10, -9.99834e-15, -4.37114e-08, -5, -13, -52 )
@@ -3301,8 +3301,8 @@ one_shot = true
 speed_scale = 1.5
 explosiveness = 1.0
 randomness = 1.0
-process_material = SubResource( 72 )
-draw_pass_1 = SubResource( 74 )
+process_material = SubResource( 73 )
+draw_pass_1 = SubResource( 75 )
 
 [node name="rightAttackParticles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -53 )
@@ -3311,8 +3311,8 @@ one_shot = true
 speed_scale = 1.5
 explosiveness = 1.0
 randomness = 1.0
-process_material = SubResource( 72 )
-draw_pass_1 = SubResource( 74 )
+process_material = SubResource( 73 )
+draw_pass_1 = SubResource( 75 )
 
 [node name="deathParticles" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15 )
@@ -3323,8 +3323,8 @@ emitting = false
 amount = 15
 lifetime = 2.0
 explosiveness = 0.5
-process_material = SubResource( 77 )
-draw_pass_1 = SubResource( 79 )
+process_material = SubResource( 78 )
+draw_pass_1 = SubResource( 80 )
 
 [node name="splash_2" type="Particles" parent="deathParticles"]
 transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 3, 0, -6 )
@@ -3332,8 +3332,8 @@ emitting = false
 amount = 15
 lifetime = 2.0
 explosiveness = 0.5
-process_material = SubResource( 77 )
-draw_pass_1 = SubResource( 79 )
+process_material = SubResource( 78 )
+draw_pass_1 = SubResource( 80 )
 
 [node name="splash_3" type="Particles" parent="deathParticles"]
 transform = Transform( 0.422618, 0, 0.906308, 0, 1, 0, -0.906308, 0, 0.422618, -24, 0, -14 )
@@ -3341,8 +3341,8 @@ emitting = false
 amount = 15
 lifetime = 2.0
 explosiveness = 0.5
-process_material = SubResource( 77 )
-draw_pass_1 = SubResource( 79 )
+process_material = SubResource( 78 )
+draw_pass_1 = SubResource( 80 )
 
 [node name="splash_4" type="Particles" parent="deathParticles"]
 transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 7, 0, -23 )
@@ -3350,8 +3350,8 @@ emitting = false
 amount = 15
 lifetime = 2.0
 explosiveness = 0.5
-process_material = SubResource( 77 )
-draw_pass_1 = SubResource( 79 )
+process_material = SubResource( 78 )
+draw_pass_1 = SubResource( 80 )
 
 [node name="splash_5" type="Particles" parent="deathParticles"]
 transform = Transform( -0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 20, 0, -9 )
@@ -3359,8 +3359,8 @@ emitting = false
 amount = 15
 lifetime = 2.0
 explosiveness = 0.5
-process_material = SubResource( 77 )
-draw_pass_1 = SubResource( 79 )
+process_material = SubResource( 78 )
+draw_pass_1 = SubResource( 80 )
 
 [node name="bossHealth" type="Label" parent="."]
 margin_left = 485.012
@@ -3368,7 +3368,7 @@ margin_top = 515.593
 margin_right = 786.012
 margin_bottom = 577.593
 rect_scale = Vector2( 0.35, 0.35 )
-custom_fonts/font = SubResource( 80 )
+custom_fonts/font = SubResource( 81 )
 custom_colors/font_color = Color( 1, 0.862745, 0.619608, 1 )
 text = "Phase 1/4"
 __meta__ = {
