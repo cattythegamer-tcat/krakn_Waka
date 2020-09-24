@@ -133,11 +133,11 @@ font_data = ExtResource( 16 )
 script = ExtResource( 14 )
 
 [node name="youWin" type="Sprite3D" parent="."]
-transform = Transform( -1.94812, 0, -0.452589, 0, 2, 0, 0.452589, 0, -1.94812, 13.297, 2.95, 109.018 )
+transform = Transform( -0.487029, 0, -0.113147, 0, 0.5, 0, 0.113147, 0, -0.487029, 13.297, 3.46439, 111.018 )
 texture = ExtResource( 12 )
 
 [node name="restartText" type="Sprite3D" parent="."]
-transform = Transform( -1.94812, 0, -0.452589, 0, 2, 0, 0.452589, 0, -1.94812, 12.9758, 5.36885, 109.018 )
+transform = Transform( -0.974059, 0, -0.226294, 0, 1, 0, 0.226294, 0, -0.974059, 12.9758, 4.94797, 111.018 )
 texture = ExtResource( 13 )
 
 [node name="water" type="MeshInstance" parent="."]
@@ -365,10 +365,10 @@ autoplay = "jumping"
 anims/jumping = SubResource( 11 )
 
 [node name="winningText" type="Label" parent="."]
-margin_left = 505.016
-margin_top = 549.962
-margin_right = 796.016
-margin_bottom = 611.962
+margin_left = 497.873
+margin_top = 520.595
+margin_right = 788.873
+margin_bottom = 582.595
 rect_scale = Vector2( 0.3, 0.3 )
 custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 0.862745, 0.619608, 1 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://scripts/fishing.gd" type="Script" id=1]
 [ext_resource path="res://scripts/GV.gd" type="Script" id=2]
@@ -10,6 +10,11 @@
 [ext_resource path="res://materials/fishGreen.tres" type="Material" id=8]
 [ext_resource path="res://assets/font/CaviarDreams.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://assets/audio/Ludum Dare 30 - Track 9.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/3d/mantaRay/manta.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://scenes/manta.gd" type="Script" id=12]
+[ext_resource path="res://materials/tangaroaMinion.tres" type="Material" id=13]
+[ext_resource path="res://materials/fishJump.tres" type="Animation" id=14]
+[ext_resource path="res://materials/mantaColor.tres" type="Material" id=15]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 500, 500 )
@@ -19,120 +24,37 @@ subdivide_depth = 250
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 2, 1.5, 1.5 )
 
-[sub_resource type="Animation" id=3]
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("fish:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 0.5, 2, 1 ),
-"update": 0,
-"values": [ Vector3( 0, -21.6666, 11.2887 ), Vector3( 0, 6.773, 11.289 ), Vector3( 0, -15.721, 11.289 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("fish:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Animation" id=4]
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
-}
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
 
-[sub_resource type="Animation" id=5]
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("fish:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 0.5, 2, 1 ),
-"update": 0,
-"values": [ Vector3( 0, -21.6666, 11.2887 ), Vector3( 0, 6.773, 11.289 ), Vector3( 0, -15.721, 11.289 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("fish:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
+[sub_resource type="ParticlesMaterial" id=5]
+spread = 180.0
+gravity = Vector3( 0, -1, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+scale_curve = SubResource( 4 )
 
-[sub_resource type="Animation" id=6]
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
-}
+[sub_resource type="CubeMesh" id=6]
+material = ExtResource( 7 )
+size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="Animation" id=7]
-length = 3.0
-loop = true
+resource_name = "die"
+length = 1.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("fish:translation")
+tracks/0/path = NodePath("fish/fishParticles:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 0.5, 2, 1 ),
-"update": 0,
-"values": [ Vector3( 0, -21.6666, 11.2887 ), Vector3( 0, 6.773, 11.289 ), Vector3( 0, -15.721, 11.289 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("fish:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -155,28 +77,16 @@ tracks/0/keys = {
 length = 3.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("fish:translation")
+tracks/0/path = NodePath(".:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 0.5, 2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, -21.6666, 11.2887 ), Vector3( 0, 6.773, 11.289 ), Vector3( 0, -15.721, 11.289 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("fish:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -199,28 +109,16 @@ tracks/0/keys = {
 length = 3.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("fish:translation")
+tracks/0/path = NodePath(".:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 0.5, 2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, -21.6666, 11.2887 ), Vector3( 0, 6.773, 11.289 ), Vector3( 0, -15.721, 11.289 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("fish:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -243,28 +141,16 @@ tracks/0/keys = {
 length = 3.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("fish:translation")
+tracks/0/path = NodePath(".:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 0.5, 2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, -21.6666, 11.2887 ), Vector3( 0, 6.773, 11.289 ), Vector3( 0, -15.721, 11.289 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("fish:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -287,28 +173,16 @@ tracks/0/keys = {
 length = 3.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("fish:translation")
+tracks/0/path = NodePath(".:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 0.5, 2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, -21.6666, 11.2887 ), Vector3( 0, 6.773, 11.289 ), Vector3( 0, -15.721, 11.289 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("fish:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -331,34 +205,6 @@ tracks/0/keys = {
 length = 3.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("fish:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 0.5, 2, 1 ),
-"update": 0,
-"values": [ Vector3( 0, -21.6666, 11.2887 ), Vector3( 0, 6.773, 11.289 ), Vector3( 0, -15.721, 11.289 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("fish:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-
-[sub_resource type="Animation" id=18]
-length = 3.0
-loop = true
-tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -371,7 +217,42 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="BoxShape" id=18]
+extents = Vector3( 7.77357, 1.5, 5.71438 )
+
+[sub_resource type="Curve" id=19]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=20]
+curve = SubResource( 19 )
+
+[sub_resource type="ParticlesMaterial" id=21]
+scale_curve = SubResource( 20 )
+
+[sub_resource type="CubeMesh" id=22]
+material = ExtResource( 13 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="Curve" id=23]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=24]
+curve = SubResource( 23 )
+
+[sub_resource type="ParticlesMaterial" id=25]
+direction = Vector3( 1, 1, 1 )
+spread = 180.0
+flatness = 1.0
+gravity = Vector3( 0, -5, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+scale_curve = SubResource( 24 )
+
+[sub_resource type="CubeMesh" id=26]
+material = ExtResource( 15 )
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="Animation" id=27]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -384,22 +265,34 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 0.5, 2, 1 ),
 "update": 0,
-"values": [ Vector3( 0, -21.6666, 11.2887 ), Vector3( 0, 6.773, 11.289 ), Vector3( 0, -15.721, 11.289 ) ]
+"values": [ Vector3( 0, -30, 11.289 ), Vector3( 0, 20, 11.289 ), Vector3( 0, -30, 11.289 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("fish:visible")
+tracks/1/path = NodePath("fish:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 45 ), Vector3( 0, 0, -15 ), Vector3( 0, 0, -90 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("fish/manta:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=28]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -409,13 +302,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 100, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=29]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -428,22 +321,34 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 0.5, 2, 1 ),
 "update": 0,
-"values": [ Vector3( 0, -21.6666, 11.2887 ), Vector3( 0, 6.773, 11.289 ), Vector3( 0, -15.721, 11.289 ) ]
+"values": [ Vector3( 0, -30, 11.289 ), Vector3( 0, 20, 11.289 ), Vector3( 0, -30, 11.289 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("fish:visible")
+tracks/1/path = NodePath("fish:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 45 ), Vector3( 0, 0, -15 ), Vector3( 0, 0, -90 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("fish/manta:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=30]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -453,15 +358,155 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 100, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("fish:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -30, 11.289 ), Vector3( 0, 20, 11.289 ), Vector3( 0, -30, 11.289 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("fish:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 45 ), Vector3( 0, 0, -15 ), Vector3( 0, 0, -90 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("fish/manta:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
-[sub_resource type="DynamicFont" id=23]
+[sub_resource type="Animation" id=32]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 100, 0, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=33]
 size = 64
 font_data = ExtResource( 9 )
+
+[sub_resource type="Animation" id=34]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("left_manta/attacking_manta:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 0.5, 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -5.89283, 6 ), Vector3( 0, 18.1072, -2 ), Vector3( 0, -0.89283, -5 ), Vector3( 0, -18.8928, -5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("left_manta/attacking_manta:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 0.5, 2, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 73.2326, -17.1997, -27.1462 ), Vector3( -15.9969, -5.0913, -9.23057 ), Vector3( -74.8324, 85.452, -95.3579 ), Vector3( -74.8324, 85.452, -95.3579 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("player:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1, 1.1, 1.3, 1.4, 1.9, 2, 2.2, 2.4, 2.5, 2.6 ),
+"transitions": PoolRealArray( 0.5, 2, 2, 1, 0.5, 2, 0.5, 2, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -15 ), Vector3( 0, 0, 3.553 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 15 ), Vector3( 0, 0, -6.412 ), Vector3( 0, 0, -0.403553 ), Vector3( 0, 0, -2.88933 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("right/attacking_manta:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1, 1.5, 2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector3( 74.8324, 94.548, 84.6421 ), Vector3( 1.18879, 15.122, -9.74809 ), Vector3( -58.3139, 109.416, -112.73 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("right/attacking_manta:translation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1, 1.5, 2, 2.4, 2.5 ),
+"transitions": PoolRealArray( 0.5, 2, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -4.76837e-07, -8.89283, -5 ), Vector3( -4.76837e-07, 17.5873, -11 ), Vector3( -2, -1.70873, -9.8 ), Vector3( -1.8, -16.4271, -9.32 ), Vector3( -1.8, -26.4271, -9.32 ) ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "manta_damage"
+}, {
+"args": [  ],
+"method": "manta_damage"
+} ]
+}
+
+[sub_resource type="SpatialMaterial" id=35]
+params_cull_mode = 2
+albedo_color = Color( 0.0588235, 0.00784314, 0.317647, 1 )
 
 [node name="fishing" type="Spatial"]
 script = ExtResource( 1 )
@@ -482,10 +527,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25429, 0, 0 )
 script = ExtResource( 5 )
 
 [node name="fishCore" type="Spatial" parent="fishPos"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 
 [node name="fish" type="Area" parent="fishPos/fishCore"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos/fishCore/fish"]
@@ -496,13 +540,22 @@ transform = Transform( 1.89276e-08, 0.25, 0.433013, 1.09278e-08, -0.433013, 0.25
 mesh = ExtResource( 6 )
 material/0 = ExtResource( 7 )
 
+[node name="fishParticles" type="Particles" parent="fishPos/fishCore/fish"]
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 6 )
+
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 3 )
+anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 4 )
+anims/die = SubResource( 7 )
+anims/side = SubResource( 8 )
 
 [node name="fishPos2" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74571, 0, 2 )
@@ -512,7 +565,7 @@ script = ExtResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 
 [node name="fish" type="Area" parent="fishPos2/fishCore"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos2/fishCore/fish"]
@@ -525,11 +578,11 @@ material/0 = ExtResource( 7 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos2/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 5 )
+anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos2/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 6 )
+anims/side = SubResource( 9 )
 
 [node name="fishPos3" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7457, 0, -18 )
@@ -539,7 +592,7 @@ script = ExtResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 
 [node name="fish" type="Area" parent="fishPos3/fishCore"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos3/fishCore/fish"]
@@ -552,11 +605,11 @@ material/0 = ExtResource( 7 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos3/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 7 )
+anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos3/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 8 )
+anims/side = SubResource( 10 )
 
 [node name="fishPos4" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.2543, 0, -13 )
@@ -566,7 +619,7 @@ script = ExtResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 
 [node name="fish" type="Area" parent="fishPos4/fishCore"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos4/fishCore/fish"]
@@ -579,11 +632,11 @@ material/0 = ExtResource( 8 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos4/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 9 )
+anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos4/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 10 )
+anims/side = SubResource( 11 )
 
 [node name="fishPos5" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2543, 6, -36 )
@@ -593,7 +646,7 @@ script = ExtResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 
 [node name="fish" type="Area" parent="fishPos5/fishCore"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos5/fishCore/fish"]
@@ -606,7 +659,7 @@ material/0 = ExtResource( 8 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos5/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 11 )
+anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos5/fishCore"]
 autoplay = "side"
@@ -620,7 +673,7 @@ script = ExtResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 
 [node name="fish" type="Area" parent="fishPos6/fishCore"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos6/fishCore/fish"]
@@ -633,11 +686,11 @@ material/0 = ExtResource( 8 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos6/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 13 )
+anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos6/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 14 )
+anims/side = SubResource( 13 )
 
 [node name="fishPos7" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.7551, 6, -22 )
@@ -647,7 +700,7 @@ script = ExtResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 
 [node name="fish" type="Area" parent="fishPos7/fishCore"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos7/fishCore/fish"]
@@ -660,11 +713,11 @@ material/0 = ExtResource( 7 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos7/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 15 )
+anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos7/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 16 )
+anims/side = SubResource( 14 )
 
 [node name="fishPos8" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25429, 6, -8 )
@@ -674,7 +727,7 @@ script = ExtResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 
 [node name="fish" type="Area" parent="fishPos8/fishCore"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos8/fishCore/fish"]
@@ -687,11 +740,11 @@ material/0 = ExtResource( 7 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos8/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 17 )
+anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos8/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 18 )
+anims/side = SubResource( 15 )
 
 [node name="fishPos9" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.37713, 6, -35.4482 )
@@ -701,7 +754,7 @@ script = ExtResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 
 [node name="fish" type="Area" parent="fishPos9/fishCore"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos9/fishCore/fish"]
@@ -714,11 +767,11 @@ material/0 = ExtResource( 8 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos9/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 19 )
+anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos9/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 20 )
+anims/side = SubResource( 16 )
 
 [node name="fishPos10" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74571, 7, -30 )
@@ -728,7 +781,7 @@ script = ExtResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
 
 [node name="fish" type="Area" parent="fishPos10/fishCore"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, -21.6666, 11.2887 )
 collision_layer = 0
 
 [node name="hitbox" type="CollisionShape" parent="fishPos10/fishCore/fish"]
@@ -741,33 +794,229 @@ material/0 = ExtResource( 8 )
 
 [node name="fishUpAnimation" type="AnimationPlayer" parent="fishPos10/fishCore"]
 autoplay = "fishJump"
-anims/fishJump = SubResource( 21 )
+anims/fishJump = ExtResource( 14 )
 
 [node name="fishSideAnimation" type="AnimationPlayer" parent="fishPos10/fishCore"]
 autoplay = "side"
-anims/side = SubResource( 22 )
+anims/side = SubResource( 17 )
+
+[node name="manta" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3201, 7, -94.3624 )
+script = ExtResource( 12 )
+
+[node name="fishCore" type="Spatial" parent="manta"]
+
+[node name="fish" type="Area" parent="manta/fishCore"]
+transform = Transform( 1.06066, -1.06066, 0, 1.06066, 1.06066, 0, 0, 0, 1.5, 0, -30, 11.289 )
+collision_layer = 0
+
+[node name="hitbox" type="CollisionShape" parent="manta/fishCore/fish"]
+transform = Transform( 0.968787, -0.247895, 0, 0.247895, 0.968787, 0, 0, 0, 1, -7.05787, -1.14668, 0 )
+shape = SubResource( 18 )
+
+[node name="leftWing" type="Particles" parent="manta/fishCore/fish"]
+transform = Transform( 1, 0, -3.01458e-14, 0, 1, 0, 0, 0, 1, -6.59971, -0.942806, -4.66666 )
+amount = 10
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 21 )
+draw_pass_1 = SubResource( 22 )
+
+[node name="rightWing" type="Particles" parent="manta/fishCore/fish"]
+transform = Transform( 1, 0, -3.01458e-14, 0, 1, 0, 0, 0, 1, -6.59971, -0.942806, 3.33334 )
+amount = 10
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 21 )
+draw_pass_1 = SubResource( 22 )
+
+[node name="manta" type="MeshInstance" parent="manta/fishCore/fish"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.13414, -0.0904789, -0.526524 )
+mesh = ExtResource( 11 )
+material/0 = ExtResource( 15 )
+
+[node name="die" type="Particles" parent="manta/fishCore/fish"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24262, -0.471424, -0.21656 )
+emitting = false
+amount = 15
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource( 25 )
+draw_pass_1 = SubResource( 26 )
+
+[node name="fishUpAnimation" type="AnimationPlayer" parent="manta/fishCore"]
+autoplay = "fishJump"
+anims/fishJump = SubResource( 27 )
+
+[node name="fishSideAnimation" type="AnimationPlayer" parent="manta/fishCore"]
+autoplay = "side"
+anims/side = SubResource( 28 )
+
+[node name="deathCooldown" type="Timer" parent="manta"]
+wait_time = 1.5
+one_shot = true
+
+[node name="manta2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.6799, 7, 34.6376 )
+script = ExtResource( 12 )
+
+[node name="fishCore" type="Spatial" parent="manta2"]
+
+[node name="fish" type="Area" parent="manta2/fishCore"]
+transform = Transform( 1.06066, -1.06066, 0, 1.06066, 1.06066, 0, 0, 0, 1.5, 0, -30, 11.289 )
+collision_layer = 0
+
+[node name="hitbox" type="CollisionShape" parent="manta2/fishCore/fish"]
+transform = Transform( 0.968787, -0.247895, 0, 0.247895, 0.968787, 0, 0, 0, 1, -7.05787, -1.14668, 0 )
+shape = SubResource( 18 )
+
+[node name="leftWing" type="Particles" parent="manta2/fishCore/fish"]
+transform = Transform( 1, 0, -3.01458e-14, 0, 1, 0, 0, 0, 1, -6.59971, -0.942806, -4.66666 )
+amount = 10
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 21 )
+draw_pass_1 = SubResource( 22 )
+
+[node name="rightWing" type="Particles" parent="manta2/fishCore/fish"]
+transform = Transform( 1, 0, -3.01458e-14, 0, 1, 0, 0, 0, 1, -6.59971, -0.942806, 3.33334 )
+amount = 10
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 21 )
+draw_pass_1 = SubResource( 22 )
+
+[node name="manta" type="MeshInstance" parent="manta2/fishCore/fish"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.13414, -0.0904789, -0.526524 )
+mesh = ExtResource( 11 )
+material/0 = ExtResource( 15 )
+
+[node name="die" type="Particles" parent="manta2/fishCore/fish"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24262, -0.471424, -0.21656 )
+emitting = false
+amount = 15
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource( 25 )
+draw_pass_1 = SubResource( 26 )
+
+[node name="fishUpAnimation" type="AnimationPlayer" parent="manta2/fishCore"]
+autoplay = "fishJump"
+anims/fishJump = SubResource( 29 )
+
+[node name="fishSideAnimation" type="AnimationPlayer" parent="manta2/fishCore"]
+autoplay = "side"
+anims/side = SubResource( 30 )
+
+[node name="deathCooldown" type="Timer" parent="manta2"]
+wait_time = 1.5
+one_shot = true
+
+[node name="manta3" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6799, 7, 62.6376 )
+script = ExtResource( 12 )
+
+[node name="fishCore" type="Spatial" parent="manta3"]
+
+[node name="fish" type="Area" parent="manta3/fishCore"]
+transform = Transform( 1.06066, -1.06066, 0, 1.06066, 1.06066, 0, 0, 0, 1.5, 0, -30, 11.289 )
+collision_layer = 0
+
+[node name="hitbox" type="CollisionShape" parent="manta3/fishCore/fish"]
+transform = Transform( 0.968787, -0.247895, 0, 0.247895, 0.968787, 0, 0, 0, 1, -7.05787, -1.14668, 0 )
+shape = SubResource( 18 )
+
+[node name="leftWing" type="Particles" parent="manta3/fishCore/fish"]
+transform = Transform( 1, 0, -3.01458e-14, 0, 1, 0, 0, 0, 1, -6.59971, -0.942806, -4.66666 )
+amount = 10
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 21 )
+draw_pass_1 = SubResource( 22 )
+
+[node name="rightWing" type="Particles" parent="manta3/fishCore/fish"]
+transform = Transform( 1, 0, -3.01458e-14, 0, 1, 0, 0, 0, 1, -6.59971, -0.942806, 3.33334 )
+amount = 10
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 21 )
+draw_pass_1 = SubResource( 22 )
+
+[node name="manta" type="MeshInstance" parent="manta3/fishCore/fish"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.13414, -0.0904789, -0.526524 )
+mesh = ExtResource( 11 )
+material/0 = ExtResource( 15 )
+
+[node name="die" type="Particles" parent="manta3/fishCore/fish"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24262, -0.471424, -0.21656 )
+emitting = false
+amount = 15
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource( 25 )
+draw_pass_1 = SubResource( 26 )
+
+[node name="fishUpAnimation" type="AnimationPlayer" parent="manta3/fishCore"]
+autoplay = "fishJump"
+anims/fishJump = SubResource( 31 )
+
+[node name="fishSideAnimation" type="AnimationPlayer" parent="manta3/fishCore"]
+autoplay = "side"
+anims/side = SubResource( 32 )
+
+[node name="deathCooldown" type="Timer" parent="manta3"]
+wait_time = 1.5
+one_shot = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 30.0
 one_shot = true
 
 [node name="timerDisplay" type="Label" parent="."]
-margin_left = 535.803
-margin_top = 549.441
-margin_right = 649.803
-margin_bottom = 611.441
+margin_left = 523.104
+margin_top = 516.899
+margin_right = 637.104
+margin_bottom = 578.899
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 23 )
+custom_fonts/font = SubResource( 33 )
 custom_colors/font_color = Color( 0.662745, 0.854902, 1, 1 )
 text = "60s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 volume_db = -27.5
 autoplay = true
+
+[node name="manta_attack" type="AnimationPlayer" parent="."]
+anims/manta_attack = SubResource( 34 )
+
+[node name="left_manta" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5615, 0, 0 )
+
+[node name="attacking_manta" type="MeshInstance" parent="left_manta"]
+transform = Transform( 0.950517, 0.168788, 0.26082, -0.2605, -0.0244314, 0.965165, 0.16928, -0.98535, 0.0207468, 0, -18.8928, -5 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 35 )
+
+[node name="right" type="Spatial" parent="."]
+transform = Transform( -1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, -1, -6.4385, 0, -16.0059 )
+
+[node name="attacking_manta" type="MeshInstance" parent="right"]
+transform = Transform( 0.868661, 0.00349054, 0.495394, -0.484471, -0.202956, 0.850939, 0.103513, -0.979182, -0.174609, -1.8, -26.4271, -9.32 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 35 )
 [connection signal="area_entered" from="fishPos/fishCore/fish" to="fishPos" method="_on_fish_area_entered"]
 [connection signal="area_entered" from="fishPos2/fishCore/fish" to="fishPos2" method="_on_fish_area_entered"]
 [connection signal="area_entered" from="fishPos3/fishCore/fish" to="fishPos3" method="_on_fish_area_entered"]
@@ -778,4 +1027,13 @@ autoplay = true
 [connection signal="area_entered" from="fishPos8/fishCore/fish" to="fishPos8" method="_on_fish_area_entered"]
 [connection signal="area_entered" from="fishPos9/fishCore/fish" to="fishPos9" method="_on_fish_area_entered"]
 [connection signal="area_entered" from="fishPos10/fishCore/fish" to="fishPos10" method="_on_fish_area_entered"]
+[connection signal="attacked_manta" from="manta" to="." method="_on_manta_attacked_manta"]
+[connection signal="area_entered" from="manta/fishCore/fish" to="manta" method="_on_fish_area_entered"]
+[connection signal="timeout" from="manta/deathCooldown" to="manta" method="_on_deathCooldown_timeout"]
+[connection signal="attacked_manta" from="manta2" to="." method="_on_manta_attacked_manta"]
+[connection signal="area_entered" from="manta2/fishCore/fish" to="manta2" method="_on_fish_area_entered"]
+[connection signal="timeout" from="manta2/deathCooldown" to="manta2" method="_on_deathCooldown_timeout"]
+[connection signal="attacked_manta" from="manta3" to="." method="_on_manta_attacked_manta"]
+[connection signal="area_entered" from="manta3/fishCore/fish" to="manta3" method="_on_fish_area_entered"]
+[connection signal="timeout" from="manta3/deathCooldown" to="manta3" method="_on_deathCooldown_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
